@@ -40,4 +40,15 @@ public interface AnimatorModel {
   void scaling (int scalingLength, int scalingWidth);
 
 
+  /**
+   * This method will change the different layers of the animation.
+   */
+  void changeLayer (int layer);
+  //TODO -- think about using a linked list for the layers -- so that if a layer needs to be
+  // inserted between other layers the number assignment for each layer will change
+  // -- get pushed down
+
+  //TODO -- consider when shapes should appear and disappear
+
+
 }
