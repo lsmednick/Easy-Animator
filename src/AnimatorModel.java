@@ -11,19 +11,26 @@ public interface AnimatorModel {
 
   /**
    * Method to move shape.
+   * @param shape the IShape object that should be moved
    * @param toX the X coordinate we're moving the shape To
    * @param toY the Y coordinate we're moving the shape To
+   * @param moveStartTime the time (int) that the object should start moving
+   * @param moveEndTime the time (int) that the object should end movement
    * @IllegalArgumentException throws if the parameters are outside of the spec
    */
-   void move(double toX, double toY) throws IllegalArgumentException;
+   void move(IShape shape, double toX, double toY, int moveStartTime, int moveEndTime) throws IllegalArgumentException;
 
    //TODO -- define the size of our 'display
 
   /**
    * Create a object that stores that values for RBG which will change the color of our Shape.
-   * @param myColor is the color we're trying to apply to our Shape
+   * @param shape the IShape object that should be moved
+   * @param r is the value specifying the red component of Color
+   * @param g is the value specifying the green component of Color
+   * @param b is the value specifying the blue component of Color
+   * @throws IllegalArgumentException throws if the value of r,g,b is greater than the max value 255
    */
-  void changeColor(Color myColor);
+  void changeColor(IShape shape, int r, int g, int b) throws IllegalArgumentException;
 
   /**
    * Change the shape of our current Shape.
@@ -33,11 +40,11 @@ public interface AnimatorModel {
 
   /**
    * This method will scale the current shape.
+   * @param shape the IShape object that should be moved
    * @param scalingLength scales the length by a given integer
-   * @param scalingWidth scales the width by a given interger
+   * @param scalingWidth scales the width by a given integer
    */
-  //TODO figure out SCALING
-  void scaling (int scalingLength, int scalingWidth);
+  void scaling (IShape shape, int scalingLength, int scalingWidth);
 
 
   /**
@@ -49,6 +56,12 @@ public interface AnimatorModel {
   // -- get pushed down
 
   //TODO -- consider when shapes should appear and disappear
+
+
+
+
+
+
 
 
 }

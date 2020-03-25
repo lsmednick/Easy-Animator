@@ -161,5 +161,42 @@ public class AbstractShape implements IShape {
     return this.name;
   }
 
+  @Override
+  public void setCoordinates(double toX, double toY) throws IllegalArgumentException{
+    if(toX < 0){
+      throw new IllegalArgumentException("toX needs to be a positive integer");
+    }
+    if(toY < 0){
+      throw new IllegalArgumentException("toY needs to be a positive integer");
+    }
+    this.x = toX;
+    this.y = toY;
+  }
+
+  @Override
+  public void setColor(int r, int g, int b) throws IllegalArgumentException{
+    if (r < 0 || r > 255 ) {
+      throw new IllegalArgumentException ("R is out of range.");
+    }
+    if (g < 0 || r > 255 ) {
+      throw new IllegalArgumentException ("G is out of range.");
+    }
+    if (b < 0 || r > 255 ) {
+      throw new IllegalArgumentException ("B is out of range.");
+    }
+    this.color = new Color(r,g,b);
+  }
+
+  @Override
+  public void setScaling( int scalingHeight, int scalingWidth) throws IllegalArgumentException {
+    if (scalingHeight < 0){
+      throw new IllegalArgumentException("Height can't be negative.");
+    }
+    if (scalingWidth < 0){
+      throw new IllegalArgumentException("Width can't be negative.");
+    }
+    this.height = height * scalingHeight;
+    this.width = width * scalingWidth;
+  }
 
 }
