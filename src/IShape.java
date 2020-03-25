@@ -68,7 +68,7 @@ public interface IShape {
    * @return starting time of a shape
    */
 
-  double getStartTime();
+  int getStartTime();
 
   /**
    * Method to return the end time of a given shape.
@@ -76,6 +76,14 @@ public interface IShape {
    * @return end time of a shape
    */
 
-  double getEndTime();
+  int getEndTime();
+
+  /**
+   * Method to return the name of a given shape.
+   *
+   * @return name of a shape
+   */
+
+  String getName();
 
 }

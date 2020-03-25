@@ -15,6 +15,7 @@ public class AbstractShape implements IShape {
   private double height;
   private int startTime;
   private int endTime;
+  private String name;
 
   /**
    * This method constructs an abstract shape object. Each shape contains an x / y coordinate, rgb
@@ -30,11 +31,13 @@ public class AbstractShape implements IShape {
    * @param height height of the shape
    * @param startTime starting time of the shape
    * @param endTime end time of the shape
+   * @param name name of the shape
    * @throws IllegalArgumentException if width or height is below 0
+   * @throws IllegalArgumentException if rgb values are not between 0-255 inclusive
    */
 
   public AbstractShape(double x, double y, int r, int g, int b, double width, double height,
-                       int startTime, int endTime) throws IllegalArgumentException {
+                       int startTime, int endTime, String name) throws IllegalArgumentException {
     if (width <= 0 || height <= 0) {
       throw new IllegalArgumentException("Width and height must be at least 0.");
     }
@@ -45,6 +48,7 @@ public class AbstractShape implements IShape {
     this.height = height;
     this.startTime = startTime;
     this.endTime = endTime;
+    this.name = name;
   }
 
   /**
@@ -131,7 +135,7 @@ public class AbstractShape implements IShape {
    */
 
   @Override
-  public double getStartTime() {
+  public int getStartTime() {
     return this.startTime;
   }
 
@@ -142,7 +146,20 @@ public class AbstractShape implements IShape {
    */
 
   @Override
-  public double getEndTime() {
+  public int getEndTime() {
     return this.endTime;
   }
+
+  /**
+   * Method to return the name of a given shape.
+   *
+   * @return name of a shape
+   */
+
+  @Override
+  public String getName() {
+    return this.name;
+  }
+
+
 }
