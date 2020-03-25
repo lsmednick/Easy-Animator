@@ -178,10 +178,10 @@ public class AbstractShape implements IShape {
     if (r < 0 || r > 255 ) {
       throw new IllegalArgumentException ("R is out of range.");
     }
-    if (g < 0 || r > 255 ) {
+    if (g < 0 || g > 255 ) {
       throw new IllegalArgumentException ("G is out of range.");
     }
-    if (b < 0 || r > 255 ) {
+    if (b < 0 || b > 255 ) {
       throw new IllegalArgumentException ("B is out of range.");
     }
     this.color = new Color(r,g,b);

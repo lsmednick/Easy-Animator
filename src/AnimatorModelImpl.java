@@ -2,8 +2,6 @@ import java.awt.*;
 
 public class AnimatorModelImpl implements AnimatorModel{
 
-
-
   //TODO how to access the ISHAPE and how to consider timeStart and timeEnd
   @Override
   public void move(IShape shape, double toX, double toY, int moveStartTime, int moveEndTime) throws IllegalArgumentException {

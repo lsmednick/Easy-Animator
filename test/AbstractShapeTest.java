@@ -35,5 +35,32 @@ public class AbstractShapeTest {
             + "End Time: 10", hi.toString());
   }
 
+  //Exception is thrown if coordinates are negative numbers
+  @Test (expected = IllegalArgumentException.class)
+  public void testInValidSetterCoordinates(){
+    AbstractShape hi = new Oval(5, 5, 24, 56, 215, 4.5, 7.7, 0, 10, "Carlos");
+    hi.setCoordinates(-1,-1);
+  }
+
+  //Exception is throw if color value is not within range of 0 - 255
+  @Test (expected = IllegalArgumentException.class)
+  public void testInValidSetterColor(){
+    AbstractShape hi = new Oval(5, 5, 24, 56, 215, 4.5, 7.7, 0, 10, "Carlos");
+    hi.setColor(-1,-1, -1);
+  }
+
+  //Exception is throw if color value is not within range of 0 - 255
+  @Test (expected = IllegalArgumentException.class)
+  public void testInValidSetterColor2(){
+    AbstractShape hi = new Oval(5, 5, 24, 56, 215, 4.5, 7.7, 0, 10, "Carlos");
+    hi.setColor(256,256, 256);
+  }
+
+  //Exception is throw if color value is not within range of 0 - 255
+  @Test (expected = IllegalArgumentException.class)
+  public void testInValidSetterScaling(){
+    AbstractShape hi = new Oval(5, 5, 24, 56, 215, 4.5, 7.7, 0, 10, "Carlos");
+    hi.setScaling(-1,-1);
+  }
   }
 
