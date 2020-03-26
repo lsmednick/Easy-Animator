@@ -42,7 +42,7 @@ public class AbstractShapeTest {
     hi.setCoordinates(-1,-1);
   }
 
-  //Exception is throw if color value is not within range of 0 - 255
+  //Exception is thrown if color value is not within range of 0 - 255
   @Test (expected = IllegalArgumentException.class)
   public void testInValidSetterColor(){
     AbstractShape hi = new Oval(5, 5, 24, 56, 215, 4.5, 7.7, 0, 10, "Carlos");

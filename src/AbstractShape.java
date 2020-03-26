@@ -19,19 +19,19 @@ public class AbstractShape implements IShape {
 
   /**
    * This method constructs an abstract shape object. Each shape contains an x / y coordinate, rgb
-   * value, width, height, start time, and end time. While rgb values are supplied as integers,
-   * the constructor creates a Color object using this data in order to represent the given color.
+   * value, width, height, start time, and end time. While rgb values are supplied as integers, the
+   * constructor creates a Color object using this data in order to represent the given color.
    *
-   * @param x x coordinate of the shape
-   * @param y y coordinate of the shape
-   * @param r red intensity of the shape's color
-   * @param g green intensity of the shape's color
-   * @param b blue intensity of the shape's color
-   * @param width width of the shape
-   * @param height height of the shape
+   * @param x         x coordinate of the shape
+   * @param y         y coordinate of the shape
+   * @param r         red intensity of the shape's color
+   * @param g         green intensity of the shape's color
+   * @param b         blue intensity of the shape's color
+   * @param width     width of the shape
+   * @param height    height of the shape
    * @param startTime starting time of the shape
-   * @param endTime end time of the shape
-   * @param name name of the shape
+   * @param endTime   end time of the shape
+   * @param name      name of the shape
    * @throws IllegalArgumentException if width or height is below 0
    * @throws IllegalArgumentException if rgb values are not between 0-255 inclusive
    */
@@ -161,38 +161,54 @@ public class AbstractShape implements IShape {
     return this.name;
   }
 
+  /**
+   * Setter for the x-coordinate and y-coordinate when the object is moved to a new position.
+   *
+   * @param toX the x-coordinate to move the object to
+   * @param toY the y-coordinate to move the object to
+   * @throws IllegalArgumentException if negative integers are given
+   */
+
   @Override
-  public void setCoordinates(double toX, double toY) throws IllegalArgumentException{
-    if(toX < 0){
+  public void setCoordinates(double toX, double toY) throws IllegalArgumentException {
+    if (toX < 0) {
       throw new IllegalArgumentException("toX needs to be a positive integer");
     }
-    if(toY < 0){
+    if (toY < 0) {
       throw new IllegalArgumentException("toY needs to be a positive integer");
     }
     this.x = toX;
     this.y = toY;
   }
 
-  @Override
-  public void setColor(int r, int g, int b) throws IllegalArgumentException{
-    if (r < 0 || r > 255 ) {
-      throw new IllegalArgumentException ("R is out of range.");
-    }
-    if (g < 0 || g > 255 ) {
-      throw new IllegalArgumentException ("G is out of range.");
-    }
-    if (b < 0 || b > 255 ) {
-      throw new IllegalArgumentException ("B is out of range.");
-    }
-    this.color = new Color(r,g,b);
-  }
+  /**
+   * Setter for changing the color of an object.
+   *
+   * @param r is the value specifying the red component of Color
+   * @param g is the value specifying the green component of Color
+   * @param b is the value specifying the blue component of Color
+   * @throws IllegalArgumentException if the value of r,g,b is greater than the max value 255
+   */
 
   @Override
-  public void setScaling( int scalingHeight, int scalingWidth) throws IllegalArgumentException {
-    if (scalingHeight < 0){
+  public void setColor(int r, int g, int b) throws IllegalArgumentException {
+    this.color = new Color(r, g, b);
+  }
+
+  /**
+   * Setter for changing the scale of of an object.
+   *
+   * @param scalingHeight scales the length by a given integer
+   * @param scalingWidth scales the width by a given integer
+   * @throws IllegalArgumentException if negative integers are given
+   */
+
+  @Override
+  public void setScaling(int scalingHeight, int scalingWidth) throws IllegalArgumentException {
+    if (scalingHeight < 0) {
       throw new IllegalArgumentException("Height can't be negative.");
     }
-    if (scalingWidth < 0){
+    if (scalingWidth < 0) {
       throw new IllegalArgumentException("Width can't be negative.");
     }
     this.height = height * scalingHeight;
