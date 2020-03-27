@@ -106,6 +106,9 @@ public class AnimatorModelImpl implements AnimatorModel {
       throw new IllegalArgumentException("Transformation already exists for that shape during the"
               + "specified time frame.");
     }
+    if (!shapeList.containsKey(shapeID)) {
+      throw new IllegalArgumentException("Entered shape does not exist in the model.");
+    }
     ITransform transformation = new ChangePos(shapeList.get(shapeID), fromX, fromY, toX, toY,
             startTime, endTime);
     transformList.add(transformation);
@@ -139,6 +142,9 @@ public class AnimatorModelImpl implements AnimatorModel {
       throw new IllegalArgumentException("Transformation already exists for that shape during the"
               + "specified time frame.");
     }
+    if (!shapeList.containsKey(shapeID)) {
+      throw new IllegalArgumentException("Entered shape does not exist in the model.");
+    }
     ITransform transformation = new ChangeColor(shapeList.get(shapeID), fromR, fromG, fromB, toR,
             toG, toB, startTime, endTime);
     transformList.add(transformation);
@@ -167,6 +173,9 @@ public class AnimatorModelImpl implements AnimatorModel {
     if (duplicateHelper(shapeID, startTime, endTime)) {
       throw new IllegalArgumentException("Transformation already exists for that shape during the"
               + "specified time frame.");
+    }
+    if (!shapeList.containsKey(shapeID)) {
+      throw new IllegalArgumentException("Entered shape does not exist in the model.");
     }
     ITransform transformation = new ChangeScale(shapeList.get(shapeID), fromWidth, fromHeight,
             toWidth, toHeight, startTime, endTime);
