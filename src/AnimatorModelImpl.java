@@ -173,5 +173,26 @@ public class AnimatorModelImpl implements AnimatorModel {
     transformList.add(transformation);
   }
 
+  /**
+   * A method that prints a String describing the current state of the animation.
+   *
+   * @return a String describing the current state of the animation
+   */
+  @Override
+  public String getState() {
+
+    StringBuilder string = new StringBuilder();
+    string.append("Shapes:\n");
+
+    for (String key : shapeList.keySet()) {
+      string.append(shapeList.get(key).toString());
+    }
+
+    for (ITransform t : transformList) {
+      string.append(t.toString());
+    }
+
+    return string.toString();
+  }
 
 }
