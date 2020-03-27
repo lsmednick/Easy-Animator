@@ -35,8 +35,9 @@ public abstract class AbstractShape implements IShape {
    * @throws IllegalArgumentException if width or height is below 0
    * @throws IllegalArgumentException if rgb values are not between 0-255 inclusive
    * @throws IllegalArgumentException if the x or y-coordinates are negative (we're assuming
-   *    * the display will only work within the first quadrant, i.e. only positive x and y values --
-   *    * this may be modified upon further instruction)
+   *    the display will only work within the first quadrant, i.e. only positive x and y values --
+   *    this may be modified upon further instruction)
+   * @throws IllegalArgumentException if the String name is null
    */
 
   public AbstractShape(double x, double y, int r, int g, int b, double width, double height,
@@ -45,7 +46,11 @@ public abstract class AbstractShape implements IShape {
         throw new IllegalArgumentException("x and y-coordinates can't be negative");
     }
     if (width <= 0 || height <= 0) {
-      throw new IllegalArgumentException("Width and height must be at least 0.");
+      throw new IllegalArgumentException("Width and height must be at greater than zero.");
+    }
+    if (name == null) {
+      throw new IllegalArgumentException("The String containing the name of the object can"
+      + "not be null");
     }
     this.x = x;
     this.y = y;

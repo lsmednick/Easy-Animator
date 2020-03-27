@@ -17,12 +17,16 @@ public abstract class AbstractTransform implements ITransform, Comparable<Abstra
    * @param shapeID is a shape's unique identifier
    * @param startTime when a transformation should start within the animation
    * @param endTime when a transformation should end within the animation
-   * @throws IllegalArgumentException if start/end time is less than 0 or if the
-   * end time is before the start time
+   * @throws IllegalArgumentException if start/end time is less than 0
+   * @throws IllegalArgumentException if the end time is before the start time
+   * @throws IllegalArgumentException if the shapeID is null
    */
 
   public AbstractTransform(String shapeID, int startTime, int endTime)
     throws IllegalArgumentException{
+    if (shapeID == null){
+      throw new IllegalArgumentException("shapeID can not be null.");
+    }
     if (startTime < 0 || endTime < 0) {
       throw new IllegalArgumentException("Start / end time cannot be negative.");
     }

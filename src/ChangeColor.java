@@ -31,9 +31,9 @@ public class ChangeColor extends AbstractTransform {
    * @param toB the ending Blue value/component of the shape's Color
    * @param startTime is the time the transformation should start
    * @param endTime is the time the transformation should end
-   * @throws IllegalArgumentException if the start time of the transformation occurs before the
-   * shape even appears in the animation, conversely it also throws if the end time of the
-   * transformation occurs after shape disappears from the animation
+   * @throws IllegalArgumentException if start/end time is less than 0
+   * @throws IllegalArgumentException if the end time is before the start time
+   * @throws IllegalArgumentException if the shapeID is null
    */
   public ChangeColor(IShape shape, int fromR, int fromG, int fromB, int toR, int toG, int toB,
                      int startTime, int endTime) throws IllegalArgumentException {

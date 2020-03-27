@@ -26,6 +26,7 @@ public class Oval extends AbstractShape {
    * @throws IllegalArgumentException if the x or y-coordinates are negative (we're assuming
    *    the display will only work within the first quadrant, i.e. only positive x and y values --
    *    this may be modified upon further instruction)
+   * @throws IllegalArgumentException if the String name is null
    */
 
   public Oval(double x, double y, int r, int g, int b, double width, double height, int startTime
