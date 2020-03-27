@@ -38,6 +38,7 @@ the animation are stored in the AnimatorModelImpl within a List. The interface
 contains getters for the shape ID  (unique identifier of each IShape), the start
 time of the transformation and the end time of the transformation.
 
+
 *   Abstract Classes/Class that Implement an Interface :
 - AnimatorModelImpl -- Is a class that implements interface AnimatorModel. This class holds a
 Map which contains a list of all the shapes in the animation. The Map's key
