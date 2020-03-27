@@ -5,18 +5,36 @@ import static org.junit.Assert.*;
 public class AbstractShapeTest {
 
   @Test
-  public void testToString() {
+  public void testToStringOval() {
     AbstractShape hi = new Oval(5, 5, 24, 56, 215, 4.5, 7.7, 0, 10, "Carlos");
     assertEquals("Name: Carlos\n"
             + "Type: Oval\n"
-            + "Position: (5.0, 5.0)\n"
-            + "Width: 4.5\n"
-            + "Height: 7.7\n"
-            + "Color: (24, 56, 215)\n"
-            + "Starting Time: 0\n"
-            + "End Time: 10", hi.toString());
+            + "Center: (5.0, 5.0), X radius: 4.5, Y radius: 7.7, Color: (24, 56, 215)\n"
+            + "Appears at t=0\n"
+            + "Disappears at t=10\n\n", hi.toString());
   }
 
+  @Test
+  public void testToStringRectangle() {
+    AbstractShape hi = new Rectangle(5, 5, 24, 56, 215, 4.5, 7.7, 0, 10, "Carlos");
+    assertEquals("Name: Carlos\n"
+            + "Type: Rectangle\n"
+            + "Min corner: (5.0, 5.0), Width: 4.5, Height: 7.7, Color: (24, 56, 215)\n"
+            + "Appears at t=0\n"
+            + "Disappears at t=10\n\n", hi.toString());
+  }
+
+  @Test
+  public void testToStringTriangle() {
+    AbstractShape hi = new Triangle(5, 5, 24, 56, 215, 4.5, 7.7, 0, 10, "Carlos");
+    assertEquals("Name: Carlos\n"
+            + "Type: Triangle\n"
+            + "Min corner: (5.0, 5.0), Width: 4.5, Height: 7.7, Color: (24, 56, 215)\n"
+            + "Appears at t=0\n"
+            + "Disappears at t=10\n\n", hi.toString());
+  }
+
+  // TODO -- DELETE all Setters tests? 
   @Test
   public void testSetters(){
     AbstractShape hi = new Oval(5, 5, 24, 56, 215, 4.5, 7.7, 0, 10, "Carlos");
@@ -27,13 +45,11 @@ public class AbstractShapeTest {
 
     assertEquals("Name: Carlos\n"
             + "Type: Oval\n"
-            + "Position: (10.0, 10.0)\n"
-            + "Width: 9.0\n"
-            + "Height: 15.4\n"
-            + "Color: (34, 55, 91)\n"
-            + "Starting Time: 0\n"
-            + "End Time: 10", hi.toString());
+            + "Center: (10.0, 10.0), X radius: 9.0, Y radius: 15.4, Color: (34, 55, 91)\n"
+            + "Appears at t=0\n"
+            + "Disappears at t=10\n\n", hi.toString());
   }
+
 
   //Exception is thrown if coordinates are negative numbers
   @Test (expected = IllegalArgumentException.class)

@@ -41,10 +41,11 @@ public class Oval extends AbstractShape {
 
   @Override
   public String toString() {
-    return String.format("Name: %s\nType: Oval\nPosition: (%.1f, %.1f)\nWidth: %.1f\nHeight: %.1f\n"
-            + "Color: (%d, %d, %d)\nStarting Time: %d\nEnd Time: %d", this.getName(), this.getX()
-            , this.getY(), this.getWidth(), this.getHeight(), this.getR(), this.getG(), this.getB()
-            , this.getStartTime(), this.getEndTime());
+    return String.format("Name: %s\nType: Oval\nCenter: (%.1f, %.1f), X radius: %.1f, "
+                    + "Y radius: %.1f, Color: (%d, %d, %d)\nAppears at t=%d\n"
+                    + "Disappears at t=%d\n\n",
+            this.getName(), this.getX(), this.getY(), this.getWidth(), this.getHeight(),
+            this.getR(), this.getG(), this.getB(), this.getStartTime(), this.getEndTime());
   }
 
 }
