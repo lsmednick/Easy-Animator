@@ -106,8 +106,8 @@ public class AnimatorModelImplTest {
                     + "\n"
                     + "Shape Rebel Wilson moves from (5.0,10.0) to (8.0,2.0) from t=2 to t=20\n"
                     + "Shape Ian McKellen moves from (6.0,3.0) to (7.0,4.0) from t=3 to t=6\n"
-                    + "Shape Idris Elba moves from (10.5,3.0) to (3.0,3.0) from t=9 to t=14\n"
-            , testModel.getState());
+                    + "Shape Idris Elba moves from (10.5,3.0) to (3.0,3.0) from t=9 to t=14\n",
+            testModel.getState());
   }
 
   // Testing the changePos method when attempting to move to the same position.
@@ -375,8 +375,8 @@ public class AnimatorModelImplTest {
             + "Shape Judi Dench moves from (50.0,35.0) to (30.0,20.0) from t=3 to t=6\n"
             + "Shape Taylor Swift moves from (10.5,3.0) to (5.0,5.0) from t=3 to t=10\n"
             + "Shape Taylor Swift changes color from (70,250,18) to (150,30,67) from t=4 to t=7\n"
-            + "Shape Judi Dench moves from (30.0,20.0) to (15.0,10.0) from t=7 to t=14\n"
-            , testModel.getState());
+            + "Shape Judi Dench moves from (30.0,20.0) to (15.0,10.0) from t=7 to t=14\n",
+            testModel.getState());
   }
 
 }

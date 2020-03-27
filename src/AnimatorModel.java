@@ -24,8 +24,8 @@ public interface AnimatorModel {
    * @throws IllegalArgumentException if endTime occurs before startTime
    */
 
-  void addShape(String name, ShapeType shapeType, double x, double y, int r, int g, int b
-          , double width, double height, int startTime, int endTime)
+  void addShape(String name, ShapeType shapeType, double x, double y, int r, int g, int b,
+          double width, double height, int startTime, int endTime)
           throws IllegalArgumentException;
 
   /**

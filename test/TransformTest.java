@@ -1,6 +1,6 @@
 import org.junit.Test;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 /**
  * This is a JUnit test class to test AbstractTransform and the concrete classes that extends it
@@ -19,7 +19,7 @@ public class TransformTest {
    * constructors. Concrete classes call super class for instantiating name, startTime and EndTime.
    */
 
-  //Test valid input for ChangeColor (calls super AbstractTransform to instantiate some fields)
+  // Test valid input for ChangeColor (calls super AbstractTransform to instantiate some fields)
   @Test
   public void testAbstractTransformChangeColor() {
     AbstractShape bob = new Triangle(1.1, 2.1, 3, 4, 5, 6.1, 7.1, 0,
@@ -36,7 +36,7 @@ public class TransformTest {
     assertEquals(9, bobNewColor.getEndTime());
   }
 
-  //Test valid input for ChangePos (calls super AbstractTransform to instantiate some fields)
+  // Test valid input for ChangePos (calls super AbstractTransform to instantiate some fields)
   @Test
   public void testAbstractTransformChangePos() {
     AbstractShape bob = new Triangle(1.1, 2.1, 3, 4, 5, 6.1, 7.1, 0,
@@ -52,7 +52,7 @@ public class TransformTest {
     assertEquals(6, bobNewPosition.getEndTime());
   }
 
-  //Test valid input for ChangeScale (calls super AbstractTransform to instantiate some fields)
+  // Test valid input for ChangeScale (calls super AbstractTransform to instantiate some fields)
   @Test
   public void testAbstractTransformChangeScale() {
     AbstractShape bob = new Triangle(1.1, 2.1, 3, 4, 5, 6.1, 7.1, 0,
@@ -69,7 +69,7 @@ public class TransformTest {
     assertEquals(6, bobNewScale.getEndTime());
   }
 
-  //Test compareTo method in AbstractTransform when startTimes are different.
+  // Test compareTo method in AbstractTransform when startTimes are different.
   @Test
   public void testCompareToStartTimes() {
     AbstractShape bob = new Triangle(1.1, 2.1, 3, 4, 5, 6.1, 7.1, 0,
@@ -82,7 +82,7 @@ public class TransformTest {
     assertEquals(-2, bobNewScale.compareTo(bobNewScale2));
   }
 
-  //Test compareTo method in AbstractTransform when endTimes are different.
+  // Test compareTo method in AbstractTransform when endTimes are different.
   @Test
   public void testCompareToEndTimes() {
     AbstractShape bob = new Triangle(1.1, 2.1, 3, 4, 5, 6.1, 7.1, 0,
@@ -95,11 +95,8 @@ public class TransformTest {
     assertEquals(-1, bobNewScale.compareTo(bobNewScale2));
   }
 
-  /**
-   * Testing AbstractTransform Exceptions.
-   */
-
-  //Throws Exception in AbstractTransform constructor if the startTime is negative
+  // Testing AbstractTransform Exceptions.
+  // Throws Exception in AbstractTransform constructor if the startTime is negative
   @Test(expected = IllegalArgumentException.class)
   public void testStartTimeNegative() {
     AbstractShape bob = new Triangle(1.1, 2.1, 3, 4, 5, 6.1, 7.1, 0,
@@ -109,7 +106,7 @@ public class TransformTest {
             -5, 6);
   }
 
-  //Throws Exception in AbstractTransform constructor if endTime is negative
+  // Throws Exception in AbstractTransform constructor if endTime is negative
   @Test(expected = IllegalArgumentException.class)
   public void testEndTimeNegative() {
     AbstractShape bob = new Triangle(1.1, 2.1, 3, 4, 5, 6.1, 7.1, 0,
@@ -119,7 +116,7 @@ public class TransformTest {
             5, -6);
   }
 
-  //Throws Exception in AbstractTransform constructor if endTime occurs before start time
+  // Throws Exception in AbstractTransform constructor if endTime occurs before start time
   @Test(expected = IllegalArgumentException.class)
   public void testEndTimeBeforeStartTime() {
     AbstractShape bob = new Triangle(1.1, 2.1, 3, 4, 5, 6.1, 7.1, 0,
@@ -129,12 +126,9 @@ public class TransformTest {
             6, 5);
   }
 
-  /**
-   * Testing ChangeColor Exceptions.
-   */
-
-  //Throws Exception in ChangeColor constructor if startTime of transformation occurs
-  //before appears of shape in animation.
+  // Testing ChangeColor exceptions.
+  // Throws Exception in ChangeColor constructor if startTime of transformation occurs
+  // before appears of shape in animation.
   @Test(expected = IllegalArgumentException.class)
   public void testChangeColorConstructorStartTimeInvalid() {
     AbstractShape bob = new Triangle(1.1, 2.1, 3, 4, 5, 6.1, 7.1, 5,
@@ -143,8 +137,8 @@ public class TransformTest {
     new ChangeColor(bob, 3, 4, 5, 6, 7, 8, 1, 10);
   }
 
-  //Throws Exception in ChangeColor constructor if endTime of transformation occurs
-  //after shape has disappeared from animation.
+  // Throws Exception in ChangeColor constructor if endTime of transformation occurs
+  // after shape has disappeared from animation.
   @Test(expected = IllegalArgumentException.class)
   public void testChangeColorConstructorEndTimeInvalid() {
     AbstractShape bob = new Triangle(1.1, 2.1, 3, 4, 5, 6.1, 7.1, 5,
@@ -153,13 +147,9 @@ public class TransformTest {
     new ChangeColor(bob, 3, 4, 5, 6, 7, 8, 6, 12);
   }
 
-
-  /**
-   * Testing ChangePOS Exceptions
-   */
-
-  //Throws Exception in ChangePos constructor if startTime of transformation occurs
-  //before appears of shape in animation.
+  // Testing ChangePos exceptions.
+  // Throws Exception in ChangePos constructor if startTime of transformation occurs
+  // before appears of shape in animation.
   @Test(expected = IllegalArgumentException.class)
   public void testChangePosConstructorStartTimeInvalid() {
     AbstractShape bob = new Triangle(1.1, 2.1, 3, 4, 5, 6.1, 7.1, 5,
@@ -168,8 +158,8 @@ public class TransformTest {
     new ChangePos(bob, 1.1, 2.1, 3.1, 4.1, 4, 8);
   }
 
-  //Throws Exception in ChangePos constructor if endTime of transformation occurs
-  //after shape has disappeared from animation.
+  // Throws Exception in ChangePos constructor if endTime of transformation occurs
+  // after shape has disappeared from animation.
   @Test(expected = IllegalArgumentException.class)
   public void testChangePosConstructorEndTimeInvalid() {
     AbstractShape bob = new Triangle(1.1, 2.1, 3, 4, 5, 6.1, 7.1, 5,
@@ -178,7 +168,7 @@ public class TransformTest {
     new ChangePos(bob, 1.1, 2.1, 3.1, 4.1, 6, 23);
   }
 
-  //Throws Exception in ChangeColor constructor fromX is negative.
+  // Throws Exception in ChangeColor constructor fromX is negative.
   @Test(expected = IllegalArgumentException.class)
   public void testChangePosConstructorNegativeFromX() {
     AbstractShape bob = new Triangle(1.1, 2.1, 3, 4, 5, 6.1, 7.1, 5,
@@ -187,7 +177,7 @@ public class TransformTest {
     new ChangePos(bob, -1.1, 2.1, 3.1, 4.1, 6, 9);
   }
 
-  //Throws Exception in ChangeColor constructor fromY is negative.
+  // Throws Exception in ChangeColor constructor fromY is negative.
   @Test(expected = IllegalArgumentException.class)
   public void testChangePosConstructorNegativeFromY() {
     AbstractShape bob = new Triangle(1.1, 2.1, 3, 4, 5, 6.1, 7.1, 5,
@@ -196,7 +186,7 @@ public class TransformTest {
     new ChangePos(bob, 1.1, -2.1, 3.1, 4.1, 6, 9);
   }
 
-  //Throws Exception in ChangeColor constructor toX is negative.
+  // Throws Exception in ChangeColor constructor toX is negative.
   @Test(expected = IllegalArgumentException.class)
   public void testChangePosConstructorNegativeToX() {
     AbstractShape bob = new Triangle(1.1, 2.1, 3, 4, 5, 6.1, 7.1, 5,
@@ -205,7 +195,7 @@ public class TransformTest {
     new ChangePos(bob, 1.1, 2.1, -3.1, 4.1, 6, 9);
   }
 
-  //Throws Exception in ChangeColor constructor toY is negative.
+  // Throws Exception in ChangeColor constructor toY is negative.
   @Test(expected = IllegalArgumentException.class)
   public void testChangePosConstructorNegativeToY() {
     AbstractShape bob = new Triangle(1.1, 2.1, 3, 4, 5, 6.1, 7.1, 5,
@@ -219,8 +209,8 @@ public class TransformTest {
    * Testing ChangeScale Exceptions.
    */
 
-  //Throws Exception in ChangeScale constructor if startTime of transformation occurs
-  //before appears of shape in animation.
+  // Throws Exception in ChangeScale constructor if startTime of transformation occurs
+  // before appears of shape in animation.
   @Test(expected = IllegalArgumentException.class)
   public void testChangeScaleConstructorStartTimeInvalid() {
     AbstractShape bob = new Triangle(1.1, 2.1, 3, 4, 5, 6.1, 7.1, 5,
@@ -229,8 +219,8 @@ public class TransformTest {
     new ChangeScale(bob, 1.1, 2.1, 3.1, 4.1, 4, 8);
   }
 
-  //Throws Exception in ChangeScale constructor if endTime of transformation occurs
-  //after shape has disappeared from animation.
+  // Throws Exception in ChangeScale constructor if endTime of transformation occurs
+  // after shape has disappeared from animation.
   @Test(expected = IllegalArgumentException.class)
   public void testChangeScaleConstructorEndTimeInvalid() {
     AbstractShape bob = new Triangle(1.1, 2.1, 3, 4, 5, 6.1, 7.1, 5,
@@ -240,7 +230,7 @@ public class TransformTest {
 
   }
 
-  //Throws Exception in ChangeScale constructor fromWidth is negative.
+  // Throws Exception in ChangeScale constructor fromWidth is negative.
   @Test(expected = IllegalArgumentException.class)
   public void testChangeScaleConstructorNegativeFromX() {
     AbstractShape bob = new Triangle(1.1, 2.1, 3, 4, 5, 6.1, 7.1, 5,
@@ -249,7 +239,7 @@ public class TransformTest {
     new ChangeScale(bob, -6.1, 7.1, 3.1, 4.1, 6, 9);
   }
 
-  //Throws Exception in ChangeScale constructor fromHeight is negative.
+  // Throws Exception in ChangeScale constructor fromHeight is negative.
   @Test(expected = IllegalArgumentException.class)
   public void testChangeScaleConstructorNegativeFromY() {
     AbstractShape bob = new Triangle(1.1, 2.1, 3, 4, 5, 6.1, 7.1, 5,
@@ -258,7 +248,7 @@ public class TransformTest {
     new ChangeScale(bob, 6.1, -7.1, 3.1, 4.1, 6, 9);
   }
 
-  //Throws Exception in ChangeScale constructor toWidth is negative.
+  // Throws Exception in ChangeScale constructor toWidth is negative.
   @Test(expected = IllegalArgumentException.class)
   public void testChangeScaleConstructorNegativeToX() {
     AbstractShape bob = new Triangle(1.1, 2.1, 3, 4, 5, 6.1, 7.1, 5,
@@ -267,7 +257,7 @@ public class TransformTest {
     new ChangeScale(bob, 6.1, 7.1, -3.1, 4.1, 6, 9);
   }
 
-  //Throws Exception in ChangeScale constructor toHeight is negative.
+  // Throws Exception in ChangeScale constructor toHeight is negative.
   @Test(expected = IllegalArgumentException.class)
   public void testChangeScaleConstructorNegativeToY() {
     AbstractShape bob = new Triangle(1.1, 2.1, 3, 4, 5, 6.1, 7.1, 5,

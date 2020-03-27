@@ -64,8 +64,8 @@ public class ChangePos extends AbstractTransform {
 
   @Override
   public String toString() {
-    return String.format("Shape %s moves from (%.1f,%.1f) to (%.1f,%.1f) from t=%d to t=%d\n"
-            , this.getShapeID(), this.fromX, this.fromY, this.toX, this.toY, this.getStartTime(),
+    return String.format("Shape %s moves from (%.1f,%.1f) to (%.1f,%.1f) from t=%d to t=%d\n",
+            this.getShapeID(), this.fromX, this.fromY, this.toX, this.toY, this.getStartTime(),
             this.getEndTime());
   }
 

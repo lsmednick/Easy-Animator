@@ -30,8 +30,8 @@ public class Triangle extends AbstractShape {
    * @throws IllegalArgumentException if the String name is null
    */
 
-  public Triangle(double x, double y, int r, int g, int b, double width, double height
-          , int startTime, int endTime, String name) throws IllegalArgumentException {
+  public Triangle(double x, double y, int r, int g, int b, double width, double height,
+          int startTime, int endTime, String name) throws IllegalArgumentException {
     super(x, y, r, g, b, width, height, startTime, endTime, name);
   }
 
@@ -46,9 +46,9 @@ public class Triangle extends AbstractShape {
   @Override
   public String toString() {
     return String.format("Name: %s\nType: Triangle\nMin corner: (%.1f, %.1f), Width: %.1f, Height: "
-                    + "%.1f, Color: (%d, %d, %d)\nAppears at t=%d\nDisappears at t=%d\n\n"
-            , this.getName(), this.getX(), this.getY(), this.getWidth(), this.getHeight()
-            , this.getR(), this.getG(), this.getB(), this.getStartTime(), this.getEndTime());
+                    + "%.1f, Color: (%d, %d, %d)\nAppears at t=%d\nDisappears at t=%d\n\n",
+            this.getName(), this.getX(), this.getY(), this.getWidth(), this.getHeight(),
+            this.getR(), this.getG(), this.getB(), this.getStartTime(), this.getEndTime());
   }
 
 }
