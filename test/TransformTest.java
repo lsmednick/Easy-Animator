@@ -3,12 +3,11 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 /**
- * This is a JUnit test class to test AbstractTransform and the concrete classes
- * that extends it (ChangeColor, ChangePos, ChangeScale).
- * The concrete classes call upon the super class AbstractTransform to instantiate
- * the String shapeID, start time of the transformation, and end time of the transformation.
- * Exceptions are thrown in AbstractTransform for the fields mentioned previously. Additional
- * exceptions are thrown within each individual concrete class constructor.
+ * This is a JUnit test class to test AbstractTransform and the concrete classes that extends it
+ * (ChangeColor, ChangePos, ChangeScale). The concrete classes call upon the super class
+ * AbstractTransform to instantiate the String shapeID, start time of the transformation, and end
+ * time of the transformation. Exceptions are thrown in AbstractTransform for the fields mentioned
+ * previously. Additional exceptions are thrown within each individual concrete class constructor.
  */
 
 public class TransformTest {
@@ -72,7 +71,7 @@ public class TransformTest {
 
   //Test compareTo method in AbstractTransform when startTimes are different.
   @Test
-  public void testCompareToStartTimes(){
+  public void testCompareToStartTimes() {
     AbstractShape bob = new Triangle(1.1, 2.1, 3, 4, 5, 6.1, 7.1, 0,
             10, "Bob");
     AbstractTransform bobNewScale = new ChangeScale(bob, 6.1, 7.1, 8.1, 9.1,
@@ -80,12 +79,12 @@ public class TransformTest {
     AbstractTransform bobNewScale2 = new ChangeScale(bob, 6.1, 7.1, 8.1, 9.1,
             7, 8);
 
-    assertEquals(-2,bobNewScale.compareTo(bobNewScale2));
+    assertEquals(-2, bobNewScale.compareTo(bobNewScale2));
   }
 
   //Test compareTo method in AbstractTransform when endTimes are different.
   @Test
-  public void testCompareToEndTimes(){
+  public void testCompareToEndTimes() {
     AbstractShape bob = new Triangle(1.1, 2.1, 3, 4, 5, 6.1, 7.1, 0,
             10, "Bob");
     AbstractTransform bobNewScale = new ChangeScale(bob, 6.1, 7.1, 8.1, 9.1,
@@ -93,7 +92,7 @@ public class TransformTest {
     AbstractTransform bobNewScale2 = new ChangeScale(bob, 6.1, 7.1, 8.1, 9.1,
             5, 7);
 
-    assertEquals(-1,bobNewScale.compareTo(bobNewScale2));
+    assertEquals(-1, bobNewScale.compareTo(bobNewScale2));
   }
 
   /**

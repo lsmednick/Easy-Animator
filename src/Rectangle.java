@@ -24,9 +24,10 @@ public class Rectangle extends AbstractShape {
    * @param name      name of the shape
    * @throws IllegalArgumentException if width or height is below 0
    * @throws IllegalArgumentException if rgb values are not between 0-255 inclusive
-   * @throws IllegalArgumentException if the x or y-coordinates are negative (we're assuming
-   * the display will only work within the first quadrant, i.e. only positive x and y values --
-   * this may be modified upon further instruction)
+   * @throws IllegalArgumentException if the x or y-coordinates are negative (we're assuming the
+   *                                  display will only work within the first quadrant, i.e. only
+   *                                  positive x and y values -- this may be modified upon further
+   *                                  instruction)
    * @throws IllegalArgumentException if the String name is null
    */
 
@@ -36,10 +37,10 @@ public class Rectangle extends AbstractShape {
   }
 
   /**
-   * This toString describes the all the fields of the Rectangle IShape object --
-   * name (unique identifier of the shape), the shape type (Rectangle), position (x, y-coordinates),
-   * Color (red, green, blue values), width, height, start/end time the object appears/disappears
-   * in the animation.
+   * This toString describes each attribute of the Rectangle IShape object -- name (unique
+   * identifier of the shape), the shape type (Rectangle), position (x, y-coordinates), Color (red,
+   * green, blue values), width, height, start/end time the object appears/disappears in the
+   * animation.
    *
    * @return a string describing all the fields of an Rectangle
    */
@@ -48,7 +49,7 @@ public class Rectangle extends AbstractShape {
   public String toString() {
     return String.format("Name: %s\nType: Rectangle\nMin corner: (%.1f, %.1f), Width: %.1f, "
                     + "Height: %.1f, Color: (%d, %d, %d)\nAppears at t=%d\nDisappears at t=%d\n\n"
-            ,this.getName()
+            , this.getName()
             , this.getX(), this.getY(), this.getWidth(), this.getHeight(), this.getR(), this.getG()
             , this.getB(), this.getStartTime(), this.getEndTime());
   }
