@@ -27,9 +27,9 @@ public class ChangePos extends AbstractTransform {
    * @param toY the y-coordinate we're trying to move to
    * @param startTime is the time the transformation should start
    * @param endTime is the time the transformation should end
-   * @throws IllegalArgumentException if start/end time is less than 0
-   * @throws IllegalArgumentException if the end time is before the start time
-   * @throws IllegalArgumentException if the shapeID is null
+   * @throws IllegalArgumentException if the startTime of the transformation occurs before the
+   * object appears in the animation or if the endTime of the transformation occurs after the
+   * object disappears in the animation
    * @throws IllegalArgumentException if the x or y-coordinates are negative (we're assuming
    * the display will only work within the first quadrant, i.e. only positive x and y values --
    * this may be modified upon further instruction)

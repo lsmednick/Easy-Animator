@@ -277,7 +277,7 @@ public class ShapeTest {
             9, "Bob");
   }
 
-  // //IllegalArgumentException thrown if width is negative.
+  //IllegalArgumentException thrown if width is negative.
   @Test(expected = IllegalArgumentException.class)
   public void testTriangleInvalidWidth() {
     new Triangle(1.1, 2.1, 3, 4, 5, -6.1, 7.1, 8,

@@ -28,9 +28,9 @@ public class ChangeScale extends AbstractTransform {
    * @param toHeight the new height
    * @param startTime is the time the transformation should start
    * @param endTime is the time the transformation should end
-   * @throws IllegalArgumentException if start/end time is less than 0
-   * @throws IllegalArgumentException if the end time is before the start time
-   * @throws IllegalArgumentException if the shapeID is null
+   * @throws IllegalArgumentException if the startTime of the transformation occurs before the
+   * object appears in the animation or if the endTime of the transformation occurs after the
+   * object disappears in the animation
    * @throws IllegalArgumentException if width/height is negative
    */
   public ChangeScale(IShape shape, double fromWidth, double fromHeight, double toWidth,
