@@ -1,11 +1,13 @@
-import java.awt.*;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 /**
- * This is the model... TODO Finish this comment
+ * Is a class that implements interface AnimatorModel. This class holds a Map which contains a list
+ * of all the shapes in the animation. The Map's key is a String ID and the value is
+ * a IShape (Oval, Rectangle, Triangle). Separately, this class also stores a List of
+ * transformations (ChangeColor, ChangePosition, ChangeScale) that occur within the animation.
  */
 
 public class AnimatorModelImpl implements AnimatorModel {

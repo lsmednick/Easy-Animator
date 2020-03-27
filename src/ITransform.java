@@ -1,5 +1,9 @@
 /**
- * This is an interface for for each transformation class. TODO Finish this
+ * An interface that supports creating ITransform objects which record IShape object transformations
+ * (e.g. changes color, position or scale). The ITransform objects for the animation
+ * are stored in the AnimatorModelImpl within a List. The interface contains getters for the shapeID
+ * (unique identifier of each IShape), the start time of the transformation and the end time of
+ * the transformation.
  */
 
 public interface ITransform {

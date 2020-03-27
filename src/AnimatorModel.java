@@ -1,6 +1,3 @@
-// Loge and Jenny love to code!
-
-import java.awt.*;
 
 /**
  * Interface for the Easy Animator Application. This supports an abstract class that will define 2D
@@ -19,7 +16,7 @@ public interface AnimatorModel {
    * @param r         red intensity of the shape's color
    * @param g         green intensity of the shape's color
    * @param b         blue intensity of the shape's color
-   * @param width     width of the shape
+   * @param width     width of the addshape
    * @param height    height of the shape
    * @param startTime starting time of the shape
    * @param endTime   end time of the shape
@@ -78,7 +75,10 @@ public interface AnimatorModel {
    * @param toWidth    final width of the shape
    * @param toHeight   final width of the shape
    * @param startTime  starting time of the transformation
-   * @param endTime    ending time of the transformation TODO add exceptions to javadoc
+   * @param endTime    ending time of the transformation
+   * @throws IllegalArgumentException if the new width/height is the same as the previous width/height
+   * @throws IllegalArgumentException if creating transformation that already exists for a shape
+   *                                      within a given time frame
    */
 
   void changeScale(String shapeID, ShapeType type, double fromWidth, double fromHeight,

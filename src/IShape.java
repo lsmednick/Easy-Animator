@@ -1,4 +1,3 @@
-import java.awt.*;
 
 /**
  * This is an interface for each of the shape classes. Each shape contains an x / y coordinate, rgb

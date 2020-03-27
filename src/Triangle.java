@@ -31,6 +31,15 @@ public class Triangle extends AbstractShape {
     super(x, y, r, g, b, width, height, startTime, endTime, name);
   }
 
+  /**
+   * This toString describes the all the fields of the Triangle IShape object --
+   * name (unique identifier of the shape), the shape type (Triangle), position (x, y-coordinates),
+   * Color (red, green, blue values),  width, height, start/end time the object appears/disappears
+   * in the animation.
+   *
+   * @return a string describing all the fields of an Triangle
+   */
+
   @Override
   public String toString() {
     return String.format("Name: %s\nType: Triangle\nPosition: (%.1f, %.1f)\nWidth: %.1f\nHeight: "
