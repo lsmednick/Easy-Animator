@@ -5,6 +5,14 @@
 public interface ITransform {
 
   /**
+   * Method to return the string representation of a given shape.
+   *
+   * @return string representation of a given shape
+   */
+
+  String getShapeID();
+
+  /**
    * Method to return the start time of a given transformation.
    *
    * @return start time of a transformation

@@ -7,7 +7,7 @@ import java.awt.Color;
  * element.
  */
 
-public class AbstractShape implements IShape {
+public abstract class AbstractShape implements IShape {
   private double x;
   private double y;
   private Color color;

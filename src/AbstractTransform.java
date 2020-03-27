@@ -2,11 +2,12 @@
  * This is an abstract class... TODO Finish this too
  */
 
-public class AbstractTransform implements ITransform, Comparable<AbstractTransform> {
+public abstract class AbstractTransform implements ITransform, Comparable<AbstractTransform> {
   private int startTime;
   private int endTime;
+  private String shapeID;
 
-  public AbstractTransform(int startTime, int endTime) {
+  public AbstractTransform(String shapeID, int startTime, int endTime) {
     if (startTime < 0 || endTime < 0) {
       throw new IllegalArgumentException("Start / end time cannot be negative.");
     }
@@ -15,6 +16,18 @@ public class AbstractTransform implements ITransform, Comparable<AbstractTransfo
     }
     this.startTime = startTime;
     this.endTime = endTime;
+    this.shapeID = shapeID;
+  }
+
+  /**
+   * Method to return the string representation of a given shape.
+   *
+   * @return string representation of a given shape
+   */
+
+  @Override
+  public String getShapeID() {
+    return shapeID;
   }
 
   /**

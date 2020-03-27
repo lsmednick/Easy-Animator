@@ -1,5 +1,7 @@
 import java.awt.*;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -8,7 +10,7 @@ import java.util.Map;
 
 public class AnimatorModelImpl implements AnimatorModel {
   private Map<String, IShape> shapeList = new HashMap<>();
-  private Map<ITransform, String> transformList = new HashMap<>();
+  private List<ITransform> transformList = new ArrayList<>();
 
   /**
    * Method to add shape to the current animation.
@@ -40,7 +42,7 @@ public class AnimatorModelImpl implements AnimatorModel {
       throw new IllegalArgumentException("End time must be after start time.");
     }
 
-    switch(shapeType) {
+    switch (shapeType) {
       case OVAL:
         newShape = new Oval(x, y, r, g, b, width, height, startTime, endTime, name);
         break;
@@ -56,42 +58,118 @@ public class AnimatorModelImpl implements AnimatorModel {
     shapeList.put(name, newShape);
   }
 
-  //TODO how to access the ISHAPE and how to consider timeStart and timeEnd
+  /**
+   * Helper function in order to detect duplicate transformation objects. This method returns true
+   * if there already exists a transformation in transformList for a given object within a specified
+   * time frame. Returns false otherwise.
+   *
+   * @param shapeID   the string identifer of the shape
+   * @param startTime the starting time of the transformation
+   * @param endTime   the ending time of the transformation
+   * @return boolean representing if there is a duplicate
+   */
+
+  private boolean duplicateHelper(String shapeID, int startTime, int endTime) {
+    for (ITransform t : transformList) {
+      if (t.getShapeID().equals(shapeID) && t.getStartTime() == startTime
+              && t.getEndTime() == endTime) {
+        return true;
+      }
+    }
+    return false;
+  }
+
+  /**
+   * Method to change the shape's position.
+   *
+   * @param shapeID   the string ID of the shape that should be moved
+   * @param fromX     the X coordinate we're moving the shape from
+   * @param fromY     the Y coordinate we're moving the shape from
+   * @param toX       the X coordinate we're moving the shape to
+   * @param toY       the Y coordinate we're moving the shape to
+   * @param startTime the time (int) that the object should start moving
+   * @param endTime   the time (int) that the object should end movement
+   * @throws IllegalArgumentException if attempting to move to the same position
+   * @throws IllegalArgumentException if creating transformation that already exists for a shape
+   *                                  withing a given time frame
+   */
+
   @Override
-  public void move(IShape shape, double toX, double toY, int moveStartTime, int moveEndTime)
+  public void changePos(String shapeID, double fromX, double fromY, double toX, double toY,
+                        int startTime, int endTime) throws IllegalArgumentException {
+    if (fromX == toX && fromY == toY) {
+      throw new IllegalArgumentException("Cannot move to the same position.");
+    }
+    if (duplicateHelper(shapeID, startTime, endTime)) {
+      throw new IllegalArgumentException("Transformation already exists for that shape during the"
+              + "specified time frame.");
+    }
+    ITransform transformation = new ChangePos(shapeList.get(shapeID), fromX, fromY, toX, toY,
+            startTime, endTime);
+    transformList.add(transformation);
+  }
+
+  /**
+   * Create a object that stores that values for RBG which will change the color of our Shape.
+   *
+   * @param shapeID   the IShape object that should be moved
+   * @param fromR     value specifying the original red component of Color
+   * @param fromG     value specifying the original green component of Color
+   * @param fromB     value specifying the original blue component of Color
+   * @param toR       value specifying the new red component of Color
+   * @param toG       value specifying the new green component of Color
+   * @param toB       value specifying the new blue component of Color
+   * @param startTime starting time of the transformation
+   * @param endTime   ending time of the transformation
+   * @throws IllegalArgumentException if the value of r,g,b is not between 0-255 inclusive
+   * @throws IllegalArgumentException if from and to colors are the same
+   * @throws IllegalArgumentException if creating transformation that already exists for a shape
+   *                                  within a given time frame
+   */
+
+  @Override
+  public void changeColor(String shapeID, int fromR, int fromG, int fromB, int toR, int toG,
+                          int toB, int startTime, int endTime) throws IllegalArgumentException {
+    if (fromR == toR && fromB == toB && fromG == toG) {
+      throw new IllegalArgumentException("Colors must be different.");
+    }
+    if (duplicateHelper(shapeID, startTime, endTime)) {
+      throw new IllegalArgumentException("Transformation already exists for that shape during the"
+              + "specified time frame.");
+    }
+    ITransform transformation = new ChangeColor(shapeList.get(shapeID), fromR, fromG, fromB, toR,
+            toG, toB, startTime, endTime);
+    transformList.add(transformation);
+  }
+
+  /**
+   * This method will scale the current shape.
+   *
+   * @param shapeID    the string ID of the shape to be scaled
+   * @param type       type of shape to be scaled
+   * @param fromWidth  starting width of the shape
+   * @param fromHeight starting height of the shape
+   * @param toWidth    final width of the shape
+   * @param toHeight   final width of the shape
+   * @param startTime  starting time of the transformation
+   * @param endTime    ending time of the transformation
+   */
+
+  @Override
+  public void changeScale(String shapeID, ShapeType type, double fromWidth, double fromHeight,
+                          double toWidth, double toHeight, int startTime, int endTime)
           throws IllegalArgumentException {
-    if (toX < 0) {
-      throw new IllegalArgumentException("can't move to a negative X coordinate");
+    if (fromWidth == toWidth && fromHeight == toHeight) {
+      throw new IllegalArgumentException("Either height or weight must be different.");
     }
-    if (toY < 0) {
-      throw new IllegalArgumentException("can't move to a negative Y coordinate ");
+    if (duplicateHelper(shapeID, startTime, endTime)) {
+      throw new IllegalArgumentException("Transformation already exists for that shape during the"
+              + "specified time frame.");
     }
-
-    shape.setCoordinates(toX, toY);
-
-    //TODO -- how to deal with moveStarTime, moveEndTime
-  }
-
-  @Override
-  public void changeColor(IShape shape, int r, int g, int b) {
-    shape.setColor(r, g, b);
+    ITransform transformation = new ChangeScale(shapeList.get(shapeID), fromWidth, fromHeight,
+            toWidth, toHeight, startTime, endTime);
+    transformList.add(transformation);
   }
 
 
-  //TODO -- leave this for now
-  @Override
-  public void changeShape(Shape myShape) {
-  }
-
-
-  @Override
-  public void scaling(IShape shape, int scalingHeight, int scalingWidth) {
-    shape.setScaling(scalingHeight, scalingWidth);
-  }
-
-
-  //TODo -- leave this for now
-  @Override
-  public void changeLayer(int layer) {
-  }
 }
