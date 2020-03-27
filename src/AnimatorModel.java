@@ -85,12 +85,12 @@ public interface AnimatorModel {
                    double toWidth, double toHeight, int startTime, int endTime)
           throws IllegalArgumentException;
 
-
   /**
    * A method that prints a String describing the current state of the animation.
    *
    * @return a String describing the current state of the animation
    */
+
   String getState();
 
 }

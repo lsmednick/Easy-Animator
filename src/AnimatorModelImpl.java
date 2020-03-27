@@ -178,6 +178,7 @@ public class AnimatorModelImpl implements AnimatorModel {
    *
    * @return a String describing the current state of the animation
    */
+
   @Override
   public String getState() {
 
