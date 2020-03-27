@@ -1,9 +1,8 @@
 /**
- * This is an abstract class that implements ITransform  and
- * the Comparable interface which will allow transformation to be sorted in accordance
- * to the start/end times within an animation. It contains a constructor with
- * parameters for a shape ID, start time and end time of a transformation. This class
- * also has getters for the previously described fields.
+ * This is an abstract class that implements ITransform  and the Comparable interface which will
+ * allow transformations to be sorted in accordance to the start/end times within an animation. It
+ * contains a constructor with parameters for a shape ID, start time and end time of a
+ * transformation. This class also has getters for the previously described fields.
  */
 
 public abstract class AbstractTransform implements ITransform, Comparable<AbstractTransform> {
@@ -12,19 +11,20 @@ public abstract class AbstractTransform implements ITransform, Comparable<Abstra
   private String shapeID;
 
   /**
-   * Constructor that takes in a String shapeID (the shape's unique identifier),
-   * the start time of the transformation and the end time of the transformation.
-   * @param shapeID is a shape's unique identifier
+   * Constructor that takes in a String shapeID (the shape's unique identifier), the start time of
+   * the transformation and the end time of the transformation.
+   *
+   * @param shapeID   is a shape's unique identifier
    * @param startTime when a transformation should start within the animation
-   * @param endTime when a transformation should end within the animation
+   * @param endTime   when a transformation should end within the animation
    * @throws IllegalArgumentException if start/end time is less than 0
    * @throws IllegalArgumentException if the end time is before the start time
    * @throws IllegalArgumentException if the shapeID is null
    */
 
   public AbstractTransform(String shapeID, int startTime, int endTime)
-    throws IllegalArgumentException{
-    if (shapeID == null){
+          throws IllegalArgumentException {
+    if (shapeID == null) {
       throw new IllegalArgumentException("shapeID can not be null.");
     }
     if (startTime < 0 || endTime < 0) {

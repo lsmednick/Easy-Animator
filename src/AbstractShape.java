@@ -3,7 +3,7 @@ import java.awt.Color;
 /**
  * This class represents an abstract shape. It implements the IShape interface which includes
  * various getter functions for the many attributes of an individual shape. This class is able to
- * construct a new shape object with these parameters as well as return any the value of a given
+ * construct a new shape object with these parameters as well as return the value of a given
  * element.
  */
 
@@ -34,23 +34,24 @@ public abstract class AbstractShape implements IShape {
    * @param name      name of the shape
    * @throws IllegalArgumentException if width or height is below 0
    * @throws IllegalArgumentException if rgb values are not between 0-255 inclusive
-   * @throws IllegalArgumentException if the x or y-coordinates are negative (we're assuming
-   *    the display will only work within the first quadrant, i.e. only positive x and y values --
-   *    this may be modified upon further instruction)
+   * @throws IllegalArgumentException if the x or y-coordinates are negative (we're assuming the
+   *                                  display will only work within the first quadrant, i.e. only
+   *                                  positive x and y values -- this may be modified upon further
+   *                                  instruction)
    * @throws IllegalArgumentException if the String name is null
    */
 
   public AbstractShape(double x, double y, int r, int g, int b, double width, double height,
                        int startTime, int endTime, String name) throws IllegalArgumentException {
-    if(x < 0 || y < 0 ) {
-        throw new IllegalArgumentException("x and y-coordinates can't be negative");
+    if (x < 0 || y < 0) {
+      throw new IllegalArgumentException("x and y-coordinates can't be negative");
     }
     if (width <= 0 || height <= 0) {
       throw new IllegalArgumentException("Width and height must be at greater than zero.");
     }
     if (name == null) {
       throw new IllegalArgumentException("The String containing the name of the object can"
-      + "not be null");
+              + "not be null");
     }
     this.x = x;
     this.y = y;

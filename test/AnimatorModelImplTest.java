@@ -104,8 +104,8 @@ public class AnimatorModelImplTest {
                     + "Appears at t=0\n"
                     + "Disappears at t=15\n"
                     + "\n"
-                    + "Shape Ian McKellen moves from (6.0,3.0) to (7.0,4.0) from t=3 to t=6\n"
                     + "Shape Rebel Wilson moves from (5.0,10.0) to (8.0,2.0) from t=2 to t=20\n"
+                    + "Shape Ian McKellen moves from (6.0,3.0) to (7.0,4.0) from t=3 to t=6\n"
                     + "Shape Idris Elba moves from (10.5,3.0) to (3.0,3.0) from t=9 to t=14\n"
             , testModel.getState());
   }
@@ -189,10 +189,10 @@ public class AnimatorModelImplTest {
                     + "Appears at t=0\n"
                     + "Disappears at t=15\n"
                     + "\n"
-                    + "Shape Ian McKellen changes color from (4,178,100) to (100,178,200) "
-                    + "from t=2 to t=10\n"
                     + "Shape Rebel Wilson changes color from (109,69,4) to (213,20,201) "
                     + "from t=2 to t=3\n"
+                    + "Shape Ian McKellen changes color from (4,178,100) to (100,178,200) "
+                    + "from t=2 to t=10\n"
                     + "Shape Idris Elba changes color from (70,250,18) to (100,200,50) "
                     + "from t=9 to t=10\n", testModel.getState());
   }
@@ -367,15 +367,16 @@ public class AnimatorModelImplTest {
             + "Min corner: (5.0, 10.0), Width: 10.0, Height: 10.0, Color: (104, 69, 4)\n"
             + "Appears at t=1\n"
             + "Disappears at t=27\n\n"
-            + "Shape Judi Dench moves from (50.0,35.0) to (30.0,20.0) from t=3 to t=6\n"
-            + "Shape Taylor Swift moves from (10.5,3.0) to (5.0,5.0) from t=3 to t=10\n"
-            + "Shape Judi Dench moves from (30.0,20.0) to (15.0,10.0) from t=7 to t=14\n"
             + "Shape Jason Derulo changes color from (104,69,4) to (200,200,200) from t=2 to t=4\n"
-            + "Shape Taylor Swift changes color from (70,250,18) to (150,30,67) from t=4 to t=7\n"
             + "Shape Judi Dench scales from Width: 7.0, Height: 3.0 to Width: 10.0, Height: 15.0 "
             + "from t=2 to t=4\n"
             + "Shape Jason Derulo scales from Width: 10.0, Height: 10.0 to Width: 20.0, Height: "
-            + "10.0 from t=2 to t=8\n", testModel.getState());
+            + "10.0 from t=2 to t=8\n"
+            + "Shape Judi Dench moves from (50.0,35.0) to (30.0,20.0) from t=3 to t=6\n"
+            + "Shape Taylor Swift moves from (10.5,3.0) to (5.0,5.0) from t=3 to t=10\n"
+            + "Shape Taylor Swift changes color from (70,250,18) to (150,30,67) from t=4 to t=7\n"
+            + "Shape Judi Dench moves from (30.0,20.0) to (15.0,10.0) from t=7 to t=14\n"
+            , testModel.getState());
   }
 
 }

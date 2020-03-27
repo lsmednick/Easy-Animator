@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -12,7 +13,7 @@ import java.util.Map;
 
 public class AnimatorModelImpl implements AnimatorModel {
   private Map<String, IShape> shapeList = new HashMap<>();
-  private List<ITransform> transformList = new ArrayList<>();
+  private List<AbstractTransform> transformList = new ArrayList<>();
 
   /**
    * Method to add shape to the current animation.
@@ -109,7 +110,7 @@ public class AnimatorModelImpl implements AnimatorModel {
     if (!shapeList.containsKey(shapeID)) {
       throw new IllegalArgumentException("Entered shape does not exist in the model.");
     }
-    ITransform transformation = new ChangePos(shapeList.get(shapeID), fromX, fromY, toX, toY,
+    AbstractTransform transformation = new ChangePos(shapeList.get(shapeID), fromX, fromY, toX, toY,
             startTime, endTime);
     transformList.add(transformation);
   }
@@ -145,7 +146,7 @@ public class AnimatorModelImpl implements AnimatorModel {
     if (!shapeList.containsKey(shapeID)) {
       throw new IllegalArgumentException("Entered shape does not exist in the model.");
     }
-    ITransform transformation = new ChangeColor(shapeList.get(shapeID), fromR, fromG, fromB, toR,
+    AbstractTransform transformation = new ChangeColor(shapeList.get(shapeID), fromR, fromG, fromB, toR,
             toG, toB, startTime, endTime);
     transformList.add(transformation);
   }
@@ -177,7 +178,7 @@ public class AnimatorModelImpl implements AnimatorModel {
     if (!shapeList.containsKey(shapeID)) {
       throw new IllegalArgumentException("Entered shape does not exist in the model.");
     }
-    ITransform transformation = new ChangeScale(shapeList.get(shapeID), fromWidth, fromHeight,
+    AbstractTransform transformation = new ChangeScale(shapeList.get(shapeID), fromWidth, fromHeight,
             toWidth, toHeight, startTime, endTime);
     transformList.add(transformation);
   }
@@ -198,6 +199,7 @@ public class AnimatorModelImpl implements AnimatorModel {
       string.append(shapeList.get(key).toString());
     }
 
+    Collections.sort(transformList);
     for (ITransform t : transformList) {
       string.append(t.toString());
     }
