@@ -23,6 +23,9 @@ public class Oval extends AbstractShape {
    * @param name      name of the shape
    * @throws IllegalArgumentException if width or height is below 0
    * @throws IllegalArgumentException if rgb values are not between 0-255 inclusive
+   * @throws IllegalArgumentException if the x or y-coordinates are negative (we're assuming
+   *    the display will only work within the first quadrant, i.e. only positive x and y values --
+   *    this may be modified upon further instruction)
    */
 
   public Oval(double x, double y, int r, int g, int b, double width, double height, int startTime
