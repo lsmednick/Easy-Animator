@@ -29,6 +29,8 @@ public class AnimatorModelImpl implements AnimatorModel {
    * @param height    height of the shape
    * @param startTime starting time of the shape
    * @param endTime   end time of the shape
+   * @throws IllegalArgumentException if startTime or endTime is negative
+   * @throws IllegalArgumentException if endTime occurs before startTime
    */
 
   @Override
@@ -66,7 +68,7 @@ public class AnimatorModelImpl implements AnimatorModel {
    * if there already exists a transformation in transformList for a given object within a specified
    * time frame. Returns false otherwise.
    *
-   * @param shapeID   the string identifer of the shape
+   * @param shapeID   the string identifier of the shape
    * @param startTime the starting time of the transformation
    * @param endTime   the ending time of the transformation
    * @return boolean representing if there is a duplicate
@@ -95,6 +97,8 @@ public class AnimatorModelImpl implements AnimatorModel {
    * @throws IllegalArgumentException if attempting to move to the same position
    * @throws IllegalArgumentException if creating transformation that already exists for a shape
    *                                  withing a given time frame
+   * @throws IllegalArgumentException if the shapeID does not exist in our shapeList (i.e. trying
+   *                                   to modify a shape that doesn't exist in the animation)
    */
 
   @Override
@@ -131,6 +135,8 @@ public class AnimatorModelImpl implements AnimatorModel {
    * @throws IllegalArgumentException if from and to colors are the same
    * @throws IllegalArgumentException if creating transformation that already exists for a shape
    *                                  within a given time frame
+   * @throws IllegalArgumentException if the shapeID does not exist in our shapeList (i.e. trying
+   *                                   to modify a shape that doesn't exist in the animation)
    */
 
   @Override
@@ -162,6 +168,12 @@ public class AnimatorModelImpl implements AnimatorModel {
    * @param toHeight   final width of the shape
    * @param startTime  starting time of the transformation
    * @param endTime    ending time of the transformation
+   * @throws IllegalArgumentException if the new width/height is the same as the previous
+   *                                  width/height
+   * @throws IllegalArgumentException if creating transformation that already exists for a shape
+   *                                      within a given time frame
+   * @throws IllegalArgumentException if the shapeID does not exist in our shapeList (i.e. trying
+   *                                  to modify a shape that doesn't exist in the animation)
    */
 
   @Override
