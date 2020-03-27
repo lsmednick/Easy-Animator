@@ -6,9 +6,9 @@ import java.util.Map;
 
 /**
  * Is a class that implements interface AnimatorModel. This class holds a Map which contains a list
- * of all the shapes in the animation. The Map's key is a String ID and the value is
- * a IShape (Oval, Rectangle, Triangle). Separately, this class also stores a List of
- * transformations (ChangeColor, ChangePosition, ChangeScale) that occur within the animation.
+ * of all the shapes in the animation. The Map's key is a String ID and the value is a IShape (Oval,
+ * Rectangle, Triangle). Separately, this class also stores a List of transformations (ChangeColor,
+ * ChangePosition, ChangeScale) that occur within the animation.
  */
 
 public class AnimatorModelImpl implements AnimatorModel {
@@ -97,8 +97,8 @@ public class AnimatorModelImpl implements AnimatorModel {
    * @throws IllegalArgumentException if attempting to move to the same position
    * @throws IllegalArgumentException if creating transformation that already exists for a shape
    *                                  withing a given time frame
-   * @throws IllegalArgumentException if the shapeID does not exist in our shapeList (i.e. trying
-   *                                   to modify a shape that doesn't exist in the animation)
+   * @throws IllegalArgumentException if the shapeID does not exist in our shapeList (i.e. trying to
+   *                                  modify a shape that doesn't exist in the animation)
    */
 
   @Override
@@ -135,8 +135,8 @@ public class AnimatorModelImpl implements AnimatorModel {
    * @throws IllegalArgumentException if from and to colors are the same
    * @throws IllegalArgumentException if creating transformation that already exists for a shape
    *                                  within a given time frame
-   * @throws IllegalArgumentException if the shapeID does not exist in our shapeList (i.e. trying
-   *                                   to modify a shape that doesn't exist in the animation)
+   * @throws IllegalArgumentException if the shapeID does not exist in our shapeList (i.e. trying to
+   *                                  modify a shape that doesn't exist in the animation)
    */
 
   @Override
@@ -152,8 +152,8 @@ public class AnimatorModelImpl implements AnimatorModel {
     if (!shapeList.containsKey(shapeID)) {
       throw new IllegalArgumentException("Entered shape does not exist in the model.");
     }
-    AbstractTransform transformation = new ChangeColor(shapeList.get(shapeID), fromR, fromG, fromB, toR,
-            toG, toB, startTime, endTime);
+    AbstractTransform transformation = new ChangeColor(shapeList.get(shapeID), fromR, fromG, fromB,
+            toR, toG, toB, startTime, endTime);
     transformList.add(transformation);
   }
 
@@ -171,9 +171,9 @@ public class AnimatorModelImpl implements AnimatorModel {
    * @throws IllegalArgumentException if the new width/height is the same as the previous
    *                                  width/height
    * @throws IllegalArgumentException if creating transformation that already exists for a shape
-   *                                      within a given time frame
-   * @throws IllegalArgumentException if the shapeID does not exist in our shapeList (i.e. trying
-   *                                  to modify a shape that doesn't exist in the animation)
+   *                                  within a given time frame
+   * @throws IllegalArgumentException if the shapeID does not exist in our shapeList (i.e. trying to
+   *                                  modify a shape that doesn't exist in the animation)
    */
 
   @Override
@@ -190,8 +190,8 @@ public class AnimatorModelImpl implements AnimatorModel {
     if (!shapeList.containsKey(shapeID)) {
       throw new IllegalArgumentException("Entered shape does not exist in the model.");
     }
-    AbstractTransform transformation = new ChangeScale(shapeList.get(shapeID), fromWidth, fromHeight,
-            toWidth, toHeight, startTime, endTime);
+    AbstractTransform transformation = new ChangeScale(shapeList.get(shapeID), fromWidth,
+            fromHeight, toWidth, toHeight, startTime, endTime);
     transformList.add(transformation);
   }
 

@@ -16,29 +16,30 @@ public class ChangeScale extends AbstractTransform {
 
   /**
    * This is a method to construct a ChangeScale object. It calls the super class, AbstractTransform
-   * to instantiate shape.getName (the unique identifier for each IShape object),
-   * and the start and end times of when the transformation should occur during the animation.
-   * Additionally, it instantiates the starting scale of the shape (fromWidth, fromHeight)
-   * and the new values it should be changed to (toWidth, toHeight).
+   * to instantiate shape.getName (the unique identifier for each IShape object), and the start and
+   * end times of when the transformation should occur during the animation. Additionally, it
+   * instantiates the starting scale of the shape (fromWidth, fromHeight) and the new values it
+   * should be changed to (toWidth, toHeight).
    *
-   * @param shape is the IShape object we're trying to transform
-   * @param fromWidth the starting width
+   * @param shape      is the IShape object we're trying to transform
+   * @param fromWidth  the starting width
    * @param fromHeight the starting height
-   * @param toWidth the new width
-   * @param toHeight the new height
-   * @param startTime is the time the transformation should start
-   * @param endTime is the time the transformation should end
+   * @param toWidth    the new width
+   * @param toHeight   the new height
+   * @param startTime  is the time the transformation should start
+   * @param endTime    is the time the transformation should end
    * @throws IllegalArgumentException if the startTime of the transformation occurs before the
-   * object appears in the animation or if the endTime of the transformation occurs after the
-   * object disappears in the animation
+   *                                  object appears in the animation or if the endTime of the
+   *                                  transformation occurs after the object disappears in the
+   *                                  animation
    * @throws IllegalArgumentException if width/height is negative
    */
   public ChangeScale(IShape shape, double fromWidth, double fromHeight, double toWidth,
                      double toHeight, int startTime, int endTime) throws IllegalArgumentException {
     super(shape.getName(), startTime, endTime);
     if (startTime < shape.getStartTime() || endTime > shape.getEndTime()) {
-      throw new IllegalArgumentException("Transformation cannot occur before appearance of shape" +
-              "/ after disappearance of shape.");
+      throw new IllegalArgumentException("Transformation cannot occur before appearance of shape"
+              + "/ after disappearance of shape.");
     }
     if (fromWidth < 0 || fromHeight < 0 || toWidth < 0 || toHeight < 0) {
       throw new IllegalArgumentException("Widths / heights cannot be negative.");

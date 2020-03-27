@@ -41,8 +41,8 @@ public interface AnimatorModel {
    * @throws IllegalArgumentException if attempting to move to the same position
    * @throws IllegalArgumentException if creating transformation that already exists for a shape
    *                                  withing a given time frame
-   * @throws IllegalArgumentException if the shapeID does not exist in our shapeList (i.e. trying
-   *                                   to modify a shape that doesn't exist in the animation)
+   * @throws IllegalArgumentException if the shapeID does not exist in our shapeList (i.e. trying to
+   *                                  modify a shape that doesn't exist in the animation)
    */
 
   void changePos(String shapeID, double fromX, double fromY, double toX, double toY, int startTime,
@@ -64,8 +64,8 @@ public interface AnimatorModel {
    * @throws IllegalArgumentException if from and to colors are the same
    * @throws IllegalArgumentException if creating transformation that already exists for a shape
    *                                  within a given time frame
-   * @throws IllegalArgumentException if the shapeID does not exist in our shapeList (i.e. trying
-   *                                   to modify a shape that doesn't exist in the animation)
+   * @throws IllegalArgumentException if the shapeID does not exist in our shapeList (i.e. trying to
+   *                                  modify a shape that doesn't exist in the animation)
    */
 
   void changeColor(String shapeID, int fromR, int fromG, int fromB, int toR, int toG,
@@ -85,9 +85,9 @@ public interface AnimatorModel {
    * @throws IllegalArgumentException if the new width/height is the same as the previous
    *                                  width/height
    * @throws IllegalArgumentException if creating transformation that already exists for a shape
-   *                                      within a given time frame
-   * @throws IllegalArgumentException if the shapeID does not exist in our shapeList (i.e. trying
-   *                                  to modify a shape that doesn't exist in the animation)
+   *                                  within a given time frame
+   * @throws IllegalArgumentException if the shapeID does not exist in our shapeList (i.e. trying to
+   *                                  modify a shape that doesn't exist in the animation)
    */
 
   void changeScale(String shapeID, ShapeType type, double fromWidth, double fromHeight,
