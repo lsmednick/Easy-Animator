@@ -1,3 +1,5 @@
+package cs5004.animator.model;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -122,7 +124,7 @@ public class AnimatorModelImpl implements AnimatorModel {
   /**
    * Create a object that stores that values for RBG which will change the color of our Shape.
    *
-   * @param shapeID   the IShape object that should be moved
+   * @param shapeID   the cs5004.animator.model.IShape object that should be moved
    * @param fromR     value specifying the original red component of Color
    * @param fromG     value specifying the original green component of Color
    * @param fromB     value specifying the original blue component of Color
@@ -161,7 +163,6 @@ public class AnimatorModelImpl implements AnimatorModel {
    * This method will scale the current shape.
    *
    * @param shapeID    the string ID of the shape to be scaled
-   * @param type       type of shape to be scaled
    * @param fromWidth  starting width of the shape
    * @param fromHeight starting height of the shape
    * @param toWidth    final width of the shape
@@ -177,7 +178,7 @@ public class AnimatorModelImpl implements AnimatorModel {
    */
 
   @Override
-  public void changeScale(String shapeID, ShapeType type, double fromWidth, double fromHeight,
+  public void changeScale(String shapeID, double fromWidth, double fromHeight,
                           double toWidth, double toHeight, int startTime, int endTime)
           throws IllegalArgumentException {
     if (fromWidth == toWidth && fromHeight == toHeight) {

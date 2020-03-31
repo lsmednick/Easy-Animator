@@ -1,8 +1,9 @@
+package cs5004.animator.model;
 
 /**
- * This is a ChangeColor object which extends AbstractTransform it contains a toString that details
+ * This is a cs5004.animator.model.ChangeColor object which extends cs5004.animator.model.AbstractTransform it contains a toString that details
  * the color changes (e.g. the starting color of the shape and the color it was changed to) and when
- * these changes occur in the animation. The constructor calls the super class, AbstractTransform,
+ * these changes occur in the animation. The constructor calls the super class, cs5004.animator.model.AbstractTransform,
  * to instantiate the the shape's unique identifier and the start/end time of the transformation.
  * The constructor also instantiates the original Color values (fromR, fromG, fromB) and the new
  * Color values (toR, toG, toB) that the should transform the object.

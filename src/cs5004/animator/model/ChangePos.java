@@ -1,9 +1,10 @@
+package cs5004.animator.model;
 
 /**
- * This is a ChangePos object which extends AbstractTransform it contains a toString that details
+ * This is a cs5004.animator.model.ChangePos object which extends cs5004.animator.model.AbstractTransform it contains a toString that details
  * the position change (e.g. the starting position of the shape and the position it was changed to)
  * and when these changes occur in the animation. The constructor calls the super class,
- * AbstractTransform, to instantiate the the shape's unique identifier and the start/end time of the
+ * cs5004.animator.model.AbstractTransform, to instantiate the the shape's unique identifier and the start/end time of the
  * transformation. The constructor also instantiates the original position using x,y coordinates
  * (fromX, fromY) and position we're trying to move to (toX, toY).
  */
@@ -16,7 +17,7 @@ public class ChangePos extends AbstractTransform {
 
   /**
    * This is a constructor for a ChangePos object which calls the super class, AbstractTransform, to
-   * instantiate  shape.getName (the unique identifier for each IShape object), and the start and
+   * instantiate shape.getName (the unique identifier for each IShape object), and the start and
    * end times of when the transformation should occur during the animation. Additionally, the
    * starting position of the shape (fromX, fromY) and the new position we're trying to move to
    * (toX, toY).
@@ -56,7 +57,7 @@ public class ChangePos extends AbstractTransform {
 
   /**
    * Method to return string representation of ChangPos object. This representation includes the
-   * shape ID, original x and y-coordinate  values, new x and y-coordinate values, and start / end
+   * shape ID, original x and y-coordinate values, new x and y-coordinate values, and start / end
    * time.
    *
    * @return string representation of ChangePos object

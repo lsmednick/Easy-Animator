@@ -1,12 +1,17 @@
 import org.junit.Test;
 
+import cs5004.animator.model.AbstractShape;
+import cs5004.animator.model.Oval;
+import cs5004.animator.model.Rectangle;
+import cs5004.animator.model.Triangle;
+
 import static org.junit.Assert.assertEquals;
 
 /**
- * This is a JUnit test class that the AbstractShape abstract class and the concrete classes that
- * extend it (Oval, Rectangle and Triangle). Testing Exceptions for Invalid input AbstractShape
- * Constructor. Oval, Rectangle, and Triangle calls the super class AbstractShape to instantiate all
- * parameters. Exceptions are thrown in  AbstractShape's constructor. IllegalArgumentException
+ * This is a JUnit test class that the cs5004.animator.model.AbstractShape abstract class and the concrete classes that
+ * extend it (cs5004.animator.model.Oval, cs5004.animator.model.Rectangle and cs5004.animator.model.Triangle). Testing Exceptions for Invalid input cs5004.animator.model.AbstractShape
+ * Constructor. cs5004.animator.model.Oval, cs5004.animator.model.Rectangle, and cs5004.animator.model.Triangle calls the super class cs5004.animator.model.AbstractShape to instantiate all
+ * parameters. Exceptions are thrown in  cs5004.animator.model.AbstractShape's constructor. IllegalArgumentException
  * thrown if width or height is below 0. IllegalArgumentException thrown  if rgb values are not
  * between 0-255 inclusive. IllegalArgumentException thrown  if the x or y-coordinates are negative
  * (we're assuming the display will only work within the first quadrant, i.e. only positive x and y

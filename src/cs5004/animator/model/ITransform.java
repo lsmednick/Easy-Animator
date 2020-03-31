@@ -1,3 +1,5 @@
+package cs5004.animator.model;
+
 /**
  * An interface that supports creating ITransform objects which record IShape object transformations
  * (e.g. changes color, position or scale). The ITransform objects for the animation are stored in

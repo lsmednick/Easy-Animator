@@ -1,9 +1,12 @@
 import org.junit.Test;
 
+import cs5004.animator.model.AnimatorModelImpl;
+import cs5004.animator.model.ShapeType;
+
 import static org.junit.Assert.assertEquals;
 
 /**
- * This is a JUnit test class for the AnimatorModelImpl class. Every method of the model is tested
+ * This is a JUnit test class for the cs5004.animator.model.AnimatorModelImpl class. Every method of the model is tested
  * by checking the string representation of the added shapes / transformations to ensure they are
  * displaying the correct information.
  */
@@ -21,19 +24,19 @@ public class AnimatorModelImplTest {
     testModel.addShape("Taylor Swift", ShapeType.RECTANGLE, 10.5, 3, 70, 250, 18, 7.5, 6, 3, 20);
     assertEquals("Shapes:\n"
             + "Name: Taylor Swift\n"
-            + "Type: Rectangle\n"
+            + "Type: cs5004.animator.model.Rectangle\n"
             + "Min corner: (10.5, 3.0), Width: 7.5, Height: 6.0, Color: (70, 250, 18)\n"
             + "Appears at t=3\n"
             + "Disappears at t=20\n"
             + "\n"
             + "Name: Judi Dench\n"
-            + "Type: Oval\n"
+            + "Type: cs5004.animator.model.Oval\n"
             + "Center: (50.0, 35.0), X radius: 7.0, Y radius: 3.0, Color: (45, 164, 100)\n"
             + "Appears at t=0\n"
             + "Disappears at t=15\n"
             + "\n"
             + "Name: Jason Derulo\n"
-            + "Type: Triangle\n"
+            + "Type: cs5004.animator.model.Triangle\n"
             + "Min corner: (5.0, 10.0), Width: 10.0, Height: 10.0, Color: (104, 69, 4)\n"
             + "Appears at t=1\n"
             + "Disappears at t=27\n"
@@ -87,19 +90,19 @@ public class AnimatorModelImplTest {
     testModel.changePos("Idris Elba", 10.5, 3, 3, 3, 9, 14);
     assertEquals("Shapes:\n"
                     + "Name: Rebel Wilson\n"
-                    + "Type: Triangle\n"
+                    + "Type: cs5004.animator.model.Triangle\n"
                     + "Min corner: (5.0, 10.0), Width: 10.0, Height: 10.0, Color: (109, 69, 4)\n"
                     + "Appears at t=1\n"
                     + "Disappears at t=27\n"
                     + "\n"
                     + "Name: Idris Elba\n"
-                    + "Type: Rectangle\n"
+                    + "Type: cs5004.animator.model.Rectangle\n"
                     + "Min corner: (10.5, 3.0), Width: 7.5, Height: 6.0, Color: (70, 250, 18)\n"
                     + "Appears at t=8\n"
                     + "Disappears at t=21\n"
                     + "\n"
                     + "Name: Ian McKellen\n"
-                    + "Type: Oval\n"
+                    + "Type: cs5004.animator.model.Oval\n"
                     + "Center: (6.0, 3.0), X radius: 7.0, Y radius: 3.0, Color: (4, 178, 100)\n"
                     + "Appears at t=0\n"
                     + "Disappears at t=15\n"
@@ -172,19 +175,19 @@ public class AnimatorModelImplTest {
     testModel.changeColor("Idris Elba", 70, 250, 18, 100, 200, 50, 9, 10);
     assertEquals("Shapes:\n"
                     + "Name: Rebel Wilson\n"
-                    + "Type: Triangle\n"
+                    + "Type: cs5004.animator.model.Triangle\n"
                     + "Min corner: (5.0, 10.0), Width: 10.0, Height: 10.0, Color: (109, 69, 4)\n"
                     + "Appears at t=1\n"
                     + "Disappears at t=27\n"
                     + "\n"
                     + "Name: Idris Elba\n"
-                    + "Type: Rectangle\n"
+                    + "Type: cs5004.animator.model.Rectangle\n"
                     + "Min corner: (10.5, 3.0), Width: 7.5, Height: 6.0, Color: (70, 250, 18)\n"
                     + "Appears at t=8\n"
                     + "Disappears at t=21\n"
                     + "\n"
                     + "Name: Ian McKellen\n"
-                    + "Type: Oval\n"
+                    + "Type: cs5004.animator.model.Oval\n"
                     + "Center: (6.0, 3.0), X radius: 7.0, Y radius: 3.0, Color: (4, 178, 100)\n"
                     + "Appears at t=0\n"
                     + "Disappears at t=15\n"
@@ -254,24 +257,24 @@ public class AnimatorModelImplTest {
     testModel.addShape("Ian McKellen", ShapeType.OVAL, 6, 3, 4, 178, 100, 7, 3, 0, 15);
     testModel.addShape("Rebel Wilson", ShapeType.TRIANGLE, 5, 10, 109, 69, 4, 10, 10, 1, 27);
     testModel.addShape("Idris Elba", ShapeType.RECTANGLE, 10.5, 3, 70, 250, 18, 7.5, 6, 8, 21);
-    testModel.changeScale("Ian McKellen", ShapeType.OVAL, 7, 3, 10, 6, 2, 5);
-    testModel.changeScale("Rebel Wilson", ShapeType.TRIANGLE, 10, 10, 8, 2, 2, 20);
-    testModel.changeScale("Idris Elba", ShapeType.RECTANGLE, 7.5, 6, 3, 2, 9, 12);
+    testModel.changeScale("Ian McKellen", 7, 3, 10, 6, 2, 5);
+    testModel.changeScale("Rebel Wilson", 10, 10, 8, 2, 2, 20);
+    testModel.changeScale("Idris Elba", 7.5, 6, 3, 2, 9, 12);
     assertEquals("Shapes:\n"
                     + "Name: Rebel Wilson\n"
-                    + "Type: Triangle\n"
+                    + "Type: cs5004.animator.model.Triangle\n"
                     + "Min corner: (5.0, 10.0), Width: 10.0, Height: 10.0, Color: (109, 69, 4)\n"
                     + "Appears at t=1\n"
                     + "Disappears at t=27\n"
                     + "\n"
                     + "Name: Idris Elba\n"
-                    + "Type: Rectangle\n"
+                    + "Type: cs5004.animator.model.Rectangle\n"
                     + "Min corner: (10.5, 3.0), Width: 7.5, Height: 6.0, Color: (70, 250, 18)\n"
                     + "Appears at t=8\n"
                     + "Disappears at t=21\n"
                     + "\n"
                     + "Name: Ian McKellen\n"
-                    + "Type: Oval\n"
+                    + "Type: cs5004.animator.model.Oval\n"
                     + "Center: (6.0, 3.0), X radius: 7.0, Y radius: 3.0, Color: (4, 178, 100)\n"
                     + "Appears at t=0\n"
                     + "Disappears at t=15\n"
@@ -289,7 +292,7 @@ public class AnimatorModelImplTest {
   public void testChangeScale2() {
     testModel = new AnimatorModelImpl();
     testModel.addShape("Francesca Hayward", ShapeType.OVAL, 6, 3, 4, 178, 100, 7, 3, 0, 15);
-    testModel.changeScale("Francesca Hayward", ShapeType.OVAL, 7, 3, 7, 3, 3, 6);
+    testModel.changeScale("Francesca Hayward", 7, 3, 7, 3, 3, 6);
   }
 
   // Testing the changeScale method when attempting to create a duplicate transformation.
@@ -297,8 +300,8 @@ public class AnimatorModelImplTest {
   public void testChangeScale3() {
     testModel = new AnimatorModelImpl();
     testModel.addShape("Francesca Hayward", ShapeType.OVAL, 6, 3, 4, 178, 100, 7, 3, 0, 15);
-    testModel.changeScale("Francesca Hayward", ShapeType.OVAL, 7, 3, 7, 3, 3, 6);
-    testModel.changeScale("Francesca Hayward", ShapeType.OVAL, 7, 3, 7, 3, 3, 6);
+    testModel.changeScale("Francesca Hayward", 7, 3, 7, 3, 3, 6);
+    testModel.changeScale("Francesca Hayward", 7, 3, 7, 3, 3, 6);
   }
 
   // Testing the changeScale method when entering a shape ID that does not exist in the model.
@@ -306,7 +309,7 @@ public class AnimatorModelImplTest {
   public void testChangeScale4() {
     testModel = new AnimatorModelImpl();
     testModel.addShape("Laurie Davidson", ShapeType.TRIANGLE, 6, 3, 4, 178, 100, 7, 3, 0, 15);
-    testModel.changeScale("Insert: Actor not in Cats (2019)", ShapeType.TRIANGLE, 7, 3, 7, 3, 3, 6);
+    testModel.changeScale("Insert: Actor not in Cats (2019)", 7, 3, 7, 3, 3, 6);
   }
 
   // Testing the changeScale method when entering negative start / end times.
@@ -314,7 +317,7 @@ public class AnimatorModelImplTest {
   public void testChangeScale5() {
     testModel = new AnimatorModelImpl();
     testModel.addShape("Laurie Davidson", ShapeType.TRIANGLE, 6, 3, 4, 178, 100, 7, 3, 0, 15);
-    testModel.changeScale("Laurie Davidson", ShapeType.TRIANGLE, 7, 3, 7, 4, -3, -6);
+    testModel.changeScale("Laurie Davidson", 7, 3, 7, 4, -3, -6);
   }
 
   // Testing the changeScale method when placing end time before start time.
@@ -322,7 +325,7 @@ public class AnimatorModelImplTest {
   public void testChangeScale6() {
     testModel = new AnimatorModelImpl();
     testModel.addShape("Laurie Davidson", ShapeType.TRIANGLE, 6, 3, 4, 178, 100, 7, 3, 0, 15);
-    testModel.changeScale("Laurie Davidson", ShapeType.TRIANGLE, 7, 3, 6, 4, 5, 3);
+    testModel.changeScale("Laurie Davidson", 7, 3, 6, 4, 5, 3);
   }
 
   // Testing the changeScale method when attempting to transform shape outside of its appearance /
@@ -331,7 +334,7 @@ public class AnimatorModelImplTest {
   public void testChangeScale7() {
     testModel = new AnimatorModelImpl();
     testModel.addShape("Laurie Davidson", ShapeType.TRIANGLE, 6, 3, 4, 178, 100, 7, 3, 0, 15);
-    testModel.changeScale("Laurie Davidson", ShapeType.TRIANGLE, 7, 3, 7, 4, 0, 18);
+    testModel.changeScale("Laurie Davidson", 7, 3, 7, 4, 0, 18);
   }
 
   // Testing a generic model use where multiple shapes are created and multiple transformations are
@@ -347,23 +350,23 @@ public class AnimatorModelImplTest {
     testModel.changePos("Judi Dench", 30, 20, 15, 10, 7, 14);
     testModel.changeColor("Jason Derulo", 104, 69, 4, 200, 200, 200, 2, 4);
     testModel.changeColor("Taylor Swift", 70, 250, 18, 150, 30, 67, 4, 7);
-    testModel.changeScale("Judi Dench", ShapeType.OVAL, 7, 3, 10, 15, 2, 4);
-    testModel.changeScale("Jason Derulo", ShapeType.TRIANGLE, 10, 10, 20, 10, 2, 8);
+    testModel.changeScale("Judi Dench", 7, 3, 10, 15, 2, 4);
+    testModel.changeScale("Jason Derulo", 10, 10, 20, 10, 2, 8);
     assertEquals("Shapes:\n"
             + "Name: Taylor Swift\n"
-            + "Type: Rectangle\n"
+            + "Type: cs5004.animator.model.Rectangle\n"
             + "Min corner: (10.5, 3.0), Width: 7.5, Height: 6.0, Color: (70, 250, 18)\n"
             + "Appears at t=3\n"
             + "Disappears at t=20\n"
             + "\n"
             + "Name: Judi Dench\n"
-            + "Type: Oval\n"
+            + "Type: cs5004.animator.model.Oval\n"
             + "Center: (50.0, 35.0), X radius: 7.0, Y radius: 3.0, Color: (45, 164, 100)\n"
             + "Appears at t=0\n"
             + "Disappears at t=15\n"
             + "\n"
             + "Name: Jason Derulo\n"
-            + "Type: Triangle\n"
+            + "Type: cs5004.animator.model.Triangle\n"
             + "Min corner: (5.0, 10.0), Width: 10.0, Height: 10.0, Color: (104, 69, 4)\n"
             + "Appears at t=1\n"
             + "Disappears at t=27\n\n"

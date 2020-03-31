@@ -1,11 +1,12 @@
+package cs5004.animator.model;
+
 /**
- * This class represents a rectangle and extends the AbstractShape superclass. Each rectangle
- * contains a width, height. x / y coordinates, rgb values, and a start / end time. Additionally,
- * this class contains a toString method in order to provide a string display of the object's
- * attributes.
+ * This class represents a triangle and extends the AbstractShape superclass. Each triangle contains
+ * a width, height. x / y coordinates, rgb values, and a start / end time. Additionally, this class
+ * contains a toString method in order to provide a string display of the object's attributes.
  */
 
-public class Rectangle extends AbstractShape {
+public class Triangle extends AbstractShape {
 
   /**
    * This method constructs an abstract shape object. Each shape contains an x / y coordinate, rgb
@@ -31,24 +32,23 @@ public class Rectangle extends AbstractShape {
    * @throws IllegalArgumentException if the String name is null
    */
 
-  public Rectangle(double x, double y, int r, int g, int b, double width, double height,
+  public Triangle(double x, double y, int r, int g, int b, double width, double height,
           int startTime, int endTime, String name) throws IllegalArgumentException {
     super(x, y, r, g, b, width, height, startTime, endTime, name);
   }
 
   /**
-   * This toString describes each attribute of the Rectangle IShape object -- name (unique
-   * identifier of the shape), the shape type (Rectangle), position (x, y-coordinates), Color (red,
-   * green, blue values), width, height, start/end time the object appears/disappears in the
-   * animation.
+   * This toString describes each attribute of the Triangle IShape object -- name (unique identifier
+   * of the shape), the shape type (Triangle), position (x, y-coordinates), Color (red, green, blue
+   * values), width, height, start/end time the object appears/disappears in the animation.
    *
-   * @return a string describing all the fields of an Rectangle
+   * @return a string describing all the fields of a Triangle
    */
 
   @Override
   public String toString() {
-    return String.format("Name: %s\nType: Rectangle\nMin corner: (%.1f, %.1f), Width: %.1f, "
-                    + "Height: %.1f, Color: (%d, %d, %d)\nAppears at t=%d\nDisappears at t=%d\n\n",
+    return String.format("Name: %s\nType: Triangle\nMin corner: (%.1f, %.1f), Width: %.1f, Height: "
+                    + "%.1f, Color: (%d, %d, %d)\nAppears at t=%d\nDisappears at t=%d\n\n",
             this.getName(), this.getX(), this.getY(), this.getWidth(), this.getHeight(),
             this.getR(), this.getG(), this.getB(), this.getStartTime(), this.getEndTime());
   }

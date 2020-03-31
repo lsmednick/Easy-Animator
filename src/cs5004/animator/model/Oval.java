@@ -1,3 +1,5 @@
+package cs5004.animator.model;
+
 /**
  * This class represents an oval and extends the AbstractShape superclass. Each oval contains a
  * width, height. x / y coordinates, rgb values, and a start / end time. Additionally, this class

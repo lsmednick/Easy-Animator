@@ -1,3 +1,4 @@
+package cs5004.animator.model;
 
 /**
  * Interface for the Easy Animator Application. This supports an abstract class that will define 2D
@@ -75,7 +76,6 @@ public interface AnimatorModel {
    * This method will scale the current shape.
    *
    * @param shapeID    the string ID of the shape to be scaled
-   * @param type       type of shape to be scaled
    * @param fromWidth  starting width of the shape
    * @param fromHeight starting height of the shape
    * @param toWidth    final width of the shape
@@ -90,7 +90,7 @@ public interface AnimatorModel {
    *                                  modify a shape that doesn't exist in the animation)
    */
 
-  void changeScale(String shapeID, ShapeType type, double fromWidth, double fromHeight,
+  void changeScale(String shapeID, double fromWidth, double fromHeight,
                    double toWidth, double toHeight, int startTime, int endTime)
           throws IllegalArgumentException;
 

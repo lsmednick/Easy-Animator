@@ -1,5 +1,7 @@
+package cs5004.animator.model;
+
 /**
- * This is an abstract class that implements ITransform  and the Comparable interface which will
+ * This is an abstract class that implements ITransform and the Comparable interface which will
  * allow transformations to be sorted in accordance to the start/end times within an animation. It
  * contains a constructor with parameters for a shape ID, start time and end time of a
  * transformation. This class also has getters for the previously described fields.
