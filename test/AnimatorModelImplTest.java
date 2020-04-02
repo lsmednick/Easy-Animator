@@ -381,6 +381,4 @@ public class AnimatorModelImplTest {
             + "Shape Judi Dench moves from (30.0,20.0) to (15.0,10.0) from t=7 to t=14\n",
             testModel.getState());
   }
-
 }
-

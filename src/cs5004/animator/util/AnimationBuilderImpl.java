@@ -8,8 +8,13 @@ import cs5004.animator.model.AnimatorModelImpl;
 import cs5004.animator.model.ShapeType;
 
 public class AnimationBuilderImpl implements AnimationBuilder<AnimatorModel> {
-  private AnimatorModel m = new AnimatorModelImpl();
-  private Map<String, String> map = new HashMap();
+  private AnimatorModel m;
+  private Map<String, String> map;
+
+  public AnimationBuilderImpl() {
+    this.m = new AnimatorModelImpl();
+    this.map = new HashMap();
+  }
 
   @Override
   public AnimatorModel build() {
