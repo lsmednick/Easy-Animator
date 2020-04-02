@@ -220,4 +220,36 @@ public class AnimatorModelImpl implements AnimatorModel {
     return string.toString();
   }
 
+
+  /**
+   * Getter to return a copy the current map of shapes in the animation so
+   * the original map can not be mutated.
+   * @return a map of the shapes in the animation
+   */
+   public Map<String, IShape> getShapeList(){
+
+    Map<String, IShape> copyShapeList = new HashMap<>();
+    for (String key: shapeList.keySet()) {
+      copyShapeList.put(key, shapeList.get(key));
+    }
+    return copyShapeList;
+
+  }
+
+
+  /**
+   * Getter to return a copy the current list of transformation in the animation so it
+   * the original list can not be mutated.
+   * @return a list of the transformations in the animation
+   */
+   public List<AbstractTransform>getTransformList(){
+
+     List<AbstractTransform> copyTransformList = new ArrayList<>();
+     for (AbstractTransform t: transformList){
+       copyTransformList.add(t);
+     }
+     return copyTransformList;
+   }
+
+
 }

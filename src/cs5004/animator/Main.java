@@ -1,5 +1,7 @@
 package cs5004.animator;
 
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.StringReader;
 import java.util.Scanner;
 
@@ -7,51 +9,63 @@ import java.util.Scanner;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
-import cs5004.animator.controller.IAnimationController;
-import cs3500.animator.controller.InteractiveController;
-import cs3500.animator.controller.SVGController;
-import cs3500.animator.controller.TextController;
-import cs3500.animator.controller.VisualController;
-import cs3500.animator.model.IAnimationModel;
-import cs3500.animator.model.SimpleAnimationModel;
-import cs3500.animator.model.Utils;
 import cs5004.animator.util.AnimationBuilder;
 import cs5004.animator.util.AnimationReader;
-import cs3500.animator.starter.TweenModelBuilder;
-import cs5004.animator.util.AnimationReader;
+
 import cs5004.animator.view.IView;
+import cs5004.animator.view.SVGView;
+import cs5004.animator.view.TextView;
+import cs5004.animator.view.VisualView;
+
 import cs5004.animator.model.AnimatorModel;
 import cs5004.animator.util.AnimationBuilderImpl;
 
 
 /**
- * Entry point into the program and runs the animation.
+ * This main() method will be the entry point for the program.
+ * It will take command-line arguments in the form below :
+ * -in "name-of-animation-file"
+ * -view "type-of-view"
+ * -out "where-output-show-go"
+ * -speed "integer-ticks-per-second"
  */
+
+
+
 public class Main {
 
-  public static void main(String[] args) {
+  public static void main(String[] args) throws FileNotFoundException {
 
     Readable r = new StringReader(String.join(" ", args));
     AnimatorModel model = null;
     Scanner scan = new Scanner(r);
-    String filename = "";
+    //String filename = "";
     String viewType = "";
     String output = "";
     double speed = -1;
 
-    //TODO
+
+
+    // when a string is parsed inFile represents the file to be read
+    // command line arg " -in inFile.txt"
+    Readable inFile = null;
+
+
+      //TODO
     IView view = null;
     // IAnimationController controller = null;
 
     // TODO -- Rename 'in'
     while (scan.hasNext()) {
-      String in = scan.next();
+      String input = scan.next();
 
       //TODO -- change var 'filename', viewType
-      switch (in) {
+      switch (input) {
         case "-in" : // "name-of-animation-file"
-          if (filename.equals("") && scan.hasNext()) {
-          filename = scan.next();
+          //if (filename.equals("") && scan.hasNext()) {
+            //filename = scan.next();
+          if (scan.hasNext()) {
+            inFile = new FileReader(scan.next());
           }
           break;
         case "-view" : // "type-of-view"
@@ -78,27 +92,60 @@ public class Main {
       }
     }
 
+    //If 'speed' is not indicated by the command-line argument-- then it will default tto
+    // speed = 1 tick / per second
     if (speed == -1) {
       speed = 1;
     }
+
+    // if 'out' is not indicated by the command-line argument -- then it default to 'System.out'
     if (output.equals("") || output.equals("out")) {
       output = "System.out";
     }
 
+
+
     AnimationReader fileReader = new AnimationReader();
-    AnimationBuilder<AnimatorModel> simpleBuilder =
+    AnimationBuilder<AnimatorModel> builder =
             new AnimationBuilderImpl();
 
 
     try {
-      model = fileReader.parseFile(filename, simpleBuilder);
+      model = fileReader.parseFile(inFile, builder);
     } catch (Exception e) {
       //System.out.println(e.getMessage());
       JFrame frame = new JFrame();
       frame.setSize(100, 100);
       frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
       JOptionPane.showMessageDialog(frame,
-              "Invalid file", "Error", JOptionPane.ERROR_MESSAGE);
+              "File is Invalid ", "Encountered Error ", JOptionPane.ERROR_MESSAGE);
+    }
+
+
+    //TODO UPDATE:
+// 1. ConcreteClass File names to match what LM and GOC named them
+// 2. UPDATE what each view class takes in as parameters  -- update order if necessary
+
+    try {
+      if (viewType.equalsIgnoreCase("svg")) {
+        view =  new SVGView(speed, model.getShapeList(), model.getTransformList());
+      }
+      else if (viewType.equalsIgnoreCase("text")) {
+        view =  new TextView(speed, model.getShapeList(), model.getTransformList());
+      }
+      else if (viewType.equalsIgnoreCase("visual")) {
+        view =  new VisualView(speed, model.getShapeList(), model.getTransformList());
+      }
+      else {
+        throw new IllegalArgumentException("Invalid view instantiation");
+      }
+    } catch (Exception e) {
+      //System.out.println("first erroro " + e.getMessage());
+      JFrame frame = new JFrame();
+      frame.setSize(100, 100);
+      frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+      JOptionPane.showMessageDialog(frame, "View Type is Invalid ",
+              "Encountered Error ", JOptionPane.ERROR_MESSAGE);
     }
 
 

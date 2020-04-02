@@ -1,5 +1,8 @@
 package cs5004.animator.model;
 
+import java.util.List;
+import java.util.Map;
+
 /**
  * Interface for the Easy Animator Application. This supports an abstract class that will define 2D
  * shapes that are used for animation.
@@ -101,5 +104,20 @@ public interface AnimatorModel {
    */
 
   String getState();
+
+
+  /**
+   * Getter to return a the current map of shapes in the animation.
+   * @return a map of the shapes in the animation
+   */
+   Map<String, IShape> getShapeList();
+
+  /**
+   * Getter to return a the current list of transformation in the animation.
+   * @return a list of the transformations in the animation
+   */
+   List<AbstractTransform> getTransformList();
+
+
 
 }
