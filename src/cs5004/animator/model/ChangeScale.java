@@ -105,4 +105,8 @@ public class ChangeScale extends AbstractTransform {
     return this.toHeight;
   }
 
+  @Override
+  public TransformType getTransformType() {
+    return TransformType.SCALE;
+  }
 }

@@ -127,4 +127,8 @@ public class ChangeColor extends AbstractTransform {
     return this.toB;
   }
 
+  @Override
+  public TransformType getTransformType() {
+    return TransformType.COLOR;
+  }
 }
