@@ -16,6 +16,17 @@ import java.util.Map;
 public class AnimatorModelImpl implements AnimatorModel {
   private Map<String, IShape> shapeList = new HashMap<>();
   private List<AbstractTransform> transformList = new ArrayList<>();
+  private int topLeftX;
+  private int topLeftY;
+  private int canvasWidth;
+  private int canvasHeight;
+
+  public AnimatorModelImpl(int topLeftX, int topLeftY, int canvasWidth, int canvasHeight) {
+    this.topLeftX = topLeftX;
+    this.topLeftY = topLeftY;
+    this.canvasWidth = canvasWidth;
+    this.canvasHeight = canvasHeight;
+  }
 
   /**
    * Method to add shape to the current animation.
@@ -36,8 +47,8 @@ public class AnimatorModelImpl implements AnimatorModel {
    */
 
   @Override
-  public void addShape(String name, ShapeType shapeType, double x, double y, int r, int g, int b,
-          double width, double height, int startTime, int endTime)
+  public void addShape(String name, ShapeType shapeType, int x, int y, int r, int g, int b,
+          int width, int height, int startTime, int endTime)
           throws IllegalArgumentException {
 
     IShape newShape;
@@ -104,7 +115,7 @@ public class AnimatorModelImpl implements AnimatorModel {
    */
 
   @Override
-  public void changePos(String shapeID, double fromX, double fromY, double toX, double toY,
+  public void changePos(String shapeID, int fromX, int fromY, int toX, int toY,
                         int startTime, int endTime) throws IllegalArgumentException {
     if (fromX == toX && fromY == toY) {
       throw new IllegalArgumentException("Cannot move to the same position.");
@@ -178,8 +189,8 @@ public class AnimatorModelImpl implements AnimatorModel {
    */
 
   @Override
-  public void changeScale(String shapeID, double fromWidth, double fromHeight,
-                          double toWidth, double toHeight, int startTime, int endTime)
+  public void changeScale(String shapeID, int fromWidth, int fromHeight,
+                          int toWidth, int toHeight, int startTime, int endTime)
           throws IllegalArgumentException {
     if (fromWidth == toWidth && fromHeight == toHeight) {
       throw new IllegalArgumentException("Either height or weight must be different.");
@@ -220,13 +231,102 @@ public class AnimatorModelImpl implements AnimatorModel {
     return string.toString();
   }
 
+  /**
+   * Method to return an updated HashMap based on the transformations being applied to the shapes
+   * in the animation. This method loops through each transformation in the list and applies the
+   * "tweening" formula based on the supplied tick number in order to create a smooth animation
+   * in collaboration with the view.
+   *
+   * @param tick the time at which to determine the shape's updated attributes
+   * @return updated HashMap containing new instances of each shape in the animation
+   */
+
+  @Override
+  public Map<String, IShape> getShapesAtTick(int tick) {
+    Map<String, IShape> updatedMap = new HashMap<>();
+
+    for (ITransform transform : transformList) {
+      IShape s = shapeList.get(transform.getShapeID());
+      int start = transform.getStartTime();
+      int end = transform.getEndTime();
+
+      if (start == end || tick > end) {
+        continue;
+      }
+      if (tick <= start) {
+        break;
+      }
+
+      if (transform instanceof ChangePos) {
+        int fromX = ((ChangePos) transform).getFromX();
+        int fromY = ((ChangePos) transform).getFromY();
+        int toX = ((ChangePos) transform).getToX();
+        int toY = ((ChangePos) transform).getToY();
+
+        int newX = (fromX * ((end - tick) / (end - start)))
+                + (toX * ((tick - start) / (end - start)));
+        int newY = (fromY * ((end - tick) / (end - start)))
+                + (toY * ((tick - start) / (end - start)));
+
+        if (s instanceof Oval) {
+          updatedMap.put(s.getName(), new Oval(newX, newY, s.getR(), s.getG(), s.getB(),
+                  s.getWidth(), s.getHeight(), s.getStartTime(), s.getEndTime(), s.getName()));
+        } else if (s instanceof Rectangle) {
+          updatedMap.put(s.getName(), new Rectangle(newX, newY, s.getR(), s.getG(), s.getB(),
+                  s.getWidth(), s.getHeight(), s.getStartTime(), s.getEndTime(), s.getName()));
+        }
+      } else if (transform instanceof ChangeColor) {
+        int fromR = ((ChangeColor) transform).getFromR();
+        int fromG = ((ChangeColor) transform).getFromG();
+        int fromB = ((ChangeColor) transform).getFromB();
+        int toR = ((ChangeColor) transform).getToR();
+        int toG = ((ChangeColor) transform).getToG();
+        int toB = ((ChangeColor) transform).getToB();
+
+        int newR = (fromR * ((end - tick) / (end - start)))
+                + (toR * ((tick - start) / (end - start)));
+        int newG = (fromG * ((end - tick) / (end - start)))
+                + (toG * ((tick - start) / (end - start)));
+        int newB = (fromB * ((end - tick) / (end - start)))
+                + (toB * ((tick - start) / (end - start)));
+
+        if (s instanceof Oval) {
+          updatedMap.put(s.getName(), new Oval(s.getX(), s.getY(), newR, newG, newB, s.getWidth(),
+                  s.getHeight(), s.getStartTime(), s.getEndTime(), s.getName()));
+        } else if (s instanceof Rectangle) {
+          updatedMap.put(s.getName(), new Rectangle(s.getX(), s.getY(), newR, newG, newB,
+                  s.getWidth(), s.getHeight(), s.getStartTime(), s.getEndTime(), s.getName()));
+        }
+      } else if (transform instanceof ChangeScale) {
+        int fromW = ((ChangeScale) transform).getFromWidth();
+        int fromH = ((ChangeScale) transform).getFromHeight();
+        int toW = ((ChangeScale) transform).getToWidth();
+        int toH = ((ChangeScale) transform).getToHeight();
+
+        int newW = (fromW * ((end - tick) / (end - start)))
+                + (toW * ((tick - start) / (end - start)));
+        int newH = (fromH * ((end - tick) / (end - start)))
+                + (toH * ((tick - start) / (end - start)));
+
+        if (s instanceof Oval) {
+          updatedMap.put(s.getName(), new Oval(s.getX(), s.getY(), s.getR(), s.getG(), s.getB(),
+                  newW, newH, s.getStartTime(), s.getEndTime(), s.getName()));
+        } else if (s instanceof Rectangle) {
+          updatedMap.put(s.getName(), new Rectangle(s.getX(), s.getY(), s.getR(), s.getG(),
+                  s.getB(), newW, newH, s.getStartTime(), s.getEndTime(), s.getName()));
+        }
+      }
+    }
+    return updatedMap;
+  }
 
   /**
    * Getter to return a copy the current map of shapes in the animation so
    * the original map can not be mutated.
    * @return a map of the shapes in the animation
    */
-   public Map<String, IShape> getShapeList(){
+
+   public Map<String, IShape> getShapeList() {
 
     Map<String, IShape> copyShapeList = new HashMap<>();
     for (String key: shapeList.keySet()) {
@@ -236,12 +336,12 @@ public class AnimatorModelImpl implements AnimatorModel {
 
   }
 
-
   /**
    * Getter to return a copy the current list of transformation in the animation so it
    * the original list can not be mutated.
    * @return a list of the transformations in the animation
    */
+
    public List<AbstractTransform>getTransformList(){
 
      List<AbstractTransform> copyTransformList = new ArrayList<>();
@@ -250,6 +350,50 @@ public class AnimatorModelImpl implements AnimatorModel {
      }
      return copyTransformList;
    }
+
+  /**
+   * Method to return the top left X coordinate.
+   *
+   * @return top left X coordinate
+   */
+
+  @Override
+  public int getTopLeftX() {
+    return this.topLeftX;
+  }
+
+  /**
+   * Method to return the top left Y coordinate.
+   *
+   * @return top left Y coordinate
+   */
+
+  public int getTopLeftY() {
+    return this.topLeftY;
+  }
+
+  /**
+   * Method to return the canvas width.
+   *
+   * @return canvas width
+   */
+
+  public int getCanvasWidth() {
+     return this.canvasWidth;
+   }
+
+  /**
+   * Method to return the canvas height.
+   *
+   * @return canvas width
+   */
+
+  public int getCanvasHeight() {
+    return this.canvasHeight;
+  }
+
+
+
 
 
 }

@@ -10,11 +10,11 @@ import java.awt.Color;
  */
 
 public abstract class AbstractShape implements IShape {
-  private double x;
-  private double y;
+  private int x;
+  private int y;
   private Color color;
-  private double width;
-  private double height;
+  private int width;
+  private int height;
   private int startTime;
   private int endTime;
   private String name;
@@ -43,7 +43,7 @@ public abstract class AbstractShape implements IShape {
    * @throws IllegalArgumentException if the String name is null
    */
 
-  public AbstractShape(double x, double y, int r, int g, int b, double width, double height,
+  public AbstractShape(int x, int y, int r, int g, int b, int width, int height,
                        int startTime, int endTime, String name) throws IllegalArgumentException {
     if (x < 0 || y < 0) {
       throw new IllegalArgumentException("x and y-coordinates can't be negative");
@@ -72,7 +72,7 @@ public abstract class AbstractShape implements IShape {
    */
 
   @Override
-  public double getX() {
+  public int getX() {
     return this.x;
   }
 
@@ -83,7 +83,7 @@ public abstract class AbstractShape implements IShape {
    */
 
   @Override
-  public double getY() {
+  public int getY() {
     return this.y;
   }
 
@@ -127,7 +127,7 @@ public abstract class AbstractShape implements IShape {
    */
 
   @Override
-  public double getWidth() {
+  public int getWidth() {
     return this.width;
   }
 
@@ -138,7 +138,7 @@ public abstract class AbstractShape implements IShape {
    */
 
   @Override
-  public double getHeight() {
+  public int getHeight() {
     return this.height;
   }
 

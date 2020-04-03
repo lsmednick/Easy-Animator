@@ -28,8 +28,8 @@ public interface AnimatorModel {
    * @throws IllegalArgumentException if endTime occurs before startTime
    */
 
-  void addShape(String name, ShapeType shapeType, double x, double y, int r, int g, int b,
-          double width, double height, int startTime, int endTime)
+  void addShape(String name, ShapeType shapeType, int x, int y, int r, int g, int b,
+          int width, int height, int startTime, int endTime)
           throws IllegalArgumentException;
 
   /**
@@ -49,7 +49,7 @@ public interface AnimatorModel {
    *                                  modify a shape that doesn't exist in the animation)
    */
 
-  void changePos(String shapeID, double fromX, double fromY, double toX, double toY, int startTime,
+  void changePos(String shapeID, int fromX, int fromY, int toX, int toY, int startTime,
                  int endTime) throws IllegalArgumentException;
 
   /**
@@ -93,8 +93,8 @@ public interface AnimatorModel {
    *                                  modify a shape that doesn't exist in the animation)
    */
 
-  void changeScale(String shapeID, double fromWidth, double fromHeight,
-                   double toWidth, double toHeight, int startTime, int endTime)
+  void changeScale(String shapeID, int fromWidth, int fromHeight,
+                   int toWidth, int toHeight, int startTime, int endTime)
           throws IllegalArgumentException;
 
   /**
@@ -104,6 +104,15 @@ public interface AnimatorModel {
    */
 
   String getState();
+
+  /**
+   * Method to return an updated shapes map for each "tick" in an animation.
+   *
+   * @param tick the time at which to determine the shape's updated attributes
+   * @return updated shape map with these new attributes
+   */
+
+  Map<String, IShape> getShapesAtTick(int tick);
 
 
   /**
@@ -118,6 +127,36 @@ public interface AnimatorModel {
    */
    List<AbstractTransform> getTransformList();
 
+  /**
+   * Method to return the top left X coordinate.
+   *
+   * @return top left X coordinate
+   */
 
+   int getTopLeftX();
+
+  /**
+   * Method to return the top left Y coordinate.
+   *
+   * @return top left Y coordinate
+   */
+
+   int getTopLeftY();
+
+  /**
+   * Method to return the canvas width.
+   *
+   * @return canvas width
+   */
+
+   int getCanvasWidth();
+
+  /**
+   * Method to return the canvas height.
+   *
+   * @return canvas width
+   */
+
+   int getCanvasHeight();
 
 }

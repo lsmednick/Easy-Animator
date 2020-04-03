@@ -14,7 +14,7 @@ public interface IShape {
    * @return x coordinate of a shape.
    */
 
-  double getX();
+  int getX();
 
   /**
    * Method to return the y coordinate of a given shape.
@@ -22,7 +22,7 @@ public interface IShape {
    * @return y coordinate of a shape.
    */
 
-  double getY();
+  int getY();
 
   /**
    * Method to return the red intensity of a shape's color.
@@ -54,7 +54,7 @@ public interface IShape {
    * @return width of a shape
    */
 
-  double getWidth();
+  int getWidth();
 
   /**
    * Method to return the height of a given shape.
@@ -62,7 +62,7 @@ public interface IShape {
    * @return height of a shape
    */
 
-  double getHeight();
+  int getHeight();
 
   /**
    * Method to return the starting time of a given shape.

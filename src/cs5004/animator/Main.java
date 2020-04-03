@@ -111,7 +111,7 @@ public class Main {
 
 
     try {
-      model = fileReader.parseFile(inFile, builder);
+      model = AnimationReader.parseFile(inFile, builder);
     } catch (Exception e) {
       //System.out.println(e.getMessage());
       JFrame frame = new JFrame();
@@ -134,7 +134,7 @@ public class Main {
         view =  new TextView(speed, model.getShapeList(), model.getTransformList());
       }
       else if (viewType.equalsIgnoreCase("visual")) {
-        view =  new VisualView(speed, model.getShapeList(), model.getTransformList());
+        view =  new VisualView(speed, model);
       }
       else {
         throw new IllegalArgumentException("Invalid view instantiation");

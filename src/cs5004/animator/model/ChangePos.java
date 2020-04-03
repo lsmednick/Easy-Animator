@@ -10,10 +10,10 @@ package cs5004.animator.model;
  */
 
 public class ChangePos extends AbstractTransform {
-  private double fromX;
-  private double fromY;
-  private double toX;
-  private double toY;
+  private int fromX;
+  private int fromY;
+  private int toX;
+  private int toY;
 
   /**
    * This is a constructor for a ChangePos object which calls the super class, AbstractTransform, to
@@ -39,7 +39,7 @@ public class ChangePos extends AbstractTransform {
    *                                  instruction)
    */
 
-  public ChangePos(IShape shape, double fromX, double fromY, double toX, double toY, int startTime,
+  public ChangePos(IShape shape, int fromX, int fromY, int toX, int toY, int startTime,
                    int endTime) throws IllegalArgumentException {
     super(shape.getName(), startTime, endTime);
     if (startTime < shape.getStartTime() || endTime > shape.getEndTime()) {
@@ -65,9 +65,49 @@ public class ChangePos extends AbstractTransform {
 
   @Override
   public String toString() {
-    return String.format("Shape %s moves from (%.1f,%.1f) to (%.1f,%.1f) from t=%d to t=%d\n",
+    return String.format("Shape %s moves from (%d,%d) to (%d,%d) from t=%d to t=%d\n",
             this.getShapeID(), this.fromX, this.fromY, this.toX, this.toY, this.getStartTime(),
             this.getEndTime());
+  }
+
+  /**
+   * Method to return fromX.
+   *
+   * @return fromX value
+   */
+
+  public int getFromX() {
+    return this.fromX;
+  }
+
+  /**
+   * Method to return fromY.
+   *
+   * @return fromY value
+   */
+
+  public int getFromY() {
+    return this.fromY;
+  }
+
+  /**
+   * Method to return toX.
+   *
+   * @return toX value
+   */
+
+  public int getToX() {
+    return this.toX;
+  }
+
+  /**
+   * Method to return toY.
+   *
+   * @return toY value
+   */
+
+  public int getToY() {
+    return this.toY;
   }
 
 }

@@ -32,7 +32,7 @@ public class Oval extends AbstractShape {
    * @throws IllegalArgumentException if the String name is null
    */
 
-  public Oval(double x, double y, int r, int g, int b, double width, double height, int startTime,
+  public Oval(int x, int y, int r, int g, int b, int width, int height, int startTime,
           int endTime, String name) throws IllegalArgumentException {
     super(x, y, r, g, b, width, height, startTime, endTime, name);
   }
@@ -47,8 +47,8 @@ public class Oval extends AbstractShape {
 
   @Override
   public String toString() {
-    return String.format("Name: %s\nType: Oval\nCenter: (%.1f, %.1f), X radius: %.1f, "
-                    + "Y radius: %.1f, Color: (%d, %d, %d)\nAppears at t=%d\n"
+    return String.format("Name: %s\nType: Oval\nCenter: (%d, %d), X radius: %d, "
+                    + "Y radius: %d, Color: (%d, %d, %d)\nAppears at t=%d\n"
                     + "Disappears at t=%d\n\n",
             this.getName(), this.getX(), this.getY(), this.getWidth(), this.getHeight(),
             this.getR(), this.getG(), this.getB(), this.getStartTime(), this.getEndTime());
