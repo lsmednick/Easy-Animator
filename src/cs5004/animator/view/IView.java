@@ -33,7 +33,7 @@ public interface IView {
    * Updates the view at each frame of the animation.
    */
 
-  void refresh();
+  void refreshAnimation();
 
 
 

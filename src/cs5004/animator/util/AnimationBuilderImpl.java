@@ -8,6 +8,10 @@ import cs5004.animator.model.AnimatorModelImpl;
 import cs5004.animator.model.ShapeType;
 
 public class AnimationBuilderImpl implements AnimationBuilder<AnimatorModel> {
+  private int x;
+  private int y;
+  private int width;
+  private int height;
   private AnimatorModel m;
   private Map<String, String> map;
 
@@ -23,13 +27,17 @@ public class AnimationBuilderImpl implements AnimationBuilder<AnimatorModel> {
 
   @Override
   public AnimationBuilder<AnimatorModel> setBounds(int x, int y, int width, int height) {
-    return null;
+    this.x = x;
+    this.y = y;
+    this.width = width;
+    this.height = height;
+    return this;
   }
 
   @Override
   public AnimationBuilder<AnimatorModel> declareShape(String name, String type) {
     map.put(name, type);
-    return null;
+    return this;
   }
 
   @Override
@@ -43,9 +51,6 @@ public class AnimationBuilderImpl implements AnimationBuilder<AnimatorModel> {
           break;
         case "RECTANGLE":
           m.addShape(name, ShapeType.RECTANGLE, x1, y1, r1, g1, b1, w1, h1, t1, t2);
-          break;
-        case "TRIANGLE":
-          m.addShape(name, ShapeType.TRIANGLE, x1, y1, r1, g1, b1, w1, h1, t1, t2);
           break;
       }
     }

@@ -10,10 +10,10 @@ package cs5004.animator.model;
  */
 
 public class ChangeScale extends AbstractTransform {
-  private double fromWidth;
-  private double fromHeight;
-  private double toWidth;
-  private double toHeight;
+  private int fromWidth;
+  private int fromHeight;
+  private int toWidth;
+  private int toHeight;
 
   /**
    * This is a method to construct a ChangeScale object. It calls the super class, AbstractTransform
@@ -35,8 +35,8 @@ public class ChangeScale extends AbstractTransform {
    *                                  animation
    * @throws IllegalArgumentException if width/height is negative
    */
-  public ChangeScale(IShape shape, double fromWidth, double fromHeight, double toWidth,
-                     double toHeight, int startTime, int endTime) throws IllegalArgumentException {
+  public ChangeScale(IShape shape, int fromWidth, int fromHeight, int toWidth,
+                     int toHeight, int startTime, int endTime) throws IllegalArgumentException {
     super(shape.getName(), startTime, endTime);
     if (startTime < shape.getStartTime() || endTime > shape.getEndTime()) {
       throw new IllegalArgumentException("Transformation cannot occur before appearance of shape"
@@ -60,9 +60,49 @@ public class ChangeScale extends AbstractTransform {
 
   @Override
   public String toString() {
-    return String.format("Shape %s scales from Width: %.1f, Height: %.1f to Width: %.1f, Height: "
-                    + "%.1f from t=%d to t=%d\n", this.getShapeID(), this.fromWidth,
+    return String.format("Shape %s scales from Width: %d, Height: %d to Width: %d, Height: "
+                    + "%d from t=%d to t=%d\n", this.getShapeID(), this.fromWidth,
             this.fromHeight, this.toWidth, this.toHeight, this.getStartTime(), this.getEndTime());
+  }
+
+  /**
+   * Method to return fromWidth value.
+   *
+   * @return fromWidth value
+   */
+
+  public int getFromWidth() {
+    return this.fromWidth;
+  }
+
+  /**
+   * Method to return fromHeight value.
+   *
+   * @return fromHeight value
+   */
+
+  public int getFromHeight() {
+    return this.fromHeight;
+  }
+
+  /**
+   * Method to return toWidth value.
+   *
+   * @return toWidth value
+   */
+
+  public int getToWidth() {
+    return this.toWidth;
+  }
+
+  /**
+   * Method to return toHeight value.
+   *
+   * @return toHeight value
+   */
+
+  public int getToHeight() {
+    return this.toHeight;
   }
 
 }

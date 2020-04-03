@@ -67,4 +67,64 @@ public class ChangeColor extends AbstractTransform {
             this.getStartTime(), this.getEndTime());
   }
 
+  /**
+   * Method to return fromR.
+   *
+   * @return fromR value
+   */
+
+  public int getFromR() {
+    return this.fromR;
+  }
+
+  /**
+   * Method to return fromG.
+   *
+   * @return fromG value
+   */
+
+  public int getFromG() {
+    return this.fromG;
+  }
+
+  /**
+   * Method to return fromB.
+   *
+   * @return fromB value
+   */
+
+  public int getFromB() {
+    return this.fromB;
+  }
+
+  /**
+   * Method to return toR.
+   *
+   * @return toR value
+   */
+
+  public int getToR() {
+    return this.toR;
+  }
+
+  /**
+   * Method to return toG.
+   *
+   * @return toG value
+   */
+
+  public int getToG() {
+    return this.toG;
+  }
+
+  /**
+   * Method to return toB.
+   *
+   * @return toB value
+   */
+
+  public int getToB() {
+    return this.toB;
+  }
+
 }
