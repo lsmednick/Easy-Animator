@@ -131,11 +131,13 @@ public class Main {
       } else if (viewType.equalsIgnoreCase("visual")) {
         assert model != null;
         view = new VisualView(speed, model);
+        view.makeVisible();
+        view.refreshAnimation();
       } else {
         throw new IllegalArgumentException("Invalid view instantiation");
       }
     } catch (Exception e) {
-      //System.out.println("first erroro " + e.getMessage());
+      System.out.println("first error: " + e.getMessage());
       JFrame frame = new JFrame();
       frame.setSize(100, 100);
       frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

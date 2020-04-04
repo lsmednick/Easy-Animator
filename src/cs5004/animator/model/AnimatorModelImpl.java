@@ -229,7 +229,8 @@ public class AnimatorModelImpl implements AnimatorModel {
   @Override
   public Map<String, IShape> getShapesAtTick(int tick) {
     Map<String, IShape> updatedMap = new HashMap<>();
-
+    System.out.print(String.format("TICK: %d", tick));
+    //Collections.sort(transformList);
     for (ITransform transform : transformList) {
       IShape s = shapeList.get(transform.getShapeID());
       int start = transform.getStartTime();
@@ -238,7 +239,7 @@ public class AnimatorModelImpl implements AnimatorModel {
       if (start == end || tick > end) {
         continue;
       }
-      if (tick <= start) {
+      if (tick <= start && start != 1) {
         break;
       }
 
@@ -248,10 +249,10 @@ public class AnimatorModelImpl implements AnimatorModel {
         int toX = ((ChangePos) transform).getToX();
         int toY = ((ChangePos) transform).getToY();
 
-        int newX = (fromX * ((end - tick) / (end - start)))
-                + (toX * ((tick - start) / (end - start)));
-        int newY = (fromY * ((end - tick) / (end - start)))
-                + (toY * ((tick - start) / (end - start)));
+        int newX = (fromX * (end - tick) / (end - start))
+                + (toX * (tick - start) / (end - start));
+        int newY = (fromY * (end - tick) / (end - start))
+                + (toY * (tick - start) / (end - start));
 
         if (s instanceof Oval) {
           updatedMap.put(s.getName(), new Oval(newX, newY, s.getR(), s.getG(), s.getB(),
@@ -268,12 +269,12 @@ public class AnimatorModelImpl implements AnimatorModel {
         int toG = ((ChangeColor) transform).getToG();
         int toB = ((ChangeColor) transform).getToB();
 
-        int newR = (fromR * ((end - tick) / (end - start)))
-                + (toR * ((tick - start) / (end - start)));
-        int newG = (fromG * ((end - tick) / (end - start)))
-                + (toG * ((tick - start) / (end - start)));
-        int newB = (fromB * ((end - tick) / (end - start)))
-                + (toB * ((tick - start) / (end - start)));
+        int newR = (fromR * (end - tick) / (end - start))
+                + (toR * (tick - start) / (end - start));
+        int newG = (fromG * (end - tick) / (end - start))
+                + (toG * (tick - start) / (end - start));
+        int newB = (fromB * (end - tick) / (end - start))
+                + (toB * (tick - start) / (end - start));
 
         if (s instanceof Oval) {
           updatedMap.put(s.getName(), new Oval(s.getX(), s.getY(), newR, newG, newB, s.getWidth(),
@@ -288,10 +289,10 @@ public class AnimatorModelImpl implements AnimatorModel {
         int toW = ((ChangeScale) transform).getToWidth();
         int toH = ((ChangeScale) transform).getToHeight();
 
-        int newW = (fromW * ((end - tick) / (end - start)))
-                + (toW * ((tick - start) / (end - start)));
-        int newH = (fromH * ((end - tick) / (end - start)))
-                + (toH * ((tick - start) / (end - start)));
+        int newW = (fromW * (end - tick) / (end - start))
+                + (toW * (tick - start) / (end - start));
+        int newH = (fromH * (end - tick) / (end - start))
+                + (toH * (tick - start) / (end - start));
 
         if (s instanceof Oval) {
           updatedMap.put(s.getName(), new Oval(s.getX(), s.getY(), s.getR(), s.getG(), s.getB(),

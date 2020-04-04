@@ -43,7 +43,8 @@ public class AnimationPanel extends JPanel {
 
   public void refresh(int tick) {
     shapeMap = model.getShapesAtTick(tick);
-    repaint();
+    System.out.print(shapeMap);
+    this.repaint();
   }
 
 }

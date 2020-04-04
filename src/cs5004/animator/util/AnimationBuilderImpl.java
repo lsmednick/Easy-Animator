@@ -43,7 +43,7 @@ public class AnimationBuilderImpl implements AnimationBuilder<AnimatorModel> {
                                                    int y2, int w2, int h2, int r2, int g2, int b2) {
     if (!list.contains(name)){
       switch (map.get(name).toUpperCase()) {
-        case "OVAL":
+        case "ELLIPSE":
           m.addShape(name, ShapeType.OVAL, x1, y1, r1, g1, b1, w1, h1);
           list.add(name);
           break;
