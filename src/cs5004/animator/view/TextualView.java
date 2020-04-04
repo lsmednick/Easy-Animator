@@ -42,21 +42,22 @@ public class TextualView implements IView{
     }
 
     System.out.print(string.toString());
-    return string.toString();
+    return string.toString().trim();
   }
 
   @Override
   public void output(String outputFile) {
     System.out.println("Printing text view in the file " + outputFile + "\n");
-    BufferedWriter output;
 
     try {
+      BufferedWriter output;
       if (outputFile.equals("System.out")) {
         output = new BufferedWriter(new OutputStreamWriter(System.out));
       } else {
         File outFile = new File(outputFile);
         output = new BufferedWriter(new FileWriter(outFile));
       }
+      output.write(this.getState());
       output.close();
     } catch (IOException iea) {
       System.out.println("Could not find file" + outputFile);
