@@ -1,7 +1,9 @@
 package cs5004.animator.view;
 
-import cs5004.animator.model.AbstractTransform;
+import java.util.Collections;
+
 import cs5004.animator.model.AnimatorModelImpl;
+import cs5004.animator.model.ITransform;
 
 public class TextualView {
   private AnimatorModelImpl animation;
@@ -10,20 +12,32 @@ public class TextualView {
     this.animation = animation;
   }
 
+  // TODO: add appear and disappear time
   public String getState() throws IllegalStateException {
     if (animation.getShapeList().isEmpty()) {
       throw new IllegalStateException("There are no shapes in the animation\n");
     }
 
     StringBuilder string = new StringBuilder();
+    for (String key : animation.getShapeList().keySet()) {
+      string.append(animation.getShapeList().get(key).toString());
+    }
 
+    Collections.sort(animation.getTransformList());
+    for (ITransform t : animation.getTransformList()) {
+      string.append(t.toString());
+    }
+
+    return string.toString();
+  }
+}
+
+    /*
     for (String key : animation.getShapeList().keySet()) {
       string.append("Create ");
 
-      // TODO: transform rgb integers into a string (e.g. "blue", "red", "black")
       switch (animation.getShapeList().get(key).getType()) {
         case RECTANGLE:
-          // TODO: add color info here
           string.append("rectangle ").append(animation.getShapeList().get(key).getName());
           string.append(" with corner at (").append(animation.getShapeList().get(key).getX());
           string.append(",").append(animation.getShapeList().get(key).getY()).append(") width ");
@@ -31,7 +45,6 @@ public class TextualView {
           string.append(animation.getShapeList().get(key).getHeight()).append("\n");
           break;
         case OVAL:
-          // TODO: add color info here
           string.append("oval ").append(animation.getShapeList().get(key).getName());
           string.append(" with center at (").append(animation.getShapeList().get(key).getX());
           string.append(",").append(animation.getShapeList().get(key).getY()).append(") radius ");
@@ -42,61 +55,55 @@ public class TextualView {
       string.append("\n");
     }
 
-    // TODO: after figuring out the dis/appear times, add info here
-
-    // TODO: figure how to iterate through the list of getTransformList to retrieve info
     for (AbstractTransform t : animation.getTransformList()) {
-      switch (animation.getTransformList().get(t).getTransformType()) {
+      switch (t.getTransformType()) {
         case MOVE:
-          string.append(animation.getTransformList().get(t).getShapeID()).append(" moves from (");
-          string.append(animation.getTransformList().get(t).getFromX()).append(",");
-          string.append(animation.getTransformList().get(t).getFromY()).append(") to (");
-          string.append(animation.getTransformList().get(t).getToX()).append(",");
-          string.append(animation.getTransformList().get(t).getToY()).append(") from time t=");
-          string.append(animation.getTransformList().get(t).getStartTime()).append(" to t=");
-          string.append(animation.getTransformList().get(t).getEndTime()).append("\n");
+          string.append(t.getShapeID()).append(" moves from (");
+          string.append(t.getFromX()).append(",");
+          string.append(t.getFromY()).append(") to (");
+          string.append(t.getToX()).append(",");
+          string.append(t.getToY()).append(") from time t=");
+          string.append(t.getStartTime()).append(" to t=");
+          string.append(t.getEndTime()).append("\n");
           break;
         case COLOR:
-          string.append(animation.getTransformList().get(t).getShapeID()).append(" changes from ");
+          string.append(t.getShapeID()).append(" changes from ");
           // TODO: add from color info here
           string.append(" to ");
           // TODO: add to color info here
-          string.append(" from time t=").append(animation.getTransformList().get(t).getStartTime());
-          string.append(" to t=").append(animation.getTransformList().get(t).getEndTime())
+          string.append(" from time t=").append(t.getStartTime());
+          string.append(" to t=").append(t.getEndTime());
           string.append("\n");
           break;
         case SCALE:
-          string.append(animation.getTransformList().get(t).getShapeID()).append(" changes ");
-          if (animation.getTransformList().get(t).getFromWidth()
-                  != animation.getTransformList().get(t).getToWidth()) {
-            string.append(" width from ")
-            string.append(animation.getTransformList().get(t).getFromWidth());
-            string.append(" to ").append(animation.getTransformList().get(t).getToWidth());
-            string.append(" and length from ")
-            string.append(animation.getTransformList().get(t).getFromLength()).append(" to ");
-            string.append(animation.getTransformList().get(t).getToLength());
-            string.append(" from time t=");
-            string.append(animation.getTransformList().get(t).getStartTime()).append(" to t=");
-            string.append(animation.getTransformList().get(t).getEndTime()).append("\n");
-          } else if (animation.getTransformList().get(t).getFromWidth()
-                  != animation.getTransformList().get(t).getToWidth()) {
+          string.append(t.getShapeID()).append(" changes ");
+          if (t.getFromWidth() != t.getToWidth()) {
             string.append(" width from ");
-            string.append(animation.getTransformList().get(t).getFromWidth()).append(" to ");
-            string.append(animation.getTransformList().get(t).getToWidth()).append(" from time t=");
-            string.append(animation.getTransformList().get(t).getStartTime()).append(" to t=");
-            string.append(animation.getTransformList().get(t).getEndTime()).append("\n");
-          } else if (animation.getTransformList().get(t).getFromLength()
-                  != animation.getTransformList().get(t).getToLength()) {
-            string.append(" length from ");
-            string.append(animation.getTransformList().get(t).getFromLength()).append(" to ");
-            string.append(animation.getTransformList().get(t).getToLength());
+            string.append(t.getFromWidth());
+            string.append(" to ").append(t.getToWidth());
+            string.append(" and length from ");
+            string.append(t.getFromLength()).append(" to ");
+            string.append(t.getToLength());
             string.append(" from time t=");
-            string.append(animation.getTransformList().get(t).getStartTime()).append(" to t=");
-            string.append(animation.getTransformList().get(t).getEndTime()).append("\n");
+            string.append(t.getStartTime()).append(" to t=");
+            string.append(t.getEndTime()).append("\n");
+          } else if (t.getFromWidth() != t.getToWidth()) {
+            string.append(" width from ");
+            string.append(t.getFromWidth()).append(" to ");
+            string.append(t.getToWidth()).append(" from time t=");
+            string.append(t.getStartTime()).append(" to t=");
+            string.append(t.getEndTime()).append("\n");
+          } else if (t.getFromLength() != t.getToLength()) {
+            string.append(" length from ");
+            string.append(t.getFromLength()).append(" to ");
+            string.append(t.getToLength());
+            string.append(" from time t=");
+            string.append(t.getStartTime()).append(" to t=");
+            string.append(t.getEndTime()).append("\n");
           }
           break;
       }
     }
     return string.toString().trim();
   }
-}
+     */

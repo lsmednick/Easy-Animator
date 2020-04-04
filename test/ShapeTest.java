@@ -3,7 +3,6 @@ import org.junit.Test;
 import cs5004.animator.model.AbstractShape;
 import cs5004.animator.model.Oval;
 import cs5004.animator.model.Rectangle;
-import cs5004.animator.model.Triangle;
 
 import static org.junit.Assert.assertEquals;
 
