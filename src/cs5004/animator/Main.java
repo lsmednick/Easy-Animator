@@ -114,7 +114,8 @@ public class Main {
       frame.setSize(100, 100);
       frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
       JOptionPane.showMessageDialog(frame,
-              "File is Invalid ", "Encountered Error ", JOptionPane.ERROR_MESSAGE);
+              "An error was encounter while parsing the file",
+              "Encountered Error", JOptionPane.ERROR_MESSAGE);
     }
 
 
@@ -137,11 +138,11 @@ public class Main {
         throw new IllegalArgumentException("Invalid view instantiation");
       }
     } catch (Exception e) {
-      System.out.println("first error: " + e.getMessage());
+      System.out.println("Error" + e.getMessage());
       JFrame frame = new JFrame();
       frame.setSize(100, 100);
       frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-      JOptionPane.showMessageDialog(frame, "View Type is Invalid ",
+      JOptionPane.showMessageDialog(frame, "An Error was Encountered in View ",
               "Encountered Error ", JOptionPane.ERROR_MESSAGE);
     }
 
