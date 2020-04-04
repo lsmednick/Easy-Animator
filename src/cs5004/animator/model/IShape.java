@@ -85,6 +85,14 @@ public interface IShape {
    *
    * @return name of a shape
    */
+
   String getName();
 
+  /**
+   * Method to return the type of shape.
+   *
+   * @returns an enum describing the type of shape.
+   */
+
+  ShapeType getType();
 }

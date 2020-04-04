@@ -34,4 +34,12 @@ public interface ITransform {
 
   int getEndTime();
 
+  /**
+   * Method to return the type of motion.
+   *
+   * @returns an enum describing the type of motion.
+   */
+
+  TransformType getTransformType();
+
 }

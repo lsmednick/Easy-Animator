@@ -110,4 +110,8 @@ public class ChangePos extends AbstractTransform {
     return this.toY;
   }
 
+  @Override
+  public TransformType getTransformType() {
+    return TransformType.MOVE;
+  }
 }

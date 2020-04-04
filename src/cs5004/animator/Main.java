@@ -14,7 +14,7 @@ import cs5004.animator.util.AnimationReader;
 
 import cs5004.animator.view.IView;
 import cs5004.animator.view.SVGView;
-import cs5004.animator.view.TextView;
+import cs5004.animator.view.TextualView;
 import cs5004.animator.view.VisualView;
 
 import cs5004.animator.model.AnimatorModel;
@@ -131,7 +131,7 @@ public class Main {
         view =  new SVGView(speed, model.getShapeList(), model.getTransformList());
       }
       else if (viewType.equalsIgnoreCase("text")) {
-        view =  new TextView(speed, model.getShapeList(), model.getTransformList());
+        view =  new TextualView(speed, model.getShapeList(), model.getTransformList());
       }
       else if (viewType.equalsIgnoreCase("visual")) {
         view =  new VisualView(speed, model);

@@ -55,4 +55,8 @@ public class Rectangle extends AbstractShape {
             this.getR(), this.getG(), this.getB(), this.getStartTime(), this.getEndTime());
   }
 
+  @Override
+  public ShapeType getType() {
+    return ShapeType.RECTANGLE;
+  }
 }
