@@ -20,8 +20,6 @@ public class Oval extends AbstractShape {
    * @param b         blue intensity of the shape's color
    * @param width     width of the shape
    * @param height    height of the shape
-   * @param startTime starting time of the shape
-   * @param endTime   end time of the shape
    * @param name      name of the shape
    * @throws IllegalArgumentException if width or height is below 0
    * @throws IllegalArgumentException if rgb values are not between 0-255 inclusive
@@ -32,9 +30,9 @@ public class Oval extends AbstractShape {
    * @throws IllegalArgumentException if the String name is null
    */
 
-  public Oval(int x, int y, int r, int g, int b, int width, int height, int startTime,
-          int endTime, String name) throws IllegalArgumentException {
-    super(x, y, r, g, b, width, height, startTime, endTime, name);
+  public Oval(int x, int y, int r, int g, int b, int width, int height, String name)
+          throws IllegalArgumentException {
+    super(x, y, r, g, b, width, height, name);
   }
 
   /**
@@ -48,10 +46,9 @@ public class Oval extends AbstractShape {
   @Override
   public String toString() {
     return String.format("Name: %s\nType: Oval\nCenter: (%d, %d), X radius: %d, "
-                    + "Y radius: %d, Color: (%d, %d, %d)\nAppears at t=%d\n"
-                    + "Disappears at t=%d\n\n",
+                    + "Y radius: %d, Color: (%d, %d, %d)\n\n",
             this.getName(), this.getX(), this.getY(), this.getWidth(), this.getHeight(),
-            this.getR(), this.getG(), this.getB(), this.getStartTime(), this.getEndTime());
+            this.getR(), this.getG(), this.getB());
   }
 
   @Override

@@ -40,35 +40,23 @@ public class AnimatorModelImpl implements AnimatorModel {
    * @param b         blue intensity of the shape's color
    * @param width     width of the shape
    * @param height    height of the shape
-   * @param startTime starting time of the shape
-   * @param endTime   end time of the shape
    * @throws IllegalArgumentException if startTime or endTime is negative
    * @throws IllegalArgumentException if endTime occurs before startTime
    */
 
   @Override
   public void addShape(String name, ShapeType shapeType, int x, int y, int r, int g, int b,
-          int width, int height, int startTime, int endTime)
+          int width, int height)
           throws IllegalArgumentException {
 
     IShape newShape;
 
-    if (startTime < 0 || endTime < 0) {
-      throw new IllegalArgumentException("Start / end time cannot be negative.");
-    }
-    if (endTime <= startTime) {
-      throw new IllegalArgumentException("End time must be after start time.");
-    }
-
     switch (shapeType) {
       case OVAL:
-        newShape = new Oval(x, y, r, g, b, width, height, startTime, endTime, name);
-        break;
-      case TRIANGLE:
-        newShape = new Triangle(x, y, r, g, b, width, height, startTime, endTime, name);
+        newShape = new Oval(x, y, r, g, b, width, height, name);
         break;
       case RECTANGLE:
-        newShape = new Rectangle(x, y, r, g, b, width, height, startTime, endTime, name);
+        newShape = new Rectangle(x, y, r, g, b, width, height, name);
         break;
       default:
         newShape = null;
@@ -117,9 +105,6 @@ public class AnimatorModelImpl implements AnimatorModel {
   @Override
   public void changePos(String shapeID, int fromX, int fromY, int toX, int toY,
                         int startTime, int endTime) throws IllegalArgumentException {
-    if (fromX == toX && fromY == toY) {
-      throw new IllegalArgumentException("Cannot move to the same position.");
-    }
     if (duplicateHelper(shapeID, startTime, endTime)) {
       throw new IllegalArgumentException("Transformation already exists for that shape during the"
               + "specified time frame.");
@@ -270,10 +255,10 @@ public class AnimatorModelImpl implements AnimatorModel {
 
         if (s instanceof Oval) {
           updatedMap.put(s.getName(), new Oval(newX, newY, s.getR(), s.getG(), s.getB(),
-                  s.getWidth(), s.getHeight(), s.getStartTime(), s.getEndTime(), s.getName()));
+                  s.getWidth(), s.getHeight(), s.getName()));
         } else if (s instanceof Rectangle) {
           updatedMap.put(s.getName(), new Rectangle(newX, newY, s.getR(), s.getG(), s.getB(),
-                  s.getWidth(), s.getHeight(), s.getStartTime(), s.getEndTime(), s.getName()));
+                  s.getWidth(), s.getHeight(), s.getName()));
         }
       } else if (transform instanceof ChangeColor) {
         int fromR = ((ChangeColor) transform).getFromR();
@@ -292,10 +277,10 @@ public class AnimatorModelImpl implements AnimatorModel {
 
         if (s instanceof Oval) {
           updatedMap.put(s.getName(), new Oval(s.getX(), s.getY(), newR, newG, newB, s.getWidth(),
-                  s.getHeight(), s.getStartTime(), s.getEndTime(), s.getName()));
+                  s.getHeight(), s.getName()));
         } else if (s instanceof Rectangle) {
           updatedMap.put(s.getName(), new Rectangle(s.getX(), s.getY(), newR, newG, newB,
-                  s.getWidth(), s.getHeight(), s.getStartTime(), s.getEndTime(), s.getName()));
+                  s.getWidth(), s.getHeight(), s.getName()));
         }
       } else if (transform instanceof ChangeScale) {
         int fromW = ((ChangeScale) transform).getFromWidth();
@@ -310,10 +295,10 @@ public class AnimatorModelImpl implements AnimatorModel {
 
         if (s instanceof Oval) {
           updatedMap.put(s.getName(), new Oval(s.getX(), s.getY(), s.getR(), s.getG(), s.getB(),
-                  newW, newH, s.getStartTime(), s.getEndTime(), s.getName()));
+                  newW, newH, s.getName()));
         } else if (s instanceof Rectangle) {
           updatedMap.put(s.getName(), new Rectangle(s.getX(), s.getY(), s.getR(), s.getG(),
-                  s.getB(), newW, newH, s.getStartTime(), s.getEndTime(), s.getName()));
+                  s.getB(), newW, newH, s.getName()));
         }
       }
     }

@@ -2,13 +2,14 @@ package cs5004.animator.view;
 
 import java.util.Collections;
 
+import cs5004.animator.model.AnimatorModel;
 import cs5004.animator.model.AnimatorModelImpl;
 import cs5004.animator.model.ITransform;
 
-public class TextualView {
-  private AnimatorModelImpl animation;
+public class TextualView implements IView{
+  private AnimatorModel animation;
 
-  public TextualView(AnimatorModelImpl animation) {
+  public TextualView(AnimatorModel animation) {
     this.animation = animation;
   }
 
@@ -28,7 +29,28 @@ public class TextualView {
       string.append(t.toString());
     }
 
+    System.out.print(string.toString());
     return string.toString();
+  }
+
+  @Override
+  public void makeVisible() {
+
+  }
+
+  @Override
+  public void setShapePosition(double x, double y) {
+
+  }
+
+  @Override
+  public void output(String name) {
+
+  }
+
+  @Override
+  public void refreshAnimation() {
+
   }
 }
 

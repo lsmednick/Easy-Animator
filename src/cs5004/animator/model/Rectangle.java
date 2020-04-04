@@ -21,8 +21,6 @@ public class Rectangle extends AbstractShape {
    * @param b         blue intensity of the shape's color
    * @param width     width of the shape
    * @param height    height of the shape
-   * @param startTime starting time of the shape
-   * @param endTime   end time of the shape
    * @param name      name of the shape
    * @throws IllegalArgumentException if width or height is below 0
    * @throws IllegalArgumentException if rgb values are not between 0-255 inclusive
@@ -33,9 +31,9 @@ public class Rectangle extends AbstractShape {
    * @throws IllegalArgumentException if the String name is null
    */
 
-  public Rectangle(int x, int y, int r, int g, int b, int width, int height,
-          int startTime, int endTime, String name) throws IllegalArgumentException {
-    super(x, y, r, g, b, width, height, startTime, endTime, name);
+  public Rectangle(int x, int y, int r, int g, int b, int width, int height, String name)
+          throws IllegalArgumentException {
+    super(x, y, r, g, b, width, height, name);
   }
 
   /**
@@ -50,9 +48,9 @@ public class Rectangle extends AbstractShape {
   @Override
   public String toString() {
     return String.format("Name: %s\nType: Rectangle\nMin corner: (%d, %d), Width: %d, "
-                    + "Height: %d, Color: (%d, %d, %d)\nAppears at t=%d\nDisappears at t=%d\n\n",
+                    + "Height: %d, Color: (%d, %d, %d)\n\n",
             this.getName(), this.getX(), this.getY(), this.getWidth(), this.getHeight(),
-            this.getR(), this.getG(), this.getB(), this.getStartTime(), this.getEndTime());
+            this.getR(), this.getG(), this.getB());
   }
 
   @Override

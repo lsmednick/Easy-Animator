@@ -41,10 +41,6 @@ public class ChangeColor extends AbstractTransform {
   public ChangeColor(IShape shape, int fromR, int fromG, int fromB, int toR, int toG, int toB,
                      int startTime, int endTime) throws IllegalArgumentException {
     super(shape.getName(), startTime, endTime);
-    if (startTime < shape.getStartTime() || endTime > shape.getEndTime()) {
-      throw new IllegalArgumentException("Transformation cannot occur before appearance of shape"
-              + "/ after disappearance of shape.");
-    }
     this.fromR = fromR;
     this.fromG = fromG;
     this.fromB = fromB;

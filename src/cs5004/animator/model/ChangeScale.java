@@ -38,10 +38,6 @@ public class ChangeScale extends AbstractTransform {
   public ChangeScale(IShape shape, int fromWidth, int fromHeight, int toWidth,
                      int toHeight, int startTime, int endTime) throws IllegalArgumentException {
     super(shape.getName(), startTime, endTime);
-    if (startTime < shape.getStartTime() || endTime > shape.getEndTime()) {
-      throw new IllegalArgumentException("Transformation cannot occur before appearance of shape"
-              + "/ after disappearance of shape.");
-    }
     if (fromWidth < 0 || fromHeight < 0 || toWidth < 0 || toHeight < 0) {
       throw new IllegalArgumentException("Widths / heights cannot be negative.");
     }

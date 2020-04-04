@@ -64,21 +64,6 @@ public interface IShape {
 
   int getHeight();
 
-  /**
-   * Method to return the starting time of a given shape.
-   *
-   * @return starting time of a shape
-   */
-
-  int getStartTime();
-
-  /**
-   * Method to return the end time of a given shape.
-   *
-   * @return end time of a shape
-   */
-
-  int getEndTime();
 
   /**
    * Method to return the name of a given shape.

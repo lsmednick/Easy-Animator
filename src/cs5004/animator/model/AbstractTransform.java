@@ -32,7 +32,7 @@ public abstract class AbstractTransform implements ITransform, Comparable<Abstra
     if (startTime < 0 || endTime < 0) {
       throw new IllegalArgumentException("Start / end time cannot be negative.");
     }
-    if (endTime <= startTime) {
+    if (endTime < startTime) {
       throw new IllegalArgumentException("End time must come after start time.");
     }
     this.startTime = startTime;

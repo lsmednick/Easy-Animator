@@ -1,5 +1,6 @@
 package cs5004.animator;
 
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.StringReader;
@@ -22,14 +23,10 @@ import cs5004.animator.util.AnimationBuilderImpl;
 
 
 /**
- * This main() method will be the entry point for the program.
- * It will take command-line arguments in the form below :
- * -in "name-of-animation-file"
- * -view "type-of-view"
- * -out "where-output-show-go"
+ * This main() method will be the entry point for the program. It will take command-line arguments
+ * in the form below : -in "name-of-animation-file" -view "type-of-view" -out "where-output-show-go"
  * -speed "integer-ticks-per-second"
  */
-
 
 
 public class Main {
@@ -45,13 +42,12 @@ public class Main {
     double speed = -1;
 
 
-
     // when a string is parsed inFile represents the file to be read
     // command line arg " -in inFile.txt"
     Readable inFile = null;
 
 
-      //TODO
+    //TODO
     IView view = null;
     // IAnimationController controller = null;
 
@@ -61,24 +57,24 @@ public class Main {
 
       //TODO -- change var 'filename', viewType
       switch (input) {
-        case "-in" : // "name-of-animation-file"
+        case "-in": // "name-of-animation-file"
           //if (filename.equals("") && scan.hasNext()) {
-            //filename = scan.next();
+          //filename = scan.next();
           if (scan.hasNext()) {
             inFile = new FileReader(scan.next());
           }
           break;
-        case "-view" : // "type-of-view"
+        case "-view": // "type-of-view"
           if (viewType.equals("") && scan.hasNext()) {
             viewType = scan.next();
           }
           break;
-        case "-out" : // "where-output-show-go"
+        case "-out": // "where-output-show-go"
           if (output.equals("") && scan.hasNext()) {
             output = scan.next();
           }
           break;
-        case "-speed" : // "integer-ticks-per-second"
+        case "-speed": // "integer-ticks-per-second"
           if (speed == -1 && scan.hasNext()) {
             speed = Double.parseDouble(scan.next());
           }
@@ -92,6 +88,7 @@ public class Main {
       }
     }
 
+
     //If 'speed' is not indicated by the command-line argument-- then it will default tto
     // speed = 1 tick / per second
     if (speed == -1) {
@@ -104,7 +101,6 @@ public class Main {
     }
 
 
-
     AnimationReader fileReader = new AnimationReader();
     AnimationBuilder<AnimatorModel> builder =
             new AnimationBuilderImpl();
@@ -113,7 +109,7 @@ public class Main {
     try {
       model = AnimationReader.parseFile(inFile, builder);
     } catch (Exception e) {
-      //System.out.println(e.getMessage());
+      System.out.println(e.getMessage());
       JFrame frame = new JFrame();
       frame.setSize(100, 100);
       frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -128,15 +124,14 @@ public class Main {
 
     try {
       if (viewType.equalsIgnoreCase("svg")) {
-        view =  new SVGView(speed, model.getShapeList(), model.getTransformList());
-      }
-      else if (viewType.equalsIgnoreCase("text")) {
-        view =  new TextualView(speed, model.getShapeList(), model.getTransformList());
-      }
-      else if (viewType.equalsIgnoreCase("visual")) {
-        view =  new VisualView(speed, model);
-      }
-      else {
+        view = new SVGView();
+      } else if (viewType.equalsIgnoreCase("text")) {
+        TextualView view2 = new TextualView(model);
+        view2.getState();
+      } else if (viewType.equalsIgnoreCase("visual")) {
+        assert model != null;
+        view = new VisualView(speed, model);
+      } else {
         throw new IllegalArgumentException("Invalid view instantiation");
       }
     } catch (Exception e) {
@@ -149,16 +144,8 @@ public class Main {
     }
 
 
-
-
-
-
-
-
   }
 
-
-
-  }
 
 }
+

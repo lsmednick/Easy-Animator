@@ -22,14 +22,12 @@ public interface AnimatorModel {
    * @param b         blue intensity of the shape's color
    * @param width     width of the addshape
    * @param height    height of the shape
-   * @param startTime starting time of the shape
-   * @param endTime   end time of the shape
    * @throws IllegalArgumentException if startTime or endTime is negative
    * @throws IllegalArgumentException if endTime occurs before startTime
    */
 
   void addShape(String name, ShapeType shapeType, int x, int y, int r, int g, int b,
-          int width, int height, int startTime, int endTime)
+          int width, int height)
           throws IllegalArgumentException;
 
   /**

@@ -19,35 +19,28 @@ public class AnimatorModelImplTest {
   @Test
   public void testAddShape1() {
     testModel = new AnimatorModelImpl();
-    testModel.addShape("Judi Dench", ShapeType.OVAL, 50, 35, 45, 164, 100, 7, 3, 0, 15);
-    testModel.addShape("Jason Derulo", ShapeType.TRIANGLE, 5, 10, 104, 69, 4, 10, 10, 1, 27);
-    testModel.addShape("Taylor Swift", ShapeType.RECTANGLE, 10.5, 3, 70, 250, 18, 7.5, 6, 3, 20);
+    testModel.addShape("Judi Dench", ShapeType.OVAL, 50, 35, 45, 164, 100, 7, 3);
+    testModel.addShape("Jason Derulo", ShapeType.OVAL, 5, 10, 104, 69, 4, 10, 10);
+    testModel.addShape("Taylor Swift", ShapeType.RECTANGLE, 10, 3, 70, 250, 18, 7, 6);
     assertEquals("Shapes:\n"
             + "Name: Taylor Swift\n"
-            + "Type: cs5004.animator.model.Rectangle\n"
+            + "Type: Rectangle\n"
             + "Min corner: (10.5, 3.0), Width: 7.5, Height: 6.0, Color: (70, 250, 18)\n"
             + "Appears at t=3\n"
             + "Disappears at t=20\n"
             + "\n"
             + "Name: Judi Dench\n"
-            + "Type: cs5004.animator.model.Oval\n"
+            + "Type: Oval\n"
             + "Center: (50.0, 35.0), X radius: 7.0, Y radius: 3.0, Color: (45, 164, 100)\n"
             + "Appears at t=0\n"
             + "Disappears at t=15\n"
             + "\n"
             + "Name: Jason Derulo\n"
-            + "Type: cs5004.animator.model.Triangle\n"
+            + "Type: Oval\n"
             + "Min corner: (5.0, 10.0), Width: 10.0, Height: 10.0, Color: (104, 69, 4)\n"
             + "Appears at t=1\n"
             + "Disappears at t=27\n"
             + "\n", testModel.getState());
-  }
-
-  // Testing the addShape method when attempting to input negative start / end times.
-  @Test(expected = IllegalArgumentException.class)
-  public void testAddShape2() {
-    testModel = new AnimatorModelImpl();
-    testModel.addShape("James Corden", ShapeType.OVAL, 53, 34, 100, 16, 10, 7, 3, -4, -1);
   }
 
   // Testing the addShape method when attempting place end time after the start time.

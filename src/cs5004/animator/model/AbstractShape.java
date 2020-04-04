@@ -15,8 +15,6 @@ public abstract class AbstractShape implements IShape {
   private Color color;
   private int width;
   private int height;
-  private int startTime;
-  private int endTime;
   private String name;
 
   /**
@@ -31,8 +29,6 @@ public abstract class AbstractShape implements IShape {
    * @param b         blue intensity of the shape's color
    * @param width     width of the shape
    * @param height    height of the shape
-   * @param startTime starting time of the shape
-   * @param endTime   end time of the shape
    * @param name      name of the shape
    * @throws IllegalArgumentException if width or height is below 0
    * @throws IllegalArgumentException if rgb values are not between 0-255 inclusive
@@ -44,7 +40,7 @@ public abstract class AbstractShape implements IShape {
    */
 
   public AbstractShape(int x, int y, int r, int g, int b, int width, int height,
-                       int startTime, int endTime, String name) throws IllegalArgumentException {
+                       String name) throws IllegalArgumentException {
     if (x < 0 || y < 0) {
       throw new IllegalArgumentException("x and y-coordinates can't be negative");
     }
@@ -60,8 +56,6 @@ public abstract class AbstractShape implements IShape {
     this.color = new Color(r, g, b);
     this.width = width;
     this.height = height;
-    this.startTime = startTime;
-    this.endTime = endTime;
     this.name = name;
   }
 
@@ -140,28 +134,6 @@ public abstract class AbstractShape implements IShape {
   @Override
   public int getHeight() {
     return this.height;
-  }
-
-  /**
-   * Method to return the starting time of a given shape.
-   *
-   * @return starting time of a shape
-   */
-
-  @Override
-  public int getStartTime() {
-    return this.startTime;
-  }
-
-  /**
-   * Method to return the end time of a given shape.
-   *
-   * @return end time of a shape
-   */
-
-  @Override
-  public int getEndTime() {
-    return this.endTime;
   }
 
   /**
