@@ -5,7 +5,6 @@ import cs5004.animator.model.AbstractTransform;
 import cs5004.animator.model.ChangeColor;
 import cs5004.animator.model.ChangePos;
 import cs5004.animator.model.ChangeScale;
-import cs5004.animator.model.Triangle;
 
 import static org.junit.Assert.assertEquals;
 

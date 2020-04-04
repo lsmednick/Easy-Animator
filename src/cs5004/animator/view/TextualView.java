@@ -12,6 +12,7 @@ public class TextualView {
     this.animation = animation;
   }
 
+  // TODO: add appear and disappear time
   public String getState() throws IllegalStateException {
     if (animation.getShapeList().isEmpty()) {
       throw new IllegalStateException("There are no shapes in the animation\n");
