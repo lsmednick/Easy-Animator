@@ -45,7 +45,7 @@ public class Main {
     // when a string is parsed inFile represents the file to be read
     // command line arg " -in inFile.txt"
     Readable inFile = null;
-
+    String filename = "";
 
     //TODO
     IView view = null;
@@ -61,7 +61,8 @@ public class Main {
           //if (filename.equals("") && scan.hasNext()) {
           //filename = scan.next();
           if (scan.hasNext()) {
-            inFile = new FileReader(scan.next());
+            filename = scan.next();
+            inFile = new FileReader(filename);
           }
           break;
         case "-view": // "type-of-view"
@@ -95,11 +96,10 @@ public class Main {
       speed = 1;
     }
 
-    // if 'out' is not indicated by the command-line argument -- then it default to 'System.out'
+    // if 'out' is not indicated by the command-line argument -- then it defaults to 'System.out'
     if (output.equals("") || output.equals("out")) {
       output = "System.out";
     }
-
 
     AnimationReader fileReader = new AnimationReader();
     AnimationBuilder<AnimatorModel> builder =
@@ -126,7 +126,7 @@ public class Main {
       if (viewType.equalsIgnoreCase("svg")) {
         view = new SVGView();
       } else if (viewType.equalsIgnoreCase("text")) {
-        TextualView view2 = new TextualView(model);
+        TextualView view2 = new TextualView(model,filename );
         view2.getState();
       } else if (viewType.equalsIgnoreCase("visual")) {
         assert model != null;

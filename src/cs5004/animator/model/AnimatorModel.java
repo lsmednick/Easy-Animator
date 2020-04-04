@@ -157,4 +157,14 @@ public interface AnimatorModel {
 
    int getCanvasHeight();
 
+
+  /**
+   * Creates a map: key -- unique ID for shape and value -- string containing the appear/disappear
+   * time.
+   */
+  Map<String, String>  getAppearDisappearTime(String filename);
+
+
+
 }
+

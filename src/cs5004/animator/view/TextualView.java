@@ -8,9 +8,12 @@ import cs5004.animator.model.ITransform;
 
 public class TextualView implements IView{
   private AnimatorModel animation;
+  private String filename;
 
-  public TextualView(AnimatorModel animation) {
+  public TextualView(AnimatorModel animation, String filename) {
+
     this.animation = animation;
+    this.filename = filename;
   }
 
   // TODO: add appear and disappear time
@@ -23,6 +26,11 @@ public class TextualView implements IView{
     for (String key : animation.getShapeList().keySet()) {
       string.append(animation.getShapeList().get(key).toString());
     }
+
+    for (String key : animation.getAppearDisappearTime(filename).keySet()){
+      string.append(animation.getAppearDisappearTime(filename).get(key));
+    }
+    string.append("\n");
 
     Collections.sort(animation.getTransformList());
     for (ITransform t : animation.getTransformList()) {

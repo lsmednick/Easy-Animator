@@ -1,10 +1,15 @@
 package cs5004.animator.model;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Scanner;
+import java.util.TreeMap;
 
 /**
  * Is a class that implements interface AnimatorModel. This class holds a Map which contains a list
@@ -20,6 +25,8 @@ public class AnimatorModelImpl implements AnimatorModel {
   private int topLeftY;
   private int canvasWidth;
   private int canvasHeight;
+  private Map<String, String> mapAppearDisappear = new HashMap<>();
+
 
   public AnimatorModelImpl(int topLeftX, int topLeftY, int canvasWidth, int canvasHeight) {
     this.topLeftX = topLeftX;
@@ -46,7 +53,7 @@ public class AnimatorModelImpl implements AnimatorModel {
 
   @Override
   public void addShape(String name, ShapeType shapeType, int x, int y, int r, int g, int b,
-          int width, int height)
+                       int width, int height)
           throws IllegalArgumentException {
 
     IShape newShape;
@@ -217,10 +224,10 @@ public class AnimatorModelImpl implements AnimatorModel {
   }
 
   /**
-   * Method to return an updated HashMap based on the transformations being applied to the shapes
-   * in the animation. This method loops through each transformation in the list and applies the
-   * "tweening" formula based on the supplied tick number in order to create a smooth animation
-   * in collaboration with the view.
+   * Method to return an updated HashMap based on the transformations being applied to the shapes in
+   * the animation. This method loops through each transformation in the list and applies the
+   * "tweening" formula based on the supplied tick number in order to create a smooth animation in
+   * collaboration with the view.
    *
    * @param tick the time at which to determine the shape's updated attributes
    * @return updated HashMap containing new instances of each shape in the animation
@@ -307,15 +314,16 @@ public class AnimatorModelImpl implements AnimatorModel {
   }
 
   /**
-   * Getter to return a copy the current map of shapes in the animation so
-   * the original map can not be mutated.
+   * Getter to return a copy the current map of shapes in the animation so the original map can not
+   * be mutated.
+   *
    * @return a map of the shapes in the animation
    */
 
-   public Map<String, IShape> getShapeList() {
+  public Map<String, IShape> getShapeList() {
 
     Map<String, IShape> copyShapeList = new HashMap<>();
-    for (String key: shapeList.keySet()) {
+    for (String key : shapeList.keySet()) {
       copyShapeList.put(key, shapeList.get(key));
     }
     return copyShapeList;
@@ -323,19 +331,20 @@ public class AnimatorModelImpl implements AnimatorModel {
   }
 
   /**
-   * Getter to return a copy the current list of transformation in the animation so it
-   * the original list can not be mutated.
+   * Getter to return a copy the current list of transformation in the animation so it the original
+   * list can not be mutated.
+   *
    * @return a list of the transformations in the animation
    */
 
-   public List<AbstractTransform>getTransformList(){
+  public List<AbstractTransform> getTransformList() {
 
-     List<AbstractTransform> copyTransformList = new ArrayList<>();
-     for (AbstractTransform t: transformList){
-       copyTransformList.add(t);
-     }
-     return copyTransformList;
-   }
+    List<AbstractTransform> copyTransformList = new ArrayList<>();
+    for (AbstractTransform t : transformList) {
+      copyTransformList.add(t);
+    }
+    return copyTransformList;
+  }
 
   /**
    * Method to return the top left X coordinate.
@@ -365,8 +374,8 @@ public class AnimatorModelImpl implements AnimatorModel {
    */
 
   public int getCanvasWidth() {
-     return this.canvasWidth;
-   }
+    return this.canvasWidth;
+  }
 
   /**
    * Method to return the canvas height.
@@ -379,7 +388,67 @@ public class AnimatorModelImpl implements AnimatorModel {
   }
 
 
+  public Map<String,String> getAppearDisappearTime(String filename) {
+    //For appear/disappear time
+    List<String> list = new ArrayList<>();
+    Map<String, String> mapDisappear = new HashMap<>();
+    Map<String, String> mapAppear = new HashMap<>();
+    //Map<String, String> mapAppearDisappear = new HashMap<>();
 
+    String shapeID2;
+    String disappearTime;
+    String appearTime;
+    File file = new File(filename);
+    Scanner in;
+
+    try {
+      in = new Scanner(file);
+      while (in.hasNext()) {
+        String line = in.nextLine();
+
+
+        //if line has exactly 3 words in it, we know it declares a shape -- add it to 'list'
+        if (line.length() > 0 && line.split("\\s+").length == 3) {
+          String shapeID = line.split(" ")[1];
+          list.add(shapeID);
+        }
+
+        //For lines that declare transformations -- put appear/disappear times into a map
+        if (line.length() > 0 && line.split("\\s+").length == 18) {
+          shapeID2 = line.split(" ")[1];
+          disappearTime = line.split(" ")[11];
+          appearTime = line.split(" ")[2];
+          // map for each unique shape at what tick it disappears
+          mapDisappear.put(shapeID2, disappearTime);
+          // map for each unique shape at the first tick it appears
+//          try {
+//            mapAppear.get(shapeID2);
+//          } catch (Exception e) {
+//            mapAppear.put(shapeID2, appearTime);
+//          }
+          if (mapAppear.get(shapeID2) == null){
+            mapAppear.put(shapeID2, appearTime);
+          }
+
+        }
+      }
+
+    } catch (FileNotFoundException e) {
+      throw new IllegalStateException("File not found");
+    }
+
+    for (String shape : list) {
+      mapAppearDisappear.put(shape.toString(),  shape.toString() + " appears at time t="
+              + mapAppear.get(shape.toString()) + " and disappears at t="
+              + mapDisappear.get(shape.toString()) + "\n");
+    }
+
+    TreeMap<String, String> sorted = new TreeMap<>();
+    sorted.putAll(mapAppearDisappear);
+
+
+    return sorted ;
+  }
 
 
 }
