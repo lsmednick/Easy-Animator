@@ -47,28 +47,28 @@ public class AnimatorModelImplTest {
   @Test(expected = IllegalArgumentException.class)
   public void testAddShape3() {
     testModel = new AnimatorModelImpl();
-    testModel.addShape("Jennifer Hudson", ShapeType.TRIANGLE, 5, 3, 107, 16, 10, 7, 3, 5, 2);
+    testModel.addShape("Jennifer Hudson", ShapeType.RECTANGLE, 5, 3, 107, 16, 10, 7, 3, 5, 2);
   }
 
   // Testing the addShape method when entering negative x / y coordinates.
   @Test(expected = IllegalArgumentException.class)
   public void testAddShape4() {
     testModel = new AnimatorModelImpl();
-    testModel.addShape("Jennifer Hudson", ShapeType.TRIANGLE, -4, -2, 107, 16, 10, 7, 3, 5, 2);
+    testModel.addShape("Jennifer Hudson", ShapeType.RECTANGLE, -4, -2, 107, 16, 10, 7, 3, 5, 2);
   }
 
   // Testing the addShape method when entering invalid width / height values.
   @Test(expected = IllegalArgumentException.class)
   public void testAddShape5() {
     testModel = new AnimatorModelImpl();
-    testModel.addShape("Jennifer Hudson", ShapeType.TRIANGLE, 5, 6, 107, 16, 10, -4, 0, 5, 2);
+    testModel.addShape("Jennifer Hudson", ShapeType.RECTANGLE, 5, 6, 107, 16, 10, -4, 0, 5, 2);
   }
 
   // Testing the addShape method when entering a null string ID.
   @Test(expected = IllegalArgumentException.class)
   public void testAddShape6() {
     testModel = new AnimatorModelImpl();
-    testModel.addShape(null, ShapeType.TRIANGLE, 5, 6, 107, 16, 10, 7, 8, 5, 2);
+    testModel.addShape(null, ShapeType.RECTANGLE, 5, 6, 107, 16, 10, 7, 8, 5, 2);
   }
 
   // Testing the changePos method by transforming one of each shape.
@@ -76,14 +76,14 @@ public class AnimatorModelImplTest {
   public void testChangePos1() {
     testModel = new AnimatorModelImpl();
     testModel.addShape("Ian McKellen", ShapeType.OVAL, 6, 3, 4, 178, 100, 7, 3, 0, 15);
-    testModel.addShape("Rebel Wilson", ShapeType.TRIANGLE, 5, 10, 109, 69, 4, 10, 10, 1, 27);
+    testModel.addShape("Rebel Wilson", ShapeType.RECTANGLE, 5, 10, 109, 69, 4, 10, 10, 1, 27);
     testModel.addShape("Idris Elba", ShapeType.RECTANGLE, 10.5, 3, 70, 250, 18, 7.5, 6, 8, 21);
     testModel.changePos("Ian McKellen", 6, 3, 7, 4, 3, 6);
     testModel.changePos("Rebel Wilson", 5, 10, 8, 2, 2, 20);
     testModel.changePos("Idris Elba", 10.5, 3, 3, 3, 9, 14);
     assertEquals("Shapes:\n"
                     + "Name: Rebel Wilson\n"
-                    + "Type: cs5004.animator.model.Triangle\n"
+                    + "Type: cs5004.animator.model.Rectangle\n"
                     + "Min corner: (5.0, 10.0), Width: 10.0, Height: 10.0, Color: (109, 69, 4)\n"
                     + "Appears at t=1\n"
                     + "Disappears at t=27\n"
@@ -127,7 +127,7 @@ public class AnimatorModelImplTest {
   @Test(expected = IllegalArgumentException.class)
   public void testChangePos4() {
     testModel = new AnimatorModelImpl();
-    testModel.addShape("Laurie Davidson", ShapeType.TRIANGLE, 6, 3, 4, 178, 100, 7, 3, 0, 15);
+    testModel.addShape("Laurie Davidson", ShapeType.RECTANGLE, 6, 3, 4, 178, 100, 7, 3, 0, 15);
     testModel.changePos("Natalie Portman", 6, 3, 7, 4, 3, 6);
   }
 
@@ -135,7 +135,7 @@ public class AnimatorModelImplTest {
   @Test(expected = IllegalArgumentException.class)
   public void testChangePos5() {
     testModel = new AnimatorModelImpl();
-    testModel.addShape("Laurie Davidson", ShapeType.TRIANGLE, 6, 3, 4, 178, 100, 7, 3, 0, 15);
+    testModel.addShape("Laurie Davidson", ShapeType.RECTANGLE, 6, 3, 4, 178, 100, 7, 3, 0, 15);
     testModel.changePos("Laurie Davidson", 6, 3, 7, 4, -3, -6);
   }
 
@@ -143,7 +143,7 @@ public class AnimatorModelImplTest {
   @Test(expected = IllegalArgumentException.class)
   public void testChangePos6() {
     testModel = new AnimatorModelImpl();
-    testModel.addShape("Laurie Davidson", ShapeType.TRIANGLE, 6, 3, 4, 178, 100, 7, 3, 0, 15);
+    testModel.addShape("Laurie Davidson", ShapeType.RECTANGLE, 6, 3, 4, 178, 100, 7, 3, 0, 15);
     testModel.changePos("Laurie Davidson", 6, 3, 7, 4, 5, 3);
   }
 
@@ -152,7 +152,7 @@ public class AnimatorModelImplTest {
   @Test (expected = IllegalArgumentException.class)
   public void testChangePos7() {
     testModel = new AnimatorModelImpl();
-    testModel.addShape("Laurie Davidson", ShapeType.TRIANGLE, 6, 3, 4, 178, 100, 7, 3, 0, 15);
+    testModel.addShape("Laurie Davidson", ShapeType.RECTANGLE, 6, 3, 4, 178, 100, 7, 3, 0, 15);
     testModel.changePos("Laurie Davidson", 6, 3, 7, 4, 0, 16);
   }
 
@@ -161,14 +161,14 @@ public class AnimatorModelImplTest {
   public void testChangeColor1() {
     testModel = new AnimatorModelImpl();
     testModel.addShape("Ian McKellen", ShapeType.OVAL, 6, 3, 4, 178, 100, 7, 3, 0, 15);
-    testModel.addShape("Rebel Wilson", ShapeType.TRIANGLE, 5, 10, 109, 69, 4, 10, 10, 1, 27);
+    testModel.addShape("Rebel Wilson", ShapeType.RECTANGLE, 5, 10, 109, 69, 4, 10, 10, 1, 27);
     testModel.addShape("Idris Elba", ShapeType.RECTANGLE, 10.5, 3, 70, 250, 18, 7.5, 6, 8, 21);
     testModel.changeColor("Ian McKellen", 4, 178, 100, 100, 178, 200, 2, 10);
     testModel.changeColor("Rebel Wilson", 109, 69, 4, 213, 20, 201, 2, 3);
     testModel.changeColor("Idris Elba", 70, 250, 18, 100, 200, 50, 9, 10);
     assertEquals("Shapes:\n"
                     + "Name: Rebel Wilson\n"
-                    + "Type: cs5004.animator.model.Triangle\n"
+                    + "Type: cs5004.animator.model.Rectangle\n"
                     + "Min corner: (5.0, 10.0), Width: 10.0, Height: 10.0, Color: (109, 69, 4)\n"
                     + "Appears at t=1\n"
                     + "Disappears at t=27\n"
@@ -214,7 +214,7 @@ public class AnimatorModelImplTest {
   @Test(expected = IllegalArgumentException.class)
   public void testChangeColor4() {
     testModel = new AnimatorModelImpl();
-    testModel.addShape("Laurie Davidson", ShapeType.TRIANGLE, 6, 3, 4, 178, 100, 7, 3, 0, 15);
+    testModel.addShape("Laurie Davidson", ShapeType.RECTANGLE, 6, 3, 4, 178, 100, 7, 3, 0, 15);
     testModel.changeColor("Rum Tum Tugger", 100, 100, 100, 200, 200, 200, 0, 3);
   }
 
@@ -222,7 +222,7 @@ public class AnimatorModelImplTest {
   @Test(expected = IllegalArgumentException.class)
   public void testChangeColor5() {
     testModel = new AnimatorModelImpl();
-    testModel.addShape("Laurie Davidson", ShapeType.TRIANGLE, 6, 3, 4, 178, 100, 7, 3, 0, 15);
+    testModel.addShape("Laurie Davidson", ShapeType.RECTANGLE, 6, 3, 4, 178, 100, 7, 3, 0, 15);
     testModel.changeColor("Laurie Davidson", 4, 178, 100, 4, 30, 120, -3, -5);
   }
 
@@ -230,7 +230,7 @@ public class AnimatorModelImplTest {
   @Test(expected = IllegalArgumentException.class)
   public void testChangeColor6() {
     testModel = new AnimatorModelImpl();
-    testModel.addShape("Laurie Davidson", ShapeType.TRIANGLE, 6, 3, 4, 178, 100, 7, 3, 0, 15);
+    testModel.addShape("Laurie Davidson", ShapeType.RECTANGLE, 6, 3, 4, 178, 100, 7, 3, 0, 15);
     testModel.changeColor("Laurie Davidson", 4, 178, 100, 4, 30, 120, 5, 3);
   }
 
@@ -239,7 +239,7 @@ public class AnimatorModelImplTest {
   @Test (expected = IllegalArgumentException.class)
   public void testChangeColor7() {
     testModel = new AnimatorModelImpl();
-    testModel.addShape("Laurie Davidson", ShapeType.TRIANGLE, 6, 3, 4, 178, 100, 7, 3, 0, 15);
+    testModel.addShape("Laurie Davidson", ShapeType.RECTANGLE, 6, 3, 4, 178, 100, 7, 3, 0, 15);
     testModel.changeColor("Laurie Davidson", 4, 178, 100, 4, 30, 120, 0, 17);
   }
 
@@ -248,14 +248,14 @@ public class AnimatorModelImplTest {
   public void testChangeScale1() {
     testModel = new AnimatorModelImpl();
     testModel.addShape("Ian McKellen", ShapeType.OVAL, 6, 3, 4, 178, 100, 7, 3, 0, 15);
-    testModel.addShape("Rebel Wilson", ShapeType.TRIANGLE, 5, 10, 109, 69, 4, 10, 10, 1, 27);
+    testModel.addShape("Rebel Wilson", ShapeType.RECTANGLE, 5, 10, 109, 69, 4, 10, 10, 1, 27);
     testModel.addShape("Idris Elba", ShapeType.RECTANGLE, 10.5, 3, 70, 250, 18, 7.5, 6, 8, 21);
     testModel.changeScale("Ian McKellen", 7, 3, 10, 6, 2, 5);
     testModel.changeScale("Rebel Wilson", 10, 10, 8, 2, 2, 20);
     testModel.changeScale("Idris Elba", 7.5, 6, 3, 2, 9, 12);
     assertEquals("Shapes:\n"
                     + "Name: Rebel Wilson\n"
-                    + "Type: cs5004.animator.model.Triangle\n"
+                    + "Type: cs5004.animator.model.Rectangle\n"
                     + "Min corner: (5.0, 10.0), Width: 10.0, Height: 10.0, Color: (109, 69, 4)\n"
                     + "Appears at t=1\n"
                     + "Disappears at t=27\n"
@@ -301,7 +301,7 @@ public class AnimatorModelImplTest {
   @Test(expected = IllegalArgumentException.class)
   public void testChangeScale4() {
     testModel = new AnimatorModelImpl();
-    testModel.addShape("Laurie Davidson", ShapeType.TRIANGLE, 6, 3, 4, 178, 100, 7, 3, 0, 15);
+    testModel.addShape("Laurie Davidson", ShapeType.RECTANGLE, 6, 3, 4, 178, 100, 7, 3, 0, 15);
     testModel.changeScale("Insert: Actor not in Cats (2019)", 7, 3, 7, 3, 3, 6);
   }
 
@@ -309,7 +309,7 @@ public class AnimatorModelImplTest {
   @Test(expected = IllegalArgumentException.class)
   public void testChangeScale5() {
     testModel = new AnimatorModelImpl();
-    testModel.addShape("Laurie Davidson", ShapeType.TRIANGLE, 6, 3, 4, 178, 100, 7, 3, 0, 15);
+    testModel.addShape("Laurie Davidson", ShapeType.RECTANGLE, 6, 3, 4, 178, 100, 7, 3, 0, 15);
     testModel.changeScale("Laurie Davidson", 7, 3, 7, 4, -3, -6);
   }
 
@@ -317,7 +317,7 @@ public class AnimatorModelImplTest {
   @Test(expected = IllegalArgumentException.class)
   public void testChangeScale6() {
     testModel = new AnimatorModelImpl();
-    testModel.addShape("Laurie Davidson", ShapeType.TRIANGLE, 6, 3, 4, 178, 100, 7, 3, 0, 15);
+    testModel.addShape("Laurie Davidson", ShapeType.RECTANGLE, 6, 3, 4, 178, 100, 7, 3, 0, 15);
     testModel.changeScale("Laurie Davidson", 7, 3, 6, 4, 5, 3);
   }
 
@@ -326,7 +326,7 @@ public class AnimatorModelImplTest {
   @Test (expected = IllegalArgumentException.class)
   public void testChangeScale7() {
     testModel = new AnimatorModelImpl();
-    testModel.addShape("Laurie Davidson", ShapeType.TRIANGLE, 6, 3, 4, 178, 100, 7, 3, 0, 15);
+    testModel.addShape("Laurie Davidson", ShapeType.RECTANGLE, 6, 3, 4, 178, 100, 7, 3, 0, 15);
     testModel.changeScale("Laurie Davidson", 7, 3, 7, 4, 0, 18);
   }
 
@@ -336,7 +336,7 @@ public class AnimatorModelImplTest {
   public void testMultiple() {
     testModel = new AnimatorModelImpl();
     testModel.addShape("Judi Dench", ShapeType.OVAL, 50, 35, 45, 164, 100, 7, 3, 0, 15);
-    testModel.addShape("Jason Derulo", ShapeType.TRIANGLE, 5, 10, 104, 69, 4, 10, 10, 1, 27);
+    testModel.addShape("Jason Derulo", ShapeType.RECTANGLE, 5, 10, 104, 69, 4, 10, 10, 1, 27);
     testModel.addShape("Taylor Swift", ShapeType.RECTANGLE, 10.5, 3, 70, 250, 18, 7.5, 6, 3, 20);
     testModel.changePos("Judi Dench", 50, 35, 30, 20, 3, 6);
     testModel.changePos("Taylor Swift", 10.5, 3, 5, 5, 3, 10);
@@ -359,7 +359,7 @@ public class AnimatorModelImplTest {
             + "Disappears at t=15\n"
             + "\n"
             + "Name: Jason Derulo\n"
-            + "Type: cs5004.animator.model.Triangle\n"
+            + "Type: cs5004.animator.model.Rectangle\n"
             + "Min corner: (5.0, 10.0), Width: 10.0, Height: 10.0, Color: (104, 69, 4)\n"
             + "Appears at t=1\n"
             + "Disappears at t=27\n\n"

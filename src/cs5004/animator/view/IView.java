@@ -24,10 +24,10 @@ public interface IView {
   /**
    * Writes out description of the animation to given text file name.
    *
-   * @param name the name of the file to be populated with animation data
+   * @param outputFile the name of the file to be populated with animation data
    */
 
-  void output(String name);
+  void output(String outputFile);
 
   /**
    * Updates the view at each frame of the animation.

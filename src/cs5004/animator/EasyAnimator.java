@@ -28,9 +28,7 @@ import cs5004.animator.util.AnimationBuilderImpl;
  * -speed "integer-ticks-per-second"
  */
 
-
-public class Main {
-
+public final class EasyAnimator {
   public static void main(String[] args) throws FileNotFoundException {
 
     Readable r = new StringReader(String.join(" ", args));
@@ -51,7 +49,6 @@ public class Main {
     IView view = null;
     // IAnimationController controller = null;
 
-    // TODO -- Rename 'in'
     while (scan.hasNext()) {
       String input = scan.next();
 
@@ -119,15 +116,16 @@ public class Main {
 
 
     //TODO UPDATE:
-// 1. ConcreteClass File names to match what LM and GOC named them
-// 2. UPDATE what each view class takes in as parameters  -- update order if necessary
+    // 1. ConcreteClass File names to match what LM and GOC named them
+    // 2. UPDATE what each view class takes in as parameters  -- update order if necessary
 
     try {
       if (viewType.equalsIgnoreCase("svg")) {
         view = new SVGView();
       } else if (viewType.equalsIgnoreCase("text")) {
-        TextualView view2 = new TextualView(model,filename );
+        TextualView view2 = new TextualView(model, filename, speed);
         view2.getState();
+        view2.output(output);
       } else if (viewType.equalsIgnoreCase("visual")) {
         assert model != null;
         view = new VisualView(speed, model);
@@ -144,10 +142,6 @@ public class Main {
       JOptionPane.showMessageDialog(frame, "View Type is Invalid ",
               "Encountered Error ", JOptionPane.ERROR_MESSAGE);
     }
-
-
   }
-
-
 }
 
