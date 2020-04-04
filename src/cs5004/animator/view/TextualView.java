@@ -1,7 +1,9 @@
 package cs5004.animator.view;
 
-import cs5004.animator.model.AbstractTransform;
+import java.util.Collections;
+
 import cs5004.animator.model.AnimatorModelImpl;
+import cs5004.animator.model.ITransform;
 
 public class TextualView {
   private AnimatorModelImpl animation;
@@ -16,13 +18,25 @@ public class TextualView {
     }
 
     StringBuilder string = new StringBuilder();
+    for (String key : animation.getShapeList().keySet()) {
+      string.append(animation.getShapeList().get(key).toString());
+    }
 
+    Collections.sort(animation.getTransformList());
+    for (ITransform t : animation.getTransformList()) {
+      string.append(t.toString());
+    }
+
+    return string.toString();
+  }
+}
+
+    /*
     for (String key : animation.getShapeList().keySet()) {
       string.append("Create ");
 
       switch (animation.getShapeList().get(key).getType()) {
         case RECTANGLE:
-          // TODO: add color info here
           string.append("rectangle ").append(animation.getShapeList().get(key).getName());
           string.append(" with corner at (").append(animation.getShapeList().get(key).getX());
           string.append(",").append(animation.getShapeList().get(key).getY()).append(") width ");
@@ -30,7 +44,6 @@ public class TextualView {
           string.append(animation.getShapeList().get(key).getHeight()).append("\n");
           break;
         case OVAL:
-          // TODO: add color info here
           string.append("oval ").append(animation.getShapeList().get(key).getName());
           string.append(" with center at (").append(animation.getShapeList().get(key).getX());
           string.append(",").append(animation.getShapeList().get(key).getY()).append(") radius ");
@@ -40,8 +53,6 @@ public class TextualView {
       }
       string.append("\n");
     }
-
-    // TODO: after figuring out the dis/appear times, add info here
 
     for (AbstractTransform t : animation.getTransformList()) {
       switch (t.getTransformType()) {
@@ -94,4 +105,4 @@ public class TextualView {
     }
     return string.toString().trim();
   }
-}
+     */
