@@ -37,7 +37,7 @@ public final class EasyAnimator {
     //String filename = "";
     String viewType = "";
     String output = "";
-    double speed = -1;
+    int speed = -1;
 
 
     // when a string is parsed inFile represents the file to be read
@@ -74,7 +74,7 @@ public final class EasyAnimator {
           break;
         case "-speed": // "integer-ticks-per-second"
           if (speed == -1 && scan.hasNext()) {
-            speed = Double.parseDouble(scan.next());
+            speed = Integer.parseInt(scan.next());
           }
           break;
         default:
@@ -129,7 +129,7 @@ public final class EasyAnimator {
         view2.output(output, view2.getState());
       } else if (viewType.equalsIgnoreCase("visual")) {
         assert model != null;
-        view = new VisualView(speed, model);
+        view = new VisualView(speed, model, filename);
         view.makeVisible();
         view.refreshAnimation();
       } else {

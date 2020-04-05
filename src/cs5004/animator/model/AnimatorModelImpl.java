@@ -24,12 +24,13 @@ import java.util.concurrent.ConcurrentHashMap;
  */
 
 public class AnimatorModelImpl implements AnimatorModel {
-  private Map<String, IShape> shapeList = new HashMap<>();
+  private Map<String, IShape> shapeList = new LinkedHashMap<>();
   private List<AbstractTransform> transformList = new ArrayList<>();
   private int topLeftX;
   private int topLeftY;
   private int canvasWidth;
   private int canvasHeight;
+  private int maxTick;
   private Map<String, String> mapAppearDisappear = new HashMap<>();
   private Map<String, String> mapDisappear = new HashMap<>();
 
@@ -39,6 +40,7 @@ public class AnimatorModelImpl implements AnimatorModel {
     this.topLeftY = topLeftY;
     this.canvasWidth = canvasWidth;
     this.canvasHeight = canvasHeight;
+    this.maxTick = 0;
   }
 
   /**
@@ -249,8 +251,10 @@ public class AnimatorModelImpl implements AnimatorModel {
       IShape s = shapeList.get(transform.getShapeID());
       int start = transform.getStartTime();
       int end = transform.getEndTime();
+      //tick = Math.min(transform.getEndTime(), tick);
 
       if (tick > end) {
+        updatedMap.put(s.getName(), s);
         continue;
       }
       if (tick <= start && start != 1) {
@@ -271,6 +275,7 @@ public class AnimatorModelImpl implements AnimatorModel {
         if (fromY == toY) {
           newY = toY;
         }
+
         if (fromX != toX) {
           newX = (fromX * (end - tick) / (end - start)) + (toX * (tick - start) / (end - start));
         }
@@ -365,10 +370,12 @@ public class AnimatorModelImpl implements AnimatorModel {
 
   public Map<String, IShape> getShapeList() {
 
-    Map<String, IShape> copyShapeList = new HashMap<>();
+    Map<String, IShape> copyShapeList = new LinkedHashMap<>();
     for (String key : shapeList.keySet()) {
+      System.out.print(key);
       copyShapeList.put(key, shapeList.get(key));
     }
+    System.out.print(copyShapeList);
     return copyShapeList;
 
   }
@@ -476,6 +483,10 @@ public class AnimatorModelImpl implements AnimatorModel {
               + mapDisappear.get(shape) + "\n");
     }
 
+    for (String time : mapDisappear.values()) {
+      this.maxTick = Integer.parseInt(time);
+    }
+
     return new TreeMap<>(mapAppearDisappear);
   }
 
@@ -485,8 +496,8 @@ public class AnimatorModelImpl implements AnimatorModel {
    *
    * @return a map containing key =  shapeID, value = disappear time.
    */
-  public Map<String, String> getDisappearTime() {
-    return mapDisappear;
+  public int getDisappearTime() {
+    return this.maxTick;
   }
 
 

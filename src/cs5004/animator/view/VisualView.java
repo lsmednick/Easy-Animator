@@ -13,9 +13,14 @@ import cs5004.animator.model.AnimatorModelImpl;
 
 public class VisualView extends JFrame implements IView {
   private AnimationPanel panel;
+  private int speed;
+  private int maxTick;
 
-  public VisualView(double speed, AnimatorModel model) {
+  public VisualView(int speed, AnimatorModel model, String file) {
     super();
+    this.speed = speed;
+    model.getAppearDisappearTime(file);
+    this.maxTick = model.getDisappearTime();
     this.setTitle("Welcome to Loge, Jenny, and Gerard's project!");
     this.setBounds(model.getTopLeftX(), model.getTopLeftY(), model.getCanvasWidth(),
             model.getCanvasHeight());
@@ -25,8 +30,6 @@ public class VisualView extends JFrame implements IView {
 
     this.setLayout(new BorderLayout());
     panel = new AnimationPanel(model);
-    System.out.print(model.getCanvasHeight());
-    System.out.print(model.getCanvasWidth());
     panel.setPreferredSize(new Dimension(model.getCanvasWidth(), model.getCanvasHeight()));
     this.add(panel, BorderLayout.CENTER);
     JScrollPane pane = new JScrollPane(panel);
@@ -53,10 +56,10 @@ public class VisualView extends JFrame implements IView {
 
   @Override
   public void refreshAnimation() {
-    for (int i = 1; i < 1167; i++) {
+    for (int i = 1; i < maxTick+1; i++) {
       panel.refresh(i);
       try {
-        Thread.sleep(60);
+        Thread.sleep(1000 / speed);
       } catch (InterruptedException e) {
         e.printStackTrace();
       }
