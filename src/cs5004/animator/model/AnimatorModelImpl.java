@@ -431,12 +431,9 @@ public class AnimatorModelImpl implements AnimatorModel {
   }
 
 
-  public Map<String,String> getAppearDisappearTime(String filename) {
-    //For appear/disappear time
+  public Map<String, String> getAppearDisappearTime(String filename) {
     List<String> list = new ArrayList<>();
-    //Map<String, String> mapDisappear = new HashMap<>();
     Map<String, String> mapAppear = new HashMap<>();
-    //Map<String, String> mapAppearDisappear = new HashMap<>();
 
     String shapeID2;
     String disappearTime;
@@ -449,26 +446,21 @@ public class AnimatorModelImpl implements AnimatorModel {
       while (in.hasNext()) {
         String line = in.nextLine();
 
-
-        //if line has exactly 3 words in it, we know it declares a shape -- add it to 'list'
-        if (line.length() > 0 && line.split("\\s+").length == 3) {
+        if (line.split(" ")[0].equals("shape")) {
           String shapeID = line.split(" ")[1];
           list.add(shapeID);
         }
 
+
         //For lines that declare transformations -- put appear/disappear times into a map
-        if (line.length() > 0 && line.split("\\s+").length == 18) {
+        //if (line.length() > 0 && line.split("\\s+").length == 18) {
+        if (line.split(" ")[0].equals("motion")) {
           shapeID2 = line.split(" ")[1];
-          disappearTime = line.split(" ")[11];
+          //disappearTime = line.split(" ")[11];
+          disappearTime = line.split("\\s+")[10];
           appearTime = line.split(" ")[2];
           // map for each unique shape at what tick it disappears
           mapDisappear.put(shapeID2, disappearTime);
-          // map for each unique shape at the first tick it appears
-//          try {
-//            mapAppear.get(shapeID2);
-//          } catch (Exception e) {
-//            mapAppear.put(shapeID2, appearTime);
-//          }
           mapAppear.putIfAbsent(shapeID2, appearTime);
 
         }
@@ -479,27 +471,23 @@ public class AnimatorModelImpl implements AnimatorModel {
     }
 
     for (String shape : list) {
-      mapAppearDisappear.put(shape,  shape + " appears at time t="
+      mapAppearDisappear.put(shape, shape + " appears at time t="
               + mapAppear.get(shape) + " and disappears at t="
               + mapDisappear.get(shape) + "\n");
     }
-
 
     return new TreeMap<>(mapAppearDisappear);
   }
 
   /**
-   * Getter to return a map containing key =  shapeID, value = disappear time of shape
-   * from the animation.
+   * Getter to return a map containing key =  shapeID, value = disappear time of shape from the
+   * animation.
    *
    * @return a map containing key =  shapeID, value = disappear time.
    */
-  public Map<String, String> getDisappearTime(){
+  public Map<String, String> getDisappearTime() {
     return mapDisappear;
   }
-
-
-
 
 
 }
