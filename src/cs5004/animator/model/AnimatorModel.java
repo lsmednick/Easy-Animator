@@ -171,7 +171,7 @@ public interface AnimatorModel {
    *
    * @return a map containing key =  shapeID, value = disappear time.
    */
-   Map<String, String> getDisappearTime();
+   int getDisappearTime();
 
 
   }
