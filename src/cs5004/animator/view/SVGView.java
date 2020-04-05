@@ -20,7 +20,7 @@ public class SVGView extends AbstractView implements IView {
     return this.speed;
   }
 
-  // TODO: figure out what to do with speed
+  // TODO: figure out speed
   public String getState() throws IllegalStateException {
     if (animation.getShapeList().isEmpty()) {
       throw new IllegalStateException("There are no shapes in the animation\n");

@@ -40,7 +40,7 @@ public class ChangeColor extends AbstractTransform {
    */
   public ChangeColor(IShape shape, int fromR, int fromG, int fromB, int toR, int toG, int toB,
                      int startTime, int endTime) throws IllegalArgumentException {
-    super(shape.getName(), startTime, endTime);
+    super(shape, startTime, endTime);
     this.fromR = fromR;
     this.fromG = fromG;
     this.fromB = fromB;
@@ -130,10 +130,9 @@ public class ChangeColor extends AbstractTransform {
 
   @Override
   public String motionSVG() {
-    String string = "";
     int duration = (this.getEndTime() - this.getStartTime());
 
-    string += "<animate attributeType=\"CSS\" begin=\"" + this.getStartTime() + "s\" dur=\""
+    String string = "<animate attributeType=\"CSS\" begin=\"" + this.getStartTime() + "s\" dur=\""
             + duration + "s\" attributeName=\"fill\" from=\"" + "rgb(" + this.fromR + ","
             + this.fromG + "," + this.fromB + ")\" fill=\"freeze\" />\n";
 

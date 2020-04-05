@@ -126,6 +126,7 @@ public interface IShape {
   // TODO: add JavaDocs
   String shapeSVG();
   String shapeEndSVG();
+
   String xTagSVG();
   String yTagSVG();
   String widthTagSVG();

@@ -37,7 +37,7 @@ public class ChangeScale extends AbstractTransform {
    */
   public ChangeScale(IShape shape, int fromWidth, int fromHeight, int toWidth,
                      int toHeight, int startTime, int endTime) throws IllegalArgumentException {
-    super(shape.getName(), startTime, endTime);
+    super(shape, startTime, endTime);
     if (fromWidth < 0 || fromHeight < 0 || toWidth < 0 || toHeight < 0) {
       throw new IllegalArgumentException("Widths / heights cannot be negative.");
     }
@@ -108,14 +108,13 @@ public class ChangeScale extends AbstractTransform {
 
   @Override
   public String motionSVG() {
-    String string = "";
     int duration = (this.getEndTime() - this.getStartTime());
 
-    string += "<animate attributeType=\"xml\" begin=\"" + this.getStartTime() + "s\" dur=\""
-            + duration + "s\" attributeName=\"" + this.widthTagSVG + "\" from=\""
+    String string = "<animate attributeType=\"xml\" begin=\"" + this.getStartTime() + "s\" dur=\""
+            + duration + "s\" attributeName=\"" + this.getShape().widthTagSVG() + "\" from=\""
             + this.getFromWidth() + "\" to=\"" + this.getToWidth() + "\" fill=\"freeze\" />\n";
     string += "<animate attributeType=\"xml\" begin=\"" + this.getStartTime() + "s\" dur=\""
-            + duration + "s\" attributeName=\"" + this.heightTagSVG + "\" from=\""
+            + duration + "s\" attributeName=\"" + this.getShape().heightTagSVG() + "\" from=\""
             + this.getFromHeight() + "\" to=\"" + this.getToHeight() + "\" fill=\"freeze\" />\n";
 
     return string;

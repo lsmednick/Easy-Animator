@@ -41,7 +41,7 @@ public class ChangePos extends AbstractTransform {
 
   public ChangePos(IShape shape, int fromX, int fromY, int toX, int toY, int startTime,
                    int endTime) throws IllegalArgumentException {
-    super(shape.getName(), startTime, endTime);
+    super(shape, startTime, endTime);
 //    if (fromX < 0 || fromY < 0 || toX < 0 || toY < 0) {
 //      throw new IllegalArgumentException("X / Y coordinates cannot be negative.");
 //    }
@@ -113,15 +113,14 @@ public class ChangePos extends AbstractTransform {
 
   @Override
   public String motionSVG() {
-    String string = "";
     int duration = (this.getEndTime() - this.getStartTime());
 
+    String string = "" + ("<animate attributeType=\"xml\" begin=\"" + this.getStartTime()
+            + "s\" dur=\"" + duration + "s\" attributeName=\"" + this.getShape().xTagSVG()
+            + "\" from=\"" + this.fromX + "\" to=\"" + this.toX + "\" fill=\"freeze\" />\n");
     string += "<animate attributeType=\"xml\" begin=\"" + this.getStartTime() + "s\" dur=\""
-            + duration + "s\" attributeName=\"" + this.xTagSVG() + "\" from=\"" + this.fromX
-            + "\" to=\"" + this.toX + "\" fill=\"freeze\" />\n";
-    string += "<animate attributeType=\"xml\" begin=\"" + this.getStartTime() + "s\" dur=\""
-            + duration + "s\" attributeName=\"" + this.yTagSVG() + "\" from=\"" + this.fromY
-            + "\" to=\"" + this.toY + "\" fill=\"freeze\" />\n";
+            + duration + "s\" attributeName=\"" + this.getShape().yTagSVG() + "\" from=\""
+            + this.fromY + "\" to=\"" + this.toY + "\" fill=\"freeze\" />\n";
 
     return string;
   }

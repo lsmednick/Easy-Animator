@@ -10,7 +10,7 @@ public class TextualView extends AbstractView implements IView {
   private String filename;
   private double speed;
 
-  // TODO: figure what to do with speed
+  // TODO: print a line with info about speed
   public TextualView(AnimatorModel animation, String filename, double speed) {
     this.animation = animation;
     this.filename = filename;

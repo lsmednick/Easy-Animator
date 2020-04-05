@@ -10,13 +10,13 @@ package cs5004.animator.model;
 public abstract class AbstractTransform implements ITransform, Comparable<AbstractTransform> {
   private int startTime;
   private int endTime;
-  private String shapeID;
+  private IShape shape;
 
   /**
    * Constructor that takes in a String shapeID (the shape's unique identifier), the start time of
    * the transformation and the end time of the transformation.
    *
-   * @param shapeID   is a shape's unique identifier
+   * @param shape   is a shape's unique identifier
    * @param startTime when a transformation should start within the animation
    * @param endTime   when a transformation should end within the animation
    * @throws IllegalArgumentException if start/end time is less than 0
@@ -24,9 +24,9 @@ public abstract class AbstractTransform implements ITransform, Comparable<Abstra
    * @throws IllegalArgumentException if the shapeID is null
    */
 
-  public AbstractTransform(String shapeID, int startTime, int endTime)
+  public AbstractTransform(IShape shape, int startTime, int endTime)
           throws IllegalArgumentException {
-    if (shapeID == null) {
+    if (shape == null) {
       throw new IllegalArgumentException("shapeID can not be null.");
     }
     if (startTime < 0 || endTime < 0) {
@@ -37,7 +37,11 @@ public abstract class AbstractTransform implements ITransform, Comparable<Abstra
     }
     this.startTime = startTime;
     this.endTime = endTime;
-    this.shapeID = shapeID;
+    this.shape = shape;
+  }
+
+  protected IShape getShape() {
+    return this.shape;
   }
 
   /**
@@ -48,7 +52,7 @@ public abstract class AbstractTransform implements ITransform, Comparable<Abstra
 
   @Override
   public String getShapeID() {
-    return shapeID;
+    return this.shape.getName();
   }
 
   /**
