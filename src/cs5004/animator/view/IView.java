@@ -13,15 +13,6 @@ public interface IView {
   void makeVisible();
 
   /**
-   * Sets the position of a given shape in order to be fed to the view.
-   *
-   * @param x the x coordinate of the shape
-   * @param y the y coordinate of the shape
-   */
-
-  void setShapePosition(double x, double y);
-
-  /**
    * Writes out description of the animation to given text file name.
    *
    * @param outputFile the name of the file to be populated with animation data

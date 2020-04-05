@@ -110,4 +110,19 @@ public class ChangePos extends AbstractTransform {
   public TransformType getTransformType() {
     return TransformType.MOVE;
   }
+
+  @Override
+  public String motionSVG() {
+    String string = "";
+    int duration = (this.getEndTime() - this.getStartTime());
+
+    string += "<animate attributeType=\"xml\" begin=\"" + this.getStartTime() + "s\" dur=\""
+            + duration + "s\" attributeName=\"" + this.xTagSVG() + "\" from=\"" + this.fromX
+            + "\" to=\"" + this.toX + "\" fill=\"freeze\" />\n";
+    string += "<animate attributeType=\"xml\" begin=\"" + this.getStartTime() + "s\" dur=\""
+            + duration + "s\" attributeName=\"" + this.yTagSVG() + "\" from=\"" + this.fromY
+            + "\" to=\"" + this.toY + "\" fill=\"freeze\" />\n";
+
+    return string;
+  }
 }

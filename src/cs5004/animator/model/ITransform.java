@@ -42,4 +42,6 @@ public interface ITransform {
 
   TransformType getTransformType();
 
+  // TODO: Java Docs
+  String motionSVG();
 }
