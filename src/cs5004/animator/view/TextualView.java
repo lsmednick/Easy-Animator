@@ -15,6 +15,7 @@ public class TextualView implements IView{
   private String filename;
   private double speed;
 
+  // TODO: figure what to do with speed / is Systems.out working fine?
   public TextualView(AnimatorModel animation, String filename, double speed) {
     this.animation = animation;
     this.filename = filename;
@@ -41,7 +42,6 @@ public class TextualView implements IView{
       string.append(t.toString());
     }
 
-    System.out.print(string.toString());
     return string.toString().trim();
   }
 

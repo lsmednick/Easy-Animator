@@ -121,7 +121,9 @@ public final class EasyAnimator {
 
     try {
       if (viewType.equalsIgnoreCase("svg")) {
-        view = new SVGView();
+        SVGView view1 = new SVGView(model, filename, speed);
+        view1.getState();
+        view1.output(output);
       } else if (viewType.equalsIgnoreCase("text")) {
         TextualView view2 = new TextualView(model, filename, speed);
         view2.getState();

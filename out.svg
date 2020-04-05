@@ -1,0 +1,117 @@
+<svg width="410" height="220" version="1.1" xmlns="http://www.w3.org/2000/svg">
+
+
+<rect id="disk3" x="145" y ="240" width="110" height="30" fill="rgb(11,45,175)" visibility="visible" >
+<animate attributeType="xml" begin="1s" dur="0s" attributeName="
+<animate attributeType="CSS" begin="1s" dur="0s" attributeName="fill" from="rgb(
+<animate attributeType="xml" begin="1s" dur="120s" attributeName="
+<animate attributeType="CSS" begin="1s" dur="120s" attributeName="fill" from="rgb(
+<animate attributeType="xml" begin="121s" dur="10s" attributeName="
+<animate attributeType="CSS" begin="121s" dur="10s" attributeName="fill" from="rgb(
+<animate attributeType="xml" begin="131s" dur="1s" attributeName="
+<animate attributeType="CSS" begin="131s" dur="1s" attributeName="fill" from="rgb(
+<animate attributeType="xml" begin="132s" dur="10s" attributeName="
+<animate attributeType="CSS" begin="132s" dur="10s" attributeName="fill" from="rgb(
+<animate attributeType="xml" begin="142s" dur="1s" attributeName="
+<animate attributeType="CSS" begin="142s" dur="1s" attributeName="fill" from="rgb(
+<animate attributeType="xml" begin="143s" dur="10s" attributeName="
+<animate attributeType="CSS" begin="143s" dur="10s" attributeName="fill" from="rgb(
+<animate attributeType="CSS" begin="153s" dur="8s" attributeName="fill" from="rgb(
+<animate attributeType="xml" begin="161s" dur="141s" attributeName="
+<animate attributeType="CSS" begin="161s" dur="141s" attributeName="fill" from="rgb(
+</rect>
+
+
+
+<rect id="disk1" x="190" y ="180" width="20" height="30" fill="rgb(0,49,90)" visibility="visible" >
+<animate attributeType="xml" begin="1s" dur="0s" attributeName="
+<animate attributeType="CSS" begin="1s" dur="0s" attributeName="fill" from="rgb(
+<animate attributeType="xml" begin="1s" dur="24s" attributeName="
+<animate attributeType="CSS" begin="1s" dur="24s" attributeName="fill" from="rgb(
+<animate attributeType="xml" begin="25s" dur="10s" attributeName="
+<animate attributeType="CSS" begin="25s" dur="10s" attributeName="fill" from="rgb(
+<animate attributeType="xml" begin="35s" dur="1s" attributeName="
+<animate attributeType="CSS" begin="35s" dur="1s" attributeName="fill" from="rgb(
+<animate attributeType="xml" begin="36s" dur="10s" attributeName="
+<animate attributeType="CSS" begin="36s" dur="10s" attributeName="fill" from="rgb(
+<animate attributeType="xml" begin="46s" dur="1s" attributeName="
+<animate attributeType="CSS" begin="46s" dur="1s" attributeName="fill" from="rgb(
+<animate attributeType="xml" begin="47s" dur="10s" attributeName="
+<animate attributeType="CSS" begin="47s" dur="10s" attributeName="fill" from="rgb(
+<animate attributeType="xml" begin="57s" dur="32s" attributeName="
+<animate attributeType="CSS" begin="57s" dur="32s" attributeName="fill" from="rgb(
+<animate attributeType="xml" begin="89s" dur="10s" attributeName="
+<animate attributeType="CSS" begin="89s" dur="10s" attributeName="fill" from="rgb(
+<animate attributeType="xml" begin="99s" dur="1s" attributeName="
+<animate attributeType="CSS" begin="99s" dur="1s" attributeName="fill" from="rgb(
+<animate attributeType="xml" begin="100s" dur="10s" attributeName="
+<animate attributeType="CSS" begin="100s" dur="10s" attributeName="fill" from="rgb(
+<animate attributeType="xml" begin="110s" dur="1s" attributeName="
+<animate attributeType="CSS" begin="110s" dur="1s" attributeName="fill" from="rgb(
+<animate attributeType="xml" begin="111s" dur="10s" attributeName="
+<animate attributeType="CSS" begin="111s" dur="10s" attributeName="fill" from="rgb(
+<animate attributeType="xml" begin="121s" dur="32s" attributeName="
+<animate attributeType="CSS" begin="121s" dur="32s" attributeName="fill" from="rgb(
+<animate attributeType="xml" begin="153s" dur="10s" attributeName="
+<animate attributeType="CSS" begin="153s" dur="10s" attributeName="fill" from="rgb(
+<animate attributeType="xml" begin="163s" dur="1s" attributeName="
+<animate attributeType="CSS" begin="163s" dur="1s" attributeName="fill" from="rgb(
+<animate attributeType="xml" begin="164s" dur="10s" attributeName="
+<animate attributeType="CSS" begin="164s" dur="10s" attributeName="fill" from="rgb(
+<animate attributeType="xml" begin="174s" dur="1s" attributeName="
+<animate attributeType="CSS" begin="174s" dur="1s" attributeName="fill" from="rgb(
+<animate attributeType="xml" begin="175s" dur="10s" attributeName="
+<animate attributeType="CSS" begin="175s" dur="10s" attributeName="fill" from="rgb(
+<animate attributeType="xml" begin="185s" dur="32s" attributeName="
+<animate attributeType="CSS" begin="185s" dur="32s" attributeName="fill" from="rgb(
+<animate attributeType="xml" begin="217s" dur="10s" attributeName="
+<animate attributeType="CSS" begin="217s" dur="10s" attributeName="fill" from="rgb(
+<animate attributeType="xml" begin="227s" dur="1s" attributeName="
+<animate attributeType="CSS" begin="227s" dur="1s" attributeName="fill" from="rgb(
+<animate attributeType="xml" begin="228s" dur="10s" attributeName="
+<animate attributeType="CSS" begin="228s" dur="10s" attributeName="fill" from="rgb(
+<animate attributeType="xml" begin="238s" dur="1s" attributeName="
+<animate attributeType="CSS" begin="238s" dur="1s" attributeName="fill" from="rgb(
+<animate attributeType="xml" begin="239s" dur="10s" attributeName="
+<animate attributeType="CSS" begin="239s" dur="10s" attributeName="fill" from="rgb(
+<animate attributeType="CSS" begin="249s" dur="8s" attributeName="fill" from="rgb(
+<animate attributeType="xml" begin="257s" dur="45s" attributeName="
+<animate attributeType="CSS" begin="257s" dur="45s" attributeName="fill" from="rgb(
+</rect>
+
+
+<rect id="disk2" x="167" y ="210" width="65" height="30" fill="rgb(6,247,41)" visibility="visible" >
+<animate attributeType="xml" begin="1s" dur="0s" attributeName="
+<animate attributeType="CSS" begin="1s" dur="0s" attributeName="fill" from="rgb(
+<animate attributeType="xml" begin="1s" dur="56s" attributeName="
+<animate attributeType="CSS" begin="1s" dur="56s" attributeName="fill" from="rgb(
+<animate attributeType="xml" begin="57s" dur="10s" attributeName="
+<animate attributeType="CSS" begin="57s" dur="10s" attributeName="fill" from="rgb(
+<animate attributeType="xml" begin="67s" dur="1s" attributeName="
+<animate attributeType="CSS" begin="67s" dur="1s" attributeName="fill" from="rgb(
+<animate attributeType="xml" begin="68s" dur="10s" attributeName="
+<animate attributeType="CSS" begin="68s" dur="10s" attributeName="fill" from="rgb(
+<animate attributeType="xml" begin="78s" dur="1s" attributeName="
+<animate attributeType="CSS" begin="78s" dur="1s" attributeName="fill" from="rgb(
+<animate attributeType="xml" begin="79s" dur="10s" attributeName="
+<animate attributeType="CSS" begin="79s" dur="10s" attributeName="fill" from="rgb(
+<animate attributeType="xml" begin="89s" dur="96s" attributeName="
+<animate attributeType="CSS" begin="89s" dur="96s" attributeName="fill" from="rgb(
+<animate attributeType="xml" begin="185s" dur="10s" attributeName="
+<animate attributeType="CSS" begin="185s" dur="10s" attributeName="fill" from="rgb(
+<animate attributeType="xml" begin="195s" dur="1s" attributeName="
+<animate attributeType="CSS" begin="195s" dur="1s" attributeName="fill" from="rgb(
+<animate attributeType="xml" begin="196s" dur="10s" attributeName="
+<animate attributeType="CSS" begin="196s" dur="10s" attributeName="fill" from="rgb(
+<animate attributeType="xml" begin="206s" dur="1s" attributeName="
+<animate attributeType="CSS" begin="206s" dur="1s" attributeName="fill" from="rgb(
+<animate attributeType="xml" begin="207s" dur="10s" attributeName="
+<animate attributeType="CSS" begin="207s" dur="10s" attributeName="fill" from="rgb(
+<animate attributeType="CSS" begin="217s" dur="8s" attributeName="fill" from="rgb(
+<animate attributeType="xml" begin="225s" dur="77s" attributeName="
+<animate attributeType="CSS" begin="225s" dur="77s" attributeName="fill" from="rgb(
+</rect>
+
+
+
+</svg>
