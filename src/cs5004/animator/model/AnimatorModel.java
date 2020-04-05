@@ -165,6 +165,14 @@ public interface AnimatorModel {
   Map<String, String>  getAppearDisappearTime(String filename);
 
 
+  /**
+   * Getter to return a map containing key =  shapeID, value = disappear time of shape
+   * from the animation.
+   *
+   * @return a map containing key =  shapeID, value = disappear time.
+   */
+   Map<String, String> getDisappearTime();
 
-}
+
+  }
 

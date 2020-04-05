@@ -26,6 +26,7 @@ public class AnimatorModelImpl implements AnimatorModel {
   private int canvasWidth;
   private int canvasHeight;
   private Map<String, String> mapAppearDisappear = new HashMap<>();
+  private Map<String, String> mapDisappear = new HashMap<>();
 
 
   public AnimatorModelImpl(int topLeftX, int topLeftY, int canvasWidth, int canvasHeight) {
@@ -391,7 +392,7 @@ public class AnimatorModelImpl implements AnimatorModel {
   public Map<String,String> getAppearDisappearTime(String filename) {
     //For appear/disappear time
     List<String> list = new ArrayList<>();
-    Map<String, String> mapDisappear = new HashMap<>();
+    //Map<String, String> mapDisappear = new HashMap<>();
     Map<String, String> mapAppear = new HashMap<>();
     //Map<String, String> mapAppearDisappear = new HashMap<>();
 
@@ -406,7 +407,6 @@ public class AnimatorModelImpl implements AnimatorModel {
       while (in.hasNext()) {
         String line = in.nextLine();
 
-
         //if line has exactly 3 words in it, we know it declares a shape -- add it to 'list'
         if (line.length() > 0 && line.split("\\s+").length == 3) {
           String shapeID = line.split(" ")[1];
@@ -420,12 +420,6 @@ public class AnimatorModelImpl implements AnimatorModel {
           appearTime = line.split(" ")[2];
           // map for each unique shape at what tick it disappears
           mapDisappear.put(shapeID2, disappearTime);
-          // map for each unique shape at the first tick it appears
-//          try {
-//            mapAppear.get(shapeID2);
-//          } catch (Exception e) {
-//            mapAppear.put(shapeID2, appearTime);
-//          }
           if (mapAppear.get(shapeID2) == null){
             mapAppear.put(shapeID2, appearTime);
           }
@@ -448,6 +442,17 @@ public class AnimatorModelImpl implements AnimatorModel {
 
 
     return sorted ;
+  }
+
+  /**
+   * Getter to return a map containing key =  shapeID, value = disappear time of shape
+   * from the animation.
+   *
+   * @return a map containing key =  shapeID, value = disappear time.
+   */
+  public Map<String, String> getDisappearTime(){
+
+    return mapDisappear;
   }
 
 

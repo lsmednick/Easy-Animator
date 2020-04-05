@@ -115,7 +115,6 @@ public final class EasyAnimator {
               "Encountered Error", JOptionPane.ERROR_MESSAGE);
     }
 
-
     //TODO UPDATE:
     // 1. ConcreteClass File names to match what LM and GOC named them
     // 2. UPDATE what each view class takes in as parameters  -- update order if necessary
@@ -144,6 +143,8 @@ public final class EasyAnimator {
       JOptionPane.showMessageDialog(frame, "An Error was Encountered in View ",
               "Encountered Error ", JOptionPane.ERROR_MESSAGE);
     }
+
   }
 }
+
 
