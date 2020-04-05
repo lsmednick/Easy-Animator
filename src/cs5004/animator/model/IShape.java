@@ -123,4 +123,11 @@ public interface IShape {
 
   void setH(int h);
 
+  // TODO: add JavaDocs
+  String shapeSVG();
+  String shapeEndSVG();
+  String xTagSVG();
+  String yTagSVG();
+  String widthTagSVG();
+  String heightTagSVG();
 }

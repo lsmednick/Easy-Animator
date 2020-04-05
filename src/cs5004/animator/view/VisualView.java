@@ -42,11 +42,6 @@ public class VisualView extends JFrame implements IView {
   }
 
   @Override
-  public void setShapePosition(double x, double y) {
-
-  }
-
-  @Override
   public void output(String outputFile, String string) {
 
   }

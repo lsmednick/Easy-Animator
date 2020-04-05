@@ -105,4 +105,19 @@ public class ChangeScale extends AbstractTransform {
   public TransformType getTransformType() {
     return TransformType.SCALE;
   }
+
+  @Override
+  public String motionSVG() {
+    String string = "";
+    int duration = (this.getEndTime() - this.getStartTime());
+
+    string += "<animate attributeType=\"xml\" begin=\"" + this.getStartTime() + "s\" dur=\""
+            + duration + "s\" attributeName=\"" + this.widthTagSVG + "\" from=\""
+            + this.getFromWidth() + "\" to=\"" + this.getToWidth() + "\" fill=\"freeze\" />\n";
+    string += "<animate attributeType=\"xml\" begin=\"" + this.getStartTime() + "s\" dur=\""
+            + duration + "s\" attributeName=\"" + this.heightTagSVG + "\" from=\""
+            + this.getFromHeight() + "\" to=\"" + this.getToHeight() + "\" fill=\"freeze\" />\n";
+
+    return string;
+  }
 }

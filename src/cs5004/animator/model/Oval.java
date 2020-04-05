@@ -55,4 +55,40 @@ public class Oval extends AbstractShape {
   public ShapeType getType() {
     return ShapeType.OVAL;
   }
+
+  @Override
+  public String shapeSVG() {
+    String string = "";
+
+    string += "<ellipse id=\"" + this.getName() + "\" cx=\"" + this.getX() + "\" cy =\""
+            + this.getY() + "\" rx=\"" + this.getWidth() + "\" ry=\"" + this.getHeight()
+            + "\" fill=\"rgb(" + this.getR() + "," + this.getG() + "," + this.getB() + ")\" >\n";
+
+    return string;
+  }
+
+  @Override
+  public String shapeEndSVG() {
+    return "</ellipse>\n";
+  }
+
+  @Override
+  public String xTagSVG() {
+    return "cx";
+  }
+
+  @Override
+  public String yTagSVG() {
+    return "cy";
+  }
+
+  @Override
+  public String widthTagSVG() {
+    return "rx";
+  }
+
+  @Override
+  public String heightTagSVG() {
+    return "ry";
+  }
 }

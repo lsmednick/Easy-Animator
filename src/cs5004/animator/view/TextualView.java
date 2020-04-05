@@ -1,10 +1,5 @@
 package cs5004.animator.view;
 
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.OutputStreamWriter;
 import java.util.Collections;
 
 import cs5004.animator.model.AnimatorModel;
@@ -15,7 +10,7 @@ public class TextualView extends AbstractView implements IView {
   private String filename;
   private double speed;
 
-  // TODO: figure what to do with speed / is Systems.out working fine?
+  // TODO: figure what to do with speed
   public TextualView(AnimatorModel animation, String filename, double speed) {
     this.animation = animation;
     this.filename = filename;
@@ -47,11 +42,6 @@ public class TextualView extends AbstractView implements IView {
 
   @Override
   public void makeVisible() {
-
-  }
-
-  @Override
-  public void setShapePosition(double x, double y) {
 
   }
 

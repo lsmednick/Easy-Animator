@@ -57,4 +57,40 @@ public class Rectangle extends AbstractShape {
   public ShapeType getType() {
     return ShapeType.RECTANGLE;
   }
+
+  @Override
+  public String shapeSVG() {
+    String string = "";
+
+    string += "<rect id=\"" + this.getName() + "\" x=\"" + this.getX() + "\" y=\""
+            + this.getY() + "\" width=\"" + this.getWidth() + "\" height=\"" + this.getHeight()
+            + "\" fill=\"rgb(" + this.getR() + "," + this.getG() + "," + this.getB() + ")\" >\n";
+
+    return string;
+  }
+
+  @Override
+  public String shapeEndSVG() {
+    return "</rect>\n";
+  }
+
+  @Override
+  public String xTagSVG() {
+    return "x";
+  }
+
+  @Override
+  public String yTagSVG() {
+    return "y";
+  }
+
+  @Override
+  public String widthTagSVG() {
+    return "width";
+  }
+
+  @Override
+  public String heightTagSVG() {
+    return "height";
+  }
 }
