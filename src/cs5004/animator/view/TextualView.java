@@ -32,6 +32,8 @@ public class TextualView extends AbstractView implements IView {
     }
     string.append("\n");
 
+    string.append("Text view is running at ").append(speed).append(" ticks per second\n");
+
     Collections.sort(animation.getTransformList());
     for (ITransform t : animation.getTransformList()) {
       string.append(t.toString());
