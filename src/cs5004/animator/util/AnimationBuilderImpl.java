@@ -56,11 +56,14 @@ public class AnimationBuilderImpl implements AnimationBuilder<AnimatorModel> {
 
     if (x1 != x2 || y1 != y2){
       m.changePos(name, x1, y1, x2, y2, t1, t2);
-    } else if (r1 != r2 || g1 != g2 || b1 != b2) {
+    }
+    if (r1 != r2 || g1 != g2 || b1 != b2) {
       m.changeColor(name, r1, g1, b1, r2, g2, b2, t1, t2);
-    } else if (w1 != w2 || h1 != h2) {
+    }
+    if (w1 != w2 || h1 != h2) {
       m.changeScale(name, w1, h1, w2, h2, t1, t2);
-    } else {
+    }
+    if (x1 == x2 && y1 == y2 && r1 == r2 && g1 == g2 && b1 == b2 && w1 == w2 && h1 == h2){
       m.changePos(name, x1, y1, x2, y2, t1, t2);
     }
     return this;

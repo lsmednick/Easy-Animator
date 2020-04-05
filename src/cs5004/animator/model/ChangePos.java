@@ -42,9 +42,9 @@ public class ChangePos extends AbstractTransform {
   public ChangePos(IShape shape, int fromX, int fromY, int toX, int toY, int startTime,
                    int endTime) throws IllegalArgumentException {
     super(shape.getName(), startTime, endTime);
-    if (fromX < 0 || fromY < 0 || toX < 0 || toY < 0) {
-      throw new IllegalArgumentException("X / Y coordinates cannot be negative.");
-    }
+//    if (fromX < 0 || fromY < 0 || toX < 0 || toY < 0) {
+//      throw new IllegalArgumentException("X / Y coordinates cannot be negative.");
+//    }
     this.fromX = fromX;
     this.fromY = fromY;
     this.toX = toX;

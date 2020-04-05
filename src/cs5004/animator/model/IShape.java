@@ -80,4 +80,47 @@ public interface IShape {
    */
 
   ShapeType getType();
+
+  /**
+   * Sets a new value for x
+   *
+   * @param x the new x value of a shape
+   */
+
+  void setX(int x);
+
+  /**
+   * Sets a new value for y
+   *
+   * @param y the new y value of a shape
+   */
+
+  void setY(int y);
+
+  /**
+   * Sets a new color for the shape
+   *
+   * @param r red intensity of the color's shape
+   * @param g green intensity of the color's shape
+   * @param b blue intensity of the color's shape
+   */
+
+  void setColor(int r, int g, int b);
+
+  /**
+   * Sets a new value for w
+   *
+   * @param w the new w value of a shape
+   */
+
+  void setW(int w);
+
+  /**
+   * Sets a new value for h
+   *
+   * @param h the new h value of a shape
+   */
+
+  void setH(int h);
+
 }

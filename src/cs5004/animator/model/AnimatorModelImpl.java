@@ -112,10 +112,10 @@ public class AnimatorModelImpl implements AnimatorModel {
   @Override
   public void changePos(String shapeID, int fromX, int fromY, int toX, int toY,
                         int startTime, int endTime) throws IllegalArgumentException {
-    if (duplicateHelper(shapeID, startTime, endTime)) {
-      throw new IllegalArgumentException("Transformation already exists for that shape during the"
-              + "specified time frame.");
-    }
+//    if (duplicateHelper(shapeID, startTime, endTime)) {
+//      throw new IllegalArgumentException("Transformation already exists for that shape during the"
+//              + "specified time frame.");
+//    }
     if (!shapeList.containsKey(shapeID)) {
       throw new IllegalArgumentException("Entered shape does not exist in the model.");
     }
@@ -150,10 +150,10 @@ public class AnimatorModelImpl implements AnimatorModel {
     if (fromR == toR && fromB == toB && fromG == toG) {
       throw new IllegalArgumentException("Colors must be different.");
     }
-    if (duplicateHelper(shapeID, startTime, endTime)) {
-      throw new IllegalArgumentException("Transformation already exists for that shape during the"
-              + "specified time frame.");
-    }
+//    if (duplicateHelper(shapeID, startTime, endTime)) {
+//      throw new IllegalArgumentException("Transformation already exists for that shape during the"
+//              + "specified time frame.");
+//    }
     if (!shapeList.containsKey(shapeID)) {
       throw new IllegalArgumentException("Entered shape does not exist in the model.");
     }
@@ -187,10 +187,10 @@ public class AnimatorModelImpl implements AnimatorModel {
     if (fromWidth == toWidth && fromHeight == toHeight) {
       throw new IllegalArgumentException("Either height or weight must be different.");
     }
-    if (duplicateHelper(shapeID, startTime, endTime)) {
-      throw new IllegalArgumentException("Transformation already exists for that shape during the"
-              + "specified time frame.");
-    }
+//    if (duplicateHelper(shapeID, startTime, endTime)) {
+//      throw new IllegalArgumentException("Transformation already exists for that shape during the"
+//              + "specified time frame.");
+//    }
     if (!shapeList.containsKey(shapeID)) {
       throw new IllegalArgumentException("Entered shape does not exist in the model.");
     }
@@ -236,8 +236,8 @@ public class AnimatorModelImpl implements AnimatorModel {
   @Override
   public Map<String, IShape> getShapesAtTick(int tick) {
     Map<String, IShape> updatedMap = new HashMap<>();
-    System.out.print(String.format("TICK: %d", tick));
-    //Collections.sort(transformList);
+    Collections.sort(transformList);
+    System.out.print(transformList);
     for (ITransform transform : transformList) {
       IShape s = shapeList.get(transform.getShapeID());
       int start = transform.getStartTime();
@@ -255,12 +255,21 @@ public class AnimatorModelImpl implements AnimatorModel {
         int fromY = ((ChangePos) transform).getFromY();
         int toX = ((ChangePos) transform).getToX();
         int toY = ((ChangePos) transform).getToY();
+        int newX = 0;
+        int newY = 0;
 
-        int newX = (fromX * (end - tick) / (end - start))
-                + (toX * (tick - start) / (end - start));
-        int newY = (fromY * (end - tick) / (end - start))
-                + (toY * (tick - start) / (end - start));
-
+        if (fromX == toX) {
+          newX = toX;
+        }
+        if (fromY == toY) {
+          newY = toY;
+        }
+        if (fromX != toX) {
+          newX = (fromX * (end - tick) / (end - start)) + (toX * (tick - start) / (end - start));
+        }
+        if (fromY != toY) {
+          newY = (fromY * (end - tick) / (end - start)) + (toY * (tick - start) / (end - start));
+        }
         if (s instanceof Oval) {
           updatedMap.put(s.getName(), new Oval(newX, newY, s.getR(), s.getG(), s.getB(),
                   s.getWidth(), s.getHeight(), s.getName()));
@@ -268,6 +277,10 @@ public class AnimatorModelImpl implements AnimatorModel {
           updatedMap.put(s.getName(), new Rectangle(newX, newY, s.getR(), s.getG(), s.getB(),
                   s.getWidth(), s.getHeight(), s.getName()));
         }
+
+        s.setX(newX);
+        s.setY(newY);
+
       } else if (transform instanceof ChangeColor) {
         int fromR = ((ChangeColor) transform).getFromR();
         int fromG = ((ChangeColor) transform).getFromG();
@@ -290,6 +303,9 @@ public class AnimatorModelImpl implements AnimatorModel {
           updatedMap.put(s.getName(), new Rectangle(s.getX(), s.getY(), newR, newG, newB,
                   s.getWidth(), s.getHeight(), s.getName()));
         }
+
+        s.setColor(newR, newG, newB);
+
       } else if (transform instanceof ChangeScale) {
         int fromW = ((ChangeScale) transform).getFromWidth();
         int fromH = ((ChangeScale) transform).getFromHeight();
@@ -308,6 +324,10 @@ public class AnimatorModelImpl implements AnimatorModel {
           updatedMap.put(s.getName(), new Rectangle(s.getX(), s.getY(), s.getR(), s.getG(),
                   s.getB(), newW, newH, s.getName()));
         }
+
+        s.setW(newW);
+        s.setH(newH);
+
       }
     }
     return updatedMap;
@@ -426,9 +446,7 @@ public class AnimatorModelImpl implements AnimatorModel {
 //          } catch (Exception e) {
 //            mapAppear.put(shapeID2, appearTime);
 //          }
-          if (mapAppear.get(shapeID2) == null){
-            mapAppear.put(shapeID2, appearTime);
-          }
+          mapAppear.putIfAbsent(shapeID2, appearTime);
 
         }
       }
@@ -443,11 +461,8 @@ public class AnimatorModelImpl implements AnimatorModel {
               + mapDisappear.get(shape.toString()) + "\n");
     }
 
-    TreeMap<String, String> sorted = new TreeMap<>();
-    sorted.putAll(mapAppearDisappear);
 
-
-    return sorted ;
+    return new TreeMap<>(mapAppearDisappear);
   }
 
 
