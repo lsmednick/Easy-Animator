@@ -479,9 +479,9 @@ public class AnimatorModelImpl implements AnimatorModel {
     }
 
     for (String shape : list) {
-      mapAppearDisappear.put(shape.toString(),  shape.toString() + " appears at time t="
-              + mapAppear.get(shape.toString()) + " and disappears at t="
-              + mapDisappear.get(shape.toString()) + "\n");
+      mapAppearDisappear.put(shape,  shape + " appears at time t="
+              + mapAppear.get(shape) + " and disappears at t="
+              + mapDisappear.get(shape) + "\n");
     }
 
 
@@ -494,10 +494,10 @@ public class AnimatorModelImpl implements AnimatorModel {
    *
    * @return a map containing key =  shapeID, value = disappear time.
    */
-  Map<String, String> getDisappearTime(){
+  public Map<String, String> getDisappearTime(){
     return mapDisappear;
   }
-      
+
 
 
 
