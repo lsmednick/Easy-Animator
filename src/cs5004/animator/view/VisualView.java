@@ -48,7 +48,7 @@ public class VisualView extends JFrame implements IView {
   }
 
   @Override
-  public void output(String name) {
+  public void output(String outputFile, String string) {
 
   }
 
