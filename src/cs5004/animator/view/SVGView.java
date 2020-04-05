@@ -11,12 +11,12 @@ import cs5004.animator.model.AnimatorModel;
 import cs5004.animator.model.ITransform;
 import cs5004.animator.model.ShapeType;
 
-public class SVGView implements IView {
+public class SVGView extends AbstractView implements IView {
   private AnimatorModel animation;
   private String filename;
   private double speed;
 
-  // TODO: figure what to do with speed
+  // TODO: figure out what to do with speed
   public SVGView(AnimatorModel animation, String filename, double speed) {
     this.animation = animation;
     this.filename = filename;
@@ -48,7 +48,7 @@ public class SVGView implements IView {
                 .append("\" fill=\"rgb(").append(animation.getShapeList().get(key).getR())
                 .append(",").append(animation.getShapeList().get(key).getG()).append(",")
                 .append(animation.getShapeList().get(key).getB())
-                .append(")\" visibility=\"visible\" >\n");
+                .append(")\">\n");
 
         for (ITransform t : animation.getTransformList()) {
           if (t.getShapeID().equals(animation.getShapeList().get(key).getName())) {
@@ -56,13 +56,15 @@ public class SVGView implements IView {
               case MOVE:
                 string.append("<animate attributeType=\"xml\" begin=\"").append(t.getStartTime())
                         .append("s\" dur=\"").append(t.getEndTime() - t.getStartTime())
-                        .append("s\" attributeName=\"\n");
+                        .append("s\" attributeName=\n");
+                break;
                 // TODO: get access to attribute (eg. cx/cy/x/y) and timing of motion
 
               case COLOR:
                 string.append("<animate attributeType=\"CSS\" begin=\"").append(t.getStartTime())
                         .append("s\" dur=\"").append(t.getEndTime() - t.getStartTime())
-                        .append("s\" attributeName=\"fill\" from=\"rgb(\n");
+                        .append("s\" attributeName=\"fill\" from=\"rgb(\"\n");
+                break;
                 // TODO: figure out how to use rgb values for colors
 
               case SCALE:
@@ -81,7 +83,7 @@ public class SVGView implements IView {
                 .append("\" fill=\"rgb(").append(animation.getShapeList().get(key).getR())
                 .append(",").append(animation.getShapeList().get(key).getG()).append(",")
                 .append(animation.getShapeList().get(key).getB())
-                .append(")\" visibility=\"visible\" >\n");
+                .append(")\">\n");
 
         // TODO: copy-paste the previous loop here (more the for loop in a private funct)
         string.append("</ellipse>\n");
@@ -90,27 +92,6 @@ public class SVGView implements IView {
 
     string.append("</svg>");
     return string.toString().trim();
-  }
-
-
-  // TODO: create an abstract class and move this method there (delete in textualview)
-  @Override
-  public void output(String outputFile) {
-    System.out.println("Printing SVG view in the file " + outputFile + "\n");
-
-    try {
-      BufferedWriter output;
-      if (outputFile.equals("System.out")) {
-        output = new BufferedWriter(new OutputStreamWriter(System.out));
-      } else {
-        File outFile = new File(outputFile);
-        output = new BufferedWriter(new FileWriter(outFile));
-      }
-      output.write(this.getState());
-      output.close();
-    } catch (IOException iea) {
-      System.out.println("Could not find file" + outputFile);
-    }
   }
 
   @Override

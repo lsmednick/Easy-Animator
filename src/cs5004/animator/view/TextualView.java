@@ -10,7 +10,7 @@ import java.util.Collections;
 import cs5004.animator.model.AnimatorModel;
 import cs5004.animator.model.ITransform;
 
-public class TextualView implements IView{
+public class TextualView extends AbstractView implements IView {
   private AnimatorModel animation;
   private String filename;
   private double speed;
@@ -43,25 +43,6 @@ public class TextualView implements IView{
     }
 
     return string.toString().trim();
-  }
-
-  @Override
-  public void output(String outputFile) {
-    System.out.println("Printing text view in the file " + outputFile + "\n");
-
-    try {
-      BufferedWriter output;
-      if (outputFile.equals("System.out")) {
-        output = new BufferedWriter(new OutputStreamWriter(System.out));
-      } else {
-        File outFile = new File(outputFile);
-        output = new BufferedWriter(new FileWriter(outFile));
-      }
-      output.write(this.getState());
-      output.close();
-    } catch (IOException iea) {
-      System.out.println("Could not find file" + outputFile);
-    }
   }
 
   @Override
