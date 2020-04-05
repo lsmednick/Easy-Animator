@@ -31,6 +31,7 @@ public class AnimatorModelImpl implements AnimatorModel {
   private int canvasWidth;
   private int canvasHeight;
   private Map<String, String> mapAppearDisappear = new HashMap<>();
+  private Map<String, String> mapDisappear = new HashMap<>();
 
 
   public AnimatorModelImpl(int topLeftX, int topLeftY, int canvasWidth, int canvasHeight) {
@@ -433,7 +434,7 @@ public class AnimatorModelImpl implements AnimatorModel {
   public Map<String,String> getAppearDisappearTime(String filename) {
     //For appear/disappear time
     List<String> list = new ArrayList<>();
-    Map<String, String> mapDisappear = new HashMap<>();
+    //Map<String, String> mapDisappear = new HashMap<>();
     Map<String, String> mapAppear = new HashMap<>();
     //Map<String, String> mapAppearDisappear = new HashMap<>();
 
@@ -486,6 +487,19 @@ public class AnimatorModelImpl implements AnimatorModel {
 
     return new TreeMap<>(mapAppearDisappear);
   }
+
+  /**
+   * Getter to return a map containing key =  shapeID, value = disappear time of shape
+   * from the animation.
+   *
+   * @return a map containing key =  shapeID, value = disappear time.
+   */
+  Map<String, String> getDisappearTime(){
+    return mapDisappear;
+  }
+      
+
+
 
 
 }
