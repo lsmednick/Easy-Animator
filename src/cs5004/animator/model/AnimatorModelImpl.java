@@ -387,13 +387,9 @@ public class AnimatorModelImpl implements AnimatorModel {
     return this.canvasHeight;
   }
 
-  /**
-   * Returns a map: key = unique ID for shape, value = string containing the appear/disappear time.
-   *
-   * @return a map: key = unique ID for shape,  value = string containing the appear/disappear time.
-   */
 
   public Map<String,String> getAppearDisappearTime(String filename) {
+    //For appear/disappear time
     List<String> list = new ArrayList<>();
     Map<String, String> mapDisappear = new HashMap<>();
     Map<String, String> mapAppear = new HashMap<>();
@@ -410,15 +406,14 @@ public class AnimatorModelImpl implements AnimatorModel {
       while (in.hasNext()) {
         String line = in.nextLine();
 
-        // While parsing the file...
-        // If line has exactly 3 words in it, we know it declares a shape -- add it to 'list'.
+
+        //if line has exactly 3 words in it, we know it declares a shape -- add it to 'list'
         if (line.length() > 0 && line.split("\\s+").length == 3) {
           String shapeID = line.split(" ")[1];
           list.add(shapeID);
         }
 
-        // While parsing the file...
-        // For lines that declare transformations -- put appear/disappear times into a map.
+        //For lines that declare transformations -- put appear/disappear times into a map
         if (line.length() > 0 && line.split("\\s+").length == 18) {
           shapeID2 = line.split(" ")[1];
           disappearTime = line.split(" ")[11];
@@ -426,30 +421,31 @@ public class AnimatorModelImpl implements AnimatorModel {
           // map for each unique shape at what tick it disappears
           mapDisappear.put(shapeID2, disappearTime);
           // map for each unique shape at the first tick it appears
+//          try {
+//            mapAppear.get(shapeID2);
+//          } catch (Exception e) {
+//            mapAppear.put(shapeID2, appearTime);
+//          }
           if (mapAppear.get(shapeID2) == null){
             mapAppear.put(shapeID2, appearTime);
           }
+
         }
       }
+
     } catch (FileNotFoundException e) {
       throw new IllegalStateException("File not found");
     }
 
-
-    // Traverses the 'list' of shapes in the animation and creates a map:
-    // key = unique string ID for a shape
-    // value = a string containing the appear and disappear times of the shape
-    // the string reads : "Circle1 appears at t=1 and disappears at t=10"
     for (String shape : list) {
       mapAppearDisappear.put(shape.toString(),  shape.toString() + " appears at time t="
               + mapAppear.get(shape.toString()) + " and disappears at t="
               + mapDisappear.get(shape.toString()) + "\n");
     }
 
-    // Sort the mapAppearDisappear which contains key: shape unique ID, value: string of appear/
-    // disappear time
     TreeMap<String, String> sorted = new TreeMap<>();
     sorted.putAll(mapAppearDisappear);
+
 
     return sorted ;
   }

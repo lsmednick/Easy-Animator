@@ -19,14 +19,21 @@ public class VisualView extends JFrame implements IView {
     this.setTitle("Welcome to Loge, Jenny, and Gerard's project!");
     this.setBounds(model.getTopLeftX(), model.getTopLeftY(), model.getCanvasWidth(),
             model.getCanvasHeight());
+
     //this.setSize(model.getCanvasWidth(), model.getCanvasHeight());
     this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
     this.setLayout(new BorderLayout());
     panel = new AnimationPanel(model);
+    System.out.print(model.getCanvasHeight());
+    System.out.print(model.getCanvasWidth());
     panel.setPreferredSize(new Dimension(model.getCanvasWidth(), model.getCanvasHeight()));
     this.add(panel, BorderLayout.CENTER);
-    //JScrollPane pane = new JScrollPane(panel);
+    JScrollPane pane = new JScrollPane(panel);
+    pane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+    pane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+    //pane.setBounds(50, 30, 300, 50);
+    this.add(pane, BorderLayout.CENTER);
     this.pack();
   }
 
@@ -47,10 +54,10 @@ public class VisualView extends JFrame implements IView {
 
   @Override
   public void refreshAnimation() {
-    for (int i = 1; i < 491; i++) {
+    for (int i = 1; i < 1167; i++) {
       panel.refresh(i);
       try {
-        Thread.sleep(100);
+        Thread.sleep(60);
       } catch (InterruptedException e) {
         e.printStackTrace();
       }

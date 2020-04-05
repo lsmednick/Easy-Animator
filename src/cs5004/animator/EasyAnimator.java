@@ -127,7 +127,6 @@ public final class EasyAnimator {
         view1.output(output);
       } else if (viewType.equalsIgnoreCase("text")) {
         TextualView view2 = new TextualView(model, filename, speed);
-        view2.getState();
         view2.output(output);
       } else if (viewType.equalsIgnoreCase("visual")) {
         assert model != null;

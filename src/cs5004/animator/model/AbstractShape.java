@@ -41,9 +41,9 @@ public abstract class AbstractShape implements IShape {
 
   public AbstractShape(int x, int y, int r, int g, int b, int width, int height,
                        String name) throws IllegalArgumentException {
-    if (x < 0 || y < 0) {
-      throw new IllegalArgumentException("x and y-coordinates can't be negative");
-    }
+//    if (x < 0 || y < 0) {
+//      throw new IllegalArgumentException("x and y-coordinates can't be negative");
+//    }
     if (width <= 0 || height <= 0) {
       throw new IllegalArgumentException("Width and height must be at greater than zero.");
     }
@@ -145,6 +145,31 @@ public abstract class AbstractShape implements IShape {
   @Override
   public String getName() {
     return this.name;
+  }
+
+  @Override
+  public void setX(int x) {
+    this.x = x;
+  }
+
+  @Override
+  public void setY(int y) {
+    this.y = y;
+  }
+
+  @Override
+  public void setColor(int r, int g, int b) {
+    this.color = new Color(r, g, b);
+  }
+
+  @Override
+  public void setW(int w) {
+    this.width = w;
+  }
+
+  @Override
+  public void setH(int h) {
+    this.height = h;
   }
 
 }
