@@ -6,10 +6,15 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Hashtable;
+import java.util.IdentityHashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 import java.util.TreeMap;
+import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * Is a class that implements interface AnimatorModel. This class holds a Map which contains a list
@@ -235,15 +240,16 @@ public class AnimatorModelImpl implements AnimatorModel {
 
   @Override
   public Map<String, IShape> getShapesAtTick(int tick) {
-    Map<String, IShape> updatedMap = new HashMap<>();
+    Map<String, IShape> updatedMap = new LinkedHashMap<>();
     Collections.sort(transformList);
-    System.out.print(transformList);
+    System.out.print(String.format("TICK: %d\n", tick));
+
     for (ITransform transform : transformList) {
       IShape s = shapeList.get(transform.getShapeID());
       int start = transform.getStartTime();
       int end = transform.getEndTime();
 
-      if (start == end || tick > end) {
+      if (tick > end) {
         continue;
       }
       if (tick <= start && start != 1) {
@@ -289,12 +295,28 @@ public class AnimatorModelImpl implements AnimatorModel {
         int toG = ((ChangeColor) transform).getToG();
         int toB = ((ChangeColor) transform).getToB();
 
-        int newR = (fromR * (end - tick) / (end - start))
-                + (toR * (tick - start) / (end - start));
-        int newG = (fromG * (end - tick) / (end - start))
-                + (toG * (tick - start) / (end - start));
-        int newB = (fromB * (end - tick) / (end - start))
-                + (toB * (tick - start) / (end - start));
+        int newR = (fromR * (end - tick) / (end - start)) + (toR * (tick - start) / (end - start));
+        int newG = (fromG * (end - tick) / (end - start)) + (toG * (tick - start) / (end - start));
+        int newB = (fromB * (end - tick) / (end - start)) + (toB * (tick - start) / (end - start));
+
+        if (newR > 255) {
+          newR = 255;
+        }
+        if (newG > 255) {
+          newG = 255;
+        }
+        if (newB > 255) {
+          newB = 255;
+        }
+        if (newR < 0) {
+          newR = 0;
+        }
+        if (newG < 0) {
+          newG = 0;
+        }
+        if (newB < 0) {
+          newB = 0;
+        }
 
         if (s instanceof Oval) {
           updatedMap.put(s.getName(), new Oval(s.getX(), s.getY(), newR, newG, newB, s.getWidth(),

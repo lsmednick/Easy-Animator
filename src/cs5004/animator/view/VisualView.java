@@ -31,8 +31,7 @@ public class VisualView extends JFrame implements IView {
     this.add(panel, BorderLayout.CENTER);
     JScrollPane pane = new JScrollPane(panel);
     pane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
-    pane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
-    //pane.setBounds(50, 30, 300, 50);
+    pane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
     this.add(pane, BorderLayout.CENTER);
     this.pack();
   }
