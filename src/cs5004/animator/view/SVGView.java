@@ -1,6 +1,7 @@
 package cs5004.animator.view;
 
 import java.util.Collections;
+import java.util.Timer;
 
 import cs5004.animator.model.AnimatorModel;
 import cs5004.animator.model.ITransform;
@@ -9,11 +10,14 @@ public class SVGView extends AbstractView implements IView {
   private AnimatorModel animation;
   private String filename;
   private double speed;
+  private int maxTick;
 
   public SVGView(AnimatorModel animation, String filename, double speed) {
+    this.speed = speed;
+    animation.getAppearDisappearTime(filename);
+    this.maxTick = animation.getDisappearTime();
     this.animation = animation;
     this.filename = filename;
-    this.speed = speed;
   }
 
   public double getSpeed() {
@@ -29,8 +33,13 @@ public class SVGView extends AbstractView implements IView {
     StringBuilder string = new StringBuilder();
 
     // Setting width and height of the canvas
+    int viewBoxWidth = (animation.getTopLeftX() + animation.getCanvasWidth());
+    int viewBoxHeight = (animation.getTopLeftY() + animation.getCanvasHeight());
+
     string.append("<svg width=\"").append(animation.getCanvasWidth()).append("\" height=\"")
-            .append(animation.getCanvasHeight())
+            .append(animation.getCanvasHeight()).append("\" viewBox=\"")
+            .append(animation.getTopLeftX()).append(" ").append(animation.getTopLeftY())
+            .append(" ").append(viewBoxWidth).append(" ").append(viewBoxHeight)
             .append("\" version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\">\n");
 
     Collections.sort(animation.getTransformList());

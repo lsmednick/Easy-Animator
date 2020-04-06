@@ -8,7 +8,6 @@ import java.io.OutputStreamWriter;
 
 public abstract class AbstractView implements IView {
 
-  @Override
   public void output(String outputFile, String string) {
     System.out.println("Printing text view in the file " + outputFile + "\n");
 

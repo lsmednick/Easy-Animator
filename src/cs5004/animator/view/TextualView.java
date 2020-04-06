@@ -10,7 +10,6 @@ public class TextualView extends AbstractView implements IView {
   private String filename;
   private double speed;
 
-  // TODO: print a line with info about speed
   public TextualView(AnimatorModel animation, String filename, double speed) {
     this.animation = animation;
     this.filename = filename;
@@ -32,7 +31,7 @@ public class TextualView extends AbstractView implements IView {
     }
     string.append("\n");
 
-    string.append("Text view is running at ").append(speed).append(" ticks per second\n");
+    string.append("Text view is running at ").append(speed).append(" ticks per second\n\n");
 
     Collections.sort(animation.getTransformList());
     for (ITransform t : animation.getTransformList()) {

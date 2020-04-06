@@ -133,8 +133,9 @@ public class ChangeColor extends AbstractTransform {
     int duration = (this.getEndTime() - this.getStartTime());
 
     String string = "<animate attributeType=\"CSS\" begin=\"" + this.getStartTime() + "s\" dur=\""
-            + duration + "s\" attributeName=\"fill\" from=\"" + "rgb(" + this.fromR + ","
-            + this.fromG + "," + this.fromB + ")\" fill=\"freeze\" />\n";
+            + duration + "s\" attributeName=\"fill\" from=\"rgb(" + this.fromR + ","
+            + this.fromG + "," + this.fromB + ")\" to=\"rgb(" + this.toR + "," + this.toG
+            + "," + this.toB + ")\" fill=\"freeze\" />\n";
 
     return string;
   }

@@ -1,7 +1,3 @@
-Name: disk3
-Type: Rectangle
-Min corner: (145, 240), Width: 110, Height: 30, Color: (11, 45, 175)
-
 Name: disk1
 Type: Rectangle
 Min corner: (190, 180), Width: 20, Height: 30, Color: (0, 49, 90)
@@ -10,9 +6,15 @@ Name: disk2
 Type: Rectangle
 Min corner: (167, 210), Width: 65, Height: 30, Color: (6, 247, 41)
 
+Name: disk3
+Type: Rectangle
+Min corner: (145, 240), Width: 110, Height: 30, Color: (11, 45, 175)
+
 disk1 appears at time t=1 and disappears at t=302
 disk2 appears at time t=1 and disappears at t=302
 disk3 appears at time t=1 and disappears at t=302
+
+Text view is running at 2.0 ticks per second
 
 Shape disk1 moves from (190,180) to (190,180) from t=1 to t=1
 Shape disk1 moves from (190,180) to (190,180) from t=1 to t=25

@@ -45,11 +45,6 @@ public class VisualView extends JFrame implements IView {
   }
 
   @Override
-  public void output(String outputFile, String string) {
-
-  }
-
-  @Override
   public void refreshAnimation() {
     for (int i = 1; i < maxTick+1; i++) {
       panel.refresh(i);
