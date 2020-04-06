@@ -454,7 +454,6 @@ public class AnimatorModelImpl implements AnimatorModel {
           list.add(shapeID);
         }
 
-
         //For lines that declare transformations -- put appear/disappear times into a map
         //if (line.length() > 0 && line.split("\\s+").length == 18) {
         if (line.split(" ")[0].equals("motion")) {
