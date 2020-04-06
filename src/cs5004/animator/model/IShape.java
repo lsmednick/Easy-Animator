@@ -131,4 +131,6 @@ public interface IShape {
   String yTagSVG();
   String widthTagSVG();
   String heightTagSVG();
+  double newWidth();
+  double newHeight();
 }

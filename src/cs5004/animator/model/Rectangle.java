@@ -93,4 +93,14 @@ public class Rectangle extends AbstractShape {
   public String heightTagSVG() {
     return "height";
   }
+
+  @Override
+  public double newWidth() {
+    return 0;
+  }
+
+  @Override
+  public double newHeight() {
+    return 0;
+  }
 }

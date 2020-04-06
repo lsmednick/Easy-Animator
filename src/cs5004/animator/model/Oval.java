@@ -59,17 +59,25 @@ public class Oval extends AbstractShape {
   @Override
   public String shapeSVG() {
     String string = "";
-    double newWidth = this.getWidth() / 2.0;
-    double newHeight = this.getHeight() / 2.0;
-    double newX = this.getX() + newWidth;
-    double newY = this.getY() + newHeight;
+    double newX = this.getX() + this.newWidth();
+    double newY = this.getY() + this.newHeight();
 
 
     string += "<ellipse id=\"" + this.getName() + "\" cx=\"" + newX + "\" cy =\""
-            + newY + "\" rx=\"" + newWidth + "\" ry=\"" + newHeight
+            + newY + "\" rx=\"" + this.newWidth() + "\" ry=\"" + this.newHeight()
             + "\" fill=\"rgb(" + this.getR() + "," + this.getG() + "," + this.getB() + ")\" >\n";
 
     return string;
+  }
+
+  @Override
+  public double newWidth() {
+    return this.getWidth() / 2.0;
+  }
+
+  @Override
+  public double newHeight() {
+    return this.getHeight() / 2.0;
   }
 
   @Override
