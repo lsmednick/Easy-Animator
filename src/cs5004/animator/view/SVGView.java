@@ -52,7 +52,7 @@ public class SVGView extends AbstractView implements IView {
       for (ITransform t : animation.getTransformList()) {
         if (t.getShapeID().equals(animation.getShapeList().get(key).getName())) {
           // Copying information about the shape's motions
-          string.append(t.motionSVG());
+          string.append(t.motionSVG(this.speed));
         }
       }
       string.append(animation.getShapeList().get(key).shapeEndSVG());

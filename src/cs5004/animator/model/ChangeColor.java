@@ -129,11 +129,13 @@ public class ChangeColor extends AbstractTransform {
   }
 
   @Override
-  public String motionSVG() {
-    int duration = (this.getEndTime() - this.getStartTime());
+  public String motionSVG(double speed) {
+    double start = (this.getStartTime() / speed) * 1000;
+    double end = (this.getEndTime() / speed) * 1000;
+    double duration = end - start;
 
-    String string = "<animate attributeType=\"CSS\" begin=\"" + this.getStartTime() + "s\" dur=\""
-            + duration + "s\" attributeName=\"fill\" from=\"rgb(" + this.fromR + ","
+    String string = "<animate attributeType=\"CSS\" begin=\"" + start + "ms\" dur=\""
+            + duration + "ms\" attributeName=\"fill\" from=\"rgb(" + this.fromR + ","
             + this.fromG + "," + this.fromB + ")\" to=\"rgb(" + this.toR + "," + this.toG
             + "," + this.toB + ")\" fill=\"freeze\" />\n";
 

@@ -112,15 +112,17 @@ public class ChangePos extends AbstractTransform {
   }
 
   @Override
-  public String motionSVG() {
-    int duration = (this.getEndTime() - this.getStartTime());
+  public String motionSVG(double speed) {
+    double start = (this.getStartTime() / speed) * 1000;
+    double end = (this.getEndTime() / speed) * 1000;
+    double duration = end - start;
 
-    String string = "" + ("<animate attributeType=\"xml\" begin=\"" + this.getStartTime()
-            + "s\" dur=\"" + duration + "s\" attributeName=\"" + this.getShape().xTagSVG()
-            + "\" from=\"" + this.fromX + "\" to=\"" + this.toX + "\" fill=\"freeze\" />\n");
-    string += "<animate attributeType=\"xml\" begin=\"" + this.getStartTime() + "s\" dur=\""
-            + duration + "s\" attributeName=\"" + this.getShape().yTagSVG() + "\" from=\""
-            + this.fromY + "\" to=\"" + this.toY + "\" fill=\"freeze\" />\n";
+    String string = "" + ("<animate attributeType=\"xml\" begin=\"" + start + "ms\" dur=\""
+            + duration + "ms\" attributeName=\"" + this.getShape().xTagSVG() + "\" from=\""
+            + this.fromX + "\" to=\"" + this.toX + "\" fill=\"freeze\" />\n");
+    string += "<animate attributeType=\"xml\" begin=\"" + start + "ms\" dur=\"" + duration
+            + "ms\" attributeName=\"" + this.getShape().yTagSVG() + "\" from=\"" + this.fromY
+            + "\" to=\"" + this.toY + "\" fill=\"freeze\" />\n";
 
     return string;
   }
