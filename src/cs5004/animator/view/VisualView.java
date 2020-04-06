@@ -1,6 +1,8 @@
 package cs5004.animator.view;
 
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.*;
 
@@ -15,17 +17,14 @@ public class VisualView extends JFrame implements IView {
   private AnimationPanel panel;
   private int speed;
   private int maxTick;
+  private int tick = 1;
 
-  public VisualView(int speed, AnimatorModel model, String file) {
+  public VisualView(int speed, AnimatorModel model) {
     super();
     this.speed = speed;
-    model.getAppearDisappearTime(file);
     this.maxTick = model.getDisappearTime();
     this.setTitle("Welcome to Loge, Jenny, and Gerard's project!");
-    this.setBounds(model.getTopLeftX(), model.getTopLeftY(), model.getCanvasWidth(),
-            model.getCanvasHeight());
-
-    //this.setSize(model.getCanvasWidth(), model.getCanvasHeight());
+    this.setSize(model.getCanvasWidth(), model.getCanvasHeight());
     this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
     this.setLayout(new BorderLayout());
@@ -46,7 +45,7 @@ public class VisualView extends JFrame implements IView {
 
   @Override
   public void refreshAnimation() {
-    for (int i = 1; i < maxTick+1; i++) {
+    for (int i = 1; i < maxTick + 1; i++) {
       panel.refresh(i);
       try {
         Thread.sleep(1000 / speed);
@@ -55,5 +54,17 @@ public class VisualView extends JFrame implements IView {
       }
     }
 
+//    ActionListener a = e -> {
+//      if (tick < maxTick + 1) {
+//        panel.refresh(tick);
+//        tick++;
+//      }
+//    };
+//
+//    Timer t = new Timer((1000 / speed), a);
+//    t.start();
   }
+
 }
+
+

@@ -129,9 +129,11 @@ public final class EasyAnimator {
         view2.output(output, view2.getState());
       } else if (viewType.equalsIgnoreCase("visual")) {
         assert model != null;
-        view = new VisualView(speed, model, filename);
+        model.getAppearDisappearTime(filename);
+        view = new VisualView(speed, model);
         view.makeVisible();
         view.refreshAnimation();
+
       } else {
         throw new IllegalArgumentException("Invalid view instantiation");
       }

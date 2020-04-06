@@ -251,7 +251,6 @@ public class AnimatorModelImpl implements AnimatorModel {
       IShape s = shapeList.get(transform.getShapeID());
       int start = transform.getStartTime();
       int end = transform.getEndTime();
-      //tick = Math.min(transform.getEndTime(), tick);
 
       if (tick > end) {
         updatedMap.put(s.getName(), s);
@@ -270,18 +269,21 @@ public class AnimatorModelImpl implements AnimatorModel {
         int newY = 0;
 
         if (fromX == toX) {
-          newX = toX;
+          newX = toX - topLeftX;
         }
         if (fromY == toY) {
-          newY = toY;
+          newY = toY - topLeftY;
         }
 
         if (fromX != toX) {
           newX = (fromX * (end - tick) / (end - start)) + (toX * (tick - start) / (end - start));
+          newX -= topLeftX;
         }
         if (fromY != toY) {
           newY = (fromY * (end - tick) / (end - start)) + (toY * (tick - start) / (end - start));
+          newY -= topLeftY;
         }
+
         if (s instanceof Oval) {
           updatedMap.put(s.getName(), new Oval(newX, newY, s.getR(), s.getG(), s.getB(),
                   s.getWidth(), s.getHeight(), s.getName()));
