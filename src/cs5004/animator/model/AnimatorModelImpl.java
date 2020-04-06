@@ -372,12 +372,9 @@ public class AnimatorModelImpl implements AnimatorModel {
 
     Map<String, IShape> copyShapeList = new LinkedHashMap<>();
     for (String key : shapeList.keySet()) {
-      System.out.print(key);
       copyShapeList.put(key, shapeList.get(key));
     }
-    System.out.print(copyShapeList);
     return copyShapeList;
-
   }
 
   /**

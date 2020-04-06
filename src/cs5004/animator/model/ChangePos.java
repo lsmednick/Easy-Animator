@@ -113,17 +113,31 @@ public class ChangePos extends AbstractTransform {
 
   @Override
   public String motionSVG(double speed) {
+    String string = "";
     double start = (this.getStartTime() / speed) * 1000;
     double end = (this.getEndTime() / speed) * 1000;
     double duration = end - start;
 
-    String string = "" + ("<animate attributeType=\"xml\" begin=\"" + start + "ms\" dur=\""
-            + duration + "ms\" attributeName=\"" + this.getShape().xTagSVG() + "\" from=\""
-            + this.fromX + "\" to=\"" + this.toX + "\" fill=\"freeze\" />\n");
-    string += "<animate attributeType=\"xml\" begin=\"" + start + "ms\" dur=\"" + duration
-            + "ms\" attributeName=\"" + this.getShape().yTagSVG() + "\" from=\"" + this.fromY
-            + "\" to=\"" + this.toY + "\" fill=\"freeze\" />\n";
-
-    return string;
+    if ((this.fromX == this.toX) && (this.fromY == this.toY)) {
+      return string;
+    } else if ((this.fromX != this.toX) && (this.fromY == this.toY)) {
+      string = "" + ("<animate attributeType=\"xml\" begin=\"" + start + "ms\" dur=\""
+              + duration + "ms\" attributeName=\"" + this.getShape().xTagSVG() + "\" from=\""
+              + this.fromX + "\" to=\"" + this.toX + "\" fill=\"freeze\" />\n");
+      return string;
+    } else if ((this.fromY != this.toY) && (this.fromX == this.toX)) {
+      string += "<animate attributeType=\"xml\" begin=\"" + start + "ms\" dur=\"" + duration
+              + "ms\" attributeName=\"" + this.getShape().yTagSVG() + "\" from=\"" + this.fromY
+              + "\" to=\"" + this.toY + "\" fill=\"freeze\" />\n";
+      return string;
+    } else {
+      string = "" + ("<animate attributeType=\"xml\" begin=\"" + start + "ms\" dur=\""
+              + duration + "ms\" attributeName=\"" + this.getShape().xTagSVG() + "\" from=\""
+              + this.fromX + "\" to=\"" + this.toX + "\" fill=\"freeze\" />\n");
+      string += "<animate attributeType=\"xml\" begin=\"" + start + "ms\" dur=\"" + duration
+              + "ms\" attributeName=\"" + this.getShape().yTagSVG() + "\" from=\"" + this.fromY
+              + "\" to=\"" + this.toY + "\" fill=\"freeze\" />\n";
+      return string;
+    }
   }
 }
