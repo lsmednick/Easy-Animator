@@ -28,11 +28,11 @@ import static org.junit.Assert.assertEquals;
 
 public class SVGViewTest {
 
-
-if (viewType.equalsIgnoreCase("svg")) {
-    SVGView view1 = new SVGView(model, filename, speed);
-    view1.getState();
-    view1.output(output, view1.getState());
-
-
-}
+//
+//if (viewType.equalsIgnoreCase("svg")) {
+//    SVGView view1 = new SVGView(model, filename, speed);
+//    view1.getState();
+//    view1.output(output, view1.getState());
+//
+//
+//}
