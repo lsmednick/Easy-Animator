@@ -1,9 +1,15 @@
 package cs5004.animator.view;
 
 import java.util.Collections;
-
 import cs5004.animator.model.AnimatorModel;
 import cs5004.animator.model.ITransform;
+
+/**
+ * This class represents a textual view of our EasyAnimator. The output of the Textual view
+ * is a string that describes the animation including the shapes' attributes and transformations.
+ * The output can be produced in a .txt file or to System.out -- depending on the command line
+ * argument.
+ */
 
 public class TextualView extends AbstractView implements IView {
   private AnimatorModel animation;

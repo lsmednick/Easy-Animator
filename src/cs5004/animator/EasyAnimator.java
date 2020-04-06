@@ -25,54 +25,45 @@ import cs5004.animator.util.AnimationBuilderImpl;
 /**
  * This main() method will be the entry point for the program. It will take command-line arguments
  * in the form below : -in "name-of-animation-file" -view "type-of-view" -out "where-output-show-go"
- * -speed "integer-ticks-per-second"
+ * -speed "integer-ticks-per-second". The arguments are parse and implemented into the animation.
  */
 
 public final class EasyAnimator {
-  public static void main(String[] args) throws FileNotFoundException {
 
+  public static void main(String[] args) throws FileNotFoundException {
     Readable r = new StringReader(String.join(" ", args));
     AnimatorModel model = null;
+    IView view = null;
     Scanner scan = new Scanner(r);
-    //String filename = "";
     String viewType = "";
     String output = "";
     int speed = -1;
-
-
-    // when a string is parsed inFile represents the file to be read
-    // command line arg " -in inFile.txt"
     Readable inFile = null;
     String filename = "";
 
-    //TODO
-    IView view = null;
-    // IAnimationController controller = null;
 
+    // Parse the command line.
     while (scan.hasNext()) {
       String input = scan.next();
 
-      //TODO -- change var 'filename', viewType
       switch (input) {
-        case "-in": // "name-of-animation-file"
-          //if (filename.equals("") && scan.hasNext()) {
-          //filename = scan.next();
+        case "-in":
           if (scan.hasNext()) {
             filename = scan.next();
             inFile = new FileReader(filename);
           }
           break;
-        case "-view": // "type-of-view"
+        case "-view":
           if (viewType.equals("") && scan.hasNext()) {
             viewType = scan.next();
           }
           break;
-        case "-out": // "where-output-show-go"
+        case "-out":
           if (output.equals("") && scan.hasNext()) {
             output = scan.next();
           }
           break;
-        case "-speed": // "integer-ticks-per-second"
+        case "-speed":
           if (speed == -1 && scan.hasNext()) {
             speed = Integer.parseInt(scan.next());
           }
@@ -86,23 +77,23 @@ public final class EasyAnimator {
       }
     }
 
-
     //If 'speed' is not indicated by the command-line argument-- then it will default tto
     // speed = 1 tick / per second
     if (speed == -1) {
       speed = 1;
     }
 
-    // if 'out' is not indicated by the command-line argument -- then it defaults to 'System.out'
+    // If 'out' is not indicated by the command-line argument -- then it defaults to 'System.out'
     if (output.equals("") || output.equals("out")) {
       output = "System.out";
     }
 
+    // Initialize a new animation builder.
     AnimationReader fileReader = new AnimationReader();
     AnimationBuilder<AnimatorModel> builder =
             new AnimationBuilderImpl();
 
-
+    // Initialize a model.
     try {
       model = AnimationReader.parseFile(inFile, builder);
     } catch (Exception e) {
@@ -115,10 +106,7 @@ public final class EasyAnimator {
               "Encountered Error", JOptionPane.ERROR_MESSAGE);
     }
 
-    //TODO UPDATE:
-    // 1. ConcreteClass File names to match what LM and GOC named them
-    // 2. UPDATE what each view class takes in as parameters  -- update order if necessary
-
+    // Initialize a view.
     try {
       if (viewType.equalsIgnoreCase("svg")) {
         SVGView view1 = new SVGView(model, filename, speed);

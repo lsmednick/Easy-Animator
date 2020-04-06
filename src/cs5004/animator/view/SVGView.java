@@ -10,6 +10,12 @@ import cs5004.animator.model.AnimatorModel;
 import cs5004.animator.model.IShape;
 import cs5004.animator.model.ITransform;
 
+/**
+ * This class represents a SVG view of the animation. It produces either an .svg file or an output
+ * to System.out -- this is determined by the command line argument received by the
+ * main() in the EasyAnimator class.
+ */
+
 public class SVGView extends AbstractView implements IView {
   private AnimatorModel animation;
   private String filename;

@@ -55,15 +55,11 @@ public class AnimatorModelImpl implements AnimatorModel {
    * @param b         blue intensity of the shape's color
    * @param width     width of the shape
    * @param height    height of the shape
-   * @throws IllegalArgumentException if startTime or endTime is negative
-   * @throws IllegalArgumentException if endTime occurs before startTime
    */
 
   @Override
   public void addShape(String name, ShapeType shapeType, int x, int y, int r, int g, int b,
-                       int width, int height)
-          throws IllegalArgumentException {
-
+                       int width, int height) {
     IShape newShape;
 
     switch (shapeType) {
@@ -90,6 +86,7 @@ public class AnimatorModelImpl implements AnimatorModel {
    * @return boolean representing if there is a duplicate
    */
 
+  //TODO -- delete if not used
   private boolean duplicateHelper(String shapeID, int startTime, int endTime) {
     for (ITransform t : transformList) {
       if (t.getShapeID().equals(shapeID) && t.getStartTime() == startTime

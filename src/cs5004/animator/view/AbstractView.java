@@ -6,6 +6,10 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
 
+/**
+ *
+ */
+
 public abstract class AbstractView implements IView {
 
   public void output(String outputFile, String string) {

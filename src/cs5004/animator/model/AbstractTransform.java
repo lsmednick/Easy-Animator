@@ -27,7 +27,7 @@ public abstract class AbstractTransform implements ITransform, Comparable<Abstra
   public AbstractTransform(IShape shape, int startTime, int endTime)
           throws IllegalArgumentException {
     if (shape == null) {
-      throw new IllegalArgumentException("shapeID can not be null.");
+      throw new IllegalArgumentException("shape can not be null.");
     }
     if (startTime < 0 || endTime < 0) {
       throw new IllegalArgumentException("Start / end time cannot be negative.");
