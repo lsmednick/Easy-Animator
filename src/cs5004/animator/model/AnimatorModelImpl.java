@@ -242,7 +242,6 @@ public class AnimatorModelImpl implements AnimatorModel {
   public Map<String, IShape> getShapesAtTick(int tick) {
     Map<String, IShape> updatedMap = new LinkedHashMap<>();
     Collections.sort(transformList);
-    System.out.print(String.format("TICK: %d\n", tick));
 
     for (ITransform transform : transformList) {
       IShape s = shapeList.get(transform.getShapeID());
