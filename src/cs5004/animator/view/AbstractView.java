@@ -7,11 +7,15 @@ import java.io.IOException;
 import java.io.OutputStreamWriter;
 
 /**
- *
+ * This abstract class implements view interface and declares a common method
+ * used by both the text and the SVG view to output its result in a file. The
+ * method creates a txt or svg file and also throws an IOException if no output
+ * file fails.
  */
 
 public abstract class AbstractView implements IView {
 
+  @Override
   public void output(String outputFile, String string) {
     System.out.println("Printing text view in the file " + outputFile + "\n");
 
@@ -26,7 +30,7 @@ public abstract class AbstractView implements IView {
       output.write(string);
       output.close();
     } catch (IOException iea) {
-      System.out.println("Could not find file" + outputFile);
+      System.out.println("Output file " + outputFile + " failed");
     }
   }
 }

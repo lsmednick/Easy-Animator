@@ -81,6 +81,11 @@ public class Oval extends AbstractShape {
   }
 
   @Override
+  public double widthHeightDiff() {
+    return 2.0;
+  }
+
+  @Override
   public String shapeEndSVG() {
     return "</ellipse>\n";
   }

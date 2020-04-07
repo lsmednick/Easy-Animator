@@ -40,6 +40,12 @@ public abstract class AbstractTransform implements ITransform, Comparable<Abstra
     this.shape = shape;
   }
 
+  /**
+   * Getter method for a shape object (oval, rectangle).
+   *
+   * @return a specific shape object.
+   */
+
   protected IShape getShape() {
     return this.shape;
   }
@@ -94,5 +100,4 @@ public abstract class AbstractTransform implements ITransform, Comparable<Abstra
 
     return timeDifference;
   }
-
 }

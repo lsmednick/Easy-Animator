@@ -16,11 +16,28 @@ public class TextualView extends AbstractView implements IView {
   private String filename;
   private double speed;
 
+  /**
+   * Constructs the text view initializing an animation model, the name of the file where
+   * we are getting the input and the speed/tempo of the text view.
+   *
+   * @param animation the animation model.
+   * @param filename the input file.
+   * @param speed the tempo of the animation.
+   */
+
   public TextualView(AnimatorModel animation, String filename, double speed) {
     this.animation = animation;
     this.filename = filename;
     this.speed = speed;
   }
+
+  /**
+   * This method implements the text view. Using a string builder it appends
+   * all the shapes and its motions and finally return a string with the final result.
+   *
+   * @return a string with the result of the text view.
+   * @throws IllegalStateException if there are no shapes in the text view/animation.
+   */
 
   public String getState() throws IllegalStateException {
     if (animation.getShapeList().isEmpty()) {
@@ -49,11 +66,11 @@ public class TextualView extends AbstractView implements IView {
 
   @Override
   public void makeVisible() {
-
+    throw new UnsupportedOperationException("This method is not implemented in the SVG view");
   }
 
   @Override
   public void refreshAnimation() {
-
+    throw new UnsupportedOperationException("This method is not implemented in the SVG view");
   }
 }

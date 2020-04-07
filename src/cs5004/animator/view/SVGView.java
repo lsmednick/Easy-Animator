@@ -1,7 +1,6 @@
 package cs5004.animator.view;
 
 import java.util.Collections;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -20,19 +19,39 @@ public class SVGView extends AbstractView implements IView {
   private AnimatorModel animation;
   private String filename;
   private double speed;
-  private int maxTick;
+
+  /**
+   * Constructs the SVG view initializing an animation model, the name of the file where
+   * we are getting the input and the speed/tempo of the SVG view.
+   *
+   * @param animation the animation model.
+   * @param filename the input file.
+   * @param speed the tempo of the animation.
+   */
 
   public SVGView(AnimatorModel animation, String filename, double speed) {
-    this.speed = speed;
-    animation.getAppearDisappearTime(filename);
-    this.maxTick = animation.getDisappearTime();
     this.animation = animation;
     this.filename = filename;
+    this.speed = speed;
   }
+
+  /**
+   * Gets the speed/tempo of the SVG animation.
+   *
+   * @return the tempo of the SVG view.
+   */
 
   public double getSpeed() {
     return this.speed;
   }
+
+  /**
+   * This method implements the SVG view. Using a string builder it appends
+   * all the shapes and its motions and finally return a string with the final result.
+   *
+   * @return a string with the result of the SVG view.
+   * @throws IllegalStateException if there are no shapes in the text view/animation.
+   */
 
   public String getState() throws IllegalStateException {
     if (animation.getShapeList().isEmpty()) {
@@ -76,11 +95,11 @@ public class SVGView extends AbstractView implements IView {
 
   @Override
   public void makeVisible() {
-
+    throw new UnsupportedOperationException("This method is not implemented in the SVG view");
   }
 
   @Override
   public void refreshAnimation() {
-
+    throw new UnsupportedOperationException("This method is not implemented in the SVG view");
   }
 }

@@ -107,11 +107,6 @@ public class ChangePos extends AbstractTransform {
   }
 
   @Override
-  public TransformType getTransformType() {
-    return TransformType.MOVE;
-  }
-
-  @Override
   public String motionSVG(double speed) {
     double start = (this.getStartTime() / speed) * 1000;
     double end = (this.getEndTime() / speed) * 1000;
@@ -122,7 +117,7 @@ public class ChangePos extends AbstractTransform {
     double newToX = this.toX + this.getShape().newWidth();
     double newToY = this.toY + this.getShape().newHeight();
 
-    /*
+
     String string = "<animate attributeType=\"xml\" begin=\"" + start + "ms\" dur=\""
             + duration + "ms\" attributeName=\"" + this.getShape().xTagSVG() + "\" from=\""
             + newFromX + "\" to=\"" + newToX + "\" fill=\"freeze\" />\n";
@@ -130,31 +125,5 @@ public class ChangePos extends AbstractTransform {
             + "ms\" attributeName=\"" + this.getShape().yTagSVG() + "\" from=\"" + newFromY
             + "\" to=\"" + newToY + "\" fill=\"freeze\" />\n";
     return string;
-
-     */
-
-    String string = "";
-
-    if ((this.fromX == this.toX) && (this.fromY == this.toY)) {
-      return string;
-    } else if ((this.fromX != this.toX) && (this.fromY == this.toY)) {
-      string = "" + ("<animate attributeType=\"xml\" begin=\"" + start + "ms\" dur=\""
-              + duration + "ms\" attributeName=\"" + this.getShape().xTagSVG() + "\" from=\""
-              + newFromX + "\" to=\"" + newToX + "\" fill=\"freeze\" />\n");
-      return string;
-    } else if ((this.fromY != this.toY) && (this.fromX == this.toX)) {
-      string += "<animate attributeType=\"xml\" begin=\"" + start + "ms\" dur=\"" + duration
-              + "ms\" attributeName=\"" + this.getShape().yTagSVG() + "\" from=\"" + newFromY
-              + "\" to=\"" + newToY + "\" fill=\"freeze\" />\n";
-      return string;
-    } else {
-      string = "" + ("<animate attributeType=\"xml\" begin=\"" + start + "ms\" dur=\""
-              + duration + "ms\" attributeName=\"" + this.getShape().xTagSVG() + "\" from=\""
-              + newFromX + "\" to=\"" + newToX + "\" fill=\"freeze\" />\n");
-      string += "<animate attributeType=\"xml\" begin=\"" + start + "ms\" dur=\"" + duration
-              + "ms\" attributeName=\"" + this.getShape().yTagSVG() + "\" from=\"" + newFromY
-              + "\" to=\"" + newToY + "\" fill=\"freeze\" />\n";
-      return string;
-    }
   }
 }

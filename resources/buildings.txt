@@ -1,0 +1,935 @@
+Name: background
+Type: Rectangle
+Min corner: (0, 0), Width: 800, Height: 800, Color: (33, 94, 248)
+
+Name: B0
+Type: Rectangle
+Min corner: (80, 424), Width: 100, Height: 326, Color: (0, 0, 0)
+
+Name: B1
+Type: Rectangle
+Min corner: (260, 365), Width: 100, Height: 385, Color: (0, 0, 0)
+
+Name: B2
+Type: Rectangle
+Min corner: (440, 375), Width: 100, Height: 375, Color: (0, 0, 0)
+
+Name: B3
+Type: Rectangle
+Min corner: (620, 445), Width: 100, Height: 305, Color: (0, 0, 0)
+
+Name: window000
+Type: Rectangle
+Min corner: (100, 850), Width: 20, Height: 20, Color: (255, 255, 255)
+
+Name: window001
+Type: Rectangle
+Min corner: (140, 850), Width: 20, Height: 20, Color: (255, 255, 255)
+
+Name: window010
+Type: Rectangle
+Min corner: (100, 890), Width: 20, Height: 20, Color: (255, 255, 255)
+
+Name: window011
+Type: Rectangle
+Min corner: (140, 890), Width: 20, Height: 20, Color: (255, 255, 255)
+
+Name: window020
+Type: Rectangle
+Min corner: (100, 930), Width: 20, Height: 20, Color: (255, 255, 255)
+
+Name: window021
+Type: Rectangle
+Min corner: (140, 930), Width: 20, Height: 20, Color: (255, 255, 255)
+
+Name: window030
+Type: Rectangle
+Min corner: (100, 970), Width: 20, Height: 20, Color: (255, 255, 255)
+
+Name: window031
+Type: Rectangle
+Min corner: (140, 970), Width: 20, Height: 20, Color: (255, 255, 255)
+
+Name: window040
+Type: Rectangle
+Min corner: (100, 1010), Width: 20, Height: 20, Color: (255, 255, 255)
+
+Name: window041
+Type: Rectangle
+Min corner: (140, 1010), Width: 20, Height: 20, Color: (255, 255, 255)
+
+Name: window050
+Type: Rectangle
+Min corner: (100, 1050), Width: 20, Height: 20, Color: (255, 255, 255)
+
+Name: window051
+Type: Rectangle
+Min corner: (140, 1050), Width: 20, Height: 20, Color: (255, 255, 255)
+
+Name: window060
+Type: Rectangle
+Min corner: (100, 1090), Width: 20, Height: 20, Color: (255, 255, 255)
+
+Name: window061
+Type: Rectangle
+Min corner: (140, 1090), Width: 20, Height: 20, Color: (255, 255, 255)
+
+Name: window100
+Type: Rectangle
+Min corner: (280, -750), Width: 20, Height: 20, Color: (255, 255, 255)
+
+Name: window101
+Type: Rectangle
+Min corner: (320, -750), Width: 20, Height: 20, Color: (255, 255, 255)
+
+Name: window110
+Type: Rectangle
+Min corner: (280, -710), Width: 20, Height: 20, Color: (255, 255, 255)
+
+Name: window111
+Type: Rectangle
+Min corner: (320, -710), Width: 20, Height: 20, Color: (255, 255, 255)
+
+Name: window120
+Type: Rectangle
+Min corner: (280, -670), Width: 20, Height: 20, Color: (255, 255, 255)
+
+Name: window121
+Type: Rectangle
+Min corner: (320, -670), Width: 20, Height: 20, Color: (255, 255, 255)
+
+Name: window130
+Type: Rectangle
+Min corner: (280, -630), Width: 20, Height: 20, Color: (255, 255, 255)
+
+Name: window131
+Type: Rectangle
+Min corner: (320, -630), Width: 20, Height: 20, Color: (255, 255, 255)
+
+Name: window140
+Type: Rectangle
+Min corner: (280, -590), Width: 20, Height: 20, Color: (255, 255, 255)
+
+Name: window141
+Type: Rectangle
+Min corner: (320, -590), Width: 20, Height: 20, Color: (255, 255, 255)
+
+Name: window150
+Type: Rectangle
+Min corner: (280, -550), Width: 20, Height: 20, Color: (255, 255, 255)
+
+Name: window151
+Type: Rectangle
+Min corner: (320, -550), Width: 20, Height: 20, Color: (255, 255, 255)
+
+Name: window160
+Type: Rectangle
+Min corner: (280, -510), Width: 20, Height: 20, Color: (255, 255, 255)
+
+Name: window161
+Type: Rectangle
+Min corner: (320, -510), Width: 20, Height: 20, Color: (255, 255, 255)
+
+Name: window170
+Type: Rectangle
+Min corner: (280, -470), Width: 20, Height: 20, Color: (255, 255, 255)
+
+Name: window171
+Type: Rectangle
+Min corner: (320, -470), Width: 20, Height: 20, Color: (255, 255, 255)
+
+Name: window180
+Type: Rectangle
+Min corner: (280, -430), Width: 20, Height: 20, Color: (255, 255, 255)
+
+Name: window181
+Type: Rectangle
+Min corner: (320, -430), Width: 20, Height: 20, Color: (255, 255, 255)
+
+Name: window200
+Type: Rectangle
+Min corner: (460, 850), Width: 20, Height: 20, Color: (255, 255, 255)
+
+Name: window201
+Type: Rectangle
+Min corner: (500, 850), Width: 20, Height: 20, Color: (255, 255, 255)
+
+Name: window210
+Type: Rectangle
+Min corner: (460, 890), Width: 20, Height: 20, Color: (255, 255, 255)
+
+Name: window211
+Type: Rectangle
+Min corner: (500, 890), Width: 20, Height: 20, Color: (255, 255, 255)
+
+Name: window220
+Type: Rectangle
+Min corner: (460, 930), Width: 20, Height: 20, Color: (255, 255, 255)
+
+Name: window221
+Type: Rectangle
+Min corner: (500, 930), Width: 20, Height: 20, Color: (255, 255, 255)
+
+Name: window230
+Type: Rectangle
+Min corner: (460, 970), Width: 20, Height: 20, Color: (255, 255, 255)
+
+Name: window231
+Type: Rectangle
+Min corner: (500, 970), Width: 20, Height: 20, Color: (255, 255, 255)
+
+Name: window240
+Type: Rectangle
+Min corner: (460, 1010), Width: 20, Height: 20, Color: (255, 255, 255)
+
+Name: window241
+Type: Rectangle
+Min corner: (500, 1010), Width: 20, Height: 20, Color: (255, 255, 255)
+
+Name: window250
+Type: Rectangle
+Min corner: (460, 1050), Width: 20, Height: 20, Color: (255, 255, 255)
+
+Name: window251
+Type: Rectangle
+Min corner: (500, 1050), Width: 20, Height: 20, Color: (255, 255, 255)
+
+Name: window260
+Type: Rectangle
+Min corner: (460, 1090), Width: 20, Height: 20, Color: (255, 255, 255)
+
+Name: window261
+Type: Rectangle
+Min corner: (500, 1090), Width: 20, Height: 20, Color: (255, 255, 255)
+
+Name: window270
+Type: Rectangle
+Min corner: (460, 1130), Width: 20, Height: 20, Color: (255, 255, 255)
+
+Name: window271
+Type: Rectangle
+Min corner: (500, 1130), Width: 20, Height: 20, Color: (255, 255, 255)
+
+Name: window300
+Type: Rectangle
+Min corner: (640, -750), Width: 20, Height: 20, Color: (255, 255, 255)
+
+Name: window301
+Type: Rectangle
+Min corner: (680, -750), Width: 20, Height: 20, Color: (255, 255, 255)
+
+Name: window310
+Type: Rectangle
+Min corner: (640, -710), Width: 20, Height: 20, Color: (255, 255, 255)
+
+Name: window311
+Type: Rectangle
+Min corner: (680, -710), Width: 20, Height: 20, Color: (255, 255, 255)
+
+Name: window320
+Type: Rectangle
+Min corner: (640, -670), Width: 20, Height: 20, Color: (255, 255, 255)
+
+Name: window321
+Type: Rectangle
+Min corner: (680, -670), Width: 20, Height: 20, Color: (255, 255, 255)
+
+Name: window330
+Type: Rectangle
+Min corner: (640, -630), Width: 20, Height: 20, Color: (255, 255, 255)
+
+Name: window331
+Type: Rectangle
+Min corner: (680, -630), Width: 20, Height: 20, Color: (255, 255, 255)
+
+Name: window340
+Type: Rectangle
+Min corner: (640, -590), Width: 20, Height: 20, Color: (255, 255, 255)
+
+Name: window341
+Type: Rectangle
+Min corner: (680, -590), Width: 20, Height: 20, Color: (255, 255, 255)
+
+Name: window350
+Type: Rectangle
+Min corner: (640, -550), Width: 20, Height: 20, Color: (255, 255, 255)
+
+Name: window351
+Type: Rectangle
+Min corner: (680, -550), Width: 20, Height: 20, Color: (255, 255, 255)
+
+Name: window360
+Type: Rectangle
+Min corner: (640, -510), Width: 20, Height: 20, Color: (255, 255, 255)
+
+Name: window361
+Type: Rectangle
+Min corner: (680, -510), Width: 20, Height: 20, Color: (255, 255, 255)
+
+Name: moon
+Type: Oval
+Center: (200, 200), X radius: 100, Y radius: 100, Color: (229, 229, 255)
+
+Name: eclipse
+Type: Oval
+Center: (400, 0), X radius: 100, Y radius: 100, Color: (33, 94, 248)
+
+Name: star0
+Type: Oval
+Center: (223, 66), X radius: 6, Y radius: 6, Color: (255, 255, 255)
+
+Name: star1
+Type: Oval
+Center: (585, 211), X radius: 6, Y radius: 6, Color: (255, 255, 255)
+
+Name: star2
+Type: Oval
+Center: (489, 77), X radius: 6, Y radius: 6, Color: (255, 255, 255)
+
+Name: star3
+Type: Oval
+Center: (374, 286), X radius: 6, Y radius: 6, Color: (255, 255, 255)
+
+Name: star4
+Type: Oval
+Center: (708, 281), X radius: 6, Y radius: 6, Color: (255, 255, 255)
+
+Name: star5
+Type: Oval
+Center: (508, 260), X radius: 6, Y radius: 6, Color: (255, 255, 255)
+
+Name: star6
+Type: Oval
+Center: (529, 70), X radius: 6, Y radius: 6, Color: (255, 255, 255)
+
+Name: star7
+Type: Oval
+Center: (332, 65), X radius: 6, Y radius: 6, Color: (255, 255, 255)
+
+Name: star8
+Type: Oval
+Center: (311, 147), X radius: 6, Y radius: 6, Color: (255, 255, 255)
+
+Name: star9
+Type: Oval
+Center: (170, 281), X radius: 6, Y radius: 6, Color: (255, 255, 255)
+
+Name: star10
+Type: Oval
+Center: (719, 102), X radius: 6, Y radius: 6, Color: (255, 255, 255)
+
+Name: star11
+Type: Oval
+Center: (524, 264), X radius: 6, Y radius: 6, Color: (255, 255, 255)
+
+Name: star12
+Type: Oval
+Center: (768, 194), X radius: 6, Y radius: 6, Color: (255, 255, 255)
+
+Name: star13
+Type: Oval
+Center: (766, 179), X radius: 6, Y radius: 6, Color: (255, 255, 255)
+
+Name: star14
+Type: Oval
+Center: (510, 78), X radius: 6, Y radius: 6, Color: (255, 255, 255)
+
+Name: star15
+Type: Oval
+Center: (621, 149), X radius: 6, Y radius: 6, Color: (255, 255, 255)
+
+Name: star16
+Type: Oval
+Center: (491, 252), X radius: 6, Y radius: 6, Color: (255, 255, 255)
+
+Name: star17
+Type: Oval
+Center: (405, 63), X radius: 6, Y radius: 6, Color: (255, 255, 255)
+
+Name: star18
+Type: Oval
+Center: (550, 267), X radius: 6, Y radius: 6, Color: (255, 255, 255)
+
+Name: star19
+Type: Oval
+Center: (108, 197), X radius: 6, Y radius: 6, Color: (255, 255, 255)
+
+Name: star20
+Type: Oval
+Center: (737, 78), X radius: 6, Y radius: 6, Color: (255, 255, 255)
+
+Name: star21
+Type: Oval
+Center: (795, 137), X radius: 6, Y radius: 6, Color: (255, 255, 255)
+
+Name: star22
+Type: Oval
+Center: (184, 125), X radius: 6, Y radius: 6, Color: (255, 255, 255)
+
+Name: star23
+Type: Oval
+Center: (134, 230), X radius: 6, Y radius: 6, Color: (255, 255, 255)
+
+Name: star24
+Type: Oval
+Center: (244, 153), X radius: 6, Y radius: 6, Color: (255, 255, 255)
+
+Name: star25
+Type: Oval
+Center: (259, 119), X radius: 6, Y radius: 6, Color: (255, 255, 255)
+
+Name: star26
+Type: Oval
+Center: (322, 269), X radius: 6, Y radius: 6, Color: (255, 255, 255)
+
+Name: star27
+Type: Oval
+Center: (412, 182), X radius: 6, Y radius: 6, Color: (255, 255, 255)
+
+Name: star28
+Type: Oval
+Center: (674, 137), X radius: 6, Y radius: 6, Color: (255, 255, 255)
+
+Name: star29
+Type: Oval
+Center: (46, 246), X radius: 6, Y radius: 6, Color: (255, 255, 255)
+
+Name: star30
+Type: Oval
+Center: (388, 315), X radius: 6, Y radius: 6, Color: (255, 255, 255)
+
+Name: star31
+Type: Oval
+Center: (185, 236), X radius: 6, Y radius: 6, Color: (255, 255, 255)
+
+Name: star32
+Type: Oval
+Center: (550, 232), X radius: 6, Y radius: 6, Color: (255, 255, 255)
+
+Name: star33
+Type: Oval
+Center: (656, 101), X radius: 6, Y radius: 6, Color: (255, 255, 255)
+
+Name: star34
+Type: Oval
+Center: (283, 111), X radius: 6, Y radius: 6, Color: (255, 255, 255)
+
+Name: star35
+Type: Oval
+Center: (649, 326), X radius: 6, Y radius: 6, Color: (255, 255, 255)
+
+Name: star36
+Type: Oval
+Center: (691, 267), X radius: 6, Y radius: 6, Color: (255, 255, 255)
+
+Name: star37
+Type: Oval
+Center: (113, 276), X radius: 6, Y radius: 6, Color: (255, 255, 255)
+
+Name: star38
+Type: Oval
+Center: (604, 302), X radius: 6, Y radius: 6, Color: (255, 255, 255)
+
+Name: star39
+Type: Oval
+Center: (462, 162), X radius: 6, Y radius: 6, Color: (255, 255, 255)
+
+B0 appears at time t=1 and disappears at t=200
+B1 appears at time t=1 and disappears at t=200
+B2 appears at time t=1 and disappears at t=200
+B3 appears at time t=1 and disappears at t=200
+background appears at time t=1 and disappears at t=200
+eclipse appears at time t=1 and disappears at t=200
+moon appears at time t=1 and disappears at t=200
+star0 appears at time t=108 and disappears at t=200
+star1 appears at time t=120 and disappears at t=200
+star10 appears at time t=90 and disappears at t=200
+star11 appears at time t=129 and disappears at t=200
+star12 appears at time t=86 and disappears at t=200
+star13 appears at time t=113 and disappears at t=200
+star14 appears at time t=98 and disappears at t=200
+star15 appears at time t=114 and disappears at t=200
+star16 appears at time t=106 and disappears at t=200
+star17 appears at time t=89 and disappears at t=200
+star18 appears at time t=113 and disappears at t=200
+star19 appears at time t=94 and disappears at t=200
+star2 appears at time t=110 and disappears at t=200
+star20 appears at time t=103 and disappears at t=200
+star21 appears at time t=126 and disappears at t=200
+star22 appears at time t=89 and disappears at t=200
+star23 appears at time t=96 and disappears at t=200
+star24 appears at time t=120 and disappears at t=200
+star25 appears at time t=112 and disappears at t=200
+star26 appears at time t=106 and disappears at t=200
+star27 appears at time t=117 and disappears at t=200
+star28 appears at time t=119 and disappears at t=200
+star29 appears at time t=96 and disappears at t=200
+star3 appears at time t=93 and disappears at t=200
+star30 appears at time t=123 and disappears at t=200
+star31 appears at time t=121 and disappears at t=200
+star32 appears at time t=109 and disappears at t=200
+star33 appears at time t=94 and disappears at t=200
+star34 appears at time t=84 and disappears at t=200
+star35 appears at time t=92 and disappears at t=200
+star36 appears at time t=115 and disappears at t=200
+star37 appears at time t=99 and disappears at t=200
+star38 appears at time t=99 and disappears at t=200
+star39 appears at time t=127 and disappears at t=200
+star4 appears at time t=83 and disappears at t=200
+star5 appears at time t=97 and disappears at t=200
+star6 appears at time t=92 and disappears at t=200
+star7 appears at time t=117 and disappears at t=200
+star8 appears at time t=86 and disappears at t=200
+star9 appears at time t=88 and disappears at t=200
+window000 appears at time t=1 and disappears at t=200
+window001 appears at time t=1 and disappears at t=200
+window010 appears at time t=1 and disappears at t=200
+window011 appears at time t=1 and disappears at t=200
+window020 appears at time t=1 and disappears at t=200
+window021 appears at time t=1 and disappears at t=200
+window030 appears at time t=1 and disappears at t=200
+window031 appears at time t=1 and disappears at t=200
+window040 appears at time t=1 and disappears at t=200
+window041 appears at time t=1 and disappears at t=200
+window050 appears at time t=1 and disappears at t=200
+window051 appears at time t=1 and disappears at t=200
+window060 appears at time t=1 and disappears at t=200
+window061 appears at time t=1 and disappears at t=200
+window100 appears at time t=1 and disappears at t=200
+window101 appears at time t=1 and disappears at t=200
+window110 appears at time t=1 and disappears at t=200
+window111 appears at time t=1 and disappears at t=200
+window120 appears at time t=1 and disappears at t=200
+window121 appears at time t=1 and disappears at t=200
+window130 appears at time t=1 and disappears at t=200
+window131 appears at time t=1 and disappears at t=200
+window140 appears at time t=1 and disappears at t=200
+window141 appears at time t=1 and disappears at t=200
+window150 appears at time t=1 and disappears at t=200
+window151 appears at time t=1 and disappears at t=200
+window160 appears at time t=1 and disappears at t=200
+window161 appears at time t=1 and disappears at t=200
+window170 appears at time t=1 and disappears at t=200
+window171 appears at time t=1 and disappears at t=200
+window180 appears at time t=1 and disappears at t=200
+window181 appears at time t=1 and disappears at t=200
+window200 appears at time t=1 and disappears at t=200
+window201 appears at time t=1 and disappears at t=200
+window210 appears at time t=1 and disappears at t=200
+window211 appears at time t=1 and disappears at t=200
+window220 appears at time t=1 and disappears at t=200
+window221 appears at time t=1 and disappears at t=200
+window230 appears at time t=1 and disappears at t=200
+window231 appears at time t=1 and disappears at t=200
+window240 appears at time t=1 and disappears at t=200
+window241 appears at time t=1 and disappears at t=200
+window250 appears at time t=1 and disappears at t=200
+window251 appears at time t=1 and disappears at t=200
+window260 appears at time t=1 and disappears at t=200
+window261 appears at time t=1 and disappears at t=200
+window270 appears at time t=1 and disappears at t=200
+window271 appears at time t=1 and disappears at t=200
+window300 appears at time t=1 and disappears at t=200
+window301 appears at time t=1 and disappears at t=200
+window310 appears at time t=1 and disappears at t=200
+window311 appears at time t=1 and disappears at t=200
+window320 appears at time t=1 and disappears at t=200
+window321 appears at time t=1 and disappears at t=200
+window330 appears at time t=1 and disappears at t=200
+window331 appears at time t=1 and disappears at t=200
+window340 appears at time t=1 and disappears at t=200
+window341 appears at time t=1 and disappears at t=200
+window350 appears at time t=1 and disappears at t=200
+window351 appears at time t=1 and disappears at t=200
+window360 appears at time t=1 and disappears at t=200
+window361 appears at time t=1 and disappears at t=200
+
+Text view is running at 75.0 ticks per second
+
+Shape background moves from (0,0) to (0,0) from t=1 to t=1
+Shape background moves from (0,0) to (0,0) from t=1 to t=50
+Shape background changes color from (33,94,248) to (16,45,248) from t=50 to t=90
+Shape background moves from (0,0) to (0,0) from t=90 to t=200
+Shape B0 moves from (80,424) to (80,424) from t=1 to t=1
+Shape B0 moves from (80,424) to (80,424) from t=1 to t=200
+Shape B1 moves from (260,365) to (260,365) from t=1 to t=1
+Shape B1 moves from (260,365) to (260,365) from t=1 to t=200
+Shape B2 moves from (440,375) to (440,375) from t=1 to t=1
+Shape B2 moves from (440,375) to (440,375) from t=1 to t=200
+Shape B3 moves from (620,445) to (620,445) from t=1 to t=1
+Shape B3 moves from (620,445) to (620,445) from t=1 to t=200
+Shape window000 moves from (100,850) to (100,850) from t=1 to t=1
+Shape window000 moves from (100,850) to (100,850) from t=1 to t=20
+Shape window000 moves from (100,850) to (100,710) from t=20 to t=60
+Shape window000 moves from (100,710) to (100,710) from t=60 to t=200
+Shape window001 moves from (140,850) to (140,850) from t=1 to t=1
+Shape window001 moves from (140,850) to (140,850) from t=1 to t=20
+Shape window001 moves from (140,850) to (140,710) from t=20 to t=60
+Shape window001 moves from (140,710) to (140,710) from t=60 to t=200
+Shape window010 moves from (100,890) to (100,890) from t=1 to t=1
+Shape window010 moves from (100,890) to (100,890) from t=1 to t=20
+Shape window010 moves from (100,890) to (100,670) from t=20 to t=60
+Shape window010 moves from (100,670) to (100,670) from t=60 to t=200
+Shape window011 moves from (140,890) to (140,890) from t=1 to t=1
+Shape window011 moves from (140,890) to (140,890) from t=1 to t=20
+Shape window011 moves from (140,890) to (140,670) from t=20 to t=60
+Shape window011 moves from (140,670) to (140,670) from t=60 to t=200
+Shape window020 moves from (100,930) to (100,930) from t=1 to t=1
+Shape window020 moves from (100,930) to (100,930) from t=1 to t=20
+Shape window020 moves from (100,930) to (100,630) from t=20 to t=60
+Shape window020 moves from (100,630) to (100,630) from t=60 to t=200
+Shape window021 moves from (140,930) to (140,930) from t=1 to t=1
+Shape window021 moves from (140,930) to (140,930) from t=1 to t=20
+Shape window021 moves from (140,930) to (140,630) from t=20 to t=60
+Shape window021 moves from (140,630) to (140,630) from t=60 to t=82
+Shape window021 changes color from (255,255,255) to (255,255,0) from t=82 to t=87
+Shape window021 moves from (140,630) to (140,630) from t=87 to t=200
+Shape window030 moves from (100,970) to (100,970) from t=1 to t=1
+Shape window030 moves from (100,970) to (100,970) from t=1 to t=20
+Shape window030 moves from (100,970) to (100,590) from t=20 to t=60
+Shape window030 moves from (100,590) to (100,590) from t=60 to t=200
+Shape window031 moves from (140,970) to (140,970) from t=1 to t=1
+Shape window031 moves from (140,970) to (140,970) from t=1 to t=20
+Shape window031 moves from (140,970) to (140,590) from t=20 to t=60
+Shape window031 moves from (140,590) to (140,590) from t=60 to t=200
+Shape window040 moves from (100,1010) to (100,1010) from t=1 to t=1
+Shape window040 moves from (100,1010) to (100,1010) from t=1 to t=20
+Shape window040 moves from (100,1010) to (100,550) from t=20 to t=60
+Shape window040 moves from (100,550) to (100,550) from t=60 to t=200
+Shape window041 moves from (140,1010) to (140,1010) from t=1 to t=1
+Shape window041 moves from (140,1010) to (140,1010) from t=1 to t=20
+Shape window041 moves from (140,1010) to (140,550) from t=20 to t=60
+Shape window041 moves from (140,550) to (140,550) from t=60 to t=147
+Shape window041 changes color from (255,255,255) to (255,255,0) from t=147 to t=152
+Shape window041 moves from (140,550) to (140,550) from t=152 to t=200
+Shape window050 moves from (100,1050) to (100,1050) from t=1 to t=1
+Shape window050 moves from (100,1050) to (100,1050) from t=1 to t=20
+Shape window050 moves from (100,1050) to (100,510) from t=20 to t=60
+Shape window050 moves from (100,510) to (100,510) from t=60 to t=200
+Shape window051 moves from (140,1050) to (140,1050) from t=1 to t=1
+Shape window051 moves from (140,1050) to (140,1050) from t=1 to t=20
+Shape window051 moves from (140,1050) to (140,510) from t=20 to t=60
+Shape window051 moves from (140,510) to (140,510) from t=60 to t=200
+Shape window060 moves from (100,1090) to (100,1090) from t=1 to t=1
+Shape window060 moves from (100,1090) to (100,1090) from t=1 to t=20
+Shape window060 moves from (100,1090) to (100,470) from t=20 to t=60
+Shape window060 moves from (100,470) to (100,470) from t=60 to t=147
+Shape window060 changes color from (255,255,255) to (255,255,0) from t=147 to t=152
+Shape window060 moves from (100,470) to (100,470) from t=152 to t=200
+Shape window061 moves from (140,1090) to (140,1090) from t=1 to t=1
+Shape window061 moves from (140,1090) to (140,1090) from t=1 to t=20
+Shape window061 moves from (140,1090) to (140,470) from t=20 to t=60
+Shape window061 moves from (140,470) to (140,470) from t=60 to t=93
+Shape window061 changes color from (255,255,255) to (255,255,0) from t=93 to t=98
+Shape window061 moves from (140,470) to (140,470) from t=98 to t=200
+Shape window100 moves from (280,-750) to (280,-750) from t=1 to t=1
+Shape window100 moves from (280,-750) to (280,-750) from t=1 to t=20
+Shape window100 moves from (280,-750) to (280,710) from t=20 to t=60
+Shape window100 moves from (280,710) to (280,710) from t=60 to t=200
+Shape window101 moves from (320,-750) to (320,-750) from t=1 to t=1
+Shape window101 moves from (320,-750) to (320,-750) from t=1 to t=20
+Shape window101 moves from (320,-750) to (320,710) from t=20 to t=60
+Shape window101 moves from (320,710) to (320,710) from t=60 to t=108
+Shape window101 changes color from (255,255,255) to (255,255,0) from t=108 to t=113
+Shape window101 moves from (320,710) to (320,710) from t=113 to t=200
+Shape window110 moves from (280,-710) to (280,-710) from t=1 to t=1
+Shape window110 moves from (280,-710) to (280,-710) from t=1 to t=20
+Shape window110 moves from (280,-710) to (280,670) from t=20 to t=60
+Shape window110 moves from (280,670) to (280,670) from t=60 to t=95
+Shape window110 changes color from (255,255,255) to (255,255,0) from t=95 to t=100
+Shape window110 moves from (280,670) to (280,670) from t=100 to t=200
+Shape window111 moves from (320,-710) to (320,-710) from t=1 to t=1
+Shape window111 moves from (320,-710) to (320,-710) from t=1 to t=20
+Shape window111 moves from (320,-710) to (320,670) from t=20 to t=60
+Shape window111 moves from (320,670) to (320,670) from t=60 to t=200
+Shape window120 moves from (280,-670) to (280,-670) from t=1 to t=1
+Shape window120 moves from (280,-670) to (280,-670) from t=1 to t=20
+Shape window120 moves from (280,-670) to (280,630) from t=20 to t=60
+Shape window120 moves from (280,630) to (280,630) from t=60 to t=200
+Shape window121 moves from (320,-670) to (320,-670) from t=1 to t=1
+Shape window121 moves from (320,-670) to (320,-670) from t=1 to t=20
+Shape window121 moves from (320,-670) to (320,630) from t=20 to t=60
+Shape window121 moves from (320,630) to (320,630) from t=60 to t=200
+Shape window130 moves from (280,-630) to (280,-630) from t=1 to t=1
+Shape window130 moves from (280,-630) to (280,-630) from t=1 to t=20
+Shape window130 moves from (280,-630) to (280,590) from t=20 to t=60
+Shape window130 moves from (280,590) to (280,590) from t=60 to t=200
+Shape window131 moves from (320,-630) to (320,-630) from t=1 to t=1
+Shape window131 moves from (320,-630) to (320,-630) from t=1 to t=20
+Shape window131 moves from (320,-630) to (320,590) from t=20 to t=60
+Shape window131 moves from (320,590) to (320,590) from t=60 to t=148
+Shape window131 changes color from (255,255,255) to (255,255,0) from t=148 to t=153
+Shape window131 moves from (320,590) to (320,590) from t=153 to t=200
+Shape window140 moves from (280,-590) to (280,-590) from t=1 to t=1
+Shape window140 moves from (280,-590) to (280,-590) from t=1 to t=20
+Shape window140 moves from (280,-590) to (280,550) from t=20 to t=60
+Shape window140 moves from (280,550) to (280,550) from t=60 to t=200
+Shape window141 moves from (320,-590) to (320,-590) from t=1 to t=1
+Shape window141 moves from (320,-590) to (320,-590) from t=1 to t=20
+Shape window141 moves from (320,-590) to (320,550) from t=20 to t=60
+Shape window141 moves from (320,550) to (320,550) from t=60 to t=200
+Shape window150 moves from (280,-550) to (280,-550) from t=1 to t=1
+Shape window150 moves from (280,-550) to (280,-550) from t=1 to t=20
+Shape window150 moves from (280,-550) to (280,510) from t=20 to t=60
+Shape window150 moves from (280,510) to (280,510) from t=60 to t=200
+Shape window151 moves from (320,-550) to (320,-550) from t=1 to t=1
+Shape window151 moves from (320,-550) to (320,-550) from t=1 to t=20
+Shape window151 moves from (320,-550) to (320,510) from t=20 to t=60
+Shape window151 moves from (320,510) to (320,510) from t=60 to t=99
+Shape window151 changes color from (255,255,255) to (255,255,0) from t=99 to t=104
+Shape window151 moves from (320,510) to (320,510) from t=104 to t=200
+Shape window160 moves from (280,-510) to (280,-510) from t=1 to t=1
+Shape window160 moves from (280,-510) to (280,-510) from t=1 to t=20
+Shape window160 moves from (280,-510) to (280,470) from t=20 to t=60
+Shape window160 moves from (280,470) to (280,470) from t=60 to t=200
+Shape window161 moves from (320,-510) to (320,-510) from t=1 to t=1
+Shape window161 moves from (320,-510) to (320,-510) from t=1 to t=20
+Shape window161 moves from (320,-510) to (320,470) from t=20 to t=60
+Shape window161 moves from (320,470) to (320,470) from t=60 to t=200
+Shape window170 moves from (280,-470) to (280,-470) from t=1 to t=1
+Shape window170 moves from (280,-470) to (280,-470) from t=1 to t=20
+Shape window170 moves from (280,-470) to (280,430) from t=20 to t=60
+Shape window170 moves from (280,430) to (280,430) from t=60 to t=200
+Shape window171 moves from (320,-470) to (320,-470) from t=1 to t=1
+Shape window171 moves from (320,-470) to (320,-470) from t=1 to t=20
+Shape window171 moves from (320,-470) to (320,430) from t=20 to t=60
+Shape window171 moves from (320,430) to (320,430) from t=60 to t=200
+Shape window180 moves from (280,-430) to (280,-430) from t=1 to t=1
+Shape window180 moves from (280,-430) to (280,-430) from t=1 to t=20
+Shape window180 moves from (280,-430) to (280,390) from t=20 to t=60
+Shape window180 moves from (280,390) to (280,390) from t=60 to t=200
+Shape window181 moves from (320,-430) to (320,-430) from t=1 to t=1
+Shape window181 moves from (320,-430) to (320,-430) from t=1 to t=20
+Shape window181 moves from (320,-430) to (320,390) from t=20 to t=60
+Shape window181 moves from (320,390) to (320,390) from t=60 to t=200
+Shape window200 moves from (460,850) to (460,850) from t=1 to t=1
+Shape window200 moves from (460,850) to (460,850) from t=1 to t=20
+Shape window200 moves from (460,850) to (460,710) from t=20 to t=60
+Shape window200 moves from (460,710) to (460,710) from t=60 to t=127
+Shape window200 changes color from (255,255,255) to (255,255,0) from t=127 to t=132
+Shape window200 moves from (460,710) to (460,710) from t=132 to t=200
+Shape window201 moves from (500,850) to (500,850) from t=1 to t=1
+Shape window201 moves from (500,850) to (500,850) from t=1 to t=20
+Shape window201 moves from (500,850) to (500,710) from t=20 to t=60
+Shape window201 moves from (500,710) to (500,710) from t=60 to t=200
+Shape window210 moves from (460,890) to (460,890) from t=1 to t=1
+Shape window210 moves from (460,890) to (460,890) from t=1 to t=20
+Shape window210 moves from (460,890) to (460,670) from t=20 to t=60
+Shape window210 moves from (460,670) to (460,670) from t=60 to t=83
+Shape window210 changes color from (255,255,255) to (255,255,0) from t=83 to t=88
+Shape window210 moves from (460,670) to (460,670) from t=88 to t=200
+Shape window211 moves from (500,890) to (500,890) from t=1 to t=1
+Shape window211 moves from (500,890) to (500,890) from t=1 to t=20
+Shape window211 moves from (500,890) to (500,670) from t=20 to t=60
+Shape window211 moves from (500,670) to (500,670) from t=60 to t=200
+Shape window220 moves from (460,930) to (460,930) from t=1 to t=1
+Shape window220 moves from (460,930) to (460,930) from t=1 to t=20
+Shape window220 moves from (460,930) to (460,630) from t=20 to t=60
+Shape window220 moves from (460,630) to (460,630) from t=60 to t=200
+Shape window221 moves from (500,930) to (500,930) from t=1 to t=1
+Shape window221 moves from (500,930) to (500,930) from t=1 to t=20
+Shape window221 moves from (500,930) to (500,630) from t=20 to t=60
+Shape window221 moves from (500,630) to (500,630) from t=60 to t=200
+Shape window230 moves from (460,970) to (460,970) from t=1 to t=1
+Shape window230 moves from (460,970) to (460,970) from t=1 to t=20
+Shape window230 moves from (460,970) to (460,590) from t=20 to t=60
+Shape window230 moves from (460,590) to (460,590) from t=60 to t=200
+Shape window231 moves from (500,970) to (500,970) from t=1 to t=1
+Shape window231 moves from (500,970) to (500,970) from t=1 to t=20
+Shape window231 moves from (500,970) to (500,590) from t=20 to t=60
+Shape window231 moves from (500,590) to (500,590) from t=60 to t=200
+Shape window240 moves from (460,1010) to (460,1010) from t=1 to t=1
+Shape window240 moves from (460,1010) to (460,1010) from t=1 to t=20
+Shape window240 moves from (460,1010) to (460,550) from t=20 to t=60
+Shape window240 moves from (460,550) to (460,550) from t=60 to t=200
+Shape window241 moves from (500,1010) to (500,1010) from t=1 to t=1
+Shape window241 moves from (500,1010) to (500,1010) from t=1 to t=20
+Shape window241 moves from (500,1010) to (500,550) from t=20 to t=60
+Shape window241 moves from (500,550) to (500,550) from t=60 to t=112
+Shape window241 changes color from (255,255,255) to (255,255,0) from t=112 to t=117
+Shape window241 moves from (500,550) to (500,550) from t=117 to t=200
+Shape window250 moves from (460,1050) to (460,1050) from t=1 to t=1
+Shape window250 moves from (460,1050) to (460,1050) from t=1 to t=20
+Shape window250 moves from (460,1050) to (460,510) from t=20 to t=60
+Shape window250 moves from (460,510) to (460,510) from t=60 to t=128
+Shape window250 changes color from (255,255,255) to (255,255,0) from t=128 to t=133
+Shape window250 moves from (460,510) to (460,510) from t=133 to t=200
+Shape window251 moves from (500,1050) to (500,1050) from t=1 to t=1
+Shape window251 moves from (500,1050) to (500,1050) from t=1 to t=20
+Shape window251 moves from (500,1050) to (500,510) from t=20 to t=60
+Shape window251 moves from (500,510) to (500,510) from t=60 to t=200
+Shape window260 moves from (460,1090) to (460,1090) from t=1 to t=1
+Shape window260 moves from (460,1090) to (460,1090) from t=1 to t=20
+Shape window260 moves from (460,1090) to (460,470) from t=20 to t=60
+Shape window260 moves from (460,470) to (460,470) from t=60 to t=200
+Shape window261 moves from (500,1090) to (500,1090) from t=1 to t=1
+Shape window261 moves from (500,1090) to (500,1090) from t=1 to t=20
+Shape window261 moves from (500,1090) to (500,470) from t=20 to t=60
+Shape window261 moves from (500,470) to (500,470) from t=60 to t=96
+Shape window261 changes color from (255,255,255) to (255,255,0) from t=96 to t=101
+Shape window261 moves from (500,470) to (500,470) from t=101 to t=200
+Shape window270 moves from (460,1130) to (460,1130) from t=1 to t=1
+Shape window270 moves from (460,1130) to (460,1130) from t=1 to t=20
+Shape window270 moves from (460,1130) to (460,430) from t=20 to t=60
+Shape window270 moves from (460,430) to (460,430) from t=60 to t=200
+Shape window271 moves from (500,1130) to (500,1130) from t=1 to t=1
+Shape window271 moves from (500,1130) to (500,1130) from t=1 to t=20
+Shape window271 moves from (500,1130) to (500,430) from t=20 to t=60
+Shape window271 moves from (500,430) to (500,430) from t=60 to t=200
+Shape window300 moves from (640,-750) to (640,-750) from t=1 to t=1
+Shape window300 moves from (640,-750) to (640,-750) from t=1 to t=20
+Shape window300 moves from (640,-750) to (640,710) from t=20 to t=60
+Shape window300 moves from (640,710) to (640,710) from t=60 to t=200
+Shape window301 moves from (680,-750) to (680,-750) from t=1 to t=1
+Shape window301 moves from (680,-750) to (680,-750) from t=1 to t=20
+Shape window301 moves from (680,-750) to (680,710) from t=20 to t=60
+Shape window301 moves from (680,710) to (680,710) from t=60 to t=135
+Shape window301 changes color from (255,255,255) to (255,255,0) from t=135 to t=140
+Shape window301 moves from (680,710) to (680,710) from t=140 to t=200
+Shape window310 moves from (640,-710) to (640,-710) from t=1 to t=1
+Shape window310 moves from (640,-710) to (640,-710) from t=1 to t=20
+Shape window310 moves from (640,-710) to (640,670) from t=20 to t=60
+Shape window310 moves from (640,670) to (640,670) from t=60 to t=103
+Shape window310 changes color from (255,255,255) to (255,255,0) from t=103 to t=108
+Shape window310 moves from (640,670) to (640,670) from t=108 to t=200
+Shape window311 moves from (680,-710) to (680,-710) from t=1 to t=1
+Shape window311 moves from (680,-710) to (680,-710) from t=1 to t=20
+Shape window311 moves from (680,-710) to (680,670) from t=20 to t=60
+Shape window311 moves from (680,670) to (680,670) from t=60 to t=200
+Shape window320 moves from (640,-670) to (640,-670) from t=1 to t=1
+Shape window320 moves from (640,-670) to (640,-670) from t=1 to t=20
+Shape window320 moves from (640,-670) to (640,630) from t=20 to t=60
+Shape window320 moves from (640,630) to (640,630) from t=60 to t=200
+Shape window321 moves from (680,-670) to (680,-670) from t=1 to t=1
+Shape window321 moves from (680,-670) to (680,-670) from t=1 to t=20
+Shape window321 moves from (680,-670) to (680,630) from t=20 to t=60
+Shape window321 moves from (680,630) to (680,630) from t=60 to t=200
+Shape window330 moves from (640,-630) to (640,-630) from t=1 to t=1
+Shape window330 moves from (640,-630) to (640,-630) from t=1 to t=20
+Shape window330 moves from (640,-630) to (640,590) from t=20 to t=60
+Shape window330 moves from (640,590) to (640,590) from t=60 to t=81
+Shape window330 changes color from (255,255,255) to (255,255,0) from t=81 to t=86
+Shape window330 moves from (640,590) to (640,590) from t=86 to t=200
+Shape window331 moves from (680,-630) to (680,-630) from t=1 to t=1
+Shape window331 moves from (680,-630) to (680,-630) from t=1 to t=20
+Shape window331 moves from (680,-630) to (680,590) from t=20 to t=60
+Shape window331 moves from (680,590) to (680,590) from t=60 to t=119
+Shape window331 changes color from (255,255,255) to (255,255,0) from t=119 to t=124
+Shape window331 moves from (680,590) to (680,590) from t=124 to t=200
+Shape window340 moves from (640,-590) to (640,-590) from t=1 to t=1
+Shape window340 moves from (640,-590) to (640,-590) from t=1 to t=20
+Shape window340 moves from (640,-590) to (640,550) from t=20 to t=60
+Shape window340 moves from (640,550) to (640,550) from t=60 to t=200
+Shape window341 moves from (680,-590) to (680,-590) from t=1 to t=1
+Shape window341 moves from (680,-590) to (680,-590) from t=1 to t=20
+Shape window341 moves from (680,-590) to (680,550) from t=20 to t=60
+Shape window341 moves from (680,550) to (680,550) from t=60 to t=200
+Shape window350 moves from (640,-550) to (640,-550) from t=1 to t=1
+Shape window350 moves from (640,-550) to (640,-550) from t=1 to t=20
+Shape window350 moves from (640,-550) to (640,510) from t=20 to t=60
+Shape window350 moves from (640,510) to (640,510) from t=60 to t=200
+Shape window351 moves from (680,-550) to (680,-550) from t=1 to t=1
+Shape window351 moves from (680,-550) to (680,-550) from t=1 to t=20
+Shape window351 moves from (680,-550) to (680,510) from t=20 to t=60
+Shape window351 moves from (680,510) to (680,510) from t=60 to t=100
+Shape window351 changes color from (255,255,255) to (255,255,0) from t=100 to t=105
+Shape window351 moves from (680,510) to (680,510) from t=105 to t=200
+Shape window360 moves from (640,-510) to (640,-510) from t=1 to t=1
+Shape window360 moves from (640,-510) to (640,-510) from t=1 to t=20
+Shape window360 moves from (640,-510) to (640,470) from t=20 to t=60
+Shape window360 moves from (640,470) to (640,470) from t=60 to t=99
+Shape window360 changes color from (255,255,255) to (255,255,0) from t=99 to t=104
+Shape window360 moves from (640,470) to (640,470) from t=104 to t=200
+Shape window361 moves from (680,-510) to (680,-510) from t=1 to t=1
+Shape window361 moves from (680,-510) to (680,-510) from t=1 to t=20
+Shape window361 moves from (680,-510) to (680,470) from t=20 to t=60
+Shape window361 moves from (680,470) to (680,470) from t=60 to t=99
+Shape window361 changes color from (255,255,255) to (255,255,0) from t=99 to t=104
+Shape window361 moves from (680,470) to (680,470) from t=104 to t=200
+Shape moon moves from (200,200) to (200,200) from t=1 to t=1
+Shape moon moves from (200,200) to (200,200) from t=1 to t=200
+Shape eclipse moves from (400,0) to (400,0) from t=1 to t=1
+Shape eclipse moves from (400,0) to (400,0) from t=1 to t=50
+Shape eclipse moves from (400,0) to (230,180) from t=50 to t=90
+Shape eclipse changes color from (33,94,248) to (16,45,248) from t=50 to t=90
+Shape eclipse moves from (230,180) to (230,180) from t=90 to t=200
+Shape star0 moves from (223,66) to (223,66) from t=108 to t=108
+Shape star0 moves from (223,66) to (223,66) from t=108 to t=200
+Shape star1 moves from (585,211) to (585,211) from t=120 to t=120
+Shape star1 moves from (585,211) to (585,211) from t=120 to t=200
+Shape star2 moves from (489,77) to (489,77) from t=110 to t=110
+Shape star2 moves from (489,77) to (489,77) from t=110 to t=200
+Shape star3 moves from (374,286) to (374,286) from t=93 to t=93
+Shape star3 moves from (374,286) to (374,286) from t=93 to t=200
+Shape star4 moves from (708,281) to (708,281) from t=83 to t=83
+Shape star4 moves from (708,281) to (708,281) from t=83 to t=200
+Shape star5 moves from (508,260) to (508,260) from t=97 to t=97
+Shape star5 moves from (508,260) to (508,260) from t=97 to t=200
+Shape star6 moves from (529,70) to (529,70) from t=92 to t=92
+Shape star6 moves from (529,70) to (529,70) from t=92 to t=200
+Shape star7 moves from (332,65) to (332,65) from t=117 to t=117
+Shape star7 moves from (332,65) to (332,65) from t=117 to t=200
+Shape star8 moves from (311,147) to (311,147) from t=86 to t=86
+Shape star8 moves from (311,147) to (311,147) from t=86 to t=200
+Shape star9 moves from (170,281) to (170,281) from t=88 to t=88
+Shape star9 moves from (170,281) to (170,281) from t=88 to t=200
+Shape star10 moves from (719,102) to (719,102) from t=90 to t=90
+Shape star10 moves from (719,102) to (719,102) from t=90 to t=200
+Shape star11 moves from (524,264) to (524,264) from t=129 to t=129
+Shape star11 moves from (524,264) to (524,264) from t=129 to t=200
+Shape star12 moves from (768,194) to (768,194) from t=86 to t=86
+Shape star12 moves from (768,194) to (768,194) from t=86 to t=200
+Shape star13 moves from (766,179) to (766,179) from t=113 to t=113
+Shape star13 moves from (766,179) to (766,179) from t=113 to t=200
+Shape star14 moves from (510,78) to (510,78) from t=98 to t=98
+Shape star14 moves from (510,78) to (510,78) from t=98 to t=200
+Shape star15 moves from (621,149) to (621,149) from t=114 to t=114
+Shape star15 moves from (621,149) to (621,149) from t=114 to t=200
+Shape star16 moves from (491,252) to (491,252) from t=106 to t=106
+Shape star16 moves from (491,252) to (491,252) from t=106 to t=200
+Shape star17 moves from (405,63) to (405,63) from t=89 to t=89
+Shape star17 moves from (405,63) to (405,63) from t=89 to t=200
+Shape star18 moves from (550,267) to (550,267) from t=113 to t=113
+Shape star18 moves from (550,267) to (550,267) from t=113 to t=200
+Shape star19 moves from (108,197) to (108,197) from t=94 to t=94
+Shape star19 moves from (108,197) to (108,197) from t=94 to t=200
+Shape star20 moves from (737,78) to (737,78) from t=103 to t=103
+Shape star20 moves from (737,78) to (737,78) from t=103 to t=200
+Shape star21 moves from (795,137) to (795,137) from t=126 to t=126
+Shape star21 moves from (795,137) to (795,137) from t=126 to t=200
+Shape star22 moves from (184,125) to (184,125) from t=89 to t=89
+Shape star22 moves from (184,125) to (184,125) from t=89 to t=200
+Shape star23 moves from (134,230) to (134,230) from t=96 to t=96
+Shape star23 moves from (134,230) to (134,230) from t=96 to t=200
+Shape star24 moves from (244,153) to (244,153) from t=120 to t=120
+Shape star24 moves from (244,153) to (244,153) from t=120 to t=200
+Shape star25 moves from (259,119) to (259,119) from t=112 to t=112
+Shape star25 moves from (259,119) to (259,119) from t=112 to t=200
+Shape star26 moves from (322,269) to (322,269) from t=106 to t=106
+Shape star26 moves from (322,269) to (322,269) from t=106 to t=200
+Shape star27 moves from (412,182) to (412,182) from t=117 to t=117
+Shape star27 moves from (412,182) to (412,182) from t=117 to t=200
+Shape star28 moves from (674,137) to (674,137) from t=119 to t=119
+Shape star28 moves from (674,137) to (674,137) from t=119 to t=200
+Shape star29 moves from (46,246) to (46,246) from t=96 to t=96
+Shape star29 moves from (46,246) to (46,246) from t=96 to t=200
+Shape star30 moves from (388,315) to (388,315) from t=123 to t=123
+Shape star30 moves from (388,315) to (388,315) from t=123 to t=200
+Shape star31 moves from (185,236) to (185,236) from t=121 to t=121
+Shape star31 moves from (185,236) to (185,236) from t=121 to t=200
+Shape star32 moves from (550,232) to (550,232) from t=109 to t=109
+Shape star32 moves from (550,232) to (550,232) from t=109 to t=200
+Shape star33 moves from (656,101) to (656,101) from t=94 to t=94
+Shape star33 moves from (656,101) to (656,101) from t=94 to t=200
+Shape star34 moves from (283,111) to (283,111) from t=84 to t=84
+Shape star34 moves from (283,111) to (283,111) from t=84 to t=200
+Shape star35 moves from (649,326) to (649,326) from t=92 to t=92
+Shape star35 moves from (649,326) to (649,326) from t=92 to t=200
+Shape star36 moves from (691,267) to (691,267) from t=115 to t=115
+Shape star36 moves from (691,267) to (691,267) from t=115 to t=200
+Shape star37 moves from (113,276) to (113,276) from t=99 to t=99
+Shape star37 moves from (113,276) to (113,276) from t=99 to t=200
+Shape star38 moves from (604,302) to (604,302) from t=99 to t=99
+Shape star38 moves from (604,302) to (604,302) from t=99 to t=200
+Shape star39 moves from (462,162) to (462,162) from t=127 to t=127
+Shape star39 moves from (462,162) to (462,162) from t=127 to t=200

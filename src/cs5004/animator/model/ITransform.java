@@ -13,7 +13,7 @@ public interface ITransform {
   /**
    * Method to return the string representation of a given shape.
    *
-   * @return string representation of a given shape
+   * @return string representation of a given shape.
    */
 
   String getShapeID();
@@ -21,7 +21,7 @@ public interface ITransform {
   /**
    * Method to return the start time of a given transformation.
    *
-   * @return start time of a transformation
+   * @return start time of a transformation.
    */
 
   int getStartTime();
@@ -29,18 +29,10 @@ public interface ITransform {
   /**
    * Method to return the end time of a given transformation.
    *
-   * @return end time of transformation
+   * @return end time of transformation.
    */
 
   int getEndTime();
-
-  /**
-   * Method to return the type of motion.
-   *
-   * @returns an enum describing the type of motion.
-   */
-
-  TransformType getTransformType();
 
   /**
    * Method to return a string with the information about the shape's motion in SVG format.

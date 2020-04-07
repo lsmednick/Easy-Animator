@@ -103,4 +103,9 @@ public class Rectangle extends AbstractShape {
   public double newHeight() {
     return 0;
   }
+
+  @Override
+  public double widthHeightDiff() {
+    return 1.0;
+  }
 }

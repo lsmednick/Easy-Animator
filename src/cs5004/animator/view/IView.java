@@ -21,4 +21,13 @@ public interface IView {
    */
 
   void refreshAnimation();
+
+  /**
+   * Outputs the view in a txt/svg file.
+   *
+   * @param outputFile the output file.
+   * @param string the output originated in the view and copied to the outputFile.
+   */
+
+  void output(String outputFile, String string);
 }
