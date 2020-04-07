@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="OODAnimator:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/OODAnimator_jar</output-path>
+    <root id="archive" name="OODAnimator.jar">
+      <element id="module-output" name="OODAnimator" />
+    </root>
+  </artifact>
+</component>
