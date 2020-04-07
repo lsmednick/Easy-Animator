@@ -53,6 +53,7 @@ public class TextualView extends AbstractView implements IView {
 
     Map<String, IShape> map = animation.getShapeList();
     List<AbstractTransform> abstractList = animation.getTransformList();
+    Map<String, String> timing = animation.getAppearDisappearTime(filename);
 
     Collections.sort(animation.getTransformList());
 
@@ -60,13 +61,12 @@ public class TextualView extends AbstractView implements IView {
       string.append(map.get(key).toString());
     }
 
-    for (String key : animation.getAppearDisappearTime(filename).keySet()){
-      string.append(animation.getAppearDisappearTime(filename).get(key));
+    for (String key : timing.keySet()){
+      string.append(timing.get(key));
     }
     string.append("\n");
 
     string.append("Text view is running at ").append(speed).append(" ticks per second\n\n");
-
 
     for (ITransform t : abstractList) {
       string.append(t.toString());
