@@ -227,5 +227,4 @@ public class TextualViewTest {
       // do nothing
     }
   }
-
 }

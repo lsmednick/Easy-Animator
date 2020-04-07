@@ -38,6 +38,7 @@ public class ChangeColor extends AbstractTransform {
    *                                  transformation occurs after the object disappears in the
    *                                  animation
    */
+
   public ChangeColor(IShape shape, int fromR, int fromG, int fromB, int toR, int toG, int toB,
                      int startTime, int endTime) throws IllegalArgumentException {
     super(shape, startTime, endTime);
@@ -123,10 +124,6 @@ public class ChangeColor extends AbstractTransform {
     return this.toB;
   }
 
-  @Override
-  public TransformType getTransformType() {
-    return TransformType.COLOR;
-  }
 
   @Override
   public String motionSVG(double speed) {

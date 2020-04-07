@@ -130,102 +130,6 @@ public class TransformTest {
             6, 5);
   }
 
-
-//  // Testing cs5004.animator.model.ChangeColor exceptions.
-//  // Throws Exception in cs5004.animator.model.ChangeColor constructor if startTime of
-//  // transformation occurs before appears of shape in animation.
-//  @Test(expected = IllegalArgumentException.class)
-//  public void testChangeColorConstructorStartTimeInvalid() {
-//    AbstractShape bob = new Rectangle(1, 2, 3, 4, 5, 6, 7, "Bob");
-//
-//    new ChangeColor(bob, 3, 4, 5, 6, 7, 8, 1, 10);
-//  }
-//
-//  // Throws Exception in cs5004.animator.model.ChangeColor constructor if endTime of transformation occurs
-//  // after shape has disappeared from animation.
-//  @Test(expected = IllegalArgumentException.class)
-//  public void testChangeColorConstructorEndTimeInvalid() {
-//    AbstractShape bob = new Rectangle(1, 2, 3, 4, 5, 6, 7, "Bob");
-//
-//    new ChangeColor(bob, 3, 4, 5, 6, 7, 8, 6, 12);
-//  }
-
-//  // Testing cs5004.animator.model.ChangePos exceptions.
-//  // Throws Exception in cs5004.animator.model.ChangePos constructor if startTime of transformation occurs
-//  // before appears of shape in animation.
-//  @Test(expected = IllegalArgumentException.class)
-//  public void testChangePosConstructorStartTimeInvalid() {
-//    AbstractShape bob = new Rectangle(1, 2, 3, 4, 5, 6, 7, "Bob");
-//
-//    new ChangePos(bob, 1, 2, 3, 4, 4, 8);
-//  }
-//
-//  // Throws Exception in cs5004.animator.model.ChangePos constructor if endTime of transformation occurs
-//  // after shape has disappeared from animation.
-//  @Test(expected = IllegalArgumentException.class)
-//  public void testChangePosConstructorEndTimeInvalid() {
-//    AbstractShape bob = new Rectangle(1, 2, 3, 4, 5, 6, 7, "Bob");
-//
-//    new ChangePos(bob, 1, 2, 3, 4, 6, 23);
-//  }
-
-//  // Throws Exception in cs5004.animator.model.ChangeColor constructor fromX is negative.
-//  @Test(expected = IllegalArgumentException.class)
-//  public void testChangePosConstructorNegativeFromX() {
-//    AbstractShape bob = new Rectangle(1, 2, 3, 4, 5, 6, 7, "Bob");
-//
-//    new ChangePos(bob, -1, 2, 3, 4, 6, 9);
-//  }
-//
-//  // Throws Exception in cs5004.animator.model.ChangeColor constructor fromY is negative.
-//  @Test(expected = IllegalArgumentException.class)
-//  public void testChangePosConstructorNegativeFromY() {
-//    AbstractShape bob = new Rectangle(1, 2, 3, 4, 5, 6, 7, "Bob");
-//
-//    new ChangePos(bob, 1, -2, 3, 4, 6, 9);
-//  }
-//
-//  // Throws Exception in cs5004.animator.model.ChangeColor constructor toX is negative.
-//  @Test(expected = IllegalArgumentException.class)
-//  public void testChangePosConstructorNegativeToX() {
-//    AbstractShape bob = new Rectangle(1, 2, 3, 4, 5, 6, 7, "Bob");
-//
-//    new ChangePos(bob, 1, 2, -3, 4, 6, 9);
-//  }
-//
-//  // Throws Exception in cs5004.animator.model.ChangeColor constructor toY is negative.
-//  @Test(expected = IllegalArgumentException.class)
-//  public void testChangePosConstructorNegativeToY() {
-//    AbstractShape bob = new Rectangle(1, 2, 3, 4, 5, 6, 7, "Bob");
-//
-//    new ChangePos(bob, 1, 2, 3, -4, 6, 9);
-//  }
-
-
-
-  /**
-   * Testing cs5004.animator.model.ChangeScale Exceptions.
-   */
-
-//  // Throws Exception in cs5004.animator.model.ChangeScale constructor if startTime of transformation occurs
-//  // before appears of shape in animation.
-//  @Test(expected = IllegalArgumentException.class)
-//  public void testChangeScaleConstructorStartTimeInvalid() {
-//    AbstractShape bob = new Rectangle(1, 2, 3, 4, 5, 6, 7, "Bob");
-//
-//    new ChangeScale(bob, 1.1, 2.1, 3.1, 4.1, 4, 8);
-//  }
-//
-//  // Throws Exception in cs5004.animator.model.ChangeScale constructor if endTime of transformation occurs
-//  // after shape has disappeared from animation.
-//  @Test(expected = IllegalArgumentException.class)
-//  public void testChangeScaleConstructorEndTimeInvalid() {
-//    AbstractShape bob = new Rectangle(11, 2, 3, 4, 5, 6, 7, "Bob");
-//
-//    new ChangeScale(bob, 1.1, 2.1, 3.1, 4.1, 6, 23);
-//
-//  }
-
   // Throws Exception in cs5004.animator.model.ChangeScale constructor fromWidth is negative.
   @Test(expected = IllegalArgumentException.class)
   public void testChangeScaleConstructorNegativeFromX() {
@@ -278,8 +182,5 @@ public class TransformTest {
     new ChangePos(null, 6, 7, 8, 9,
             11, 12);
   }
-
-
-
 }
 

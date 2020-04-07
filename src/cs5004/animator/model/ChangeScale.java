@@ -35,6 +35,7 @@ public class ChangeScale extends AbstractTransform {
    *                                  animation
    * @throws IllegalArgumentException if width/height is negative
    */
+
   public ChangeScale(IShape shape, int fromWidth, int fromHeight, int toWidth,
                      int toHeight, int startTime, int endTime) throws IllegalArgumentException {
     super(shape, startTime, endTime);
@@ -99,11 +100,6 @@ public class ChangeScale extends AbstractTransform {
 
   public int getToHeight() {
     return this.toHeight;
-  }
-
-  @Override
-  public TransformType getTransformType() {
-    return TransformType.SCALE;
   }
 
   @Override

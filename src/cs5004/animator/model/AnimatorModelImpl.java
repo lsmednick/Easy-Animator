@@ -406,6 +406,13 @@ public class AnimatorModelImpl implements AnimatorModel {
   }
 
 
+  /**
+   * Declares the first appearance and disappearance of the shape object in the animation.
+   *
+   * @param filename the input file.
+   * @return a tree map describing the shape id (key) matching to its dis/appearance time.
+   */
+
   public Map<String, String> getAppearDisappearTime(String filename) {
     List<String> list = new ArrayList<>();
     Map<String, String> mapAppear = new HashMap<>();

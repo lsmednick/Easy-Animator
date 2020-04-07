@@ -132,7 +132,6 @@ public final class EasyAnimator {
       JOptionPane.showMessageDialog(frame, "An Error was Encountered in View ",
               "Encountered Error ", JOptionPane.ERROR_MESSAGE);
     }
-
   }
 }
 

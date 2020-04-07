@@ -39,20 +39,6 @@ public class AnimatorModelImplTest {
             + "Min corner: (10, 3), Width: 7, Height: 6, Color: (70, 250, 18)\n\n", testModel.getState());
   }
 
-//  // Testing the addShape method when attempting place end time after the start time.
-//  @Test(expected = IllegalArgumentException.class)
-//  public void testAddShape3() {
-//    testModel = new AnimatorModelImpl(0,0 ,700,700);
-//    testModel.addShape("Jennifer Hudson", ShapeType.RECTANGLE, 5, 3, 107, 16, 10, 7, 3);
-//  }
-
-//  // Testing the addShape method when entering negative x / y coordinates.
-//  @Test(expected = IllegalArgumentException.class)
-//  public void testAddShape4() {
-//    testModel = new AnimatorModelImpl(0,0 ,700,700);
-//    testModel.addShape("Jennifer Hudson", ShapeType.RECTANGLE, -4, -2, 107, 16, 10, 7, 3);
-//  }
-
   // Testing the addShape method when entering invalid height value.
   @Test(expected = IllegalArgumentException.class)
   public void testAddShape4() {
@@ -66,8 +52,6 @@ public class AnimatorModelImplTest {
     testModel = new AnimatorModelImpl(0,0 ,700,700);
     testModel.addShape("Jennifer Hudson", ShapeType.RECTANGLE, 5, 6, 107, 16, 10, -4, 0);
   }
-
-
 
   // Testing the addShape method when entering a null string ID.
   @Test(expected = IllegalArgumentException.class)
@@ -105,23 +89,6 @@ public class AnimatorModelImplTest {
             testModel.getState());
   }
 
-//  // Testing the changePos method when attempting to move to the same position.
-//  @Test(expected = IllegalArgumentException.class)
-//  public void testChangePos2() {
-//    testModel = new AnimatorModelImpl(0,0 ,700,700);
-//    testModel.addShape("Francesca Hayward", ShapeType.OVAL, 6, 3, 4, 178, 100, 7, 3);
-//    testModel.changePos("Francesca Hayward", 6, 3, 6, 3, 3, 6);
-//  }
-
-  // Testing the changePos method when attempting to create a duplicate transformation.
-//  @Test(expected = IllegalArgumentException.class)
-//  public void testChangePos3() {
-//    testModel = new AnimatorModelImpl(0,0 ,700,700);
-//    testModel.addShape("Francesca Hayward", ShapeType.OVAL, 6, 3, 4, 178, 100, 7, 3);
-//    testModel.changePos("Francesca Hayward", 6, 3, 7, 4, 3, 6);
-//    testModel.changePos("Francesca Hayward", 6, 3, 7, 4, 3, 6);
-//  }
-
   // Testing the changePos method when entering a shape ID that does not exist in the model.
   @Test(expected = IllegalArgumentException.class)
   public void testChangePos4() {
@@ -145,15 +112,6 @@ public class AnimatorModelImplTest {
     testModel.addShape("Laurie Davidson", ShapeType.RECTANGLE, 6, 3, 4, 178, 100, 7, 3);
     testModel.changePos("Laurie Davidson", 6, 3, 7, 4, 5, 3);
   }
-
-//  // Testing the changePos method when attempting to transform shape outside of its appearance /
-//  // disappearance times.
-//  @Test (expected = IllegalArgumentException.class)
-//  public void testChangePos7() {
-//    testModel = new AnimatorModelImpl(0,0 ,700,700);
-//    testModel.addShape("Laurie Davidson", ShapeType.RECTANGLE, 6, 3, 4, 178, 100, 7, 3);
-//    testModel.changePos("Laurie Davidson", 6, 3, 7, 4, 0, 16);
-//  }
 
   // Testing the changeColor method by transforming one of each shape.
   @Test
@@ -191,15 +149,6 @@ public class AnimatorModelImplTest {
     testModel.changeColor("Francesca Hayward", 4, 178, 100, 4, 178, 100, 2, 13);
   }
 
-//  // Testing the changeColor method when attempting to create a duplicate transformation.
-//  @Test(expected = IllegalArgumentException.class)
-//  public void testChangeColor3() {
-//    testModel = new AnimatorModelImpl(0,0 ,700,700);
-//    testModel.addShape("Francesca Hayward", ShapeType.OVAL, 6, 3, 4, 178, 100, 7, 3);
-//    testModel.changeColor("Francesca Hayward", 4, 178, 100, 60, 170, 130, 2, 13);
-//    testModel.changeColor("Francesca Hayward", 4, 178, 100, 60, 170, 130, 2, 13);
-//  }
-
   // Testing the changeColor method when entering a shape ID that does not exist in the model.
   @Test(expected = IllegalArgumentException.class)
   public void testChangeColor4() {
@@ -223,15 +172,6 @@ public class AnimatorModelImplTest {
     testModel.addShape("Laurie Davidson", ShapeType.RECTANGLE, 6, 3, 4, 178, 100, 7, 3);
     testModel.changeColor("Laurie Davidson", 4, 178, 100, 4, 30, 120, 5, 3);
   }
-
-  // Testing the changeColor method when attempting to transform shape outside of its appearance /
-  // disappearance times.
-//  @Test (expected = IllegalArgumentException.class)
-//  public void testChangeColor7() {
-//    testModel = new AnimatorModelImpl(0,0 ,700,700);
-//    testModel.addShape("Laurie Davidson", ShapeType.RECTANGLE, 6, 3, 4, 178, 100, 7, 3);
-//    testModel.changeColor("Laurie Davidson", 4, 178, 100, 4, 30, 120, 0, 17);
-//  }
 
   // Testing the changeScale method by transforming one of each shape.
   @Test
@@ -302,16 +242,6 @@ public class AnimatorModelImplTest {
     testModel.changeScale("Laurie Davidson", 7, 3, 6, 4, 5, 3);
   }
 
-
-//  // Testing the changeScale method when attempting to transform shape outside of its appearance /
-//  // disappearance times.
-//  @Test (expected = IllegalArgumentException.class)
-//  public void testChangeScale7() {
-//    testModel = new AnimatorModelImpl(0,0 ,700,700);
-//    testModel.addShape("Laurie Davidson", ShapeType.RECTANGLE, 6, 3, 4, 178, 100, 7, 3);
-//    testModel.changeScale("Laurie Davidson", 7, 3, 7, 4, 0, 18);
-//  }
-
   // Testing a generic model use where multiple shapes are created and multiple transformations are
   // applied to them.
   @Test
@@ -379,8 +309,4 @@ public class AnimatorModelImplTest {
     testModel.changeColor(null, 6, 7, 8, 9,
             11, 12, 20, 29);
   }
-
-
-
-
 }

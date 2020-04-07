@@ -19,7 +19,6 @@ import static org.junit.Assert.assertEquals;
  * providing a description of the shape's attributes and and transformations.
  */
 
-
 public class SVGViewTest {
 
   // Test that the SVGView produces the correct string output

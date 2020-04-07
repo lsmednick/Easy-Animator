@@ -34,20 +34,6 @@ public class ShapeTest {
     assertEquals("Bob", bob.getName());
   }
 
-//  //IllegalArgumentException thrown  if the x or y-coordinates are negative
-//  @Test(expected = IllegalArgumentException.class)
-//  public void testOvalInvalidX() {
-//    new Oval(-1.1, 2.1, 3, 4, 5, 6.1, 7.1, 8,
-//            9, "Bob");
-//  }
-//
-//  //IllegalArgumentException thrown  if the x or y-coordinates are negative
-//  @Test(expected = IllegalArgumentException.class)
-//  public void testOvalInvalidY() {
-//    new Oval(1.1, -2.1, 3, 4, 5, 6.1, 7.1, 8,
-//            9, "Bob");
-//  }
-
   //IllegalArgumentException thrown  if rgb values are not between 0-255 inclusive.
   @Test(expected = IllegalArgumentException.class)
   public void testOvalInvalidRedNegative() {
@@ -116,20 +102,6 @@ public class ShapeTest {
     assertEquals("Bob", bob.getName());
   }
 
-//  //IllegalArgumentException thrown if x-coordinate is negative
-//  @Test(expected = IllegalArgumentException.class)
-//  public void testRectangleInvalidX() {
-//    new Rectangle(-1.1, 2.1, 3, 4, 5, 6.1, 7.1, 8,
-//            9, "Bob");
-//  }
-//
-//  //IllegalArgumentException thrown if y-coordinate is negative
-//  @Test(expected = IllegalArgumentException.class)
-//  public void testRectangleInvalidY() {
-//    new Rectangle(1.1, -2.1, 3, 4, 5, 6.1, 7.1, 8,
-//            9, "Bob");
-//  }
-
   //IllegalArgumentException thrown  if rgb values are not between 0-255 inclusive.
   @Test(expected = IllegalArgumentException.class)
   public void testRectangleInvalidRedNegative() {
@@ -183,7 +155,4 @@ public class ShapeTest {
   public void testRectangleStringNameNull() {
     new Rectangle(1, 2, 3, 4, 5, 6, 7, null);
   }
-
-
-
 }

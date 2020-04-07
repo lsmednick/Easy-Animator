@@ -40,5 +40,6 @@ public interface ITransform {
    * @param speed the ticks per second speed.
    * @return a string of SVG format about the shape's motion.
    */
+
   String motionSVG(double speed);
 }
