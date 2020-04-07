@@ -124,11 +124,11 @@ public class TextualViewTest {
   // Take in toh-3.txt that is file check if the output.txt file is correct
   @Test
   public void TextualViewTest2() throws FileNotFoundException {
-    EasyAnimator.main(new String[]{"-in toh-3.txt -view text -out text-transcript2.txt"});
+    EasyAnimator.main(new String[]{"-in toh-3.txt -view text -out text-transcript.txt"});
 
     BufferedReader bufferedReader = null;
     try {
-      bufferedReader = new BufferedReader(new FileReader("text-transcript2.txt"));
+      bufferedReader = new BufferedReader(new FileReader("text-transcript.txt"));
       StringBuilder stringBuilder = new StringBuilder();
       String line = bufferedReader.readLine();
 
@@ -214,58 +214,57 @@ public class TextualViewTest {
   }
 
 
+  // Take in an .txt that is file and produce an output .txt file that is also empty
+  @Test
+  public void TextualViewTest3() throws FileNotFoundException {
+    AnimatorModel model;
+    String filename = "empty.txt";
+    Readable inFile = new FileReader(filename);
 
-  //  // Take in an .txt that is file and produce an output .txt file that is also empty
-//  @Test
-//  public void TextualViewTest3() throws FileNotFoundException {
-//    AnimatorModel model;
-//    String filename = "empty.txt";
-//    Readable inFile = new FileReader(filename);
-//
-//    AnimationBuilder<AnimatorModel> builder =
-//            new AnimationBuilderImpl();
-//
-//    model = AnimationReader.parseFile(inFile, builder);
-//    TextualView view = new TextualView(model, filename, 1);
-//    view.output("emptyOutput.txt", "");
-//
-//    BufferedReader bufferedReader = null;
-//    try {
-//      bufferedReader = new BufferedReader(new FileReader("emptyOutput.txt"));
-//      StringBuilder stringBuilder = new StringBuilder();
-//      String line = bufferedReader.readLine();
-//
-//      while (line != null) {
-//        stringBuilder.append(line);
-//        stringBuilder.append("\n");
-//        line = bufferedReader.readLine();
-//      }
-//      assertEquals("", stringBuilder.toString());
-//      bufferedReader.close();
-//    } catch (Exception e) {
-//      // do nothing
-//    }
-//  }
+    AnimationBuilder<AnimatorModel> builder =
+            new AnimationBuilderImpl();
 
-//    //TODO
-//    // Take in an .txt that is file and produce an output to the console (System.out)
-//    // that is also empty
-//    @Test
-//    public void TextualViewTest4() throws FileNotFoundException {
-//      AnimatorModel model;
-//      String filename = "empty.txt";
-//      Readable inFile = new FileReader(filename);
-//
-//      AnimationBuilder<AnimatorModel> builder =
-//              new AnimationBuilderImpl();
-//
-//      model = AnimationReader.parseFile(inFile, builder);
-//      TextualView view = new TextualView(model, filename, 1);
-//      view.output("System.out", "");
-//
-//      assertEquals(" ", view.getState());
-//
-//  }
+    model = AnimationReader.parseFile(inFile, builder);
+    TextualView view = new TextualView(model, filename, 1);
+    view.output("emptyOutput.txt", "");
+
+    BufferedReader bufferedReader = null;
+    try {
+      bufferedReader = new BufferedReader(new FileReader("emptyOutput.txt"));
+      StringBuilder stringBuilder = new StringBuilder();
+      String line = bufferedReader.readLine();
+
+      while (line != null) {
+        stringBuilder.append(line);
+        stringBuilder.append("\n");
+        line = bufferedReader.readLine();
+      }
+      assertEquals("", stringBuilder.toString());
+      bufferedReader.close();
+    } catch (Exception e) {
+      // do nothing
+    }
+  }
+
+    //TODO
+    // Take in an .txt that is file and produce an output to the console (System.out)
+    // that is also empty
+    @Test
+    public void TextualViewTest4() throws FileNotFoundException {
+      AnimatorModel model;
+      String filename = "empty.txt";
+      Readable inFile = new FileReader(filename);
+
+      AnimationBuilder<AnimatorModel> builder =
+              new AnimationBuilderImpl();
+
+      model = AnimationReader.parseFile(inFile, builder);
+      TextualView view = new TextualView(model, filename, 1);
+      view.output("System.out", "");
+
+      assertEquals("", view.getState());
+
+  }
 
 
 
