@@ -11,27 +11,25 @@ import cs5004.animator.model.ITransform;
 
 /**
  * This class represents a SVG view of the animation. It produces either an .svg file or an output
- * to System.out -- this is determined by the command line argument received by the
- * main() in the EasyAnimator class.
+ * to System.out -- this is determined by the command line argument received by the main() in the
+ * EasyAnimator class.
  */
 
 public class SVGView extends AbstractView implements IView {
   private AnimatorModel animation;
-  private String filename;
   private double speed;
 
   /**
-   * Constructs the SVG view initializing an animation model, the name of the file where
-   * we are getting the input and the speed/tempo of the SVG view.
+   * Constructs the SVG view initializing an animation model, the name of the file where we are
+   * getting the input and the speed/tempo of the SVG view.
    *
    * @param animation the animation model.
-   * @param filename the input file.
-   * @param speed the tempo of the animation.
+   * @param filename  the input file.
+   * @param speed     the tempo of the animation.
    */
 
   public SVGView(AnimatorModel animation, String filename, double speed) {
     this.animation = animation;
-    this.filename = filename;
     this.speed = speed;
   }
 
@@ -46,8 +44,8 @@ public class SVGView extends AbstractView implements IView {
   }
 
   /**
-   * This method implements the SVG view. Using a string builder it appends
-   * all the shapes and its motions and finally return a string with the final result.
+   * This method implements the SVG view. Using a string builder it appends all the shapes and its
+   * motions and finally return a string with the final result.
    *
    * @return a string with the result of the SVG view.
    * @throws IllegalStateException if there are no shapes in the text view/animation.

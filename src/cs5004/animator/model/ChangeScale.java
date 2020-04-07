@@ -109,14 +109,17 @@ public class ChangeScale extends AbstractTransform {
     double end = (this.getEndTime() / speed) * 1000;
     double duration = end - start;
 
-    if ((this.getFromWidth() == this.getToWidth()) && (this.getFromHeight() == this.getToHeight())) {
+    if ((this.getFromWidth() == this.getToWidth()) && (this.getFromHeight()
+            == this.getToHeight())) {
       return string;
-    } else if ((this.getFromWidth() != this.getToWidth()) && (this.getFromHeight() == this.getToHeight())) {
+    } else if ((this.getFromWidth() != this.getToWidth()) && (this.getFromHeight()
+            == this.getToHeight())) {
       string = "<animate attributeType=\"xml\" begin=\"" + start + "ms\" dur=\""
               + duration + "ms\" attributeName=\"" + this.getShape().widthTagSVG() + "\" from=\""
               + this.getFromWidth() + "\" to=\"" + this.getToWidth() + "\" fill=\"freeze\" />\n";
       return string;
-    } else if ((this.getFromWidth() == this.getToWidth()) && (this.getFromHeight() != this.getToHeight())) {
+    } else if ((this.getFromWidth() == this.getToWidth()) && (this.getFromHeight()
+            != this.getToHeight())) {
       string += "<animate attributeType=\"xml\" begin=\"" + start + "ms\" dur=\"" + duration
               + "ms\" attributeName=\"" + this.getShape().heightTagSVG() + "\" from=\""
               + this.getFromHeight() + "\" to=\"" + this.getToHeight() + "\" fill=\"freeze\" />\n";

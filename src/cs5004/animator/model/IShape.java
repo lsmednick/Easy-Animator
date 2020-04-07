@@ -82,7 +82,7 @@ public interface IShape {
   ShapeType getType();
 
   /**
-   * Sets a new value for x
+   * Sets a new value for x.
    *
    * @param x the new x value of a shape
    */
@@ -90,7 +90,7 @@ public interface IShape {
   void setX(int x);
 
   /**
-   * Sets a new value for y
+   * Sets a new value for y.
    *
    * @param y the new y value of a shape
    */
@@ -98,7 +98,7 @@ public interface IShape {
   void setY(int y);
 
   /**
-   * Sets a new color for the shape
+   * Sets a new color for the shape.
    *
    * @param r red intensity of the color's shape
    * @param g green intensity of the color's shape
@@ -108,7 +108,7 @@ public interface IShape {
   void setColor(int r, int g, int b);
 
   /**
-   * Sets a new value for w
+   * Sets a new value for w.
    *
    * @param w the new w value of a shape
    */
@@ -116,7 +116,7 @@ public interface IShape {
   void setW(int w);
 
   /**
-   * Sets a new value for h
+   * Sets a new value for h.
    *
    * @param h the new h value of a shape
    */
@@ -124,7 +124,7 @@ public interface IShape {
   void setH(int h);
 
   /**
-   * Method to return a string information from a shape in SVG format
+   * Method to return a string information from a shape in SVG format.
    *
    * @return shape's information in SVG format.
    */

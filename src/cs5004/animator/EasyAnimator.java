@@ -20,7 +20,6 @@ import cs5004.animator.view.VisualView;
 import cs5004.animator.model.AnimatorModel;
 import cs5004.animator.util.AnimationBuilderImpl;
 
-
 /**
  * This main() method will be the entry point for the program. It will take command-line arguments
  * in the form below : -in "name-of-animation-file" -view "type-of-view" -out "where-output-show-go"
@@ -28,6 +27,14 @@ import cs5004.animator.util.AnimationBuilderImpl;
  */
 
 public final class EasyAnimator {
+
+  /**
+   * This is the main method which is the entry point for our program.
+   *
+   * @param args takes in string arguments into the main
+   * @throws FileNotFoundException is thrown if the program can not find the files specified in the
+   *                               arguments
+   */
 
   public static void main(String[] args) throws FileNotFoundException {
     Readable r = new StringReader(String.join(" ", args));

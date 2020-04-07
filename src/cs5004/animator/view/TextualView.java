@@ -10,9 +10,9 @@ import cs5004.animator.model.IShape;
 import cs5004.animator.model.ITransform;
 
 /**
- * This class represents a textual view of our EasyAnimator. The output of the Textual view
- * is a string that describes the animation including the shapes' attributes and transformations.
- * The output can be produced in a .txt file or to System.out -- depending on the command line
+ * This class represents a textual view of our EasyAnimator. The output of the Textual view is a
+ * string that describes the animation including the shapes' attributes and transformations. The
+ * output can be produced in a .txt file or to System.out -- depending on the command line
  * argument.
  */
 
@@ -22,12 +22,12 @@ public class TextualView extends AbstractView implements IView {
   private double speed;
 
   /**
-   * Constructs the text view initializing an animation model, the name of the file where
-   * we are getting the input and the speed/tempo of the text view.
+   * Constructs the text view initializing an animation model, the name of the file where we are
+   * getting the input and the speed/tempo of the text view.
    *
    * @param animation the animation model.
-   * @param filename the input file.
-   * @param speed the tempo of the animation.
+   * @param filename  the input file.
+   * @param speed     the tempo of the animation.
    */
 
   public TextualView(AnimatorModel animation, String filename, double speed) {
@@ -37,8 +37,8 @@ public class TextualView extends AbstractView implements IView {
   }
 
   /**
-   * This method implements the text view. Using a string builder it appends
-   * all the shapes and its motions and finally return a string with the final result.
+   * This method implements the text view. Using a string builder it appends all the shapes and its
+   * motions and finally return a string with the final result.
    *
    * @return a string with the result of the text view.
    * @throws IllegalStateException if there are no shapes in the text view/animation.
@@ -61,7 +61,7 @@ public class TextualView extends AbstractView implements IView {
       string.append(map.get(key).toString());
     }
 
-    for (String key : timing.keySet()){
+    for (String key : timing.keySet()) {
       string.append(timing.get(key));
     }
     string.append("\n");

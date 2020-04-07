@@ -10,10 +10,10 @@ import cs5004.animator.model.Rectangle;
 import static org.junit.Assert.assertEquals;
 
 /**
- * This is a JUnit test class to test cs5004.animator.model.AbstractTransform and the concrete classes that extends it
- * (cs5004.animator.model.ChangeColor, cs5004.animator.model.ChangePos, cs5004.animator.model.ChangeScale). The concrete classes call upon the super class
- * cs5004.animator.model.AbstractTransform to instantiate the String shapeID, start time of the transformation, and end
- * time of the transformation. Exceptions are thrown in cs5004.animator.model.AbstractTransform for the fields mentioned
+ * This is a JUnit test class to test AbstractTransform and the concrete classes that extends it
+ * ChangeColor, ChangePos, ChangeScale. The concrete classes call upon the super class
+ * AbstractTransform to instantiate the String shapeID, start time of the transformation, and end
+ * time of the transformation. Exceptions are thrown in AbstractTransform for the fields mentioned
  * previously. Additional exceptions are thrown within each individual concrete class constructor.
  */
 
@@ -102,7 +102,7 @@ public class TransformTest {
   }
 
   // Testing cs5004.animator.model.AbstractTransform Exceptions.
-  // Throws Exception in cs5004.animator.model.AbstractTransform constructor if the startTime is negative
+  // Throws Exception in AbstractTransform constructor if the startTime is negative.
   @Test(expected = IllegalArgumentException.class)
   public void testStartTimeNegative() {
     AbstractShape bob = new Rectangle(1, 2, 3, 4, 5, 6, 7, "Bob");
@@ -164,21 +164,21 @@ public class TransformTest {
 
   // Throw Exception in cs5004.animator.model.AbstractTransform if IShape object is null
   @Test(expected = IllegalArgumentException.class)
-  public void testNullShapeScale(){
+  public void testNullShapeScale() {
     new ChangeScale(null, 6, 7, 8, 9,
             6, 5);
   }
 
   // Throw Exception in cs5004.animator.model.AbstractTransform if IShape object is null
   @Test(expected = IllegalArgumentException.class)
-  public void testNullShapeColor(){
+  public void testNullShapeColor() {
     new ChangeColor(null, 6, 7, 8, 9,
             11, 12, 3, 4);
   }
 
   // Throw Exception in cs5004.animator.model.AbstractTransform if IShape object is null
   @Test(expected = IllegalArgumentException.class)
-  public void testNullShapePosition(){
+  public void testNullShapePosition() {
     new ChangePos(null, 6, 7, 8, 9,
             11, 12);
   }

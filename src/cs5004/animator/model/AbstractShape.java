@@ -22,14 +22,14 @@ public abstract class AbstractShape implements IShape {
    * value, width, height, start time, and end time. While rgb values are supplied as integers, the
    * constructor creates a Color object using this data in order to represent the given color.
    *
-   * @param x         x coordinate of the shape
-   * @param y         y coordinate of the shape
-   * @param r         red intensity of the shape's color
-   * @param g         green intensity of the shape's color
-   * @param b         blue intensity of the shape's color
-   * @param width     width of the shape
-   * @param height    height of the shape
-   * @param name      name of the shape
+   * @param x      x coordinate of the shape
+   * @param y      y coordinate of the shape
+   * @param r      red intensity of the shape's color
+   * @param g      green intensity of the shape's color
+   * @param b      blue intensity of the shape's color
+   * @param width  width of the shape
+   * @param height height of the shape
+   * @param name   name of the shape
    * @throws IllegalArgumentException if width or height is below 0
    * @throws IllegalArgumentException if rgb values are not between 0-255 inclusive
    * @throws IllegalArgumentException if the x or y-coordinates are negative (we're assuming the
@@ -145,7 +145,7 @@ public abstract class AbstractShape implements IShape {
   }
 
   /**
-   * Sets a new value for x
+   * Sets a new value for x.
    *
    * @param x the new x value of a shape
    */
@@ -156,7 +156,7 @@ public abstract class AbstractShape implements IShape {
   }
 
   /**
-   * Sets a new value for y
+   * Sets a new value for y.
    *
    * @param y the new y value of a shape
    */
@@ -167,7 +167,7 @@ public abstract class AbstractShape implements IShape {
   }
 
   /**
-   * Sets a new color for the shape
+   * Sets a new color for the shape.
    *
    * @param r red intensity of the color's shape
    * @param g green intensity of the color's shape
@@ -180,7 +180,7 @@ public abstract class AbstractShape implements IShape {
   }
 
   /**
-   * Sets a new value for w
+   * Sets a new value for w.
    *
    * @param w the new w value of a shape
    */
@@ -191,7 +191,7 @@ public abstract class AbstractShape implements IShape {
   }
 
   /**
-   * Sets a new value for h
+   * Sets a new value for h.
    *
    * @param h the new h value of a shape
    */

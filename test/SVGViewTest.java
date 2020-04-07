@@ -249,7 +249,7 @@ public class SVGViewTest {
   }
 
 
-//  // Test that the SVGView produces the correct string output to file
+  // Test that the SVGView produces the correct string output to file
   @Test
   public void TextualViewTest2() throws FileNotFoundException {
     EasyAnimator.main(new String[]{"-in toh-3.txt -view svg -out svgTextOutput.txt -speed 20"});

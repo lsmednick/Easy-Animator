@@ -27,7 +27,7 @@ public interface AnimatorModel {
    */
 
   void addShape(String name, ShapeType shapeType, int x, int y, int r, int g, int b,
-          int width, int height)
+                int width, int height)
           throws IllegalArgumentException;
 
   /**
@@ -115,15 +115,19 @@ public interface AnimatorModel {
 
   /**
    * Getter to return a the current map of shapes in the animation.
+   *
    * @return a map of the shapes in the animation
    */
-   Map<String, IShape> getShapeList();
+
+  Map<String, IShape> getShapeList();
 
   /**
    * Getter to return a the current list of transformation in the animation.
+   *
    * @return a list of the transformations in the animation
    */
-   List<AbstractTransform> getTransformList();
+
+  List<AbstractTransform> getTransformList();
 
   /**
    * Method to return the top left X coordinate.
@@ -131,7 +135,7 @@ public interface AnimatorModel {
    * @return top left X coordinate
    */
 
-   int getTopLeftX();
+  int getTopLeftX();
 
   /**
    * Method to return the top left Y coordinate.
@@ -139,7 +143,7 @@ public interface AnimatorModel {
    * @return top left Y coordinate
    */
 
-   int getTopLeftY();
+  int getTopLeftY();
 
   /**
    * Method to return the canvas width.
@@ -147,7 +151,7 @@ public interface AnimatorModel {
    * @return canvas width
    */
 
-   int getCanvasWidth();
+  int getCanvasWidth();
 
   /**
    * Method to return the canvas height.
@@ -155,7 +159,7 @@ public interface AnimatorModel {
    * @return canvas width
    */
 
-   int getCanvasHeight();
+  int getCanvasHeight();
 
 
   /**
@@ -163,18 +167,18 @@ public interface AnimatorModel {
    * time.
    */
 
-  Map<String, String>  getAppearDisappearTime(String filename);
+  Map<String, String> getAppearDisappearTime(String filename);
 
 
   /**
-   * Getter to return a map containing key =  shapeID, value = disappear time of shape
-   * from the animation.
+   * Getter to return a map containing key =  shapeID, value = disappear time of shape from the
+   * animation.
    *
    * @return a map containing key =  shapeID, value = disappear time.
    */
 
-   int getDisappearTime();
+  int getDisappearTime();
 
 
-  }
+}
 

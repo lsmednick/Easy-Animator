@@ -78,7 +78,7 @@ public class VisualView extends JFrame implements IView {
 
   @Override
   public void output(String outputFile, String string) {
-
+    throw new UnsupportedOperationException("This method is not implemented in the SVG view");
   }
 }
 
