@@ -1,28 +1,14 @@
-import org.junit.Before;
 import org.junit.Test;
 
 import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
-import java.io.IOException;
-import java.io.InputStream;
-
 import cs5004.animator.EasyAnimator;
 import cs5004.animator.model.AnimatorModel;
-import cs5004.animator.model.AnimatorModelImpl;
-import cs5004.animator.model.ShapeType;
 import cs5004.animator.util.AnimationBuilder;
 import cs5004.animator.util.AnimationBuilderImpl;
 import cs5004.animator.util.AnimationReader;
-import cs5004.animator.view.IView;
-import cs5004.animator.view.AbstractView;
-import cs5004.animator.view.AnimationPanel;
 import cs5004.animator.view.TextualView;
-import cs5004.animator.view.SVGView;
-import cs5004.animator.view.VisualView;
-
 import static org.junit.Assert.assertEquals;
 
 
@@ -30,10 +16,6 @@ import static org.junit.Assert.assertEquals;
  * This is a JUnit test class to evaluate if this animator's textual view produces an accurate
  * output. Textual View class should produce a string that describes the animation, particularly
  * providing a description of the shape's attributes and and transformations.
- *
- *
- *  * in the form below : -in "name-of-animation-file" -view "type-of-view" -out "where-output-show-go"
- *  * -speed "integer-ticks-per-second".
  */
 
 public class TextualViewTest {
@@ -245,28 +227,5 @@ public class TextualViewTest {
       // do nothing
     }
   }
-
-    //TODO
-    // Take in an .txt that is file and produce an output to the console (System.out)
-    // that is also empty
-    @Test
-    public void TextualViewTest4() throws FileNotFoundException {
-      AnimatorModel model;
-      String filename = "empty.txt";
-      Readable inFile = new FileReader(filename);
-
-      AnimationBuilder<AnimatorModel> builder =
-              new AnimationBuilderImpl();
-
-      model = AnimationReader.parseFile(inFile, builder);
-      TextualView view = new TextualView(model, filename, 1);
-      view.output("System.out", "");
-
-      assertEquals("", view.getState());
-
-  }
-
-
-
 
 }
