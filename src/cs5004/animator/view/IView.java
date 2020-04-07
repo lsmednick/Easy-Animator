@@ -1,19 +1,23 @@
 package cs5004.animator.view;
 
 /**
- * This is an interface to be implemented by each of our views.
+ * This is an interface to be implemented by each of our views. The primary goal of this interface
+ * is to encapsulate all types of views, despite the fact that certain views may not utilize
+ * certain methods of the interface.
  */
 
 public interface IView {
 
   /**
-   * Makes the view visible.
+   * Method to make the view visible.
    */
 
   void makeVisible();
 
   /**
-   * Updates the view at each frame of the animation.
+   * Method to refresh the animation in VisualView. This is done in a loop that ends at the last
+   * value of the last transformation. The panel's "refresh" method is called for every tick, and
+   * then sleeps at whatever rate is inputted at the command line.
    */
 
   void refreshAnimation();

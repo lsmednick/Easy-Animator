@@ -1,10 +1,10 @@
 package cs5004.animator.model;
 
 /**
- * This is a cs5004.animator.model.ChangeScale object which extends cs5004.animator.model.AbstractTransform it contains a toString that details
+ * This is a ChangeScale object which extends AbstractTransform it contains a toString that details
  * the scale changes of a shape (e.g. from starting width/height transforming to new width/height)
  * and the start/end time when the transformation occur in the animation. The constructor calls the
- * super class, cs5004.animator.model.AbstractTransform, to instantiate the the shape's unique identifier and the
+ * super class, AbstractTransform, to instantiate the the shape's unique identifier and the
  * start/end time of the transformation. The constructor also instantiates the starting width/height
  * and the new width/height.
  */

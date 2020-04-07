@@ -486,14 +486,14 @@ public class AnimatorModelImpl implements AnimatorModel {
   }
 
   /**
-   * Getter to return a map containing key =  shapeID, value = disappear time of shape from the
-   * animation.
+   * Getter to return a the last ending time of the last transformation in any given animation.
+   * This is used within the view to determine how long the main animation loop must last.
    *
-   * @return a map containing key =  shapeID, value = disappear time.
+   * @return the last ending time of the last transformation in a given animation
    */
+
   public int getDisappearTime() {
     return this.maxTick;
   }
-
 
 }

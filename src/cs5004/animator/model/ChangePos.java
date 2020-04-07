@@ -1,10 +1,10 @@
 package cs5004.animator.model;
 
 /**
- * This is a cs5004.animator.model.ChangePos object which extends cs5004.animator.model.AbstractTransform it contains a toString that details
+ * This is a ChangePos object which extends AbstractTransform it contains a toString that details
  * the position change (e.g. the starting position of the shape and the position it was changed to)
  * and when these changes occur in the animation. The constructor calls the super class,
- * cs5004.animator.model.AbstractTransform, to instantiate the the shape's unique identifier and the start/end time of the
+ * AbstractTransform, to instantiate the the shape's unique identifier and the start/end time of the
  * transformation. The constructor also instantiates the original position using x,y coordinates
  * (fromX, fromY) and position we're trying to move to (toX, toY).
  */

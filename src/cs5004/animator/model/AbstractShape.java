@@ -147,25 +147,57 @@ public abstract class AbstractShape implements IShape {
     return this.name;
   }
 
+  /**
+   * Sets a new value for x
+   *
+   * @param x the new x value of a shape
+   */
+
   @Override
   public void setX(int x) {
     this.x = x;
   }
+
+  /**
+   * Sets a new value for y
+   *
+   * @param y the new y value of a shape
+   */
 
   @Override
   public void setY(int y) {
     this.y = y;
   }
 
+  /**
+   * Sets a new color for the shape
+   *
+   * @param r red intensity of the color's shape
+   * @param g green intensity of the color's shape
+   * @param b blue intensity of the color's shape
+   */
+
   @Override
   public void setColor(int r, int g, int b) {
     this.color = new Color(r, g, b);
   }
 
+  /**
+   * Sets a new value for w
+   *
+   * @param w the new w value of a shape
+   */
+
   @Override
   public void setW(int w) {
     this.width = w;
   }
+
+  /**
+   * Sets a new value for h
+   *
+   * @param h the new h value of a shape
+   */
 
   @Override
   public void setH(int h) {

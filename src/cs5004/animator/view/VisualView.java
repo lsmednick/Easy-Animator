@@ -1,23 +1,35 @@
 package cs5004.animator.view;
 
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.BorderLayout;
+import java.awt.Dimension;
 
-import javax.swing.*;
+import javax.swing.JFrame;
+import javax.swing.JScrollPane;
 
 import cs5004.animator.model.AnimatorModel;
-import cs5004.animator.model.AnimatorModelImpl;
 
 /**
- * This class represents a visual view of our EasyAnimator.
+ * This class represents a visual view of our EasyAnimator. This class extends JFrame in order to
+ * display each frame of the animation properly as the AnimationPanel refreshes. This class is able
+ * to set the frame's title, size, and close operation. Additionally, this class is able to set its
+ * panel's size, and scroll bar policies. This class contains methods in order to make the frame
+ * visible and refresh the animation for each tick in a given animation.
  */
 
 public class VisualView extends JFrame implements IView {
   private AnimationPanel panel;
   private int speed;
   private int maxTick;
-  private int tick = 1;
+
+  /**
+   * Method to construct a VisualView object in order to represent an animation frame. The various
+   * attributes of the frame are set in this method, and an instance of AnimationPanel is created to
+   * add to the frame. Additionally, a scroll bar is implemented in the panel with an "as needed"
+   * policy.
+   *
+   * @param speed the ticks per second the animation is set to run at
+   * @param model the current model used to represent the animation
+   */
 
   public VisualView(int speed, AnimatorModel model) {
     super();
@@ -26,7 +38,6 @@ public class VisualView extends JFrame implements IView {
     this.setTitle("Welcome to Loge, Jenny, and Gerard's project!");
     this.setSize(model.getCanvasWidth(), model.getCanvasHeight());
     this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
     this.setLayout(new BorderLayout());
     panel = new AnimationPanel(model);
     panel.setPreferredSize(new Dimension(model.getCanvasWidth(), model.getCanvasHeight()));
@@ -38,10 +49,20 @@ public class VisualView extends JFrame implements IView {
     this.pack();
   }
 
+  /**
+   * Method to make the frame visible.
+   */
+
   @Override
   public void makeVisible() {
     this.setVisible(true);
   }
+
+  /**
+   * Method to refresh the animation. This is done in a loop that ends at the last value of the last
+   * transformation. The panel's "refresh" method is called for every tick, and then sleeps at
+   * whatever rate is inputted at the command line.
+   */
 
   @Override
   public void refreshAnimation() {
@@ -53,16 +74,6 @@ public class VisualView extends JFrame implements IView {
         e.printStackTrace();
       }
     }
-
-//    ActionListener a = e -> {
-//      if (tick < maxTick + 1) {
-//        panel.refresh(tick);
-//        tick++;
-//      }
-//    };
-//
-//    Timer t = new Timer((1000 / speed), a);
-//    t.start();
   }
 
 }
