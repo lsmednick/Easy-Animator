@@ -1,7 +1,12 @@
 package cs5004.animator.view;
 
 import java.util.Collections;
+import java.util.List;
+import java.util.Map;
+
+import cs5004.animator.model.AbstractTransform;
 import cs5004.animator.model.AnimatorModel;
+import cs5004.animator.model.IShape;
 import cs5004.animator.model.ITransform;
 
 /**
@@ -45,8 +50,14 @@ public class TextualView extends AbstractView implements IView {
     }
 
     StringBuilder string = new StringBuilder();
-    for (String key : animation.getShapeList().keySet()) {
-      string.append(animation.getShapeList().get(key).toString());
+
+    Map<String, IShape> map = animation.getShapeList();
+    List<AbstractTransform> abstractList = animation.getTransformList();
+
+    Collections.sort(animation.getTransformList());
+
+    for (String key : map.keySet()) {
+      string.append(map.get(key).toString());
     }
 
     for (String key : animation.getAppearDisappearTime(filename).keySet()){
@@ -56,8 +67,8 @@ public class TextualView extends AbstractView implements IView {
 
     string.append("Text view is running at ").append(speed).append(" ticks per second\n\n");
 
-    Collections.sort(animation.getTransformList());
-    for (ITransform t : animation.getTransformList()) {
+
+    for (ITransform t : abstractList) {
       string.append(t.toString());
     }
 
