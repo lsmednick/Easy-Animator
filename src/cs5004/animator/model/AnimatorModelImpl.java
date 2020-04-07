@@ -4,17 +4,12 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Hashtable;
-import java.util.IdentityHashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 import java.util.TreeMap;
-import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * Is a class that implements interface AnimatorModel. This class holds a Map which contains a list
@@ -34,6 +29,16 @@ public class AnimatorModelImpl implements AnimatorModel {
   private Map<String, String> mapAppearDisappear = new HashMap<>();
   private Map<String, String> mapDisappear = new HashMap<>();
 
+
+  /**
+   * Constructs the implementation of the animation's model initializing the top left of
+   * x and y and the width and height of the canvas.
+   *
+   * @param topLeftX coordinate of the top left x.
+   * @param topLeftY coordinate of the top left y.
+   * @param canvasWidth the width of the canvas.
+   * @param canvasHeight the height of the canvas.
+   */
 
   public AnimatorModelImpl(int topLeftX, int topLeftY, int canvasWidth, int canvasHeight) {
     this.topLeftX = topLeftX;
@@ -76,28 +81,6 @@ public class AnimatorModelImpl implements AnimatorModel {
   }
 
   /**
-   * Helper function in order to detect duplicate transformation objects. This method returns true
-   * if there already exists a transformation in transformList for a given object within a specified
-   * time frame. Returns false otherwise.
-   *
-   * @param shapeID   the string identifier of the shape
-   * @param startTime the starting time of the transformation
-   * @param endTime   the ending time of the transformation
-   * @return boolean representing if there is a duplicate
-   */
-
-  //TODO -- delete if not used
-  private boolean duplicateHelper(String shapeID, int startTime, int endTime) {
-    for (ITransform t : transformList) {
-      if (t.getShapeID().equals(shapeID) && t.getStartTime() == startTime
-              && t.getEndTime() == endTime) {
-        return true;
-      }
-    }
-    return false;
-  }
-
-  /**
    * Method to change the shape's position.
    *
    * @param shapeID   the string ID of the shape that should be moved
@@ -117,10 +100,6 @@ public class AnimatorModelImpl implements AnimatorModel {
   @Override
   public void changePos(String shapeID, int fromX, int fromY, int toX, int toY,
                         int startTime, int endTime) throws IllegalArgumentException {
-//    if (duplicateHelper(shapeID, startTime, endTime)) {
-//      throw new IllegalArgumentException("Transformation already exists for that shape during the"
-//              + "specified time frame.");
-//    }
     if (!shapeList.containsKey(shapeID)) {
       throw new IllegalArgumentException("Entered shape does not exist in the model.");
     }
@@ -155,10 +134,7 @@ public class AnimatorModelImpl implements AnimatorModel {
     if (fromR == toR && fromB == toB && fromG == toG) {
       throw new IllegalArgumentException("Colors must be different.");
     }
-//    if (duplicateHelper(shapeID, startTime, endTime)) {
-//      throw new IllegalArgumentException("Transformation already exists for that shape during the"
-//              + "specified time frame.");
-//    }
+
     if (!shapeList.containsKey(shapeID)) {
       throw new IllegalArgumentException("Entered shape does not exist in the model.");
     }
@@ -192,10 +168,7 @@ public class AnimatorModelImpl implements AnimatorModel {
     if (fromWidth == toWidth && fromHeight == toHeight) {
       throw new IllegalArgumentException("Either height or weight must be different.");
     }
-//    if (duplicateHelper(shapeID, startTime, endTime)) {
-//      throw new IllegalArgumentException("Transformation already exists for that shape during the"
-//              + "specified time frame.");
-//    }
+
     if (!shapeList.containsKey(shapeID)) {
       throw new IllegalArgumentException("Entered shape does not exist in the model.");
     }

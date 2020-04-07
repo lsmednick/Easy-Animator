@@ -41,9 +41,6 @@ public abstract class AbstractShape implements IShape {
 
   public AbstractShape(int x, int y, int r, int g, int b, int width, int height,
                        String name) throws IllegalArgumentException {
-//    if (x < 0 || y < 0) {
-//      throw new IllegalArgumentException("x and y-coordinates can't be negative");
-//    }
     if (width <= 0 || height <= 0) {
       throw new IllegalArgumentException("Width and height must be at greater than zero.");
     }
