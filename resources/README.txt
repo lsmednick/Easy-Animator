@@ -148,4 +148,9 @@ supported by this animator (cs5004.animator.model.Oval and cs5004.animator.model
 It takes a command line argument and parses it to read in a file, determine the view type,
 assign an output, and set the speed of an animation.
 
+* empty.txt
+-- empty.txt is a text file with no text used for testing.
+
+
+
 
