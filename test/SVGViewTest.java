@@ -1,8 +1,13 @@
+import cs5004.animator.model.AnimatorModelImpl;
+import cs5004.animator.view.IView;
 import cs5004.animator.view.SVGView;
+
 import org.junit.Test;
+
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+
 import cs5004.animator.EasyAnimator;
 import cs5004.animator.model.AnimatorModel;
 import cs5004.animator.util.AnimationBuilder;
@@ -14,16 +19,16 @@ import static org.junit.Assert.assertEquals;
 
 
 /**
- * This is a JUnit test class to evaluate if this animator's SVG view produces an accurate
- * output. SVG View class should produce a string that describes the animation, particularly
- * providing a description of the shape's attributes and and transformations.
+ * This is a JUnit test class to evaluate if this animator's SVG view produces an accurate output.
+ * SVG View class should produce a string that describes the animation, particularly providing a
+ * description of the shape's attributes and and transformations.
  */
 
 public class SVGViewTest {
 
   //Test that the SVGView produces the correct string output
   @Test
-  public void TextualViewTest1() throws FileNotFoundException {
+  public void SVGViewTest1() throws FileNotFoundException {
     AnimatorModel model;
     String filename = "toh-3.txt";
     Readable inFile = new FileReader(filename);
@@ -251,7 +256,7 @@ public class SVGViewTest {
 
   // Test that the SVGView produces the correct string output to file
   @Test
-  public void TextualViewTest2() throws FileNotFoundException {
+  public void SVGViewTest2() throws FileNotFoundException {
     EasyAnimator.main(new String[]{"-in toh-3.txt -view svg -out svgTextOutput.txt -speed 20"});
 
     BufferedReader bufferedReader;
@@ -484,7 +489,21 @@ public class SVGViewTest {
     } catch (Exception e) {
       // do nothing
     }
-
   }
+
+  // Test to make sure unsupported operations throw exceptions.
+  @Test(expected = UnsupportedOperationException.class)
+  public void SVGViewTest3() {
+    IView a = new SVGView(new AnimatorModelImpl(0, 0, 100, 100), "toh-3.txt", 10);
+    a.makeVisible();
+  }
+
+  // Test to make sure unsupported operations throw exceptions.
+  @Test(expected = UnsupportedOperationException.class)
+  public void SVGViewTest4() {
+    IView a = new SVGView(new AnimatorModelImpl(0, 0, 200, 200), "toh-3.txt", 20);
+    a.refreshAnimation();
+  }
+
 }
 
