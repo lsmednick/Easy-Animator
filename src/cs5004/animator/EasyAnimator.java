@@ -13,6 +13,7 @@ import cs5004.animator.util.AnimationBuilder;
 import cs5004.animator.util.AnimationReader;
 
 import cs5004.animator.view.IView;
+import cs5004.animator.view.InteractiveView;
 import cs5004.animator.view.SVGView;
 import cs5004.animator.view.TextualView;
 import cs5004.animator.view.VisualView;
@@ -127,7 +128,13 @@ public final class EasyAnimator {
         view = new VisualView(speed, model);
         view.makeVisible();
         view.refreshAnimation();
-
+      } else if (viewType.equalsIgnoreCase("interactive")) {
+        System.out.print("Hit Interactive");
+        assert model != null;
+        model.getAppearDisappearTime(filename);
+        view = new InteractiveView(speed, model);
+        view.makeVisible();
+        view.refreshAnimation();
       } else {
         throw new IllegalArgumentException("Invalid view instantiation");
       }

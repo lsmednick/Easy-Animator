@@ -171,7 +171,8 @@ public class TextualViewTest {
                       + "Shape disk3 moves from (445,50) to (445,50) from t=142 to t=143\n"
                       + "Shape disk3 moves from (445,50) to (445,240) from t=143 to t=153\n"
                       + "Shape disk1 moves from (340,210) to (340,50) from t=153 to t=163\n"
-                      + "Shape disk3 changes color from (11,45,175) to (0,255,0) from t=153 to t=161\n"
+                      + "Shape disk3 changes color from (11,45,175) to (0,255,0) "
+                      + "from t=153 to t=161\n"
                       + "Shape disk3 moves from (445,240) to (445,240) from t=161 to t=302\n"
                       + "Shape disk1 moves from (340,50) to (340,50) from t=163 to t=164\n"
                       + "Shape disk1 moves from (340,50) to (190,50) from t=164 to t=174\n"
@@ -184,13 +185,15 @@ public class TextualViewTest {
                       + "Shape disk2 moves from (467,50) to (467,50) from t=206 to t=207\n"
                       + "Shape disk2 moves from (467,50) to (467,210) from t=207 to t=217\n"
                       + "Shape disk1 moves from (190,240) to (190,50) from t=217 to t=227\n"
-                      + "Shape disk2 changes color from (6,247,41) to (0,255,0) from t=217 to t=225\n"
+                      + "Shape disk2 changes color from (6,247,41) to (0,255,0) from "
+                      + "t=217 to t=225\n"
                       + "Shape disk2 moves from (467,210) to (467,210) from t=225 to t=302\n"
                       + "Shape disk1 moves from (190,50) to (190,50) from t=227 to t=228\n"
                       + "Shape disk1 moves from (190,50) to (490,50) from t=228 to t=238\n"
                       + "Shape disk1 moves from (490,50) to (490,50) from t=238 to t=239\n"
                       + "Shape disk1 moves from (490,50) to (490,180) from t=239 to t=249\n"
-                      + "Shape disk1 changes color from (0,49,90) to (0,255,0) from t=249 to t=257\n"
+                      + "Shape disk1 changes color from (0,49,90) to (0,255,0) from "
+                      + "t=249 to t=257\n"
                       + "Shape disk1 moves from (490,180) to (490,180) from t=257 to t=302\n",
               stringBuilder.toString());
       bufferedReader.close();
