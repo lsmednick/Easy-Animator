@@ -104,7 +104,8 @@ public class TextualViewTest {
             + "Shape disk1 moves from (490,50) to (490,50) from t=238 to t=239\n"
             + "Shape disk1 moves from (490,50) to (490,180) from t=239 to t=249\n"
             + "Shape disk1 changes color from (0,49,90) to (0,255,0) from t=249 to t=257\n"
-            + "Shape disk1 moves from (490,180) to (490,180) from t=257 to t=302", view.getState());
+            + "Shape disk1 moves from (490,180) to (490,180) from t=257 to t=302",
+            view.getViewState());
   }
 
   // Take in toh-3.txt that is file check if the output.txt file is correct
@@ -239,13 +240,6 @@ public class TextualViewTest {
   public void TextualViewTest4() {
     IView a = new TextualView(new AnimatorModelImpl(0, 0, 10, 10), "toh-3.txt", 20);
     a.makeVisible();
-  }
-
-  // Test to make sure unsupported operations throw exceptions
-  @Test(expected = UnsupportedOperationException.class)
-  public void TextualViewTest5() {
-    IView a = new TextualView(new AnimatorModelImpl(0, 0, 10, 10), "toh-3.txt", 20);
-    a.refreshAnimation();
   }
 
 }

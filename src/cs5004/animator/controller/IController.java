@@ -10,6 +10,6 @@ public interface IController {
    * Method to begin animation
    */
 
-  void startAnimation();
+  void start();
 
 }

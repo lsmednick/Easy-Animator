@@ -14,13 +14,6 @@ public interface IView {
 
   void makeVisible();
 
-  /**
-   * Method to refresh the animation in VisualView. This is done in a loop that ends at the last
-   * value of the last transformation. The panel's "refresh" method is called for every tick, and
-   * then sleeps at whatever rate is inputted at the command line.
-   */
-
-  void refreshAnimation();
 
   /**
    * Outputs the view in a txt/svg file.
@@ -48,6 +41,9 @@ public interface IView {
 
   String getViewType();
 
+  String getFileName();
+
+  String getViewState();
 
 
 }

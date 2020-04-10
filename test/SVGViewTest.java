@@ -250,7 +250,7 @@ public class SVGViewTest {
             + "<animate attributeType=\"xml\" begin=\"161000.0ms\" dur=\"141000.0ms\" "
             + "attributeName=\"y\" from=\"240.0\" to=\"240.0\" fill=\"freeze\" />\n"
             + "</rect>\n"
-            + "</svg>", view.getState());
+            + "</svg>", view.getViewState());
   }
 
 
@@ -496,13 +496,6 @@ public class SVGViewTest {
   public void SVGViewTest3() {
     IView a = new SVGView(new AnimatorModelImpl(0, 0, 100, 100), "toh-3.txt", 10);
     a.makeVisible();
-  }
-
-  // Test to make sure unsupported operations throw exceptions.
-  @Test(expected = UnsupportedOperationException.class)
-  public void SVGViewTest4() {
-    IView a = new SVGView(new AnimatorModelImpl(0, 0, 200, 200), "toh-3.txt", 20);
-    a.refreshAnimation();
   }
 
 }

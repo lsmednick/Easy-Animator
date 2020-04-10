@@ -90,18 +90,6 @@ public class InteractiveView extends javax.swing.JFrame implements IView {
   }
 
   @Override
-  public void refreshAnimation() {
-    for (int i = 1; i < maxTick + 1; i++) {
-      panel.refresh(i);
-      try {
-        Thread.sleep(1000 / speed);
-      } catch (InterruptedException e) {
-        e.printStackTrace();
-      }
-    }
-  }
-
-  @Override
   public void output(String outputFile, String string) {
 
   }
@@ -114,6 +102,16 @@ public class InteractiveView extends javax.swing.JFrame implements IView {
   @Override
   public String getViewType() {
     return "playback";
+  }
+
+  @Override
+  public String getFileName() {
+    return null;
+  }
+
+  @Override
+  public String getViewState() {
+    return null;
   }
 }
 

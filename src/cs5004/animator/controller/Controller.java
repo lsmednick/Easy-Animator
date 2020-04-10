@@ -1,24 +1,31 @@
 package cs5004.animator.controller;
 
 import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
+import java.util.Map;
 
 import javax.swing.Timer;
 
 import cs5004.animator.model.AnimatorModel;
 import cs5004.animator.view.IView;
-import cs5004.animator.view.VisualView;
 
 public class Controller implements IController {
   private AnimatorModel model;
   private IView view;
   private int speed;
   private int tick = 1;
+  private String output;
 
   public Controller(AnimatorModel model, IView view, int speed) {
     this.model = model;
     this.view = view;
     this.speed = speed;
+  }
+
+  public Controller(AnimatorModel model, IView view, int speed, String output) {
+    this.model = model;
+    this.view = view;
+    this.speed = speed;
+    this.output = output;
   }
 
   /**
@@ -28,9 +35,10 @@ public class Controller implements IController {
    */
 
   @Override
-  public void startAnimation() {
+  public void start() {
     switch (view.getViewType()) {
       case "visual":
+        model.getAppearDisappearTime(view.getFileName());
         view.makeVisible();
         ActionListener a = e -> {
           if (tick < model.getDisappearTime() + 1) {
@@ -38,11 +46,12 @@ public class Controller implements IController {
             tick++;
           }
         };
-
         Timer timer = new Timer((1000 / speed), a);
         timer.start();
       case "text":
+        view.output(output, view.getViewState());
       case "svg":
+        view.output(output, view.getViewState());
       case "playback":
     }
   }

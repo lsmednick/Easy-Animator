@@ -117,25 +117,24 @@ public final class EasyAnimator {
     // Initialize a view.
     try {
       if (viewType.equalsIgnoreCase("svg")) {
-        SVGView view1 = new SVGView(model, filename, speed);
-        view1.getState();
-        view1.output(output, view1.getState());
+        view = new SVGView(model, filename, speed);
+        Controller c = new Controller(model, view, speed, output);
+        c.start();
       } else if (viewType.equalsIgnoreCase("text")) {
-        TextualView view2 = new TextualView(model, filename, speed);
-        view2.output(output, view2.getState());
+        view = new TextualView(model, filename, speed);
+        Controller c = new Controller(model, view, speed, output);
+        c.start();
       } else if (viewType.equalsIgnoreCase("visual")) {
         assert model != null;
-        model.getAppearDisappearTime(filename);
-        view = new VisualView(speed, model);
+        view = new VisualView(speed, model, filename);
         Controller c = new Controller(model, view, speed);
-        c.startAnimation();
+        c.start();
       } else if (viewType.equalsIgnoreCase("interactive")) {
         System.out.print("Hit Interactive");
         assert model != null;
         model.getAppearDisappearTime(filename);
         view = new InteractiveView(speed, model);
         view.makeVisible();
-        view.refreshAnimation();
       } else {
         throw new IllegalArgumentException("Invalid view instantiation");
       }

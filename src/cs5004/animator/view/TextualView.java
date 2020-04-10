@@ -49,7 +49,7 @@ public class TextualView implements IView {
    * @throws IllegalStateException if there are no shapes in the text view/animation.
    */
 
-  public String getState() throws IllegalStateException {
+  public String getViewState() throws IllegalStateException {
     if (animation.getShapeList().isEmpty()) {
       throw new IllegalStateException("There are no shapes in the animation\n");
     }
@@ -109,11 +109,6 @@ public class TextualView implements IView {
   }
 
   @Override
-  public void refreshAnimation() {
-    throw new UnsupportedOperationException("This method is not implemented in the text view");
-  }
-
-  @Override
   public AnimationPanel getPanel() {
     throw new UnsupportedOperationException("This method is not implemented in the text view");
   }
@@ -121,5 +116,10 @@ public class TextualView implements IView {
   @Override
   public String getViewType() {
     return "text";
+  }
+
+  @Override
+  public String getFileName() {
+    return null;
   }
 }

@@ -20,6 +20,7 @@ public class VisualView extends JFrame implements IView {
   private AnimationPanel panel;
   private int speed;
   private int maxTick;
+  private String filename;
 
   /**
    * Method to construct a VisualView object in order to represent an animation frame. The various
@@ -31,9 +32,10 @@ public class VisualView extends JFrame implements IView {
    * @param model the current model used to represent the animation
    */
 
-  public VisualView(int speed, AnimatorModel model) {
+  public VisualView(int speed, AnimatorModel model, String filename) {
     super();
     this.speed = speed;
+    this.filename = filename;
     this.maxTick = model.getDisappearTime();
     this.setTitle("Welcome to Loge, Jenny, and Gerard's project!");
     this.setSize(model.getCanvasWidth(), model.getCanvasHeight());
@@ -58,24 +60,6 @@ public class VisualView extends JFrame implements IView {
     this.setVisible(true);
   }
 
-  /**
-   * Method to refresh the animation. This is done in a loop that ends at the last value of the last
-   * transformation. The panel's "refresh" method is called for every tick, and then sleeps at
-   * whatever rate is inputted at the command line.
-   */
-
-  @Override
-  public void refreshAnimation() {
-//    for (int i = 1; i < maxTick + 1; i++) {
-//      panel.refresh(i);
-//      try {
-//        Thread.sleep(1000 / speed);
-//      } catch (InterruptedException e) {
-//        e.printStackTrace();
-//      }
-//    }
-  }
-
   @Override
   public void output(String outputFile, String string) {
     throw new UnsupportedOperationException("This method is not implemented in the SVG view");
@@ -88,6 +72,16 @@ public class VisualView extends JFrame implements IView {
   @Override
   public String getViewType() {
     return "visual";
+  }
+
+  @Override
+  public String getFileName() {
+    return null;
+  }
+
+  @Override
+  public String getViewState() {
+    return null;
   }
 
 }
