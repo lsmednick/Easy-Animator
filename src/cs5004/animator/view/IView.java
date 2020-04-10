@@ -30,4 +30,24 @@ public interface IView {
    */
 
   void output(String outputFile, String string);
+
+  /**
+   * Method to return the AnimationPanel object in either the visual or interactive views. Throws
+   * an UnsupportedOperationException if used with an unsupported view.
+   *
+   * @return AnimationPanel being used with view
+   */
+
+  AnimationPanel getPanel();
+
+  /**
+   * Method to return a view's type.
+   *
+   * @return type of a given view
+   */
+
+  String getViewType();
+
+
+
 }

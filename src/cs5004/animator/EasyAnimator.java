@@ -9,6 +9,7 @@ import java.util.Scanner;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
+import cs5004.animator.controller.Controller;
 import cs5004.animator.util.AnimationBuilder;
 import cs5004.animator.util.AnimationReader;
 
@@ -126,8 +127,8 @@ public final class EasyAnimator {
         assert model != null;
         model.getAppearDisappearTime(filename);
         view = new VisualView(speed, model);
-        view.makeVisible();
-        view.refreshAnimation();
+        Controller c = new Controller(model, view, speed);
+        c.startAnimation();
       } else if (viewType.equalsIgnoreCase("interactive")) {
         System.out.print("Hit Interactive");
         assert model != null;

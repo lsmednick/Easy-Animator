@@ -66,20 +66,30 @@ public class VisualView extends JFrame implements IView {
 
   @Override
   public void refreshAnimation() {
-    for (int i = 1; i < maxTick + 1; i++) {
-      panel.refresh(i);
-      try {
-        Thread.sleep(1000 / speed);
-      } catch (InterruptedException e) {
-        e.printStackTrace();
-      }
-    }
+//    for (int i = 1; i < maxTick + 1; i++) {
+//      panel.refresh(i);
+//      try {
+//        Thread.sleep(1000 / speed);
+//      } catch (InterruptedException e) {
+//        e.printStackTrace();
+//      }
+//    }
   }
 
   @Override
   public void output(String outputFile, String string) {
     throw new UnsupportedOperationException("This method is not implemented in the SVG view");
   }
+
+  public AnimationPanel getPanel() {
+    return this.panel;
+  }
+
+  @Override
+  public String getViewType() {
+    return "visual";
+  }
+
 }
 
 

@@ -16,6 +16,7 @@ public abstract class AbstractShape implements IShape {
   private int width;
   private int height;
   private String name;
+  private ShapeType type;
 
   /**
    * This method constructs an abstract shape object. Each shape contains an x / y coordinate, rgb

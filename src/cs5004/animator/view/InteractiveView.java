@@ -105,5 +105,15 @@ public class InteractiveView extends javax.swing.JFrame implements IView {
   public void output(String outputFile, String string) {
 
   }
+
+  @Override
+  public AnimationPanel getPanel() {
+    return null;
+  }
+
+  @Override
+  public String getViewType() {
+    return "playback";
+  }
 }
 

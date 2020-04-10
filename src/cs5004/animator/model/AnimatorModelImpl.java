@@ -253,10 +253,10 @@ public class AnimatorModelImpl implements AnimatorModel {
           newY -= topLeftY;
         }
 
-        if (s instanceof Oval) {
+        if (s.getType() == ShapeType.OVAL) {
           updatedMap.put(s.getName(), new Oval(newX, newY, s.getR(), s.getG(), s.getB(),
                   s.getWidth(), s.getHeight(), s.getName()));
-        } else if (s instanceof Rectangle) {
+        } else if (s.getType() == ShapeType.RECTANGLE) {
           updatedMap.put(s.getName(), new Rectangle(newX, newY, s.getR(), s.getG(), s.getB(),
                   s.getWidth(), s.getHeight(), s.getName()));
         }
@@ -295,10 +295,10 @@ public class AnimatorModelImpl implements AnimatorModel {
           newB = 0;
         }
 
-        if (s instanceof Oval) {
+        if (s.getType() == ShapeType.OVAL) {
           updatedMap.put(s.getName(), new Oval(s.getX(), s.getY(), newR, newG, newB, s.getWidth(),
                   s.getHeight(), s.getName()));
-        } else if (s instanceof Rectangle) {
+        } else if (s.getType() == ShapeType.RECTANGLE) {
           updatedMap.put(s.getName(), new Rectangle(s.getX(), s.getY(), newR, newG, newB,
                   s.getWidth(), s.getHeight(), s.getName()));
         }
@@ -316,10 +316,10 @@ public class AnimatorModelImpl implements AnimatorModel {
         int newH = (fromH * (end - tick) / (end - start))
                 + (toH * (tick - start) / (end - start));
 
-        if (s instanceof Oval) {
+        if (s.getType() == ShapeType.OVAL) {
           updatedMap.put(s.getName(), new Oval(s.getX(), s.getY(), s.getR(), s.getG(), s.getB(),
                   newW, newH, s.getName()));
-        } else if (s instanceof Rectangle) {
+        } else if (s.getType() == ShapeType.RECTANGLE) {
           updatedMap.put(s.getName(), new Rectangle(s.getX(), s.getY(), s.getR(), s.getG(),
                   s.getB(), newW, newH, s.getName()));
         }

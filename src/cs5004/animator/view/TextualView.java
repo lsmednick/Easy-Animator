@@ -1,5 +1,10 @@
 package cs5004.animator.view;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.OutputStreamWriter;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
@@ -16,7 +21,7 @@ import cs5004.animator.model.ITransform;
  * argument.
  */
 
-public class TextualView extends AbstractView implements IView {
+public class TextualView implements IView {
   private AnimatorModel animation;
   private String filename;
   private double speed;
@@ -75,13 +80,46 @@ public class TextualView extends AbstractView implements IView {
     return string.toString().trim();
   }
 
+  /**
+   * This method is used by both the text and the SVG view to output its result in a file. The
+   * method creates a txt or svg file and also catches an IOException if no output file fails.
+   */
+
+  public void output(String outputFile, String string) {
+    System.out.println("Printing text view in the file " + outputFile + "\n");
+
+    try {
+      BufferedWriter output;
+      if (outputFile.equals("System.out")) {
+        output = new BufferedWriter(new OutputStreamWriter(System.out));
+      } else {
+        File outFile = new File(outputFile);
+        output = new BufferedWriter(new FileWriter(outFile));
+      }
+      output.write(string);
+      output.close();
+    } catch (IOException iea) {
+      System.out.println("Output file " + outputFile + " failed");
+    }
+  }
+
   @Override
-  public void makeVisible() {
-    throw new UnsupportedOperationException("This method is not implemented in the SVG view");
+  public void makeVisible() throws UnsupportedOperationException {
+    throw new UnsupportedOperationException("This method is not implemented in the text view");
   }
 
   @Override
   public void refreshAnimation() {
-    throw new UnsupportedOperationException("This method is not implemented in the SVG view");
+    throw new UnsupportedOperationException("This method is not implemented in the text view");
+  }
+
+  @Override
+  public AnimationPanel getPanel() {
+    throw new UnsupportedOperationException("This method is not implemented in the text view");
+  }
+
+  @Override
+  public String getViewType() {
+    return "text";
   }
 }
