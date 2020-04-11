@@ -2,6 +2,7 @@ package cs5004.animator.view;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
+import java.awt.event.ActionListener;
 
 import javax.swing.JFrame;
 import javax.swing.JScrollPane;
@@ -76,12 +77,17 @@ public class VisualView extends JFrame implements IView {
 
   @Override
   public String getFileName() {
-    return null;
+    return filename;
   }
 
   @Override
   public String getViewState() {
-    return null;
+    throw new UnsupportedOperationException("This method is not implemented in the SVG view");
+  }
+
+  @Override
+  public void addListeners(ActionListener e) {
+
   }
 
 }

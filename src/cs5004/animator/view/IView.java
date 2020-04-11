@@ -1,5 +1,7 @@
 package cs5004.animator.view;
 
+import java.awt.event.ActionListener;
+
 /**
  * This is an interface to be implemented by each of our views. The primary goal of this interface
  * is to encapsulate all types of views, despite the fact that certain views may not utilize
@@ -44,6 +46,8 @@ public interface IView {
   String getFileName();
 
   String getViewState();
+
+  void addListeners(ActionListener e);
 
 
 }

@@ -129,12 +129,12 @@ public final class EasyAnimator {
         view = new VisualView(speed, model, filename);
         Controller c = new Controller(model, view, speed);
         c.start();
-      } else if (viewType.equalsIgnoreCase("interactive")) {
+      } else if (viewType.equalsIgnoreCase("playback")) {
         System.out.print("Hit Interactive");
         assert model != null;
-        model.getAppearDisappearTime(filename);
-        view = new InteractiveView(speed, model);
-        view.makeVisible();
+        view = new InteractiveView(speed, model, filename);
+        Controller c = new Controller(model, view, speed);
+        c.start();
       } else {
         throw new IllegalArgumentException("Invalid view instantiation");
       }

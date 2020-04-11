@@ -1,5 +1,6 @@
 package cs5004.animator.controller;
 
+import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Map;
 
@@ -7,6 +8,7 @@ import javax.swing.Timer;
 
 import cs5004.animator.model.AnimatorModel;
 import cs5004.animator.view.IView;
+import cs5004.animator.view.InteractiveView;
 
 public class Controller implements IController {
   private AnimatorModel model;
@@ -36,24 +38,49 @@ public class Controller implements IController {
 
   @Override
   public void start() {
-    switch (view.getViewType()) {
-      case "visual":
-        model.getAppearDisappearTime(view.getFileName());
-        view.makeVisible();
-        ActionListener a = e -> {
-          if (tick < model.getDisappearTime() + 1) {
-            view.getPanel().refresh(tick);
-            tick++;
+    if (view.getViewType().equalsIgnoreCase("visual")) {
+      model.getAppearDisappearTime(view.getFileName());
+      view.makeVisible();
+      ActionListener a = e -> {
+        if (tick < model.getDisappearTime() + 1) {
+          view.getPanel().refresh(tick);
+          tick++;
+        }
+      };
+      Timer timer = new Timer((1000 / speed), a);
+      timer.start();
+    } else if (view.getViewType().equalsIgnoreCase("text")) {
+      view.output(output, view.getViewState());
+    } else if (view.getViewType().equalsIgnoreCase("svg")) {
+      view.output(output, view.getViewState());
+    } else if (view.getViewType().equalsIgnoreCase("playback")) {
+      model.getAppearDisappearTime(view.getFileName());
+      view.makeVisible();
+      ActionListener a = d -> {
+        if (tick < model.getDisappearTime() + 1) {
+          view.getPanel().refresh(tick);
+          tick++;
+        }
+      };
+      Timer timer = new Timer((1000 / speed), a);
+      view.addListeners(new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+          switch (e.getActionCommand()) {
+            case "start":
+              timer.start();
+              break;
+            case "pause":
+              timer.stop();
+              break;
+            case "increase":
+
           }
-        };
-        Timer timer = new Timer((1000 / speed), a);
-        timer.start();
-      case "text":
-        view.output(output, view.getViewState());
-      case "svg":
-        view.output(output, view.getViewState());
-      case "playback":
+        }
+      });
     }
+
   }
 
 }
+

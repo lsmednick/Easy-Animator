@@ -1,5 +1,6 @@
 package cs5004.animator.view;
 
+import java.awt.event.ActionListener;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
@@ -94,6 +95,11 @@ public class SVGView implements IView {
     }
     string.append("</svg>");
     return string.toString();
+  }
+
+  @Override
+  public void addListeners(ActionListener e) {
+
   }
 
   /**

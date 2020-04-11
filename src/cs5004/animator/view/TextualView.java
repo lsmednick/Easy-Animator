@@ -1,5 +1,6 @@
 package cs5004.animator.view;
 
+import java.awt.event.ActionListener;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
@@ -78,6 +79,11 @@ public class TextualView implements IView {
     }
 
     return string.toString().trim();
+  }
+
+  @Override
+  public void addListeners(ActionListener e) {
+
   }
 
   /**
