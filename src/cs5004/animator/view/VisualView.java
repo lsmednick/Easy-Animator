@@ -4,8 +4,7 @@ import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.event.ActionListener;
 
-import javax.swing.JFrame;
-import javax.swing.JScrollPane;
+import javax.swing.*;
 
 import cs5004.animator.model.AnimatorModel;
 
@@ -20,8 +19,8 @@ import cs5004.animator.model.AnimatorModel;
 public class VisualView extends JFrame implements IView {
   private AnimationPanel panel;
   private int speed;
+  private int tick = 1;
   private int maxTick;
-  private String filename;
 
   /**
    * Method to construct a VisualView object in order to represent an animation frame. The various
@@ -33,10 +32,9 @@ public class VisualView extends JFrame implements IView {
    * @param model the current model used to represent the animation
    */
 
-  public VisualView(int speed, AnimatorModel model, String filename) {
+  public VisualView(int speed, AnimatorModel model) {
     super();
     this.speed = speed;
-    this.filename = filename;
     this.maxTick = model.getDisappearTime();
     this.setTitle("Welcome to Loge, Jenny, and Gerard's project!");
     this.setSize(model.getCanvasWidth(), model.getCanvasHeight());
@@ -62,6 +60,18 @@ public class VisualView extends JFrame implements IView {
   }
 
   @Override
+  public void animate() {
+    ActionListener a = e -> {
+      if (tick < maxTick + 1) {
+        panel.refresh(tick);
+        tick++;
+      }
+    };
+    Timer timer = new Timer((1000 / speed), a);
+    timer.start();
+  }
+
+  @Override
   public void output(String outputFile, String string) {
     throw new UnsupportedOperationException("This method is not implemented in the SVG view");
   }
@@ -76,18 +86,8 @@ public class VisualView extends JFrame implements IView {
   }
 
   @Override
-  public String getFileName() {
-    return filename;
-  }
-
-  @Override
   public String getViewState() {
     throw new UnsupportedOperationException("This method is not implemented in the SVG view");
-  }
-
-  @Override
-  public void addListeners(ActionListener e) {
-
   }
 
 }

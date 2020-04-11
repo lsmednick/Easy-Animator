@@ -8,11 +8,22 @@ import javax.swing.*;
 
 import cs5004.animator.model.AnimatorModel;
 
-public class InteractiveView extends JFrame implements IView {
+public class InteractiveView extends JFrame implements IView, ActionListener {
   private AnimationPanel panel;
-  private String filename;
+  private int speed;
+  private int tick = 1;
+  private int maxTick;
+  private Timer timer;
+  boolean loop = false;
+  private ActionListener a;
+
   private JButton startButton;
   private JButton pauseButton;
+  private JButton restartButton;
+  private JButton increaseSpeed;
+  private JButton decreaseSpeed;
+  private JCheckBoxMenuItem loopButton;
+
 
   public InteractiveView(int speed, AnimatorModel model, String filename) {
 
@@ -21,10 +32,21 @@ public class InteractiveView extends JFrame implements IView {
     // TODO -- set up ActionListeners for buttons
     // TODO -- optimize the view of JFrame
 
+
     // Copied code from VisualView  to be displayed on  Top Panel
     super();
-    this.filename = filename;
-    int maxTick = model.getDisappearTime();
+    a = e -> {
+      if (tick < maxTick + 1) {
+        panel.refresh(tick);
+        tick++;
+      }
+      if (loopButton.getState() && tick >= maxTick) {
+        tick = 1;
+      }
+    };
+
+    this.speed = speed;
+    this.maxTick = model.getDisappearTime();
     this.setTitle("Welcome to Loge, Jenny, and Gerard's project!");
     this.setSize(model.getCanvasWidth(), model.getCanvasHeight());
     this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -35,34 +57,43 @@ public class InteractiveView extends JFrame implements IView {
     this.pack();
 
     // Set up Panels to split into a Top Panel (VisualView) and Bottom Panel (buttons)
-    // split the window in top and bottom
     JSplitPane splitPane = new JSplitPane();
-    // container panel for the top
     JPanel topPanel = panel;
-    // container panel for the bottom
     JPanel bottomPanel = new JPanel();
 
     // Create buttons for Bottom Panel
-    startButton = new JButton("Start");
+    startButton = new JButton("Play");
     startButton.setActionCommand("start");
+    startButton.addActionListener(this);
 
     pauseButton = new JButton("Pause");
     pauseButton.setActionCommand("pause");
+    pauseButton.addActionListener(this);
 
-    JButton enableLoopButton = new JButton("Enable Looping");
-    JButton disableLoopButton = new JButton("Disable Looping");
-    JButton increaseSpeed = new JButton("Increase Speed");
-    increaseSpeed.addNotify();
-    JButton decreaseSpeed = new JButton("Decrease Speed");
+    loopButton = new JCheckBoxMenuItem("Loop");
+    loopButton.setState(false);
+    loopButton.addActionListener(this);
+
+    restartButton = new JButton("Restart");
+    restartButton.setActionCommand("restart");
+    restartButton.addActionListener(this);
+
+    increaseSpeed = new JButton("Increase Speed");
+    increaseSpeed.setActionCommand("increase");
+    increaseSpeed.addActionListener(this);
+
+    decreaseSpeed = new JButton("Decrease Speed");
+    decreaseSpeed.setActionCommand("decrease");
+    decreaseSpeed.addActionListener(this);
 
     // Initialize parameters of JFrame
-    setPreferredSize(new Dimension(model.getCanvasWidth(), model.getCanvasHeight()+115));
+    setPreferredSize(new Dimension(model.getCanvasWidth(), model.getCanvasHeight() + 115));
     getContentPane().setLayout(new GridLayout());
     getContentPane().add(splitPane);
 
     // Configure the split panes.
     splitPane.setOrientation(JSplitPane.VERTICAL_SPLIT);
-    splitPane.setDividerLocation(model.getCanvasHeight()+10);
+    splitPane.setDividerLocation(model.getCanvasHeight() + 10);
     splitPane.setTopComponent(topPanel);
     splitPane.setBottomComponent(bottomPanel);
 
@@ -71,8 +102,8 @@ public class InteractiveView extends JFrame implements IView {
     GridBagConstraints c = new GridBagConstraints();
     bottomPanel.add(startButton, c);
     bottomPanel.add(pauseButton, c);
-    bottomPanel.add(enableLoopButton, c);
-    bottomPanel.add(disableLoopButton, c);
+    bottomPanel.add(loopButton, c);
+    bottomPanel.add(restartButton, c);
     bottomPanel.add(increaseSpeed, c);
     bottomPanel.add(decreaseSpeed, c);
 
@@ -81,15 +112,15 @@ public class InteractiveView extends JFrame implements IView {
   }
 
   @Override
-  public void addListeners(ActionListener e) {
-    startButton.addActionListener(e);
-    pauseButton.addActionListener(e);
-
+  public void makeVisible() {
+    this.setVisible(true);
   }
 
   @Override
-  public void makeVisible() {
-    this.setVisible(true);
+  public void animate() {
+
+    timer = new Timer((1000 / speed), a);
+    timer.start();
   }
 
   @Override
@@ -108,13 +139,37 @@ public class InteractiveView extends JFrame implements IView {
   }
 
   @Override
-  public String getFileName() {
-    return filename;
-  }
-
-  @Override
   public String getViewState() {
     return null;
   }
-}
 
+  @Override
+  public void actionPerformed(ActionEvent e) {
+//    if (e.getActionCommand().equals("start")) {
+//      timer.start();
+//    } else if (e.getActionCommand().equals("pause")) {
+//      timer.stop();
+//    } else if (e.getActionCommand().equals("increase")) {
+//      speed += 10;
+//      this.animate();
+//    }
+    switch (e.getActionCommand()) {
+      case "start":
+        timer.start();
+        break;
+      case "pause":
+        timer.stop();
+        break;
+      case "increase":
+        speed += 20;
+        timer.setDelay((1000 / speed));
+        break;
+      case "decrease":
+        speed -= 20;
+        timer.setDelay((1000 / speed));
+        break;
+      case "restart":
+        tick = 1;
+    }
+  }
+}

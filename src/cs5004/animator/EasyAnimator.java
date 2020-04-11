@@ -101,9 +101,10 @@ public final class EasyAnimator {
     AnimationBuilder<AnimatorModel> builder =
             new AnimationBuilderImpl();
 
-    // Initialize a model.
+    // Parse through files twice in order to initialize model and set its appear / disappear time.
     try {
       model = AnimationReader.parseFile(inFile, builder);
+      model.getAppearDisappearTime(filename);
     } catch (Exception e) {
       System.out.println(e.getMessage());
       JFrame frame = new JFrame();
@@ -126,7 +127,7 @@ public final class EasyAnimator {
         c.start();
       } else if (viewType.equalsIgnoreCase("visual")) {
         assert model != null;
-        view = new VisualView(speed, model, filename);
+        view = new VisualView(speed, model);
         Controller c = new Controller(model, view, speed);
         c.start();
       } else if (viewType.equalsIgnoreCase("playback")) {

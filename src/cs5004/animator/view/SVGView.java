@@ -97,11 +97,6 @@ public class SVGView implements IView {
     return string.toString();
   }
 
-  @Override
-  public void addListeners(ActionListener e) {
-
-  }
-
   /**
    * This method is used by both the text and the SVG view to output its result in a file. The
    * method creates a txt or svg file and also catches an IOException if no output file fails.
@@ -131,6 +126,11 @@ public class SVGView implements IView {
   }
 
   @Override
+  public void animate() {
+
+  }
+
+  @Override
   public AnimationPanel getPanel() {
     throw new UnsupportedOperationException("This method is not implemented in the SVG view");
   }
@@ -140,8 +140,4 @@ public class SVGView implements IView {
     return "svg";
   }
 
-  @Override
-  public String getFileName() {
-    return null;
-  }
 }

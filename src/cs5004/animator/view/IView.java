@@ -16,6 +16,7 @@ public interface IView {
 
   void makeVisible();
 
+  void animate();
 
   /**
    * Outputs the view in a txt/svg file.
@@ -43,11 +44,7 @@ public interface IView {
 
   String getViewType();
 
-  String getFileName();
-
   String getViewState();
-
-  void addListeners(ActionListener e);
 
 
 }
