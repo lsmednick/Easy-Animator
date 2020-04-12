@@ -14,8 +14,8 @@ public class InteractiveView extends JFrame implements IView, ActionListener {
   private int tick = 1;
   private int maxTick;
   private Timer timer;
-  boolean loop = false;
   private ActionListener a;
+  private AnimatorModel model;
 
   private JButton startButton;
   private JButton pauseButton;
@@ -41,10 +41,11 @@ public class InteractiveView extends JFrame implements IView, ActionListener {
         tick++;
       }
       if (loopButton.getState() && tick >= maxTick) {
+        model.restart();
         tick = 1;
       }
     };
-
+    this.model = model;
     this.speed = speed;
     this.maxTick = model.getDisappearTime();
     this.setTitle("Welcome to Loge, Jenny, and Gerard's project!");
@@ -87,7 +88,7 @@ public class InteractiveView extends JFrame implements IView, ActionListener {
     decreaseSpeed.addActionListener(this);
 
     // Initialize parameters of JFrame
-    setPreferredSize(new Dimension(model.getCanvasWidth(), model.getCanvasHeight() + 115));
+    setPreferredSize(new Dimension(model.getCanvasWidth()+5, model.getCanvasHeight() + 115));
     getContentPane().setLayout(new GridLayout());
     getContentPane().add(splitPane);
 
@@ -96,7 +97,6 @@ public class InteractiveView extends JFrame implements IView, ActionListener {
     splitPane.setDividerLocation(model.getCanvasHeight() + 10);
     splitPane.setTopComponent(topPanel);
     splitPane.setBottomComponent(bottomPanel);
-
 
     // Configure layout of the bottom panel which contains our buttons.
     GridBagConstraints c = new GridBagConstraints();
@@ -118,7 +118,6 @@ public class InteractiveView extends JFrame implements IView, ActionListener {
 
   @Override
   public void animate() {
-
     timer = new Timer((1000 / speed), a);
     timer.start();
   }
@@ -145,14 +144,6 @@ public class InteractiveView extends JFrame implements IView, ActionListener {
 
   @Override
   public void actionPerformed(ActionEvent e) {
-//    if (e.getActionCommand().equals("start")) {
-//      timer.start();
-//    } else if (e.getActionCommand().equals("pause")) {
-//      timer.stop();
-//    } else if (e.getActionCommand().equals("increase")) {
-//      speed += 10;
-//      this.animate();
-//    }
     switch (e.getActionCommand()) {
       case "start":
         timer.start();
@@ -169,6 +160,7 @@ public class InteractiveView extends JFrame implements IView, ActionListener {
         timer.setDelay((1000 / speed));
         break;
       case "restart":
+        model.restart();
         tick = 1;
     }
   }

@@ -109,4 +109,11 @@ public class Oval extends AbstractShape {
   public String heightTagSVG() {
     return "ry";
   }
+
+  @Override
+  public Oval copy() {
+    return new Oval(this.getX(), this.getY(), this.getR(), this.getG(), this.getB(),
+            this.getWidth(), this.getHeight(), this.getName());
+  }
+
 }

@@ -179,6 +179,8 @@ public interface AnimatorModel {
 
   int getDisappearTime();
 
+  void restart();
+
 
 }
 

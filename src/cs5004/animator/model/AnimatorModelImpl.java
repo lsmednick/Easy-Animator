@@ -28,6 +28,7 @@ public class AnimatorModelImpl implements AnimatorModel {
   private int maxTick;
   private Map<String, String> mapAppearDisappear = new HashMap<>();
   private Map<String, String> mapDisappear = new HashMap<>();
+  private Map<String, IShape> c = new LinkedHashMap<>();
 
 
   /**
@@ -78,6 +79,7 @@ public class AnimatorModelImpl implements AnimatorModel {
         newShape = null;
     }
     shapeList.put(name, newShape);
+    c.put(name, newShape.copy());
   }
 
   /**
@@ -215,9 +217,8 @@ public class AnimatorModelImpl implements AnimatorModel {
   public Map<String, IShape> getShapesAtTick(int tick) {
     Map<String, IShape> updatedMap = new LinkedHashMap<>();
     Collections.sort(transformList);
-
     for (ITransform transform : transformList) {
-      IShape s = shapeList.get(transform.getShapeID());
+      IShape s = c.get(transform.getShapeID());
       int start = transform.getStartTime();
       int end = transform.getEndTime();
 
@@ -332,6 +333,11 @@ public class AnimatorModelImpl implements AnimatorModel {
     return updatedMap;
   }
 
+  @Override
+  public void restart() {
+    c.putAll(this.getShapeList());
+  }
+
   /**
    * Getter to return a copy the current map of shapes in the animation so the original map can not
    * be mutated.
@@ -343,7 +349,7 @@ public class AnimatorModelImpl implements AnimatorModel {
 
     Map<String, IShape> copyShapeList = new LinkedHashMap<>();
     for (String key : shapeList.keySet()) {
-      copyShapeList.put(key, shapeList.get(key));
+      copyShapeList.put(key, shapeList.get(key).copy());
     }
     return copyShapeList;
   }

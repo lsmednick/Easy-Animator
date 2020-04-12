@@ -194,4 +194,6 @@ public interface IShape {
    */
 
   double widthHeightDiff();
+
+  IShape copy();
 }

@@ -108,4 +108,11 @@ public class Rectangle extends AbstractShape {
   public double widthHeightDiff() {
     return 1.0;
   }
+
+  @Override
+  public Rectangle copy() {
+    return new Rectangle(this.getX(), this.getY(), this.getR(), this.getG(), this.getB(),
+            this.getWidth(), this.getHeight(), this.getName());
+  }
+
 }
