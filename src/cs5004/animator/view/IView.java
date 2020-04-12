@@ -1,7 +1,5 @@
 package cs5004.animator.view;
 
-import java.awt.event.ActionListener;
-
 import javax.swing.*;
 
 /**
@@ -17,6 +15,10 @@ public interface IView {
    */
 
   void makeVisible();
+
+  /**
+   * Method to play the animation with the specified tempo.
+   */
 
   void animate();
 
@@ -45,6 +47,12 @@ public interface IView {
    */
 
   String getViewType();
+
+  /**
+   * Method to return the state of the view.
+   *
+   * @return a string with the view state.
+   */
 
   String getViewState();
 

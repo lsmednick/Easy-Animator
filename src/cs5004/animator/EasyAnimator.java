@@ -85,7 +85,7 @@ public final class EasyAnimator {
       }
     }
 
-    //If 'speed' is not indicated by the command-line argument-- then it will default tto
+    // If 'speed' is not indicated by the command-line argument-- then it will default tto
     // speed = 1 tick / per second
     if (speed == -1) {
       speed = 1;

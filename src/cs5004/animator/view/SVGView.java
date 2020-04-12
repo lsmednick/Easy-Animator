@@ -1,6 +1,5 @@
 package cs5004.animator.view;
 
-import java.awt.event.ActionListener;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
@@ -129,7 +128,7 @@ public class SVGView implements IView {
 
   @Override
   public void animate() {
-
+    throw new UnsupportedOperationException("This method is not implemented in the SVG view");
   }
 
   @Override
@@ -146,6 +145,4 @@ public class SVGView implements IView {
   public Timer getTimer() {
     throw new UnsupportedOperationException("This method is not implemented in the SVG view");
   }
-
-
 }

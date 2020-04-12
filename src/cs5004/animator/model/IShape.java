@@ -195,5 +195,11 @@ public interface IShape {
 
   double widthHeightDiff();
 
+  /**
+   * Method to return a copy of a shape.
+   *
+   * @return a copy of a shape.
+   */
+
   IShape copy();
 }

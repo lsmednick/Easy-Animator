@@ -201,5 +201,4 @@ public abstract class AbstractShape implements IShape {
   public void setH(int h) {
     this.height = h;
   }
-
 }

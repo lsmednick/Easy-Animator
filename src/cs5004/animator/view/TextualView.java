@@ -1,6 +1,5 @@
 package cs5004.animator.view;
 
-import java.awt.event.ActionListener;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
@@ -113,7 +112,7 @@ public class TextualView implements IView {
 
   @Override
   public void animate() {
-
+    throw new UnsupportedOperationException("This method is not implemented in the text view");
   }
 
   @Override

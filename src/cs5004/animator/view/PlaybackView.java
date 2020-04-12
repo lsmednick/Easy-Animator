@@ -8,6 +8,13 @@ import javax.swing.*;
 
 import cs5004.animator.model.AnimatorModel;
 
+/**
+ * This interactive view extends the JFrame class and implements the methods in the view interface
+ * as well as the action listener. This view has attributes such as an animation panel,
+ * the speed, the timer, a loop, an action listener, the max number of ticks, the number of ticks
+ * as well as different JButtons and a checkbox menu item.
+ */
+
 public class PlaybackView extends JFrame implements IView, ActionListener {
   private AnimationPanel panel;
   private int speed;
@@ -108,7 +115,6 @@ public class PlaybackView extends JFrame implements IView, ActionListener {
     bottomPanel.add(decreaseSpeed, c);
 
     this.pack();
-
   }
 
   @Override
@@ -174,5 +180,4 @@ public class PlaybackView extends JFrame implements IView, ActionListener {
   public int getTempo(){
     return this.speed;
   }
-
 }
