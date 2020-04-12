@@ -10,6 +10,8 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
+import javax.swing.*;
+
 import cs5004.animator.model.AbstractTransform;
 import cs5004.animator.model.AnimatorModel;
 import cs5004.animator.model.IShape;
@@ -124,4 +126,13 @@ public class TextualView implements IView {
     return "text";
   }
 
+  @Override
+  public Timer getTimer() {
+    throw new UnsupportedOperationException("This method is not implemented in the SVG view");
+  }
+
+  @Override
+  public int getTempo(){
+    throw new UnsupportedOperationException("This method is not implemented in the SVG view");
+  }
 }

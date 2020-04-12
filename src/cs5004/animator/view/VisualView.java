@@ -21,6 +21,7 @@ public class VisualView extends JFrame implements IView {
   private int speed;
   private int tick = 1;
   private int maxTick;
+  private Timer timer;
 
   /**
    * Method to construct a VisualView object in order to represent an animation frame. The various
@@ -67,7 +68,9 @@ public class VisualView extends JFrame implements IView {
         tick++;
       }
     };
-    Timer timer = new Timer((1000 / speed), a);
+    //Timer timer = new Timer((1000 / speed), a);
+    timer = new Timer((1000 / speed), a);
+
     timer.start();
   }
 
@@ -88,6 +91,16 @@ public class VisualView extends JFrame implements IView {
   @Override
   public String getViewState() {
     throw new UnsupportedOperationException("This method is not implemented in the SVG view");
+  }
+
+  @Override
+  public Timer getTimer() {
+    return this.timer;
+  }
+
+  @Override
+  public int getTempo(){
+    return this.speed;
   }
 
 }

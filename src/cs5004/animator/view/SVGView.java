@@ -10,6 +10,8 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
+import javax.swing.*;
+
 import cs5004.animator.model.AbstractTransform;
 import cs5004.animator.model.AnimatorModel;
 import cs5004.animator.model.IShape;
@@ -23,7 +25,7 @@ import cs5004.animator.model.ITransform;
 
 public class SVGView implements IView {
   private AnimatorModel animation;
-  private double speed;
+  private int speed;
 
   /**
    * Constructs the SVG view initializing an animation model, the name of the file where we are
@@ -34,7 +36,7 @@ public class SVGView implements IView {
    * @param speed     the tempo of the animation.
    */
 
-  public SVGView(AnimatorModel animation, String filename, double speed) {
+  public SVGView(AnimatorModel animation, String filename, int speed) {
     this.animation = animation;
     this.speed = speed;
   }
@@ -44,8 +46,8 @@ public class SVGView implements IView {
    *
    * @return the tempo of the SVG view.
    */
-
-  public double getSpeed() {
+  @Override
+  public int getTempo() {
     return this.speed;
   }
 
@@ -139,5 +141,11 @@ public class SVGView implements IView {
   public String getViewType() {
     return "svg";
   }
+
+  @Override
+  public Timer getTimer() {
+    throw new UnsupportedOperationException("This method is not implemented in the SVG view");
+  }
+
 
 }

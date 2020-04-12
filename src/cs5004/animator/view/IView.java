@@ -2,6 +2,8 @@ package cs5004.animator.view;
 
 import java.awt.event.ActionListener;
 
+import javax.swing.*;
+
 /**
  * This is an interface to be implemented by each of our views. The primary goal of this interface
  * is to encapsulate all types of views, despite the fact that certain views may not utilize
@@ -46,5 +48,19 @@ public interface IView {
 
   String getViewState();
 
+  /**
+   * Method to return the Timer.
+   *
+   * @return the Timer.
+   */
 
+  Timer getTimer();
+
+  /**
+   * A method to return the speed of an animation.
+   *
+   * @return the speed of an animation
+   */
+
+  int getTempo();
 }
