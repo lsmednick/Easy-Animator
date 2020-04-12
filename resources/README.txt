@@ -4,59 +4,79 @@
 ** Construction of Hierarchy **
 
     ** model **
-    cs5004.animator.model.AnimatorModel (Interface)
+    AnimatorModel (Interface)
                 ↑
-    cs5004.animator.model.AnimatorModelImpl (class for implementing Interface)
+    AnimatorModelImpl (class for implementing Interface)
 
 
-    cs5004.animator.model.IShape (Interface)
+    IShape (Interface)
                 ↑
-    cs5004.animator.model.AbstractShape (abstract class that implements IShape)
+    AbstractShape (abstract class that implements IShape)
                 ↑
-    cs5004.animator.model.Oval (concrete class),
-    cs5004.animator.model.Rectangle (concrete class),
+    Oval (concrete class),
+    Rectangle (concrete class),
 
 
-    cs5004.animator.model.ITransform (Interface)
+    ITransform (Interface)
                 ↑
-    cs5004.animator.model.AbstractTransform (abstract class that implements ITransform)
+    AbstractTransform (abstract class that implements ITransform)
                 ↑
-    cs5004.animator.model.ChangeColor (concrete class),
-    cs5004.animator.model.ChangeScale (concrete class),
-    cs5004.animator.model.ChangePos (concrete class)
+    ChangeColor (concrete class),
+    ChangeScale (concrete class),
+    ChangePos (concrete class)
+
 
     ** util **
-    cs5004.animator.util.AnimationBuilder (Interface)
+    AnimationBuilder (Interface)
                  ↑
-    cs5004.animator.util.AnimationBuilderImpl (abstract class that implements  AnimationBuilder)
+    AnimationBuilderImpl (abstract class that implements  AnimationBuilder)
 
 
-    cs5004.animator.util.AnimationReader (concrete class)
+    AnimationReader (concrete class)
+
 
     ** view **
-    cs5004.animator.view.IView (Interface)
+    IView (Interface)
                 ↑
-    cs5004.animator.view.AbstractView (abstract class that implements cs5004.animator.model.IView)
+    AbstractView (abstract class that implements IView)
                 ↑
-    cs5004.animator.view.TextualView (concrete class),
-    cs5004.animator.view.SVGView (concrete class),
-    cs5004.animator.view.VisualView (concrete class)
+    TextualView (concrete class),
+    SVGView (concrete class),
+    VisualView (concrete class)
+    Playback (concrete class)
 
-    cs5004.animator.view.AnimationPanel (concrete class)
+    AnimationPanel (concrete class)
+
+
+    ** controller **
+    IController (interface)
+                ↑
+    Controller (class implements IController)
+
 
     ** main **
-    cs5004.animator.EasyAnimator (Main())
+    EasyAnimator (Main())
 
 
 ** Description of Interfaces, Abstract Classes, and Concrete Classes **
 
-*   Synopsis of Updates from Assignment 8
+*   Synopsis of Updates from Assignment 9 -- Controller
+- Create Controller component of MVC design pattern -- Controller implements
+the interface IController and dictates when an animation can start playing.
+
+-- PlaybackView -- is a concrete class that implements the IView and ActionListener and
+extends JFrame. This view contains a GUI which allows the client to conduct actions on the
+animation. These actions include -- play, pause, resume, restart, enable loop, disable loop,
+increase speed, and decrease speed of the animation.
+
+
+*   Synopsis of Updates from Assignment 8 -- View
 - Incorporate starter code AnimationBuilder and AnimationReader and create a AnimationBuilderImpl --
 AnimationBuilderImpl is an concrete class implements the Interface AnimationBuilder. It instantiates
 a AnimatorModel object with setBounds for a canvas, declaring shapes for an animation, and
 adding motions to the animation.
 
-- Create 'View' of the MCV model -- There are 3 types of view for this animator: textualView,
+- Create 'View' of MVC model -- There are 3 types of view for this animator: textualView,
 SVGView and, VisualView. These concrete classes extend the AbstractView Class which implements the
 IView interface.
 
@@ -66,6 +86,7 @@ access a map of the shape with the animation and a map of the transformation wit
 animation, and method to get the appear and disappear time of an object.
 
 
+*   Synopsis of hierarchy from Assignment 7 -- Model
 
 *   Interfaces :
 - cs5004.animator.model.AnimatorModel -- An interface for the model, it contains methods

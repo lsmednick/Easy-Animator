@@ -14,7 +14,7 @@ import cs5004.animator.util.AnimationBuilder;
 import cs5004.animator.util.AnimationReader;
 
 import cs5004.animator.view.IView;
-import cs5004.animator.view.InteractiveView;
+import cs5004.animator.view.PlaybackView;
 import cs5004.animator.view.SVGView;
 import cs5004.animator.view.TextualView;
 import cs5004.animator.view.VisualView;
@@ -133,7 +133,7 @@ public final class EasyAnimator {
       } else if (viewType.equalsIgnoreCase("playback")) {
         System.out.print("Hit Interactive");
         assert model != null;
-        view = new InteractiveView(speed, model, filename);
+        view = new PlaybackView(speed, model, filename);
         Controller c = new Controller(model, view, speed);
         c.start();
       } else {

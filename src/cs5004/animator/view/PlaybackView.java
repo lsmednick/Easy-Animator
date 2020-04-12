@@ -8,7 +8,7 @@ import javax.swing.*;
 
 import cs5004.animator.model.AnimatorModel;
 
-public class InteractiveView extends JFrame implements IView, ActionListener {
+public class PlaybackView extends JFrame implements IView, ActionListener {
   private AnimationPanel panel;
   private int speed;
   private int tick = 1;
@@ -25,7 +25,7 @@ public class InteractiveView extends JFrame implements IView, ActionListener {
   private JCheckBoxMenuItem loopButton;
 
 
-  public InteractiveView(int speed, AnimatorModel model, String filename) {
+  public PlaybackView(int speed, AnimatorModel model, String filename) {
 
     // TODO -- Refactor we taken in a visualView object and can add a panel with buttons
     // TODO -- need to refactor Views to be started by Controller
@@ -164,4 +164,15 @@ public class InteractiveView extends JFrame implements IView, ActionListener {
         tick = 1;
     }
   }
+
+ @Override
+  public Timer getTimer() {
+    return this.timer;
+  }
+
+  @Override
+  public int getTempo(){
+    return this.speed;
+  }
+
 }
