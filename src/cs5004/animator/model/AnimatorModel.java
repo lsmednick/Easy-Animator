@@ -179,8 +179,10 @@ public interface AnimatorModel {
 
   int getDisappearTime();
 
+  /**
+   * This method restarts the animation.
+   */
+
   void restart();
-
-
 }
 

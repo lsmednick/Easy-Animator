@@ -11,6 +11,4 @@ public interface IController {
    */
 
   void start();
-
-
 }

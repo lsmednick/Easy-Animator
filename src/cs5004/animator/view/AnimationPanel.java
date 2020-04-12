@@ -75,5 +75,4 @@ public class AnimationPanel extends JPanel {
     shapeMap = model.getShapesAtTick(tick);
     this.repaint();
   }
-
 }

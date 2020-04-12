@@ -480,5 +480,4 @@ public class AnimatorModelImpl implements AnimatorModel {
   public int getDisappearTime() {
     return this.maxTick;
   }
-
 }

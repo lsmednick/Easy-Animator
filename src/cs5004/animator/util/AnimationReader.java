@@ -32,6 +32,7 @@ public class AnimationReader {
    * @param <Doc>    The main model interface type describing animations
    * @return
    */
+
   public static <Doc> Doc parseFile(Readable readable, AnimationBuilder<Doc> builder) {
     Objects.requireNonNull(readable, "Must have non-null readable source");
     Objects.requireNonNull(builder, "Must provide a non-null AnimationBuilder");
@@ -57,6 +58,13 @@ public class AnimationReader {
     return builder.build();
   }
 
+  /**
+   * This private method sets the dimensions of the animation canvas.
+   *
+   * @param s the scanner.
+   * @param builder the animation builder.
+   */
+
   private static <Doc> void readCanvas(Scanner s, AnimationBuilder<Doc> builder) {
     int[] vals = new int[4];
     String[] fieldNames = {"left", "top", "width", "height"};
@@ -66,7 +74,19 @@ public class AnimationReader {
     builder.setBounds(vals[0], vals[1], vals[2], vals[3]);
   }
 
-  private static <Doc> void readShape(Scanner s, AnimationBuilder<Doc> builder) {
+
+  /**
+   * This private method reads the characteristic of a shape from the file and declares those
+   * shapes in the animation.
+   *
+   * @param s the scanner.
+   * @param builder the animation builder.
+   * @throws IllegalStateException if the shape was expecting a name or a type but
+   *                              got an invalid input.
+   */
+
+  private static <Doc> void readShape(Scanner s, AnimationBuilder<Doc> builder)
+          throws IllegalStateException {
     String name;
     String type;
     if (s.hasNext()) {
@@ -82,7 +102,17 @@ public class AnimationReader {
     builder.declareShape(name, type);
   }
 
-  private static <Doc> void readMotion(Scanner s, AnimationBuilder<Doc> builder) {
+  /**
+   * This private method reads the motions from the file and sets all the motions in the animation.
+   *
+   * @param s the scanner.
+   * @param builder the animation builder.
+   * @throws IllegalStateException if the motion was expecting a shape but got an invalid input.
+   */
+
+
+  private static <Doc> void readMotion(Scanner s, AnimationBuilder<Doc> builder)
+          throws IllegalStateException {
     String[] fieldNames = new String[]{
       "initial time",
       "initial x-coordinate", "initial y-coordinate",
@@ -107,8 +137,20 @@ public class AnimationReader {
             vals[0], vals[1], vals[2 ], vals[3 ], vals[4 ], vals[5 ], vals[6 ], vals[7 ],
             vals[8], vals[9], vals[10], vals[11], vals[12], vals[13], vals[14], vals[15]);
   }
-  
-  private static int getInt(Scanner s, String label, String fieldName) {
+
+  /**
+   * This private method scans the integers from the file.
+   *
+   * @param s the scanner.
+   * @param label the label in the file.
+   * @param fieldName the field name in the file.
+   * @return every integer from the file.
+   * @throws IllegalStateException if the integer expected for a specific label was in a wrong
+   *                          field name or if an expected integer did not exist in the file.
+   */
+
+  private static int getInt(Scanner s, String label, String fieldName)
+          throws IllegalStateException {
     if (s.hasNextInt()) {
       return s.nextInt();
     } else if (s.hasNext()) {
@@ -120,5 +162,4 @@ public class AnimationReader {
                             label, fieldName));
     }
   }
-
 }

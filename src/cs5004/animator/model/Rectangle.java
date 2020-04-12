@@ -114,5 +114,4 @@ public class Rectangle extends AbstractShape {
     return new Rectangle(this.getX(), this.getY(), this.getR(), this.getG(), this.getB(),
             this.getWidth(), this.getHeight(), this.getName());
   }
-
 }

@@ -115,5 +115,4 @@ public class Oval extends AbstractShape {
     return new Oval(this.getX(), this.getY(), this.getR(), this.getG(), this.getB(),
             this.getWidth(), this.getHeight(), this.getName());
   }
-
 }

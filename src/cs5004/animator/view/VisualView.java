@@ -68,7 +68,7 @@ public class VisualView extends JFrame implements IView {
         tick++;
       }
     };
-    //Timer timer = new Timer((1000 / speed), a);
+
     timer = new Timer((1000 / speed), a);
 
     timer.start();
@@ -102,7 +102,6 @@ public class VisualView extends JFrame implements IView {
   public int getTempo(){
     return this.speed;
   }
-
 }
 
 

@@ -130,5 +130,4 @@ public class AnimationBuilderImpl implements AnimationBuilder<AnimatorModel> {
       throw new IllegalArgumentException("Shape does not exist.\n");
     }
   }
-
 }
