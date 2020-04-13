@@ -5,7 +5,7 @@ import java.awt.event.ActionEvent;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
-import javax.swing.*;
+import javax.swing.JButton;
 
 import cs5004.animator.EasyAnimator;
 import cs5004.animator.controller.Controller;
@@ -24,6 +24,7 @@ import static org.junit.Assert.assertTrue;
  * the Model and View to create a animation (VisualView and PlayBack view) or produce a text based
  * representation of our animation (TextualView and SVGView).
  */
+
 public class ControllerTest {
   AnimatorModel model;
   String filename;
@@ -46,10 +47,10 @@ public class ControllerTest {
     model.getAppearDisappearTime(filename);
 
     // Create View
-    PlaybackView view = new PlaybackView(1, model, filename);
+    PlaybackView view = new PlaybackView(1, model);
 
     // Create Controller and start animation
-    Controller c = new Controller(model, view, 1);
+    Controller c = new Controller(model, view);
     c.start();
 
     // Test the animation is visible
@@ -73,7 +74,7 @@ public class ControllerTest {
     VisualView view = new VisualView(1, model);
 
     // Create Controller and start animation
-    Controller c = new Controller(model, view, 1);
+    Controller c = new Controller(model, view);
     c.start();
 
     // Test if Controller was able to call on makeVisible and animate methods in VisualView

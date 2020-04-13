@@ -4,7 +4,9 @@ import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.event.ActionListener;
 
-import javax.swing.*;
+import javax.swing.JFrame;
+import javax.swing.Timer;
+import javax.swing.JScrollPane;
 
 import cs5004.animator.model.AnimatorModel;
 
@@ -52,13 +54,23 @@ public class VisualView extends JFrame implements IView {
   }
 
   /**
-   * Method to make the frame visible.
+   * Method to make the view visible. Throws an UnsupportedOperationException if used with an
+   * unsupported view.
+   *
+   * @throws UnsupportedOperationException when used with an unsupported view.
    */
 
   @Override
   public void makeVisible() {
     this.setVisible(true);
   }
+
+  /**
+   * Method to play the animation with the specified tempo. Throws an UnsupportedOperationException
+   * if used with an unsupported view.
+   *
+   * @throws UnsupportedOperationException when used with an unsupported view.
+   */
 
   @Override
   public void animate() {
@@ -68,40 +80,89 @@ public class VisualView extends JFrame implements IView {
         tick++;
       }
     };
-
     timer = new Timer((1000 / speed), a);
-
     timer.start();
   }
+
+  /**
+   * Outputs the view in a txt/svg file. Throws an UnsupportedOperationException if used with an
+   * unsupported view.
+   *
+   * @param outputFile the output file.
+   * @param string the output originated in the view and copied to the outputFile.
+   * @throws UnsupportedOperationException when used with an unsupported view.
+   */
 
   @Override
   public void output(String outputFile, String string) {
     throw new UnsupportedOperationException("This method is not implemented in the SVG view");
   }
 
+  /**
+   * Method to return the AnimationPanel object in either the visual or interactive views. Throws
+   * an UnsupportedOperationException if used with an unsupported view.
+   *
+   * @return AnimationPanel being used with view
+   * @throws UnsupportedOperationException when used with an unsupported view.
+   */
+
+  @Override
   public AnimationPanel getPanel() {
     return this.panel;
   }
+
+  /**
+   * Method to return a view's type. Throws an UnsupportedOperationException if used with an
+   * unsupported view.
+   *
+   * @return type of a given view
+   * @throws UnsupportedOperationException when used with an unsupported view.
+   */
 
   @Override
   public String getViewType() {
     return "visual";
   }
 
+  /**
+   * Method to return the state of the view. Throws an UnsupportedOperationException if used with an
+   * unsupported view.
+   *
+   * @return a string with the view state.
+   * @throws UnsupportedOperationException when used with an unsupported view.
+   */
+
   @Override
   public String getViewState() {
     throw new UnsupportedOperationException("This method is not implemented in the SVG view");
   }
+
+  /**
+   * Method to return the Timer. Throws an UnsupportedOperationException if used with an
+   * unsupported view.
+   *
+   * @return the Timer.
+   * @throws UnsupportedOperationException when used with an unsupported view.
+   */
 
   @Override
   public Timer getTimer() {
     return this.timer;
   }
 
+  /**
+   * A method to return the speed of an animation. Throws an UnsupportedOperationException if used
+   * with an unsupported view.
+   *
+   * @return the speed of an animation
+   * @throws UnsupportedOperationException when used with an unsupported view.
+   */
+
   @Override
-  public int getTempo(){
+  public int getTempo() {
     return this.speed;
   }
+
 }
 
 

@@ -103,6 +103,13 @@ public class ChangePos extends AbstractTransform {
     return this.toY;
   }
 
+  /**
+   * Method to return a string with the information about the shape's motion in SVG format.
+   *
+   * @param speed the ticks per second speed.
+   * @return a string of SVG format about the shape's motion.
+   */
+
   @Override
   public String motionSVG(double speed) {
     double start = (this.getStartTime() / speed) * 1000;

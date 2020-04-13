@@ -5,7 +5,8 @@ import java.awt.event.ActionEvent;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 
-import javax.swing.*;
+import javax.swing.JCheckBoxMenuItem;
+import javax.swing.JButton;
 
 import cs5004.animator.controller.Controller;
 import cs5004.animator.model.AnimatorModel;
@@ -29,8 +30,6 @@ public class PlaybackViewTest {
   AnimatorModel model;
   String filename;
 
-  //TODO -- TEST LOOPs
-
   @Before
   public void init() throws FileNotFoundException {
     // Read-in a file for testing
@@ -49,15 +48,14 @@ public class PlaybackViewTest {
     model.getAppearDisappearTime(filename);
 
     // Create View
-    PlaybackView view = new PlaybackView(1, model, filename);
+    PlaybackView view = new PlaybackView(1, model);
 
     // Create Controller and start animation
-    Controller c = new Controller(model, view, 1);
+    Controller c = new Controller(model, view);
     c.start();
 
     // Test the animation is visible
     assertTrue(view.isVisible());
-
 
     // Test if the Animation is Running when we signal 'play' to ActionListener
     JButton playButton = new JButton("play");
@@ -75,7 +73,7 @@ public class PlaybackViewTest {
     JButton restartButton = new JButton("restart");
     ActionEvent e3 = new ActionEvent(restartButton, 1, "restart");
     view.actionPerformed(e3);
-    assertFalse ( view.getTimer().isRunning());
+    assertTrue(view.getTimer().isRunning());
 
     // Test if the Animation tempo is Increased when we signal 'increase' to ActionListener
     // Increase is set to default '20', increase ticks per second by 20
@@ -91,7 +89,13 @@ public class PlaybackViewTest {
     view.actionPerformed(e5);
     assertEquals(1, view.getTempo());
 
+    // Test to ensure that the default position of the loop check box is false
+    JCheckBoxMenuItem loop = new JCheckBoxMenuItem("loop");
+    assertFalse(view.getLoopButton().getState());
 
+    // Test that the loop check box is true when we set it to true
+    view.getLoopButton().setState(true);
+    assertTrue(view.getLoopButton().getState());
   }
 
 }

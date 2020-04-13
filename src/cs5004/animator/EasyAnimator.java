@@ -5,7 +5,6 @@ import java.io.FileReader;
 import java.io.StringReader;
 import java.util.Scanner;
 
-
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
@@ -119,22 +118,21 @@ public final class EasyAnimator {
     try {
       if (viewType.equalsIgnoreCase("svg")) {
         view = new SVGView(model, filename, speed);
-        Controller c = new Controller(model, view, speed, output);
+        Controller c = new Controller(model, view, output);
         c.start();
       } else if (viewType.equalsIgnoreCase("text")) {
         view = new TextualView(model, filename, speed);
-        Controller c = new Controller(model, view, speed, output);
+        Controller c = new Controller(model, view, output);
         c.start();
       } else if (viewType.equalsIgnoreCase("visual")) {
         assert model != null;
         view = new VisualView(speed, model);
-        Controller c = new Controller(model, view, speed);
+        Controller c = new Controller(model, view);
         c.start();
       } else if (viewType.equalsIgnoreCase("playback")) {
-        System.out.print("Hit Interactive");
         assert model != null;
-        view = new PlaybackView(speed, model, filename);
-        Controller c = new Controller(model, view, speed);
+        view = new PlaybackView(speed, model);
+        Controller c = new Controller(model, view);
         c.start();
       } else {
         throw new IllegalArgumentException("Invalid view instantiation");

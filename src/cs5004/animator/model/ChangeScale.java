@@ -102,6 +102,13 @@ public class ChangeScale extends AbstractTransform {
     return this.toHeight;
   }
 
+  /**
+   * Method to return a string with the information about the shape's motion in SVG format.
+   *
+   * @param speed the ticks per second speed.
+   * @return a string of SVG format about the shape's motion.
+   */
+
   @Override
   public String motionSVG(double speed) {
     String string = "";

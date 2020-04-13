@@ -333,6 +333,11 @@ public class AnimatorModelImpl implements AnimatorModel {
     return updatedMap;
   }
 
+  /**
+   * This method restarts the animation by reverting each shape in the shape list copy to its
+   * original attributes.
+   */
+
   @Override
   public void restart() {
     c.putAll(this.getShapeList());
@@ -364,9 +369,7 @@ public class AnimatorModelImpl implements AnimatorModel {
   public List<AbstractTransform> getTransformList() {
 
     List<AbstractTransform> copyTransformList = new ArrayList<>();
-    for (AbstractTransform t : transformList) {
-      copyTransformList.add(t);
-    }
+    copyTransformList.addAll(transformList);
     return copyTransformList;
   }
 

@@ -51,10 +51,22 @@ public class Oval extends AbstractShape {
             this.getR(), this.getG(), this.getB());
   }
 
+  /**
+   * Method to return the type of shape.
+   *
+   * @returns an enum describing the type of shape.
+   */
+
   @Override
   public ShapeType getType() {
     return ShapeType.OVAL;
   }
+
+  /**
+   * Method to return a string information from a shape in SVG format.
+   *
+   * @return shape's information in SVG format.
+   */
 
   @Override
   public String shapeSVG() {
@@ -70,45 +82,99 @@ public class Oval extends AbstractShape {
     return string;
   }
 
+  /**
+   * Method to return a shape's width for the specific SVG format.
+   *
+   * @return the width of a shape for the SVG format.
+   */
+
   @Override
   public double newWidth() {
     return this.getWidth() / 2.0;
   }
+
+  /**
+   * Method to return a shape's height for the specific SVG format.
+   *
+   * @return the height of a shape for the SVG format.
+   */
 
   @Override
   public double newHeight() {
     return this.getHeight() / 2.0;
   }
 
+  /**
+   * Method to return a shape's difference for width and length for the specific SVG format.
+   *
+   * @return the width and height numerical difference of a shape for the SVG format.
+   */
+
   @Override
   public double widthHeightDiff() {
     return 2.0;
   }
+
+  /**
+   * Method to return a shape's SVG end tag.
+   *
+   * @return the end tag of a shape in SVG format.
+   */
 
   @Override
   public String shapeEndSVG() {
     return "</ellipse>\n";
   }
 
+  /**
+   * Method to return a shape's x coordinate tag in SVG format.
+   *
+   * @return the x-coordinate of a shape in SVG format.
+   */
+
   @Override
   public String xTagSVG() {
     return "cx";
   }
+
+  /**
+   * Method to return a shape's y coordinate tag in SVG format.
+   *
+   * @return the y-coordinate tag of a shape in SVG format.
+   */
 
   @Override
   public String yTagSVG() {
     return "cy";
   }
 
+  /**
+   * Method to return a shape's width tag in SVG format.
+   *
+   * @return the width tag of a shape in SVG format.
+   */
+
   @Override
   public String widthTagSVG() {
     return "rx";
   }
 
+  /**
+   * Method to return a shape's height tag in SVG format.
+   *
+   * @return the height tag of a shape in SVG format.
+   */
+
   @Override
   public String heightTagSVG() {
     return "ry";
   }
+
+  /**
+   * Method to return a copy of a shape.
+   *
+   * @return a copy of a shape.
+   */
 
   @Override
   public Oval copy() {

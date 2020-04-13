@@ -15,37 +15,36 @@ public class Controller implements IController {
   private String output;
 
   /**
-   * This constructor initializes the controller with a model, a view and a speed.
+   * This constructor initializes the controller with a model, and a view.
    *
    * @param model the animation model.
    * @param view the type of view.
-   * @param speed the tempo of the animation.
    */
 
-  public Controller(AnimatorModel model, IView view, int speed) {
+  public Controller(AnimatorModel model, IView view) {
     this.model = model;
     this.view = view;
   }
 
   /**
-   * This constructor initializes the controller with a model, a view, a speed and an output
+   * This constructor initializes the controller with a model, a view, and an output.
    *
    * @param model th animation model.
    * @param view the type of view.
-   * @param speed the tempo of the animation.
-   * @param output the ouput of the animation.
+   * @param output the output of the animation.
    */
 
-  public Controller(AnimatorModel model, IView view, int speed, String output) {
+  public Controller(AnimatorModel model, IView view, String output) {
     this.model = model;
     this.view = view;
     this.output = output;
   }
 
   /**
-   * Method to start the animation. This is done in a loop that ends at the last value of the last
-   * transformation. The panel's "refresh" method is called for every tick, and then sleeps at
-   * whatever rate is inputted at the command line.
+   * Method to start the animation. A different process is executed depending on the view's type.
+   * Both visual views call upon their makeVisible and animate methods which set the views to
+   * visible and proceed with the animation process. Both the textual and SVG views call upon
+   * their output methods in order to properly display a given animation in text / SVG format.
    */
 
   @Override

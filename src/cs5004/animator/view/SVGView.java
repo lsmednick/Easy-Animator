@@ -9,7 +9,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
-import javax.swing.*;
+import javax.swing.Timer;
 
 import cs5004.animator.model.AbstractTransform;
 import cs5004.animator.model.AnimatorModel;
@@ -41,10 +41,13 @@ public class SVGView implements IView {
   }
 
   /**
-   * Gets the speed/tempo of the SVG animation.
+   * A method to return the speed of an animation. Throws an UnsupportedOperationException if used
+   * with an unsupported view.
    *
-   * @return the tempo of the SVG view.
+   * @return the speed of an animation
+   * @throws UnsupportedOperationException when used with an unsupported view.
    */
+
   @Override
   public int getTempo() {
     return this.speed;
@@ -99,8 +102,12 @@ public class SVGView implements IView {
   }
 
   /**
-   * This method is used by both the text and the SVG view to output its result in a file. The
-   * method creates a txt or svg file and also catches an IOException if no output file fails.
+   * Outputs the view in a txt/svg file. Throws an UnsupportedOperationException if used with an
+   * unsupported view.
+   *
+   * @param outputFile the output file.
+   * @param string the output originated in the view and copied to the outputFile.
+   * @throws UnsupportedOperationException when used with an unsupported view.
    */
 
   public void output(String outputFile, String string) {
@@ -121,28 +128,67 @@ public class SVGView implements IView {
     }
   }
 
+  /**
+   * Method to make the view visible. Throws an UnsupportedOperationException if used with an
+   * unsupported view.
+   *
+   * @throws UnsupportedOperationException when used with an unsupported view.
+   */
+
   @Override
   public void makeVisible() {
     throw new UnsupportedOperationException("This method is not implemented in the SVG view");
   }
+
+  /**
+   * Method to play the animation with the specified tempo. Throws an UnsupportedOperationException
+   * if used with an unsupported view.
+   *
+   * @throws UnsupportedOperationException when used with an unsupported view.
+   */
 
   @Override
   public void animate() {
     throw new UnsupportedOperationException("This method is not implemented in the SVG view");
   }
 
+  /**
+   * Method to return the AnimationPanel object in either the visual or interactive views. Throws
+   * an UnsupportedOperationException if used with an unsupported view.
+   *
+   * @return AnimationPanel being used with view
+   * @throws UnsupportedOperationException when used with an unsupported view.
+   */
+
   @Override
   public AnimationPanel getPanel() {
     throw new UnsupportedOperationException("This method is not implemented in the SVG view");
   }
+
+  /**
+   * Method to return a view's type. Throws an UnsupportedOperationException if used with an
+   * unsupported view.
+   *
+   * @return type of a given view
+   * @throws UnsupportedOperationException when used with an unsupported view.
+   */
 
   @Override
   public String getViewType() {
     return "svg";
   }
 
+  /**
+   * Method to return the Timer. Throws an UnsupportedOperationException if used with an
+   * unsupported view.
+   *
+   * @return the Timer.
+   * @throws UnsupportedOperationException when used with an unsupported view.
+   */
+
   @Override
   public Timer getTimer() {
     throw new UnsupportedOperationException("This method is not implemented in the SVG view");
   }
+
 }

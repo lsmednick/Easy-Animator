@@ -180,7 +180,8 @@ public interface AnimatorModel {
   int getDisappearTime();
 
   /**
-   * This method restarts the animation.
+   * This method restarts the animation by reverting each shape in the shape list copy to its
+   * original attributes.
    */
 
   void restart();

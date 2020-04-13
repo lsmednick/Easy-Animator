@@ -1,18 +1,26 @@
 package cs5004.animator.view;
 
-import java.awt.*;
+import java.awt.BorderLayout;
+import java.awt.Dimension;
+import java.awt.GridLayout;
+import java.awt.GridBagConstraints;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.*;
+import javax.swing.JFrame;
+import javax.swing.Timer;
+import javax.swing.JCheckBoxMenuItem;
+import javax.swing.JButton;
+import javax.swing.JPanel;
+import javax.swing.JSplitPane;
 
 import cs5004.animator.model.AnimatorModel;
 
 /**
  * This interactive view extends the JFrame class and implements the methods in the view interface
- * as well as the action listener. This view has attributes such as an animation panel,
- * the speed, the timer, a loop, an action listener, the max number of ticks, the number of ticks
- * as well as different JButtons and a checkbox menu item.
+ * as well as the action listener. This view has attributes such as an animation panel, the speed,
+ * the timer, a loop, an action listener, the max number of ticks, the number of ticks as well as
+ * different JButtons and a checkbox menu item.
  */
 
 public class PlaybackView extends JFrame implements IView, ActionListener {
@@ -21,28 +29,24 @@ public class PlaybackView extends JFrame implements IView, ActionListener {
   private int tick = 1;
   private int maxTick;
   private Timer timer;
-  private ActionListener a;
+  private ActionListener actionListener;
   private AnimatorModel model;
-
-  private JButton startButton;
-  private JButton pauseButton;
-  private JButton restartButton;
-  private JButton increaseSpeed;
-  private JButton decreaseSpeed;
   private JCheckBoxMenuItem loopButton;
 
+  /**
+   * Constructs a PlaybackView object in order to interact with a given animation. This view sets up
+   * an action listener to be used in later methods, as well as sets the parameters for the panel
+   * and frame. It creates multiple JButtons in order to control the displayed animation as well.
+   *
+   * @param speed speed of the animation
+   * @param model the AnimationModel being used
+   */
 
-  public PlaybackView(int speed, AnimatorModel model, String filename) {
-
-    // TODO -- Refactor we taken in a visualView object and can add a panel with buttons
-    // TODO -- need to refactor Views to be started by Controller
-    // TODO -- set up ActionListeners for buttons
-    // TODO -- optimize the view of JFrame
-
-
-    // Copied code from VisualView  to be displayed on  Top Panel
+  public PlaybackView(int speed, AnimatorModel model) {
     super();
-    a = e -> {
+
+    // Set up action listener to be used with the animate method
+    this.actionListener = e -> {
       if (tick < maxTick + 1) {
         panel.refresh(tick);
         tick++;
@@ -52,6 +56,8 @@ public class PlaybackView extends JFrame implements IView, ActionListener {
         tick = 1;
       }
     };
+
+    // Set up other attributes and initialize the panel.
     this.model = model;
     this.speed = speed;
     this.maxTick = model.getDisappearTime();
@@ -70,11 +76,11 @@ public class PlaybackView extends JFrame implements IView, ActionListener {
     JPanel bottomPanel = new JPanel();
 
     // Create buttons for Bottom Panel
-    startButton = new JButton("Play");
+    JButton startButton = new JButton("Play");
     startButton.setActionCommand("start");
     startButton.addActionListener(this);
 
-    pauseButton = new JButton("Pause");
+    JButton pauseButton = new JButton("Pause");
     pauseButton.setActionCommand("pause");
     pauseButton.addActionListener(this);
 
@@ -82,24 +88,21 @@ public class PlaybackView extends JFrame implements IView, ActionListener {
     loopButton.setState(false);
     loopButton.addActionListener(this);
 
-    restartButton = new JButton("Restart");
+    JButton restartButton = new JButton("Restart");
     restartButton.setActionCommand("restart");
     restartButton.addActionListener(this);
 
-    increaseSpeed = new JButton("Increase Speed");
+    JButton increaseSpeed = new JButton("Increase Speed");
     increaseSpeed.setActionCommand("increase");
     increaseSpeed.addActionListener(this);
 
-    decreaseSpeed = new JButton("Decrease Speed");
+    JButton decreaseSpeed = new JButton("Decrease Speed");
     decreaseSpeed.setActionCommand("decrease");
     decreaseSpeed.addActionListener(this);
 
-    // Initialize parameters of JFrame
-    setPreferredSize(new Dimension(model.getCanvasWidth()+5, model.getCanvasHeight() + 115));
+    // Configure the split panes.
     getContentPane().setLayout(new GridLayout());
     getContentPane().add(splitPane);
-
-    // Configure the split panes.
     splitPane.setOrientation(JSplitPane.VERTICAL_SPLIT);
     splitPane.setDividerLocation(model.getCanvasHeight() + 10);
     splitPane.setTopComponent(topPanel);
@@ -117,36 +120,94 @@ public class PlaybackView extends JFrame implements IView, ActionListener {
     this.pack();
   }
 
+  /**
+   * Method to make the view visible. Throws an UnsupportedOperationException if used with an
+   * unsupported view.
+   *
+   * @throws UnsupportedOperationException when used with an unsupported view.
+   */
+
   @Override
   public void makeVisible() {
     this.setVisible(true);
   }
 
+
+  /**
+   * Method to play the animation with the specified tempo. Throws an UnsupportedOperationException
+   * if used with an unsupported view.
+   *
+   * @throws UnsupportedOperationException when used with an unsupported view.
+   */
+
   @Override
   public void animate() {
-    timer = new Timer((1000 / speed), a);
+    timer = new Timer((1000 / speed), actionListener);
     timer.start();
   }
 
+  /**
+   * Outputs the view in a txt/svg file. Throws an UnsupportedOperationException if used with an
+   * unsupported view.
+   *
+   * @param outputFile the output file.
+   * @param string     the output originated in the view and copied to the outputFile.
+   * @throws UnsupportedOperationException when used with an unsupported view.
+   */
+
   @Override
   public void output(String outputFile, String string) {
-
+    throw new UnsupportedOperationException("This method is not implemented in the playback view");
   }
+
+  /**
+   * Method to return the AnimationPanel object in either the visual or interactive views. Throws an
+   * UnsupportedOperationException if used with an unsupported view.
+   *
+   * @return AnimationPanel being used with view
+   * @throws UnsupportedOperationException when used with an unsupported view.
+   */
 
   @Override
   public AnimationPanel getPanel() {
     return this.panel;
   }
 
+  /**
+   * Method to return a view's type. Throws an UnsupportedOperationException if used with an
+   * unsupported view.
+   *
+   * @return type of a given view
+   * @throws UnsupportedOperationException when used with an unsupported view.
+   */
+
   @Override
   public String getViewType() {
     return "playback";
   }
 
+  /**
+   * Method to return the state of the view. Throws an UnsupportedOperationException if used with an
+   * unsupported view.
+   *
+   * @return a string with the view state.
+   * @throws UnsupportedOperationException when used with an unsupported view.
+   */
+
   @Override
   public String getViewState() {
-    return null;
+    throw new UnsupportedOperationException("This method is not implemented in the playback view");
   }
+
+  /**
+   * Method to set what action is performed based on the given action command. When the "start"
+   * button is pressed, the timer will start and the animation will play. The "pause" button stops
+   * the timer and pauses the animation. The "increase" and "decrease" buttons adds / subtracts 20
+   * to the given speed and sets the timer delay to this new amount. The "restart" button restarts
+   * the timer and plays the animation from the beginning.
+   *
+   * @param e the action listener which interacts with each command
+   */
 
   @Override
   public void actionPerformed(ActionEvent e) {
@@ -162,22 +223,55 @@ public class PlaybackView extends JFrame implements IView, ActionListener {
         timer.setDelay((1000 / speed));
         break;
       case "decrease":
-        speed -= 20;
-        timer.setDelay((1000 / speed));
+        if (speed - 20 > 0) {
+          speed -= 20;
+          timer.setDelay((1000 / speed));
+        }
         break;
       case "restart":
         model.restart();
         tick = 1;
+        timer.start();
+        break;
+      default:
+        // do nothing
     }
   }
 
- @Override
+  /**
+   * Method to return the Timer. Throws an UnsupportedOperationException if used with an unsupported
+   * view.
+   *
+   * @return the Timer.
+   * @throws UnsupportedOperationException when used with an unsupported view.
+   */
+
+  @Override
   public Timer getTimer() {
     return this.timer;
   }
 
+  /**
+   * A method to return the speed of an animation. Throws an UnsupportedOperationException if used
+   * with an unsupported view.
+   *
+   * @return the speed of an animation
+   * @throws UnsupportedOperationException when used with an unsupported view.
+   */
+
   @Override
-  public int getTempo(){
+  public int getTempo() {
     return this.speed;
   }
+
+  /**
+   * Method to return the loop button of the view to be used for testing purposes only.
+   *
+   * @return loop button of the view
+   */
+
+  public JCheckBoxMenuItem getLoopButton() {
+    return this.loopButton;
+  }
+
 }
